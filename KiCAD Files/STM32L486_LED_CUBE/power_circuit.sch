@@ -1,0 +1,531 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:switches
+LIBS:relays
+LIBS:motors
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:oscillator_package
+LIBS:stm32l486
+LIBS:STM32L486_LED_CUBE-cache
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 2 3
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Entry Bus Bus
+	8450 9250 8550 9350
+$Comp
+L TPS76333 U?
+U 1 1 5C7216BD
+P 2300 1450
+AR Path="/5C720E85/5C7216BD" Ref="U?"  Part="1" 
+AR Path="/5C7201CD/5C7216BD" Ref="U?"  Part="1" 
+F 0 "U?" H 2150 1675 50  0000 C CNN
+F 1 "TPS76333" H 2300 1675 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:SOT-23-5" H 2300 1775 50  0001 C CIN
+F 3 "" H 2300 1450 50  0001 C CNN
+	1    2300 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L GNDREF #PWR?
+U 1 1 5C721776
+P 2300 1800
+AR Path="/5C720E85/5C721776" Ref="#PWR?"  Part="1" 
+AR Path="/5C7201CD/5C721776" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2300 1550 50  0001 C CNN
+F 1 "GNDREF" H 2300 1650 50  0000 C CNN
+F 2 "" H 2300 1800 50  0001 C CNN
+F 3 "" H 2300 1800 50  0001 C CNN
+	1    2300 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L +3V3 #PWR?
+U 1 1 5C72179B
+P 2850 1300
+AR Path="/5C720E85/5C72179B" Ref="#PWR?"  Part="1" 
+AR Path="/5C7201CD/5C72179B" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 2850 1150 50  0001 C CNN
+F 1 "+3V3" H 2850 1440 50  0000 C CNN
+F 2 "" H 2850 1300 50  0001 C CNN
+F 3 "" H 2850 1300 50  0001 C CNN
+	1    2850 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 5C7217D9
+P 2650 1550
+AR Path="/5C720E85/5C7217D9" Ref="C?"  Part="1" 
+AR Path="/5C7201CD/5C7217D9" Ref="C?"  Part="1" 
+F 0 "C?" H 2675 1650 50  0000 L CNN
+F 1 "C" H 2675 1450 50  0000 L CNN
+F 2 "" H 2688 1400 50  0001 C CNN
+F 3 "" H 2650 1550 50  0001 C CNN
+	1    2650 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 5C721837
+P 2850 1550
+AR Path="/5C7201CD/5C721837" Ref="C?"  Part="1" 
+AR Path="/5C720E85/5C721837" Ref="C?"  Part="1" 
+F 0 "C?" H 2875 1650 50  0000 L CNN
+F 1 "C" H 2875 1450 50  0000 L CNN
+F 2 "" H 2888 1400 50  0001 C CNN
+F 3 "" H 2850 1550 50  0001 C CNN
+	1    2850 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 5C721895
+P 1600 1550
+AR Path="/5C7201CD/5C721895" Ref="C?"  Part="1" 
+AR Path="/5C720E85/5C721895" Ref="C?"  Part="1" 
+F 0 "C?" H 1625 1650 50  0000 L CNN
+F 1 "C" H 1625 1450 50  0000 L CNN
+F 2 "" H 1638 1400 50  0001 C CNN
+F 3 "" H 1600 1550 50  0001 C CNN
+	1    1600 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C?
+U 1 1 5C72189B
+P 1800 1550
+AR Path="/5C7201CD/5C72189B" Ref="C?"  Part="1" 
+AR Path="/5C720E85/5C72189B" Ref="C?"  Part="1" 
+F 0 "C?" H 1825 1650 50  0000 L CNN
+F 1 "C" H 1825 1450 50  0000 L CNN
+F 2 "" H 1838 1400 50  0001 C CNN
+F 3 "" H 1800 1550 50  0001 C CNN
+	1    1800 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L IRF9540N Q?
+U 1 1 5C721984
+P 4300 1700
+AR Path="/5C720E85/5C721984" Ref="Q?"  Part="1" 
+AR Path="/5C7201CD/5C721984" Ref="Q?"  Part="1" 
+F 0 "Q?" H 4550 1775 50  0000 L CNN
+F 1 "IRF9540N" H 4550 1700 50  0000 L CNN
+F 2 "TO_SOT_Packages_THT:TO-220_Vertical" H 4550 1625 50  0001 L CIN
+F 3 "" H 4300 1700 50  0001 L CNN
+	1    4300 1700
+	1    0    0    1   
+$EndComp
+$Comp
+L R R?
+U 1 1 5C721A3B
+P 4100 1450
+AR Path="/5C720E85/5C721A3B" Ref="R?"  Part="1" 
+AR Path="/5C7201CD/5C721A3B" Ref="R?"  Part="1" 
+F 0 "R?" V 4180 1450 50  0000 C CNN
+F 1 "10K" V 4100 1450 50  0000 C CNN
+F 2 "" V 4030 1450 50  0001 C CNN
+F 3 "" H 4100 1450 50  0001 C CNN
+	1    4100 1450
+	1    0    0    -1  
+$EndComp
+Text GLabel 3950 1700 0    60   Input ~ 0
+L1_EN
+Text GLabel 4400 2000 3    60   Input ~ 0
+L1_PWR
+$Comp
+L IRF9540N Q?
+U 1 1 5C721C26
+P 5700 1700
+AR Path="/5C7201CD/5C721C26" Ref="Q?"  Part="1" 
+AR Path="/5C720E85/5C721C26" Ref="Q?"  Part="1" 
+F 0 "Q?" H 5950 1775 50  0000 L CNN
+F 1 "IRF9540N" H 5950 1700 50  0000 L CNN
+F 2 "TO_SOT_Packages_THT:TO-220_Vertical" H 5950 1625 50  0001 L CIN
+F 3 "" H 5700 1700 50  0001 L CNN
+	1    5700 1700
+	1    0    0    1   
+$EndComp
+$Comp
+L R R?
+U 1 1 5C721C2C
+P 5500 1450
+AR Path="/5C7201CD/5C721C2C" Ref="R?"  Part="1" 
+AR Path="/5C720E85/5C721C2C" Ref="R?"  Part="1" 
+F 0 "R?" V 5580 1450 50  0000 C CNN
+F 1 "10K" V 5500 1450 50  0000 C CNN
+F 2 "" V 5430 1450 50  0001 C CNN
+F 3 "" H 5500 1450 50  0001 C CNN
+	1    5500 1450
+	1    0    0    -1  
+$EndComp
+Text GLabel 5350 1700 0    60   Input ~ 0
+L2_EN
+Text GLabel 5800 2000 3    60   Input ~ 0
+L2_PWR
+$Comp
+L IRF9540N Q?
+U 1 1 5C721DCF
+P 7100 1700
+AR Path="/5C7201CD/5C721DCF" Ref="Q?"  Part="1" 
+AR Path="/5C720E85/5C721DCF" Ref="Q?"  Part="1" 
+F 0 "Q?" H 7350 1775 50  0000 L CNN
+F 1 "IRF9540N" H 7350 1700 50  0000 L CNN
+F 2 "TO_SOT_Packages_THT:TO-220_Vertical" H 7350 1625 50  0001 L CIN
+F 3 "" H 7100 1700 50  0001 L CNN
+	1    7100 1700
+	1    0    0    1   
+$EndComp
+$Comp
+L R R?
+U 1 1 5C721DD5
+P 6900 1450
+AR Path="/5C7201CD/5C721DD5" Ref="R?"  Part="1" 
+AR Path="/5C720E85/5C721DD5" Ref="R?"  Part="1" 
+F 0 "R?" V 6980 1450 50  0000 C CNN
+F 1 "10K" V 6900 1450 50  0000 C CNN
+F 2 "" V 6830 1450 50  0001 C CNN
+F 3 "" H 6900 1450 50  0001 C CNN
+	1    6900 1450
+	1    0    0    -1  
+$EndComp
+Text GLabel 6750 1700 0    60   Input ~ 0
+L3_EN
+Text GLabel 7200 2000 3    60   Input ~ 0
+L3_PWR
+$Comp
+L IRF9540N Q?
+U 1 1 5C721DE2
+P 8500 1700
+AR Path="/5C7201CD/5C721DE2" Ref="Q?"  Part="1" 
+AR Path="/5C720E85/5C721DE2" Ref="Q?"  Part="1" 
+F 0 "Q?" H 8750 1775 50  0000 L CNN
+F 1 "IRF9540N" H 8750 1700 50  0000 L CNN
+F 2 "TO_SOT_Packages_THT:TO-220_Vertical" H 8750 1625 50  0001 L CIN
+F 3 "" H 8500 1700 50  0001 L CNN
+	1    8500 1700
+	1    0    0    1   
+$EndComp
+$Comp
+L R R?
+U 1 1 5C721DE8
+P 8300 1450
+AR Path="/5C7201CD/5C721DE8" Ref="R?"  Part="1" 
+AR Path="/5C720E85/5C721DE8" Ref="R?"  Part="1" 
+F 0 "R?" V 8380 1450 50  0000 C CNN
+F 1 "10K" V 8300 1450 50  0000 C CNN
+F 2 "" V 8230 1450 50  0001 C CNN
+F 3 "" H 8300 1450 50  0001 C CNN
+	1    8300 1450
+	1    0    0    -1  
+$EndComp
+Text GLabel 8150 1700 0    60   Input ~ 0
+L4_EN
+Text GLabel 8600 2000 3    60   Input ~ 0
+L4_PWR
+$Comp
+L IRF9540N Q?
+U 1 1 5C7222DB
+P 4350 3050
+AR Path="/5C7201CD/5C7222DB" Ref="Q?"  Part="1" 
+AR Path="/5C720E85/5C7222DB" Ref="Q?"  Part="1" 
+F 0 "Q?" H 4600 3125 50  0000 L CNN
+F 1 "IRF9540N" H 4600 3050 50  0000 L CNN
+F 2 "TO_SOT_Packages_THT:TO-220_Vertical" H 4600 2975 50  0001 L CIN
+F 3 "" H 4350 3050 50  0001 L CNN
+	1    4350 3050
+	1    0    0    1   
+$EndComp
+$Comp
+L R R?
+U 1 1 5C7222E1
+P 4150 2800
+AR Path="/5C7201CD/5C7222E1" Ref="R?"  Part="1" 
+AR Path="/5C720E85/5C7222E1" Ref="R?"  Part="1" 
+F 0 "R?" V 4230 2800 50  0000 C CNN
+F 1 "10K" V 4150 2800 50  0000 C CNN
+F 2 "" V 4080 2800 50  0001 C CNN
+F 3 "" H 4150 2800 50  0001 C CNN
+	1    4150 2800
+	1    0    0    -1  
+$EndComp
+Text GLabel 4000 3050 0    60   Input ~ 0
+L5_EN
+Text GLabel 4450 3350 3    60   Input ~ 0
+L5_PWR
+$Comp
+L IRF9540N Q?
+U 1 1 5C7222EE
+P 5750 3050
+AR Path="/5C7201CD/5C7222EE" Ref="Q?"  Part="1" 
+AR Path="/5C720E85/5C7222EE" Ref="Q?"  Part="1" 
+F 0 "Q?" H 6000 3125 50  0000 L CNN
+F 1 "IRF9540N" H 6000 3050 50  0000 L CNN
+F 2 "TO_SOT_Packages_THT:TO-220_Vertical" H 6000 2975 50  0001 L CIN
+F 3 "" H 5750 3050 50  0001 L CNN
+	1    5750 3050
+	1    0    0    1   
+$EndComp
+$Comp
+L R R?
+U 1 1 5C7222F4
+P 5550 2800
+AR Path="/5C7201CD/5C7222F4" Ref="R?"  Part="1" 
+AR Path="/5C720E85/5C7222F4" Ref="R?"  Part="1" 
+F 0 "R?" V 5630 2800 50  0000 C CNN
+F 1 "10K" V 5550 2800 50  0000 C CNN
+F 2 "" V 5480 2800 50  0001 C CNN
+F 3 "" H 5550 2800 50  0001 C CNN
+	1    5550 2800
+	1    0    0    -1  
+$EndComp
+Text GLabel 5400 3050 0    60   Input ~ 0
+L6_EN
+Text GLabel 5850 3350 3    60   Input ~ 0
+L6_PWR
+$Comp
+L IRF9540N Q?
+U 1 1 5C722301
+P 7150 3050
+AR Path="/5C7201CD/5C722301" Ref="Q?"  Part="1" 
+AR Path="/5C720E85/5C722301" Ref="Q?"  Part="1" 
+F 0 "Q?" H 7400 3125 50  0000 L CNN
+F 1 "IRF9540N" H 7400 3050 50  0000 L CNN
+F 2 "TO_SOT_Packages_THT:TO-220_Vertical" H 7400 2975 50  0001 L CIN
+F 3 "" H 7150 3050 50  0001 L CNN
+	1    7150 3050
+	1    0    0    1   
+$EndComp
+$Comp
+L R R?
+U 1 1 5C722307
+P 6950 2800
+AR Path="/5C7201CD/5C722307" Ref="R?"  Part="1" 
+AR Path="/5C720E85/5C722307" Ref="R?"  Part="1" 
+F 0 "R?" V 7030 2800 50  0000 C CNN
+F 1 "10K" V 6950 2800 50  0000 C CNN
+F 2 "" V 6880 2800 50  0001 C CNN
+F 3 "" H 6950 2800 50  0001 C CNN
+	1    6950 2800
+	1    0    0    -1  
+$EndComp
+Text GLabel 6800 3050 0    60   Input ~ 0
+L7_EN
+Text GLabel 7250 3350 3    60   Input ~ 0
+L7_PWR
+$Comp
+L IRF9540N Q?
+U 1 1 5C722314
+P 8550 3050
+AR Path="/5C7201CD/5C722314" Ref="Q?"  Part="1" 
+AR Path="/5C720E85/5C722314" Ref="Q?"  Part="1" 
+F 0 "Q?" H 8800 3125 50  0000 L CNN
+F 1 "IRF9540N" H 8800 3050 50  0000 L CNN
+F 2 "TO_SOT_Packages_THT:TO-220_Vertical" H 8800 2975 50  0001 L CIN
+F 3 "" H 8550 3050 50  0001 L CNN
+	1    8550 3050
+	1    0    0    1   
+$EndComp
+$Comp
+L R R?
+U 1 1 5C72231A
+P 8350 2800
+AR Path="/5C7201CD/5C72231A" Ref="R?"  Part="1" 
+AR Path="/5C720E85/5C72231A" Ref="R?"  Part="1" 
+F 0 "R?" V 8430 2800 50  0000 C CNN
+F 1 "10K" V 8350 2800 50  0000 C CNN
+F 2 "" V 8280 2800 50  0001 C CNN
+F 3 "" H 8350 2800 50  0001 C CNN
+	1    8350 2800
+	1    0    0    -1  
+$EndComp
+Text GLabel 8200 3050 0    60   Input ~ 0
+L8_EN
+Text GLabel 8650 3350 3    60   Input ~ 0
+L8_PWR
+Wire Wire Line
+	2300 1750 2300 1800
+Wire Wire Line
+	2000 1450 1950 1450
+Wire Wire Line
+	1950 1450 1950 1350
+Wire Wire Line
+	1600 1350 2000 1350
+Wire Wire Line
+	2600 1350 2850 1350
+Wire Wire Line
+	2850 1300 2850 1400
+Wire Wire Line
+	1800 1350 1800 1400
+Connection ~ 1950 1350
+Wire Wire Line
+	1600 1300 1600 1400
+Connection ~ 1800 1350
+Wire Wire Line
+	1600 1700 1600 1750
+Wire Wire Line
+	1600 1750 2850 1750
+Wire Wire Line
+	1800 1700 1800 1750
+Connection ~ 1800 1750
+Wire Wire Line
+	2850 1750 2850 1700
+Connection ~ 2300 1750
+Wire Wire Line
+	2650 1700 2650 1750
+Connection ~ 2650 1750
+Wire Wire Line
+	2650 1400 2650 1350
+Connection ~ 2650 1350
+Connection ~ 2800 1350
+Wire Wire Line
+	4400 1500 4400 1300
+Wire Wire Line
+	3400 1300 8600 1300
+Wire Wire Line
+	4100 1600 4100 1700
+Wire Wire Line
+	4100 1700 3950 1700
+Wire Wire Line
+	4400 2000 4400 1900
+Wire Wire Line
+	5800 1500 5800 1300
+Wire Wire Line
+	5500 1600 5500 1700
+Wire Wire Line
+	5500 1700 5350 1700
+Wire Wire Line
+	5800 2000 5800 1900
+Wire Wire Line
+	7200 1500 7200 1300
+Wire Wire Line
+	6900 1600 6900 1700
+Wire Wire Line
+	6900 1700 6750 1700
+Wire Wire Line
+	7200 2000 7200 1900
+Wire Wire Line
+	8600 1300 8600 1500
+Wire Wire Line
+	8300 1600 8300 1700
+Wire Wire Line
+	8300 1700 8150 1700
+Wire Wire Line
+	8600 2000 8600 1900
+Wire Wire Line
+	4450 2850 4450 2650
+Wire Wire Line
+	3400 2650 8650 2650
+Wire Wire Line
+	4150 2950 4150 3050
+Wire Wire Line
+	4150 3050 4000 3050
+Wire Wire Line
+	4450 3350 4450 3250
+Wire Wire Line
+	5850 2650 5850 2850
+Wire Wire Line
+	5550 2950 5550 3050
+Wire Wire Line
+	5550 3050 5400 3050
+Wire Wire Line
+	5850 3350 5850 3250
+Wire Wire Line
+	7250 2650 7250 2850
+Wire Wire Line
+	6950 2950 6950 3050
+Wire Wire Line
+	6950 3050 6800 3050
+Wire Wire Line
+	7250 3350 7250 3250
+Wire Wire Line
+	8650 2650 8650 2850
+Wire Wire Line
+	8350 2950 8350 3050
+Wire Wire Line
+	8350 3050 8200 3050
+Wire Wire Line
+	8650 3350 8650 3250
+Connection ~ 5550 2650
+Connection ~ 4450 2650
+Connection ~ 6950 2650
+Connection ~ 5850 2650
+Connection ~ 8350 2650
+Connection ~ 7250 2650
+Connection ~ 7200 1300
+Connection ~ 8300 1300
+Connection ~ 5800 1300
+Connection ~ 6900 1300
+Connection ~ 5500 1300
+Connection ~ 4400 1300
+Wire Wire Line
+	3400 1150 3400 2650
+Connection ~ 4100 1300
+Connection ~ 4150 2650
+$Comp
+L +5V #PWR?
+U 1 1 5C7239CE
+P 3400 1150
+AR Path="/5C720E85/5C7239CE" Ref="#PWR?"  Part="1" 
+AR Path="/5C7201CD/5C7239CE" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 3400 1000 50  0001 C CNN
+F 1 "+5V" H 3400 1290 50  0000 C CNN
+F 2 "" H 3400 1150 50  0001 C CNN
+F 3 "" H 3400 1150 50  0001 C CNN
+	1    3400 1150
+	1    0    0    -1  
+$EndComp
+Connection ~ 3400 1300
+$Comp
+L +5V #PWR?
+U 1 1 5C723D34
+P 1600 1300
+AR Path="/5C720E85/5C723D34" Ref="#PWR?"  Part="1" 
+AR Path="/5C7201CD/5C723D34" Ref="#PWR?"  Part="1" 
+F 0 "#PWR?" H 1600 1150 50  0001 C CNN
+F 1 "+5V" H 1600 1440 50  0000 C CNN
+F 2 "" H 1600 1300 50  0001 C CNN
+F 3 "" H 1600 1300 50  0001 C CNN
+	1    1600 1300
+	1    0    0    -1  
+$EndComp
+Connection ~ 1600 1350
+$EndSCHEMATC
