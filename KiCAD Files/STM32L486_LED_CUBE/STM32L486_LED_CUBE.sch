@@ -38,7 +38,7 @@ EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 1 3
+Sheet 1 5
 Title ""
 Date ""
 Rev ""
@@ -57,7 +57,19 @@ $EndSheet
 $Sheet
 S 1700 3300 2550 1450
 U 5C724703
-F0 "Sheet5C724702" 60
-F1 "file5C724702.sch" 60
+F0 "Micro Circuit" 60
+F1 "micro_circuit.sch" 60
+$EndSheet
+$Sheet
+S 6650 3350 4150 800 
+U 5C733F59
+F0 "TLC1-6" 60
+F1 "tlc1-6.sch" 60
+$EndSheet
+$Sheet
+S 6650 4500 4100 800 
+U 5C7476A3
+F0 "TLC7-12" 60
+F1 "tlc7-12.sch" 60
 $EndSheet
 $EndSCHEMATC
