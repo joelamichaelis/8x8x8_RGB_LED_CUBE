@@ -1,0 +1,119 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.26.2.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Joel Michaelis, MNSU, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.26.2.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.26.2.0
+Dialog DLL:      DCM.DLL V1.17.2.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.5.0
+Dialog DLL:      TCM.DLL V1.36.1.0
+ 
+<h2>Project:</h2>
+C:\Users\jmichael\OneDrive - Itron\Desktop\Joel FW\476disco_cube\MDK-ARM\476disco_cube.uvprojx
+Project File Date:  05/18/2019
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target '476disco_cube'
+compiling main.c...
+../Inc/arrayFunctions.h(6): error:  #18: expected a ")"
+  void cubeRotate(uint32_t direction uint32_t *cube[8][8][8])
+../Inc/arrayFunctions.h(13): error:  #42: operand types are incompatible ("uint32_t" and "char *")
+  	if (direction == "up")
+../Inc/arrayFunctions.h(15): error:  #137: expression must be a modifiable lvalue
+  		tempUD = cube[7];
+../Inc/arrayFunctions.h(16): error:  #137: expression must be a modifiable lvalue
+  		cube[7] = cube[6];
+../Inc/arrayFunctions.h(17): error:  #137: expression must be a modifiable lvalue
+  		cube[6] = cube[5];
+../Inc/arrayFunctions.h(18): error:  #137: expression must be a modifiable lvalue
+  		cube[5] = cube[4];
+../Inc/arrayFunctions.h(19): error:  #137: expression must be a modifiable lvalue
+  		cube[4] = cube[3];
+../Inc/arrayFunctions.h(20): error:  #137: expression must be a modifiable lvalue
+  		cube[3] = cube[2];
+../Inc/arrayFunctions.h(21): error:  #137: expression must be a modifiable lvalue
+  		cube[2] = cube[1];
+../Inc/arrayFunctions.h(22): error:  #137: expression must be a modifiable lvalue
+  		cube[1] = cube[0];
+../Inc/arrayFunctions.h(23): error:  #137: expression must be a modifiable lvalue
+  		cube[0] = tempUD;
+../Inc/arrayFunctions.h(26): error:  #42: operand types are incompatible ("uint32_t" and "char *")
+  	if (direction == "down")
+../Inc/arrayFunctions.h(28): error:  #137: expression must be a modifiable lvalue
+  		tempUD = cube[0];
+../Inc/arrayFunctions.h(29): error:  #137: expression must be a modifiable lvalue
+  		cube[0] = cube[1];
+../Inc/arrayFunctions.h(30): error:  #137: expression must be a modifiable lvalue
+  		cube[1] = cube[2];
+../Inc/arrayFunctions.h(31): error:  #137: expression must be a modifiable lvalue
+  		cube[2] = cube[3];
+../Inc/arrayFunctions.h(32): error:  #137: expression must be a modifiable lvalue
+  		cube[3] = cube[4];
+../Inc/arrayFunctions.h(33): error:  #137: expression must be a modifiable lvalue
+  		cube[4] = cube[5];
+../Inc/arrayFunctions.h(34): error:  #137: expression must be a modifiable lvalue
+  		cube[5] = cube[6];
+../Inc/arrayFunctions.h(35): error:  #137: expression must be a modifiable lvalue
+  		cube[6] = cube[7];
+../Inc/arrayFunctions.h(36): error:  #137: expression must be a modifiable lvalue
+  		cube[7] = tempUD;
+../Inc/arrayFunctions.h(39): error:  #42: operand types are incompatible ("uint32_t" and "char *")
+  	if (direction == "left")
+../Inc/arrayFunctions.h(46): error:  #65: expected a ";"
+  				cube[x][y][0] = cube[x][y][1];
+../Inc/arrayFunctions.h(58): error:  #42: operand types are incompatible ("uint32_t" and "char *")
+  	if (direction == "right")
+../Inc/arrayFunctions.h(65): error:  #65: expected a ";"
+  				cube[x][y][7] = cube[x][y][6];
+../Inc/arrayFunctions.h(78): error:  #42: operand types are incompatible ("uint32_t" and "char *")
+  	if (direction == "forward")
+../Inc/arrayFunctions.h(82): error:  #137: expression must be a modifiable lvalue
+  			tempFB = cube[x][0];
+../Inc/arrayFunctions.h(83): error:  #137: expression must be a modifiable lvalue
+  			cube[x][0]= cube[x][1];
+../Inc/arrayFunctions.h(84): error:  #137: expression must be a modifiable lvalue
+  			cube[x][1]= cube[x][2];
+../Inc/arrayFunctions.h(85): error:  #137: expression must be a modifiable lvalue
+  			cube[x][2]= cube[x][3];
+../Src/main.c: 0 warnings, 30 errors
+"476disco_cube\476disco_cube.axf" - 30 Error(s), 0 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.4.0.pack
+                ARM.CMSIS.5.4.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.1.2
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32L4xx_DFP.2.0.0.pack
+                Keil.STM32L4xx_DFP.2.0.0
+                STMicroelectronics STM32L4 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_476disco_cube
+  C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include
+  C:\Keil_v5\ARM\PACK\Keil\STM32L4xx_DFP\2.0.0\Drivers\CMSIS\Device\ST\STM32L4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.1.2
+Target not created.
+Build Time Elapsed:  00:00:08
+</pre>
+</body>
+</html>
