@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Motherboard/startup/startup_stm32f103xb.s&apos; to &apos;startup_stm32f103xb.S&apos;" description="Rename resource &apos;startup_stm32f103xb.s&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="startup/startup_stm32f103xb.s" name="startup_stm32f103xb.S" stamp="1589298383205" updateReferences="true"/>
+</session>

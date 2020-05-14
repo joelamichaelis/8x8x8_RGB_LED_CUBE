@@ -1,0 +1,11 @@
+11:59:22 **** Incremental Build of configuration Debug for project Motherboard ****
+Info: Internal Builder is used for build
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra -g3 -DDEBUG -DSTM32F103xB "-IC:\\Users\\jmichael\\OneDrive - Itron\\Documents\\8x8x8_RGB_LED_CUBE_MOTHERBOARD_FW\\2020-05-12 Eclipse\\Motherboard\\Drivers\\CMSIS\\Device\\ST\\STM32F1xx\\Include" "-IC:\\Users\\jmichael\\OneDrive - Itron\\Documents\\8x8x8_RGB_LED_CUBE_MOTHERBOARD_FW\\2020-05-12 Eclipse\\Motherboard\\Drivers\\CMSIS\\Include" "-IC:\\Users\\jmichael\\OneDrive - Itron\\Documents\\8x8x8_RGB_LED_CUBE_MOTHERBOARD_FW\\2020-05-12 Eclipse\\Motherboard\\Drivers\\STM32F1xx_HAL_Driver\\Inc" "-IC:\\Users\\jmichael\\OneDrive - Itron\\Documents\\8x8x8_RGB_LED_CUBE_MOTHERBOARD_FW\\2020-05-12 Eclipse\\Motherboard\\Inc" -std=gnu11 -c -o "Drivers\\STM32F1xx_HAL_Driver\\Src\\stm32f1xx_hal_mmc.o" "..\\Drivers\\STM32F1xx_HAL_Driver\\Src\\stm32f1xx_hal_mmc.c" 
+arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -Og -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -fno-move-loop-invariants -Wall -Wextra -g3 -DDEBUG -DSTM32F103xB "-IC:\\Users\\jmichael\\OneDrive - Itron\\Documents\\8x8x8_RGB_LED_CUBE_MOTHERBOARD_FW\\2020-05-12 Eclipse\\Motherboard\\Drivers\\CMSIS\\Device\\ST\\STM32F1xx\\Include" "-IC:\\Users\\jmichael\\OneDrive - Itron\\Documents\\8x8x8_RGB_LED_CUBE_MOTHERBOARD_FW\\2020-05-12 Eclipse\\Motherboard\\Drivers\\CMSIS\\Include" "-IC:\\Users\\jmichael\\OneDrive - Itron\\Documents\\8x8x8_RGB_LED_CUBE_MOTHERBOARD_FW\\2020-05-12 Eclipse\\Motherboard\\Drivers\\STM32F1xx_HAL_Driver\\Inc" "-IC:\\Users\\jmichael\\OneDrive - Itron\\Documents\\8x8x8_RGB_LED_CUBE_MOTHERBOARD_FW\\2020-05-12 Eclipse\\Motherboard\\Inc" -std=gnu11 -c -o "Drivers\\CMSIS\\DSP\\Source\\StatisticsFunctions\\arm_mean_q15.o" "..\\Drivers\\CMSIS\\DSP\\Source\\StatisticsFunctions\\arm_mean_q15.c" 
+..\Drivers\CMSIS\DSP\Source\StatisticsFunctions\arm_mean_q15.c:29:10: fatal error: arm_math.h: No such file or directory
+   29 | #include "arm_math.h"
+      |          ^~~~~~~~~~~~
+compilation terminated.
+
+11:59:23 Build Failed. 1 errors, 0 warnings. (took 1s.229ms)
+

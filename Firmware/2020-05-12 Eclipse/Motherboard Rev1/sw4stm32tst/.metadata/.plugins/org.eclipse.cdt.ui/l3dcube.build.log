@@ -1,0 +1,6 @@
+16:39:25 **** Incremental Build of configuration Debug for project l3dcube ****
+make all 
+make: Nothing to be done for 'all'.
+
+16:39:26 Build Finished. 0 errors, 0 warnings. (took 479ms)
+

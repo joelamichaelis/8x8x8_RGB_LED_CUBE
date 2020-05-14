@@ -1,0 +1,6 @@
+Drill holes in DC barrel jack footprint so it locks in place
+Reconsider via spacings with consideration for CAF
+Expandable modular GPIO interface feasibility
+Is some sort of ext flash necessary?
+Consider possibility of power switches for VLCD, ...
+
