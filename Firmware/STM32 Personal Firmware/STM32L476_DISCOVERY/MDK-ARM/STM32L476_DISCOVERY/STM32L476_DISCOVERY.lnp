@@ -1,0 +1,26 @@
+--cpu=Cortex-M4.fp --branchpatch=sdcomp-29491-629360
+"stm32l476_discovery\startup_stm32l476xx.o"
+"stm32l476_discovery\main.o"
+"stm32l476_discovery\stm32l4xx_it.o"
+"stm32l476_discovery\stm32l4xx_hal_msp.o"
+"stm32l476_discovery\stm32l4xx_hal_tim.o"
+"stm32l476_discovery\stm32l4xx_hal_tim_ex.o"
+"stm32l476_discovery\stm32l4xx_hal.o"
+"stm32l476_discovery\stm32l4xx_hal_i2c.o"
+"stm32l476_discovery\stm32l4xx_hal_i2c_ex.o"
+"stm32l476_discovery\stm32l4xx_hal_rcc.o"
+"stm32l476_discovery\stm32l4xx_hal_rcc_ex.o"
+"stm32l476_discovery\stm32l4xx_hal_flash.o"
+"stm32l476_discovery\stm32l4xx_hal_flash_ex.o"
+"stm32l476_discovery\stm32l4xx_hal_flash_ramfunc.o"
+"stm32l476_discovery\stm32l4xx_hal_gpio.o"
+"stm32l476_discovery\stm32l4xx_hal_dma.o"
+"stm32l476_discovery\stm32l4xx_hal_dma_ex.o"
+"stm32l476_discovery\stm32l4xx_hal_pwr.o"
+"stm32l476_discovery\stm32l4xx_hal_pwr_ex.o"
+"stm32l476_discovery\stm32l4xx_hal_cortex.o"
+"stm32l476_discovery\system_stm32l4xx.o"
+--library_type=microlib --strict --scatter "STM32L476_DISCOVERY\STM32L476_DISCOVERY.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "STM32L476_DISCOVERY.map" -o STM32L476_DISCOVERY\STM32L476_DISCOVERY.axf

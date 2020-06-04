@@ -1,0 +1,3939 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Acronyms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!-- Regex used to generate XML from Excel paste -->
+<!-- ^([^\t]+)\t([^\t]+)([^\n]*)\n (Maximal Match) */ -->
+<!-- <Acronym>\n\t\1\n</Acronym>\n<Expansion>\n\t\2\n</Expansion>\n<Description>\n\3\n</Description>\n -->
+
+   <Acronym>
+      3DES
+   </Acronym>
+   <Expansion>
+      Triple DES, Triple Data Encryption Standard
+   </Expansion>
+   <Description>
+      A symmetric block cipher that uses three 64-bit-long keys to encrypt data in three passes. Data is encrypted with the first key, decrypted with the second key, and encrypted again with the third key. Details about the Triple Data Encryption Algorithm Block Cipher can be found in the National Institute of Standards and Technology (NIST) Special Publications document number SP 800-67 Rev. 1. Also called Triple Data Encryption Algorithm (TDEA) Block Cipher.
+   </Description>
+   <Acronym>
+      3GPP
+   </Acronym>
+   <Expansion>
+      Third Generation Partnership Project
+   </Expansion>
+   <Description>
+      A collaboration between groups of telecommunications associations to standardize 3G (third generation) mobile phone system specifications. The specifications are those established by the Universal Mobile Telecommunications System (UMTS).
+   </Description>
+   <Acronym>
+      3GPP2
+   </Acronym>
+   <Expansion>
+      Third Generation Partnership Project 2
+   </Expansion>
+   <Description>
+      A collaboration between groups of telecommunications associations to standardize 3G (third generation) mobile phone system specifications. The specifications are those established by the CDMA2000 family of standards.
+   </Description>
+   <Acronym>
+      AAA
+   </Acronym>
+   <Expansion>
+      Authentication Authorization Accounting server
+   </Expansion>
+   <Description>
+      The network server used for access control in a Cisco RF Mesh-based system. The AAA server identifies users (authentication), implements policies that determine which resources and services a valid user can access (authorization), and keeps track of time and data resources used for billing and analysis (accounting).
+   </Description>
+   <Acronym>
+      AAAC
+   </Acronym>
+   <Expansion>
+      All Aluminum Alloy Conductor
+   </Expansion>
+   <Description>
+      A type of conductor made out of high-strength aluminum alloy, which has a higher resistance to corrosion than a steel conductor. Conductors are materials that allow electrical charges to flow freely.
+   </Description>
+   <Acronym>
+      AAC
+   </Acronym>
+   <Expansion>
+      All Aluminum Conductor
+   </Expansion>
+   <Description>
+      All aluminum conductors are made from one or more strands of aluminum alloy.
+   </Description>
+   <Acronym>
+      AAE
+   </Acronym>
+   <Expansion>
+      Advanced AMR Export file
+   </Expansion>
+   <Description>
+      A file containing completed route information that the Itron Host Processor (IHP) sends to the customer information system (CIS) or to the Itron Enterprise Edition (IEE) system.
+   </Description>
+   <Acronym>
+      AC
+   </Acronym>
+   <Expansion>
+      Alternating Current
+   </Expansion>
+   <Description>
+      A type of electrical current in which the electrical charge alternates between positive and negative. The rate of change between polarities is measured in Hertz (Hz), or cycles per second. Devices powered by alternating current include three electrical wires of different polarities: negative, positive, and neutral (or ground). Conversely, direct current (DC) implements a two-wire circuit where the electrical charge travels in one direction. One wire is always negative and the other is positive.
+   </Description>
+   <Acronym>
+      ACB
+   </Acronym>
+   <Expansion>
+      Access Control Broker
+   </Expansion>
+   <Description>
+      ZigBee
+   </Description>
+   <Acronym>
+      ACK
+   </Acronym>
+   <Expansion>
+      Acknowledgement
+   </Expansion>
+   <Description>
+      A message sent between communicating processes or computers to indicate that a block of data arrived at its destination without error.
+   </Description>
+   <Acronym>
+      ACL
+   </Acronym>
+   <Expansion>
+      Access Control List
+   </Expansion>
+   <Description>
+      A table that describes the access each user or group of users has to each system object. The list includes data associated with a file, directory, or other network resource and defines the permissions that users, groups, processes, or devices have for accessing it.
+   </Description>
+   <Acronym>
+      ACS
+   </Acronym>
+   <Expansion>
+      Access Control Server
+   </Expansion>
+   <Description>
+      A Cisco high-performance server that operates as a centralized TACACS+ or RADIUS server. It extends access security by combining authentication, user access, and administrator access with policy control within a centralized identity networking solution.
+   </Description>
+   <Acronym>
+      ACSE
+   </Acronym>
+   <Expansion>
+      Association Control Service Element(s)
+   </Expansion>
+   <Description>
+      The Open Systems Interconnection (OSI) method for establishing a call between two application programs. ACSE checks the identities and contexts of the application entities, and can apply an authentication security check. ACSE is the message format (frame) used for Extended Protocol Specification for Electric Metering (ESPEM) protocol messages that are carried on OpenWay radio-frequency local area networks (RFLANs).
+   </Description>
+   <Acronym>
+      ACT
+   </Acronym>
+   <Expansion>
+      Adaptive Communications Technology
+   </Expansion>
+   <Description>
+      A technology that incorporates both RF and PLC communications onto one chip set. Adaptive Communications Technology (ACT) allows an endpoint to dynamically change its communication media and modulation to the fastest and most reliable available based on its location, network operating conditions and the criticality of the application data.
+   </Description>
+   <Acronym>
+      ACT PLC Coupler
+   </Acronym>
+   <Expansion>
+      Adaptive Communications Technology Power Line Carrier Coupler
+   </Expansion>
+   <Description>
+      An external unit that couples the Power Line Carrier (PLC) communication links between the 3-phase mains and the OpenWay Riva Adaptive Communications Module installed in the Connected Grid Router (CGR). Also known as ACT PLC Coupler.
+   </Description>
+   <Acronym>
+      AD
+   </Acronym>
+   <Expansion>
+      Active Directory
+   </Expansion>
+   <Description>
+      A Microsoft directory service that manages network administration and security in a Windows domain network.
+   </Description>
+   <Acronym>
+      ADAM
+   </Acronym>
+   <Expansion>
+      Active Directory Application Mode
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      ADC
+   </Acronym>
+   <Expansion>
+      Analog-to-Digital Converter
+   </Expansion>
+   <Description>
+      A device that performs the conversion from an analog signal to a digital signal. Typically referring to voltage, an ADC performs a process to change the continuous analog signal to a digital signal, or digital number, that represents the signal's amplitude.
+   </Description>
+   <Acronym>
+      AEMO
+   </Acronym>
+   <Expansion>
+      Australian Energy Market Operator
+   </Expansion>
+   <Description>
+      An independent, member-based organization, which operates the National Electricity Market (NEM), retail, and wholesale gas markets in southeastern Australia.
+   </Description>
+   <Acronym>
+      AEP meter barcode
+   </Acronym>
+   <Expansion>
+      American Electric Power meter barcode
+   </Expansion>
+   <Description>
+      A 17-character meter label format that is a unique identifier for every electric meter in the United States. Developed by American Electric Power (AEP), the AEP barcode follows ANSI C12.10 requirements.
+   </Description>
+   <Acronym>
+      AES
+   </Acronym>
+   <Expansion>
+      Advanced Encryption Standard
+   </Expansion>
+   <Description>
+      A National Institute of Standards and Technology (NIST)-standard cryptographic cipher that uses a block length of 128 bits and key lengths of 128, 192, or 256 bits.
+   </Description>
+   <Acronym>
+      AF
+   </Acronym>
+   <Expansion>
+      Application Framework
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      AH
+   </Acronym>
+   <Expansion>
+      Authentication Header
+   </Expansion>
+   <Description>
+      A member of the Internet Protocol Security (IPsec) protocol suite that guarantees IP packet connectionless integrity and data origin authentication. AH can utilize sliding window techniques to protect against replay attacks and to discard old packets.
+   </Description>
+   <Acronym>
+      AIB
+   </Acronym>
+   <Expansion>
+      Application support layer Information Base
+   </Expansion>
+   <Description>
+      ZigBee
+   </Description>
+   <Acronym>
+      AIB
+   </Acronym>
+   <Expansion>
+      Application Information Broker
+   </Expansion>
+   <Description>
+      An Itron software product with a set of programming interfaces that allows multiple entities or departments to access and subscribe to collected data.
+   </Description>
+   <Acronym>
+      AJAX
+   </Acronym>
+   <Expansion>
+      Asynchronous JavaScript and XML
+   </Expansion>
+   <Description>
+      A group of client-side web development techniques for creating asynchronous web applications. AJAX techniques enable the exchange of data between a web page and a server in the background without interfering with the display or the behavior of the page. This allows user interaction without the need to reload the entire page.
+   </Description>
+   <Acronym>
+      ALRS
+   </Acronym>
+   <Expansion>
+      Automatic Loop Restoration Scheme
+   </Expansion>
+   <Description>
+      A special feeder automation scheme that is used by utilities to improve distribution system reliability. Also called automatic loop scheme (ALS).
+   </Description>
+   <Acronym>
+      ALS
+   </Acronym>
+   <Expansion>
+      Automatic Loop Scheme
+   </Expansion>
+   <Description>
+      A special feeder automation scheme that is used by utilities to improve distribution system reliability. Also called automatic loop restoration scheme (ALRS).
+   </Description>
+   <Acronym>
+      AM
+   </Acronym>
+   <Expansion>
+      Amplitude Modulation
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      AMCL
+   </Acronym>
+   <Expansion>
+      Appliance Message Client Library
+   </Expansion>
+   <Description>
+      A Certicom AMI solution software component that provides simple application program interfaces (APIs) to encode and decode messages. The OpenWay Collection Engine (CE) uses AMCL to format and deliver messages to the OpenWay signing and encryption server (SES) and to the decryption and key update server (DKUS).
+   </Description>
+   <Acronym>
+      AMI
+   </Acronym>
+   <Expansion>
+      Advanced Metering Infrastructure or Advanced Metering Initiative
+   </Expansion>
+   <Description>
+      A utility metering and communications system that leverages two-way communication between a utility company and smart energy management devices, including smart meters, thermostats, and other energy management devices. AMI provides utility companies real-time consumption data, and provides customers detailed usage data. AMI systems support capabilities such as load control, time-of-use and critical-peak pricing, and outage and restoration reporting.
+   </Description>
+   <Acronym>
+      AMR
+   </Acronym>
+   <Expansion>
+      Automatic Meter Rreading
+   </Expansion>
+   <Description>
+      The collection of utility meter data through the use of ERT modules that are connected to the meters, eliminating the need for field service representatives to physically inspect and read the meters. Additionally, ERT modules monitor and record related information such as meter tampering data. Also called remote meter reading.
+   </Description>
+   <Acronym>
+      ANSI
+   </Acronym>
+   <Expansion>
+      American National Standards Institute
+   </Expansion>
+   <Description>
+      The standards body that determines standards and guidelines in nearly every business sector, including electric metering standards.
+   </Description>
+   <Acronym>
+      ANSI C12.18
+   </Acronym>
+   <Expansion>
+      American National Standards Institute
+   </Expansion>
+   <Description>
+      The American National Standards Institute (ANSI) protocol used to transport data through the optical ports used on most North American electricity meters.
+   </Description>
+   <Acronym>
+      ANSI C12.19
+   </Acronym>
+   <Expansion>
+      American National Standards Institute
+   </Expansion>
+   <Description>
+      The American National Standards Institute (ANSI) protocol that defines the table structure for utility application data to be passed between an end device and a computer.
+   </Description>
+   <Acronym>
+      ANSI C12.22
+   </Acronym>
+   <Expansion>
+      American National Standards Institute
+   </Expansion>
+   <Description>
+      An American National Standards Institute (ANSI) protocol designed to carry ANSI C12.19 table data over a network.
+   </Description>
+   <Acronym>
+      ANSI class
+   </Acronym>
+   <Expansion>
+      American National Standards Institute
+   </Expansion>
+   <Description>
+      A rating assigned to electric meters by the American National Standards Institute (ANSI) to indicate a meter's ability to safely conduct electrical current. For example, an ANSI rating of 200 (written as CL 200) represents the meter's capability of channeling 200 amperes of continuous electrical current without sustaining damage.
+   </Description>
+   <Acronym>
+      APA
+   </Acronym>
+   <Expansion>
+      Application Protocol Adapter
+   </Expansion>
+   <Description>
+      A package of compiled .NET assemblies that are used to construct commands to be sent to Itron Security Manager (ISM) before signing.
+   </Description>
+   <Acronym>
+      APDU
+   </Acronym>
+   <Expansion>
+      Application support sub-layer Protocol Data Unit
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      API
+   </Acronym>
+   <Expansion>
+      Application Programmer Interface
+   </Expansion>
+   <Description>
+      A source code-based specification used as an interface by software components to communicate with each other, similar to the way a user interface facilitates interaction between humans and computers. An API may include specifications for routines, data structures, object classes, protocols, and variables. Itron software products implement APIs to allow interaction with other software, which use the APIs to request services from or exercise features of the Itron software.
+   </Description>
+   <Acronym>
+      APKI
+   </Acronym>
+   <Expansion>
+      Authorized Public Key Infrastructure
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      APL
+   </Acronym>
+   <Expansion>
+      APplication Layer
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      APM
+   </Acronym>
+   <Expansion>
+      Application Protocol Module
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      APMD
+   </Acronym>
+   <Expansion>
+      Application Protocol Module Daemon
+   </Expansion>
+   <Description>
+      A Certicom application programming interface (API) component in the OpenWay signing and encryption server (SES) that provides secure communication between the SES and the OpenWay Collection Engine (CE).
+   </Description>
+   <Acronym>
+      APN
+   </Acronym>
+   <Expansion>
+      Access Point Name
+   </Expansion>
+   <Description>
+      A virtual routing instance that connects a general packet radio service (GPRS) mobile network and another computer network.
+   </Description>
+   <Acronym>
+      APS
+   </Acronym>
+   <Expansion>
+      APplication Support sub-layer
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      APSDE
+   </Acronym>
+   <Expansion>
+      APplication Support sub-layer Data Entity
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      APSDE-SAP
+   </Acronym>
+   <Expansion>
+      APplication Support sub-layer Data Entity - Service Access Point
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      APSME
+   </Acronym>
+   <Expansion>
+      APplication Support sub-layer Management Eentity
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      APSME-SAP
+   </Acronym>
+   <Expansion>
+      APplication Support sub-layer Management Entity - Service Access Point
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      ASA
+   </Acronym>
+   <Expansion>
+      Active Smart Grid Analytics
+   </Expansion>
+   <Description>
+      Itron's specialized analytic software applications solution that incorporates data warehousing, business intelligence, and interval meter data so utilities can acquire and analyze data from the grid to gain insight about the efficiency of delivery and use of energy.
+   </Description>
+   <Acronym>
+      ASA
+   </Acronym>
+   <Expansion>
+      Adaptive Security Appliance
+   </Expansion>
+   <Description>
+      A Cisco appliance that provides user and application policy enforcement, multi-vector attack protection, and secure connection services. The appliance also provides integrated security and network services for advanced application-aware firewall services, voice-over-Internet protocol (VoIP), and multimedia applications.
+   </Description>
+   <Acronym>
+      ASDU
+   </Acronym>
+   <Expansion>
+      APS Service Data Unit
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      ASL
+   </Acronym>
+   <Expansion>
+      Approved Supplier List
+   </Expansion>
+   <Description>
+      A list that many organizations maintain, used to identify qualified suppliers of materials or services. Organizations often evaluate aspects of potential suppliers' business, such as financial and quality assurance practices, to determine eligibility. After a supplier is added to an organization's ASL, the organization may often reevaluate the supplier's eligibility, as a part of supplier performance management. Also called approved vendor list (AVL).
+   </Description>
+   <Acronym>
+      ASN
+   </Acronym>
+   <Expansion>
+      Abstract Syntax Notation
+   </Expansion>
+   <Description>
+      (see ASN.1)
+   </Description>
+   <Acronym>
+      ASN
+   </Acronym>
+   <Expansion>
+      Advance Shipping Notice
+   </Expansion>
+   <Description>
+      A notification of pending deliveries (similar to a packing list) that is transmitted in electronic format.
+   </Description>
+   <Acronym>
+      ASN.1
+   </Acronym>
+   <Expansion>
+      Abstract Syntax Notation One
+   </Expansion>
+   <Description>
+      An international standard for classifying data structures. It specifies 27 data types with tag values starting with 1; for example, Boolean (1), integer (2), and bit string (3). ASN.1 uses additional rules to designate physical data. The primary set is the Basic Encoding Rules (BER), which are often considered synonymous with ASN.1. ASN.1 is widely used in ground and cellular telecommunications as well as in aviation.
+   </Description>
+   <Acronym>
+      ASP
+   </Acronym>
+   <Expansion>
+      Active Server Pages
+   </Expansion>
+   <Description>
+      A Microsoft server-based script engine that dynamically generates webpages. Also called Classic ASP or ASP Classic. ASP.NET supersedes ASP.
+   </Description>
+   <Acronym>
+      ASP.NET
+   </Acronym>
+   <Expansion>
+      Active Server Pages.NET
+   </Expansion>
+   <Description>
+      A Microsoft framework for building dynamic websites, web applications, and web services.
+   </Description>
+   <Acronym>
+      ASR
+   </Acronym>
+   <Expansion>
+      Aggregation Services Router
+   </Expansion>
+   <Description>
+      A key component of the Cisco RF Mesh-based communications network, used to deliver multiple services.
+   </Description>
+   <Acronym>
+      ATE
+   </Acronym>
+   <Expansion>
+      Automatic Test Equipment
+   </Expansion>
+   <Description>
+      One or more pieces of equipment that perform tests on a device, using automation to quickly perform measurements and evaluate the test results.
+   </Description>
+   <Acronym>
+      ATP
+   </Acronym>
+   <Expansion>
+      Available-To-Promise
+   </Expansion>
+   <Description>
+      A business process used in supply-chain management. ATP can be used to calculate product quantities, to provide responses to customer inquiries, and to coordinate the aspects of demand and order promising and fulfillment, such as quantity and delivery due date.
+   </Description>
+   <Acronym>
+      AVL
+   </Acronym>
+   <Expansion>
+      Approved Vendor List
+   </Expansion>
+   <Description>
+      A list that many organizations maintain, used to identify qualified suppliers of materials or services. Organizations often evaluate aspects of potential suppliers' business, such as financial and quality assurance practices, to determine eligibility. After a supplier is added to an organization's ASL, the organization may often reevaluate the supplier's eligibility, as a part of supplier performance management. Also called approved supplier list (ASL).
+   </Description>
+   <Acronym>
+      AWG
+   </Acronym>
+   <Expansion>
+      American Wire Gauge
+   </Expansion>
+   <Description>
+      The standardized wire gauge system for the diameters of round, solid, nonferrous electrical wire.
+   </Description>
+   <Acronym>
+      BER
+   </Acronym>
+   <Expansion>
+      Basic Encoding Rules
+   </Expansion>
+   <Description>
+	 Basic Encoding Rules (BER) is the set of rules for encoding ASN.1 defined data into a particular representation for transmitting to another system.
+   </Description>
+   <Acronym>
+      BGA
+   </Acronym>
+   <Expansion>
+      Ball Grid Array
+   </Expansion>
+   <Description>
+      A type of surface-mount packaging used to permanently mount integrated circuits.
+   </Description>
+   <Acronym>
+      BGP
+   </Acronym>
+   <Expansion>
+      Border Gateway Protocol
+   </Expansion>
+   <Description>
+      The protocol backing the core routing decisions on the Internet. BGP maintains a table of IP networks or "prefixes" that designate network reachability among autonomous systems. It does not use traditional Interior Gateway Protocol (IGP) metrics, but makes routing decisions based on path, network policies, and/or rule sets.
+   </Description>
+   <Acronym>
+      BIRT
+   </Acronym>
+   <Expansion>
+      Business Intelligence and Reporting Tools
+   </Expansion>
+   <Description>
+      An open source reporting system for web applications, especially those based on Java and Java EE. The Itron Transaction Management System (TMS) collection engine for cellular-enabled meters supports customizable BIRT reports for transfer to other utility systems.
+   </Description>
+   <Acronym>
+      BLE
+   </Acronym>
+   <Expansion>
+      Bluetooth Low Energy
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      BMR
+   </Acronym>
+   <Expansion>
+      Business Management Review
+   </Expansion>
+   <Description>
+      A format used to designate line items for invoicing and revenue recognition purposes.
+   </Description>
+   <Acronym>
+      BOMD
+   </Acronym>
+   <Expansion>
+      Battery Operated Mirrored Device
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      BPL
+   </Acronym>
+   <Expansion>
+      Broadband over Power Lines
+   </Expansion>
+   <Description>
+      The transmission of data over power lines using a system of signal injectors, repeaters, and extractors that avoid interference at the distribution transformer. The frequency of the data signals is much higher than that of traditional power line carrier systems, so the signals are unaffected by the power carried across the line. Also called power line communications (PLC).
+   </Description>
+   <Acronym>
+      BPLC
+   </Acronym>
+   <Expansion>
+      Broadband Power Line Communications
+   </Expansion>
+   <Description>
+      The transmission of data over power lines using a system of signal injectors, repeaters, and extractors that avoid interference at the distribution transformer. The frequency of the data signals is much higher than that of traditional power line carrier systems, so the signals are unaffected by the power carried across the line. Also called power line communications (PLC).
+   </Description>
+   <Acronym>
+      BRT
+   </Acronym>
+   <Expansion>
+      Broadcast Retry Timer
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      BTO
+   </Acronym>
+   <Expansion>
+      Build To Order
+   </Expansion>
+   <Description>
+      A manufacturing term for a production approach where products are built only when a confirmed order for the product is received. This is a common form of production for highly customized, high-value, or low-volume products. Also called make to order.
+   </Description>
+   <Acronym>
+      BTR
+   </Acronym>
+   <Expansion>
+      Broadcast Transaction Record
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      BTT
+   </Acronym>
+   <Expansion>
+      Broadcast Transaction Table
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      BU
+   </Acronym>
+   <Expansion>
+      Business Unit
+   </Expansion>
+   <Description>
+      An organizational unit of a utility, typically based on function (gas, electric, water, cable) or geographic location.
+   </Description>
+   <Acronym>
+      C&amp;I
+   </Acronym>
+   <Expansion>
+      Commercial and Industrial
+   </Expansion>
+   <Description>
+      Large energy and water customers. A utility records and stores C&amp;I metering and consumption data and bills customers based on usage patterns, power factors, consumption, and other measured data. For example, C&amp;I customers can include strip malls, fast food restaurants, and manufacturing plants.
+   </Description>
+   <Acronym>
+      C12.11
+   </Acronym>
+   <Expansion>
+
+   </Expansion>
+   <Description>
+      ANSI standard for instrument transformers for revenue metering-10 kV BIL (impulse insulation level) through 350 kV BIL. This standard covers general requirements for metering accuracy, thermal ratings, and transformer and inductively coupled transformer dimensions for revenue metering, 10 kV basic lightning BIL through 350 kV BIL for 0.6 kV nominal system voltage through 69 kV NSV.
+   </Description>
+   <Acronym>
+      C12.22
+   </Acronym>
+   <Expansion>
+
+   </Expansion>
+   <Description>
+      A subclass of the American National Standards Institute (ANSI) C12 family of meter communication and data standards. The C12.22 application layer protocol enables the transport of C12.19 data tables over any network medium. Itron OpenWay systems use the C12.22 protocol for meter-level communications at all levels below the IP cell relay.
+   </Description>
+   <Acronym>
+      C12.XX
+   </Acronym>
+   <Expansion>
+
+   </Expansion>
+   <Description>
+      Any of the American National Standards Institute (ANSI) C12 family of meter communication and data standards.
+   </Description>
+   <Acronym>
+      CA
+   </Acronym>
+   <Expansion>
+      Certificate Authority
+   </Expansion>
+   <Description>
+      A trusted third-party entity within a network that issues digital certificates (security credentials) and public- private key pairs used for message encryption. The CA verifies the identity of the certificate requestor (owner), and in turn the relying party can then trust that the private key is a certificate related to the corresponding public key for that same certificate.
+   </Description>
+   <Acronym>
+      CAIDI
+   </Acronym>
+   <Expansion>
+      Customer Average Interruption Duration Index
+   </Expansion>
+   <Description>
+      A reliability index used by electric power utilities to calculate the average number of minutes per year that customers experience power outages or to calculate the average time required to restore service (power) to customers after a power outage.
+   </Description>
+   <Acronym>
+      CAS
+   </Acronym>
+   <Expansion>
+      Code Access Security
+   </Expansion>
+   <Description>
+      A software mechanism in Microsoft .NET Framework that prevents untrusted code from performing privileged actions.
+   </Description>
+   <Acronym>
+      CBA
+   </Acronym>
+   <Expansion>
+      Commercial Building Automation
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CBC
+   </Acronym>
+   <Expansion>
+      Cipher Block Chaining
+   </Expansion>
+   <Description>
+      A cryptography operation that combines the ciphertext of one block with the plaintext of the next block.
+   </Description>
+   <Acronym>
+      CBC-MAC
+   </Acronym>
+   <Expansion>
+      Cipher Block Chaining Message Authentication Code
+   </Expansion>
+   <Description>
+      A technique for constructing a message authentication code from a block cipher.
+   </Description>
+   <Acronym>
+      CBKE
+   </Acronym>
+   <Expansion>
+      Certificate-Based Key Establishment
+   </Expansion>
+   <Description>
+      A key-establishment method based on public keys transported in signed certificates. The digital certificate binds the device identity with a public key and is signed by a certificate authority (CA). A CA public key is required to validate the device certificate.
+   </Description>
+   <Acronym>
+      CBWFQ
+   </Acronym>
+   <Expansion>
+      Class-Based Weighted Fair Queuing
+   </Expansion>
+   <Description>
+      A network router queuing method that allows traffic to share bandwidth equally after being grouped by classes. The classes can be based upon a variety of parameters, such as priority, interface, or originating program.
+   </Description>
+   <Acronym>
+      CCA
+   </Acronym>
+   <Expansion>
+      Collector Configuration Application
+   </Expansion>
+   <Description>
+      An Itron Fixed Network application used to configure and manage cell control units (CCUs) individually and in groups.
+   </Description>
+   <Acronym>
+      CCB
+   </Acronym>
+   <Expansion>
+      Change Control Board
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CCF
+   </Acronym>
+   <Expansion>
+      Centum (100) Cubic Feet
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CCM
+   </Acronym>
+   <Expansion>
+      Counter with CBC-MAC Mode for AES encryption
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CCM*
+   </Acronym>
+   <Expansion>
+      Improved Counter with CBC-MAC Mode for AES encryption
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CCO
+   </Acronym>
+   <Expansion>
+      Control Change Order
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CCU
+   </Acronym>
+   <Expansion>
+      Cell Control Unit
+   </Expansion>
+   <Description>
+      A neighborhood pole-mounted data collection device that gathers meter readings and related data from ERT modules in Itron radio-based fixed network systems, including ChoiceConnect, Fixed Network, and Water SaveSource systems. The CCU transfers the data to a host processor using public, IP-based, or private computer networks. Also called a collector. Also called a concentrator in European markets.
+   </Description>
+   <Acronym>
+      CCUM
+   </Acronym>
+   <Expansion>
+      Continuous Cumulative Demand Value
+   </Expansion>
+   <Description>
+      The sum of the maximum demand and the cumulative demand on a meter at any point in time. At the end of each demand interval, if a new maximum demand is reached, continuous cumulative demand is adjusted to reflect the new maximum demand value. A demand reset clears the maximum demand value, but does not affect the continuous cumulative demand. Continuous cumulative demand may be used for block, rolling, and thermal demand types.
+   </Description>
+   <Acronym>
+      CDC
+   </Acronym>
+   <Expansion>
+      Change Data Capture
+   </Expansion>
+   <Description>
+      A set of software design patterns used to determine and track data that has changed in a database or data repository system, so that a second system can take action based on the changed data. CDC mechanisms most often are used in data warehouse environments.
+   </Description>
+   <Acronym>
+      CDD
+   </Acronym>
+   <Expansion>
+      Cooling Degree Day
+   </Expansion>
+   <Description>
+      A unit of measure used to relate a day's temperature to the energy demands to cool buildings. Calculate cooling degree days by subtracting 65 from a day's average temperature. For example, if the day's high is 90&#176;F and the day's low is 70&#176;F, the day's average is 80&#176;F. Subtract 65 from 80 to get 15 cooling degree days.
+   </Description>
+   <Acronym>
+      CDI
+   </Acronym>
+   <Expansion>
+      Central/Common Data Interface
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CDMA
+   </Acronym>
+   <Expansion>
+      Code Division Multiple Access
+   </Expansion>
+   <Description>
+      A digital cellular technology that uses a spread spectrum method allowing multiple devices to share bandwidth while communicating over a single transmission channel. It is generally referred to as CDMA. In North America, CDMA is the cellular technology used by Verizon, Sprint, and Bell Canada.
+   </Description>
+   <Acronym>
+      CDP
+   </Acronym>
+   <Expansion>
+      Communication Data Provider
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CDP
+   </Acronym>
+   <Expansion>
+      Certificate Distribution Point
+   </Expansion>
+   <Description>
+      The path or protocol in a public key infrastructure (PKI) security certificate indicating where the certificate revocation list (CRL) is located.
+   </Description>
+   <Acronym>
+      CE
+   </Acronym>
+   <Expansion>
+      Consumer Electronics
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CE
+   </Acronym>
+   <Expansion>
+      Collection Engine
+   </Expansion>
+   <Description>
+      The head-end system and the heart of Itron's OpenWay advanced metering infrastructure (AMI) solution. The CE is a C12.22-compliant software application that collects meter data and manages, upgrades, and in some cases connects and disconnects meters through remote two-way communications. The CE passes collected meter data to the meter data management (MDM) system for storage and manipulation at the utility. It stores information related to registered meter configurations, such as cell relay data, communication paths, group assignments, and firmware versions.
+   </Description>
+   <Acronym>
+      CER
+   </Acronym>
+   <Expansion>
+      Canonical Encoding Rules
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CERC
+   </Acronym>
+   <Expansion>
+      Consumer Electronics Remote Control
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      cf
+   </Acronym>
+   <Expansion>
+      One cubic foot.
+   </Expansion>
+   <Description>
+      Used in the utility industry to express quantities of natural gas.
+   </Description>
+   <Acronym>
+      CG
+   </Acronym>
+   <Expansion>
+      Connected Grid
+   </Expansion>
+   <Description>
+      The Cisco suite of smart grid communications solutions for utilities.
+   </Description>
+   <Acronym>
+      CG-NMS
+   </Acronym>
+   <Expansion>
+      Connected Grid Network Management System
+   </Expansion>
+   <Description>
+      The Cisco server and software suite used to manage and maintain the RF Mesh network infrastructure. CG- NMS provides commissioning, provisioning, and monitoring services for each field area router (FAR) and meter communication module.
+   </Description>
+   <Acronym>
+      CGR
+   </Acronym>
+   <Expansion>
+      Connected Grid Router
+   </Expansion>
+   <Description>
+      A Cisco field area router (FAR) used as a network router in OpenWay systems. The CGR is a network router that serves as a data collection point for meters participating in the Cisco RF Mesh.
+   </Description>
+   <Acronym>
+      CGR ACT Module
+   </Acronym>
+   <Expansion>
+      Connected Grid Router Adaptive Communications Technology Module
+   </Expansion>
+   <Description>
+      A module that enables meters and grid devices equipped with Adaptive Communications Technology (ACT) to communicate with each other while dynamically switching between RF and PLC. Also known as CGR ACT Module.
+   </Description>
+   <Acronym>
+      CHF
+   </Acronym>
+   <Expansion>
+      Communications Hub Function
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CHPI
+   </Acronym>
+   <Expansion>
+      Communications Hub Physical Interface
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CHTS
+   </Acronym>
+   <Expansion>
+      Communication Hub Technical Specification
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CIL
+   </Acronym>
+   <Expansion>
+      Customer Information Log
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CIM
+   </Acronym>
+   <Expansion>
+      Common Information Model
+   </Expansion>
+   <Description>
+      A standard that allows application software to exchange information about an electrical network. The Common Information Model (CIM) is a standard based on the Unified Modeling Language (UML). CIM defines common language for the electric power industry that allows application software to exchange information about the configuration and status of an electrical network.
+   </Description>
+   <Acronym>
+      CIN
+   </Acronym>
+   <Expansion>
+      Customer ID Number
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CIP
+   </Acronym>
+   <Expansion>
+      Critical Infrastructure Protection
+   </Expansion>
+   <Description>
+      Preparation for and response to serious threats to vital systems and assets that could have a debilitating impact on national security, public health, or safety.
+   </Description>
+   <Acronym>
+      CIS
+   </Acronym>
+   <Expansion>
+      Customer Information System
+   </Expansion>
+   <Description>
+      Software used by a utility or other market participant for maintaining customer and billing information. CIS often includes a history of work done for each customer.
+   </Description>
+   <Acronym>
+      CLI
+   </Acronym>
+   <Expansion>
+      Command Line Interface
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CLPU
+   </Acronym>
+   <Expansion>
+      Cold Load PickUp
+   </Expansion>
+   <Description>
+      The increased currents that occur during the re-energization of a circuit or substation after an extended power outage during which there was a loss of load diversity. CLPU can also refer to the delay between the end of a power outage (cold load) and the moment when a meter's register resumes (picks-up) calculation of demand.
+   </Description>
+   <Acronym>
+      CM
+   </Acronym>
+   <Expansion>
+      Cell Master
+   </Expansion>
+   <Description>
+      A level-one device in a cell that manages the meters (up to 1,000) within that cell.
+   </Description>
+   <Acronym>
+      CoPP
+   </Acronym>
+   <Expansion>
+      Control Plane Policing
+   </Expansion>
+   <Description>
+      A Cisco NX-OS security feature that allows you to configure the quality of service (QoS) filter to manage and protect the Cisco IOS router and switch control planes against reconnaissance and denial-of-service (DoS) attacks.
+   </Description>
+   <Acronym>
+      CoS
+   </Acronym>
+   <Expansion>
+      Change of Supplier
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      COSEM
+   </Acronym>
+   <Expansion>
+      Companion Specification for Energy Metering
+   </Expansion>
+   <Description>
+      A set of rules defining the transport and application layers of the Device Language Message Specification (DLMS) protocol, based on existing standards, for data exchange with energy meters.
+   </Description>
+   <Acronym>
+      CoT
+   </Acronym>
+   <Expansion>
+      Change of Tenant
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CP
+   </Acronym>
+   <Expansion>
+      Cathodic Protection
+   </Expansion>
+   <Description>
+      A technique used to control corrosion of a metal structure or surface by introducing an anode to create an electrochemical cell in which the metal structure or surface to be protected is rendered the cathode. There are two types of systems for cathodic protection: sacrificial anode systems and impressed current systems. In each system, the anode possesses a lower electrochemical potential than the cathode (and is thus more corrodible), prompting the corrosion-causing current to flow away from the anode, rather than the cathode. For example, cathodic protection is used to control corrosion of boat hulls, underground storage tanks, home water heaters, and steel water and fuel pipelines. In some industries, governments require regular testing and inspection of cathodic protection systems to ensure proper operation.
+   </Description>
+   <Acronym>
+      CPASC
+   </Acronym>
+   <Expansion>
+      Commercial Product Assurance Security Characteristic
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CPE
+   </Acronym>
+   <Expansion>
+      Customer Premises Equipment
+   </Expansion>
+   <Description>
+      Equipment owned by the customer or stored on the customer's property (for example, metering equipment).
+   </Description>
+   <Acronym>
+      CPP
+   </Acronym>
+   <Expansion>
+      Critical Peak Price
+   </Expansion>
+   <Description>
+      A temporary rate structure imposed by electric utilities to curb usage when power system emergency conditions are anticipated and additional sources of electricity may be necessary to meet demand.
+   </Description>
+   <Acronym>
+      CPU
+   </Acronym>
+   <Expansion>
+      Central Processing Unit
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CPV
+   </Acronym>
+   <Expansion>
+      Certification Path Validation
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CR
+   </Acronym>
+   <Expansion>
+      Certificate Request
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CR
+   </Acronym>
+   <Expansion>
+      Cell Relay
+   </Expansion>
+   <Description>
+      An OpenWay communication device that routes messages between the smart meters that make up its cell and the OpenWay Collection Engine (CE).
+   </Description>
+   <Acronym>
+      CRA
+   </Acronym>
+   <Expansion>
+      Command, Response, Alert flag
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CRC
+   </Acronym>
+   <Expansion>
+      Cyclic Redundancy Check
+   </Expansion>
+   <Description>
+      A mathematical formula applied to groups of data bits sent over a communications link to determine whether the data has been transmitted accurately.
+   </Description>
+   <Acronym>
+      CRF
+   </Acronym>
+   <Expansion>
+      Common Readings file Format
+   </Expansion>
+   <Description>
+      An XML file format developed by Itron to enable software applications with different native file formats to exchange meter route and energy use data. Originally developed for the Itron Enterprise Edition (IEE) software, CRF is used by Itron's Field Deployment Manager (FDM), Field Collection System (FCS), MV-RS, and Premierplus4 mobile meter reading systems and by its ChoiceConnect Fixed Network 100 and OpenWay network meter reading systems.
+   </Description>
+   <Acronym>
+      CRL
+   </Acronym>
+   <Expansion>
+      Certification Revocation List
+   </Expansion>
+   <Description>
+      A set of subscribers that are paired with digital certificates within a public key infrastructure (PKI). The list provides a record of revoked certificates and states the reasons for their revocation and unreliability.
+   </Description>
+   <Acronym>
+      CRUG
+   </Acronym>
+   <Expansion>
+      Cell Relay Under Glass
+   </Expansion>
+   <Description>
+      A socket-based cell relay installed inside the base of an OpenWay CENTRON meter.
+   </Description>
+   <Acronym>
+      CS
+   </Acronym>
+   <Expansion>
+      Communication Server
+   </Expansion>
+   <Description>
+      A server that manages communications between the OpenWay Collection Engine (CE) and a group of cell relays. An OpenWay solution can include multiple communication servers, and each server can communicate with up to 200 cell relays.
+   </Description>
+   <Acronym>
+      CSA
+   </Acronym>
+   <Expansion>
+      Canadian Standards Association
+   </Expansion>
+   <Description>
+      A standards-defining organization for industries that include electronics, communications, and information technology.
+   </Description>
+   <Acronym>
+      CSDL
+   </Acronym>
+   <Expansion>
+      Cisco Secure Development Lifecycle
+   </Expansion>
+   <Description>
+      A Cisco development standard designed to ensure code security and resilience. It does this by identifying and implementing specific processes or tools to enable engineers to detect, fix, mitigate, and prevent design and code weaknesses that could become exploitable.
+   </Description>
+   <Acronym>
+      CSMA
+   </Acronym>
+   <Expansion>
+      Carrier Sense Multiple Access
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CSMA-CA
+   </Acronym>
+   <Expansion>
+      Carrier Sense Multiple Access - Collision Avoidance
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CSP
+   </Acronym>
+   <Expansion>
+      Communication Service Provider
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CSR
+   </Acronym>
+   <Expansion>
+      Customer Service Representative
+   </Expansion>
+   <Description>
+      A utility employee, such as a call-center worker, who responds to customer concerns on behalf of the utility.
+   </Description>
+   <Acronym>
+      CSV
+   </Acronym>
+   <Expansion>
+      Comma-Separated Values
+   </Expansion>
+   <Description>
+      A plain-text representation of tabular data in which the values (cells) of a row are separated by commas and each row is on its own line. CSV-formatted files are commonly used to transfer data between applications that normally use incompatible or proprietary data file formats.
+   </Description>
+   <Acronym>
+      CT
+   </Acronym>
+   <Expansion>
+      Commissioning Tool
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CT
+   </Acronym>
+   <Expansion>
+      Current Transformer
+   </Expansion>
+   <Description>
+      A device for measuring electrical currents.
+   </Description>
+   <Acronym>
+      CTP
+   </Acronym>
+   <Expansion>
+      Community Technology Preview
+   </Expansion>
+   <Description>
+      A Microsoft-coined term for a major public beta-test software release.
+   </Description>
+   <Acronym>
+      CTTG
+   </Acronym>
+   <Expansion>
+      Commissioning Tools Task Group
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      CUM
+   </Acronym>
+   <Expansion>
+      Cumulative Demand Values
+   </Expansion>
+   <Description>
+      The sum of all previous maximum demand values on a meter after a demand reset condition. When a demand reset occurs, the maximum demand values are added to the existing corresponding cumulative demand values, and the sums are saved as the new cumulative demand values. These values do not increase until the next demand reset condition. Cumulative demand may be used for block, rolling, and thermal demand types.
+   </Description>
+   <Acronym>
+      CVR
+   </Acronym>
+   <Expansion>
+      Conservation Voltage Reduction
+   </Expansion>
+   <Description>
+      The systematic, controlled reduction in voltages to energy consumers to reduce their energy use, power demand, and reactive power demand. The primary aim of CVR is to reduce power demand when energy costs are high and the utility is producing maximum power.
+   </Description>
+   <Acronym>
+      CW
+   </Acronym>
+   <Expansion>
+      Continuous Wave
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      DA
+   </Acronym>
+   <Expansion>
+      Distribution Automation
+   </Expansion>
+   <Description>
+      The automatic monitoring and control of a utility's distribution feeders and equipment such as switches, reclosers, and capacitor bank controllers.
+   </Description>
+   <Acronym>
+      DAS
+   </Acronym>
+   <Expansion>
+      Distribution Automation System
+   </Expansion>
+   <Description>
+      The automatic monitoring and control of a utility's distribution feeders and equipment such as switches, reclosers, and capacitor bank controllers.
+   </Description>
+   <Acronym>
+      DAA Suite
+   </Acronym>
+   <Expansion>
+      Distribution Asset Analysis Suite
+   </Expansion>
+   <Description>
+      Itron's collection of software tools for predicting transformer loading; understanding system-wide device, feeder, and bank loads; and planning distribution capacity by using customer usage data, supervisory control and data acquisition (SCADA) information, and historical and forecasted weather data. DAA Suite consists of three functionality modules: Transformer Load Management (TLM), Asset Utilization, and Capacity Planning.
+   </Description>
+   <Acronym>
+      DAO
+   </Acronym>
+   <Expansion>
+      Destination Advertisement Object
+   </Expansion>
+   <Description>
+      A technology used to build the mesh routing tree tree between devices in an RF Mesh system. DAOs are used to propagate destination information upwards toward the OpenWay Collection Engine.
+   </Description>
+   <Acronym>
+      DASR
+   </Acronym>
+   <Expansion>
+      Direct Access Service Request
+   </Expansion>
+   <Description>
+      In deregulated energy markets, a request for a final meter reading before the customer switches energy suppliers. The final reading determines the final consumption and billing from the previous supplier.
+   </Description>
+   <Acronym>
+      DB
+   </Acronym>
+   <Expansion>
+      DataBase
+   </Expansion>
+   <Description>
+      A collection of data, usually in digital form, that is typically organized to model relevant aspects of reality. The data is defined so that it can be reorganized and accessed in a number of different ways. The term database is correctly applied to the data and its supporting data structures, and not to the database management system (DBMS) that is used to create, maintain, and access the database.
+   </Description>
+   <Acronym>
+      DBA
+   </Acronym>
+   <Expansion>
+      DataBase Administrator
+   </Expansion>
+   <Description>
+      A person responsible for the physical design and management of a database and for the evaluation, selection, and implementation of the database management system. In most organizations, the database administrator and data administrator are the same person; however, when the two responsibilities are managed separately, the database administrator's function is more technical.
+   </Description>
+   <Acronym>
+      DBAC
+   </Acronym>
+   <Expansion>
+      Device Based Access Control
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      DBMS
+   </Acronym>
+   <Expansion>
+      DataBase Management System
+   </Expansion>
+   <Description>
+      A software application for the creation, maintenance, and use of databases. A DBMS controls data access, enforces data integrity, maintains database security, and provides data backup and restoration.
+   </Description>
+   <Acronym>
+      DC
+   </Acronym>
+   <Expansion>
+      Direct Current
+   </Expansion>
+   <Description>
+      A type of electrical current in which, of the two wires leading to electrical devices, one side of the circuit is always negative and sending electricity while the other side is always positive or neutral. Conversely, in alternating current (AC), the electrical charge alternates between positive and negative. Devices powered by alternating current include three electrical wires of different polarities: negative, positive, and neutral (or ground).
+   </Description>
+   <Acronym>
+      DCC
+   </Acronym>
+   <Expansion>
+      Data and Communications Company
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      DCE
+   </Acronym>
+   <Expansion>
+      Data Collection Engine
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      DCU
+   </Acronym>
+   <Expansion>
+      DataCommand Unit
+   </Expansion>
+   <Description>
+      The radio transceiver hardware and associated software mounted in a vehicle that requests, receives, and stores consumption and tamper status data from radio-based ERT meter modules in Itron's mobile automated meter reading (MAMR) systems.
+   </Description>
+   <Acronym>
+      DCW
+   </Acronym>
+   <Expansion>
+      Data Collection Window
+   </Expansion>
+   <Description>
+      A window of time when the Itron Enterprise Edition (IEE) Advanced Metering Infrastructure Reading Import (ARI) procedure imports and validates meter data from the previous day.
+   </Description>
+   <Acronym>
+      DER
+   </Acronym>
+   <Expansion>
+      Distinguished Encoding Rules
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      DER
+   </Acronym>
+   <Expansion>
+      Distributed Energy Resources
+   </Expansion>
+   <Description>
+      A power-generation system that typically generates between five kilowatts (kW) and ten megawatts (MW) of electrical energy and consists of modular technologies located at or near the point of energy consumption to reduce the need for the inefficient transport of energy from remote locations over power lines. DER technologies can be used to work with load-management and energy-storage systems to improve the reliability of the electricity grid. Types of DER include but are not limited to photovoltaics, cogeneration, and wind turbines.
+   </Description>
+   <Acronym>
+      DFT
+   </Acronym>
+   <Expansion>
+      Daily Freeze Time
+   </Expansion>
+   <Description>
+      The time each day when a water or electric module reads and records demand, time-of-use (TOU), and consumption interval data from the meter. The DFT meter reading is the reading at the top of the hour equal to or before the DFT.
+   </Description>
+   <Acronym>
+      D-H
+   </Acronym>
+   <Expansion>
+      Diffie-Hellman key exchange
+   </Expansion>
+   <Description>
+      A cryptographic key exchange method that enables two agents at each end of a communication exchange to derive a shared, secret key without sending it to the other. Using a common number, both agents use a different random number as a power to raise the common number. After the results are exchanged, the receiving agent raises the received number to the same random power they used before, and the results are the same for both.
+   </Description>
+   <Acronym>
+      DIN rail
+   </Acronym>
+   <Expansion>
+      Deutsches Institut f&#129;r Normung rail
+   </Expansion>
+   <Description>
+      A metal rail of a standard type widely used for mounting circuit breakers and industrial control equipment inside equipment racks. The term applies to multiple similar standards and was standardized by the Deutsches Institut f&#129;r Normung (DIN), the German national standards organization.
+   </Description>
+   <Acronym>
+      DKUS
+   </Acronym>
+   <Expansion>
+      Decryption and Key Update Server
+   </Expansion>
+   <Description>
+      The service and/or dedicated appliance responsible for managing keys and decrypting messages sent from the meters to the OpenWay Collection Engine (CE). The DKUS generates, stores, and provides meter and system keys for meters upon registration and authentication. It manages key states for command, revocation, system, and meter keys, and communicates with the signing and encryption server (SES) using the DKUS daemon (DKUSD). The DKUS assigns multiple keys of each type to a meter: four meter keys and two of each other type of key. Only one key of each type (known as the active key) is in use at any given time. All others keys are in stand-by until activated.
+   </Description>
+   <Acronym>
+      DKUSD
+   </Acronym>
+   <Expansion>
+      Decryption and Key Update Server Daemon
+   </Expansion>
+   <Description>
+      A program that uses a transport layer security (TLS) connection to manage communications between the OpenWay decryption and key update server (DKUS) and the OpenWay Collection Engine (CE).
+   </Description>
+   <Acronym>
+      DLD
+   </Acronym>
+   <Expansion>
+      Digital Leak Detector
+   </Expansion>
+   <Description>
+      Itron's lightweight, easy-to-use, high-resolution, waterproof accelerometer for identifying leaks that are undetectable with analog leak detectors. The DLD provides dynamic range compression, automatic leak detection, and precise digital filters.
+   </Description>
+   <Acronym>
+      DLL
+   </Acronym>
+   <Expansion>
+      Dynamic Link Library
+   </Expansion>
+   <Description>
+      An executable program module in Microsoft Windows operating systems that performs one or more functions when executed by the operating system. A DLL may be called by an executable program or another DLL.
+   </Description>
+   <Acronym>
+      DLMS
+   </Acronym>
+   <Expansion>
+      Device Language Message Specification
+   </Expansion>
+   <Description>
+      Suite of application layer protocol standards developed and maintained by the DLMS user association to support messaging to and from energy distribution devices in a computer integrated environment.
+   </Description>
+   <Acronym>
+      DLP
+   </Acronym>
+   <Expansion>
+      Digital Line Protection
+   </Expansion>
+   <Description>
+      A digital protective relay system that provides distance protection for transmission lines.
+   </Description>
+   <Acronym>
+      DNP3
+   </Acronym>
+   <Expansion>
+      Distributed Network Protocol
+   </Expansion>
+   <Description>
+      An open, standards-based set of communication protocols that enables interoperability between components in process automation systems. Its main use is in the electric utility industry processes that exist between substations, outstations, and master stations.
+   </Description>
+   <Acronym>
+      DNS
+   </Acronym>
+   <Expansion>
+      Domain Name Server
+   </Expansion>
+   <Description>
+      A DNS server maintains a database that resolves a domain name (or host name) to an IP address. DNS replaces the arduous task of manually updating the HOSTS file, which performs the same function as a DNS server.
+   </Description>
+   <Acronym>
+      DOE
+   </Acronym>
+   <Expansion>
+      Department of Energy
+   </Expansion>
+   <Description>
+      The United States federal agency that announces energy policies and acts as a principal advisor to the President of the United States on energy matters. The DOE manages research and development programs, the commercialization of energy technologies, and the associated environmental, regulatory, and defense programs.
+   </Description>
+   <Acronym>
+      DR
+   </Acronym>
+   <Expansion>
+      Demand Response
+   </Expansion>
+   <Description>
+      A customer-side reduction in electricity consumption, used to modify the timing and/or quantity of demand on the power grid during peak usage times. Examples of demand response (DR) range from time-of-use (TOU) price rates for residential customers, to on-site power generation for those commercial &amp; industrial (C&amp;I) customers whom have the ability. Some uses of DR include, but are not limited to: avoiding brownouts; balancing a power grid's electricity consumption/production relationship; and lowering electricity prices during peak demand.
+   </Description>
+   <Acronym>
+      DR
+   </Acronym>
+   <Expansion>
+      Demand Reset
+   </Expansion>
+   <Description>
+      The clearing of the demand registers on an electric meter. Meters with the demand reset feature include Itron's OpenWay CENTRON, SENTINEL, and QUANTUM Q1000.
+   </Description>
+   <Acronym>
+      DRLC
+   </Acronym>
+   <Expansion>
+      Demand Response Load Control
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      DRS
+   </Acronym>
+   <Expansion>
+      Daily Reading Summary
+   </Expansion>
+   <Description>
+      A database table in the Itron Enterprise Edition (IEE). The DailyReadingSummary database table stores the daily summaries of reading values and reading statuses, organized by channel and by day and month.
+   </Description>
+   <Acronym>
+      DRT
+   </Acronym>
+   <Expansion>
+      Daily Read Time
+   </Expansion>
+   <Description>
+      The time each day when a telemetry module reads and transmits system information. For example, in a cathodic protection system, this is the time when the 100T-CP module reads the DC pipe-to-soil and AC voltages.
+   </Description>
+   <Acronym>
+      DSA
+   </Acronym>
+   <Expansion>
+      Digital Signature Algorithm
+   </Expansion>
+   <Description>
+      A United States Federal Government standard for digital signatures. DSA is a patented, royalty-free, two- phase key generation method. In the first phase, algorithm parameters are chosen. In the second phase, public keys and private keys are computed.
+   </Description>
+   <Acronym>
+      DSL
+   </Acronym>
+   <Expansion>
+      Ddigital Subscriber Line
+   </Expansion>
+   <Description>
+      A communications technology used to provide high-bandwidth Internet access to homes and small businesses over copper telephone lines.
+   </Description>
+   <Acronym>
+      DSP
+   </Acronym>
+   <Expansion>
+      Digital Signal Processing
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      DST
+   </Acronym>
+   <Expansion>
+      Daylight Saving Time
+   </Expansion>
+   <Description>
+      The practice of temporarily advancing clocks by one hour in the spring so afternoons have more daylight and mornings have less daylight.
+   </Description>
+   <Acronym>
+      DTM
+   </Acronym>
+   <Expansion>
+      Distribution Transformer Monitor
+   </Expansion>
+   <Description>
+      A hardware device deployed in electric distribution systems to improve grid management, balance loads, and detect outages, power losses, and theft.
+   </Description>
+   <Acronym>
+      DUIS
+   </Acronym>
+   <Expansion>
+      DCC User Interface Specification
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      DUT
+   </Acronym>
+   <Expansion>
+      Device Under Test
+   </Expansion>
+   <Description>
+      A manufactured item undergoing testing to determine whether it will function adequately. Also called unit under test (UUT).
+   </Description>
+   <Acronym>
+      E2E
+   </Acronym>
+   <Expansion>
+      End To End (testing)
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      EAX mode
+   </Acronym>
+   <Expansion>
+      (see definition)
+   </Expansion>
+   <Description>
+      A mode of operation for cryptographic block ciphers. EAX is an Authenticated Encryption with Associated Data (AEAD) class algorithm that secures a message's authenticity and privacy. EAX uses a two-pass scheme, one pass to achieve privacy and another pass to authenticate each block.
+   </Description>
+   <Acronym>
+      EBL
+   </Acronym>
+   <Expansion>
+      Ember Bootload
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      ECC
+   </Acronym>
+   <Expansion>
+      Elliptic Curve Cryptography
+   </Expansion>
+   <Description>
+      A highly secure public-key cryptography method based on the algebraic structure of elliptic curves over finite fields. ECC provides fast decryption and digital signature processing.
+   </Description>
+   <Acronym>
+      ECDSA
+   </Acronym>
+   <Expansion>
+      Elliptic Curve Digital Signature Algorithm
+   </Expansion>
+   <Description>
+      A digital signature algorithm (DSA) that uses elliptic curve cryptography. Digital signature that the meters use to verify that the messages came from the collection engine and not a malicious source.
+   </Description>
+   <Acronym>
+      ECIES
+   </Acronym>
+   <Expansion>
+      Elliptic Curve Integrated Encryption Scheme
+   </Expansion>
+   <Description>
+      A type of asymmetric encryption.
+   </Description>
+   <Acronym>
+      ECMQV
+   </Acronym>
+   <Expansion>
+      Elliptic Curve Menezes-Qu-Vanstone
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      ECN
+   </Acronym>
+   <Expansion>
+      Engineering Change Notice
+   </Expansion>
+   <Description>
+      A document that describes and authorizes engineering changes to a product and its corresponding documentation. Also called engineering change order (ECO).
+   </Description>
+   <Acronym>
+      ECO
+   </Acronym>
+   <Expansion>
+      Engineering Change Order
+   </Expansion>
+   <Description>
+      A document that describes and authorizes engineering changes to a product and its corresponding documentation. Also called engineering change notice (ECN).
+   </Description>
+   <Acronym>
+      ED
+   </Acronym>
+   <Expansion>
+      End Device
+   </Expansion>
+   <Description>
+      A network component or device that is either the source or the destination of a message. For example: a computer, printer, web camera, ERT module, or meter
+   </Description>
+   <Acronym>
+      EDF
+   </Acronym>
+   <Expansion>
+      Endpoint Definition File
+   </Expansion>
+   <Description>
+      An XML-formatted file listing the electronic serial numbers (ESNs) and device classes of meters shipped from the Itron manufacturing facility. The OpenWay Collection Engine (CE) imports the information from the file, adding the meters to the OpenWay system and enabling the listed meters to register with cell relays in the field.
+   </Description>
+   <Acronym>
+      EEPROM
+   </Acronym>
+   <Expansion>
+      Electrically Erasable Programmable Read-Only Memory
+   </Expansion>
+   <Description>
+      Non-volatile computer (or electronic device) memory that retains its data when power is removed.
+   </Description>
+   <Acronym>
+      EHF
+   </Acronym>
+   <Expansion>
+      Extremely High Frequencies
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      EhP
+   </Acronym>
+   <Expansion>
+      Enhancement Pack
+   </Expansion>
+   <Description>
+      A minor release of the SAP software.
+   </Description>
+   <Acronym>
+      ELF
+   </Acronym>
+   <Expansion>
+      Endpoint Location File
+   </Expansion>
+   <Description>
+      A comma-separated values (.CSV) file containing either the latitudinal and longitudinal coordinates, or the complete street address that is associated with a specific endpoint ID. ELFs can contain coordinates/addresses for one or more endpoint IDs.
+   </Description>
+   <Acronym>
+      EMM
+   </Acronym>
+   <Expansion>
+      External Meter Modem
+   </Expansion>
+   <Description>
+      A radio modem that is mounted externally to a high-functionality meter. It interfaces with the meter through an external data port and forwards meter data by means of two-way radio communications to a host processor. The EEM is a component of Itron's C&amp;I Network.
+   </Description>
+   <Acronym>
+      EMR
+   </Acronym>
+   <Expansion>
+      Electronic Meter Reading
+   </Expansion>
+   <Description>
+      The collection, storage, and transmission of meter reading data using a handheld computer or other electronic meter reading device.
+   </Description>
+   <Acronym>
+      EMS
+   </Acronym>
+   <Expansion>
+      Energy Management System
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      EMS
+   </Acronym>
+   <Expansion>
+      Environmental Management System
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      EOD
+   </Acronym>
+   <Expansion>
+      Enterprise on Demand
+   </Expansion>
+   <Description>
+      An AT&amp;T program for customers with large data deployments, such as utility companies. EOD customers can purchase SIM cards and activate them in their devices at a later time.
+   </Description>
+   <Acronym>
+      EOI
+   </Acronym>
+   <Expansion>
+      End Of Interval
+   </Expansion>
+   <Description>
+      End of a demand interval or subinterval.
+   </Description>
+   <Acronym>
+      EOL
+   </Acronym>
+   <Expansion>
+      End-Of-Life
+   </Expansion>
+   <Description>
+      A date when a product is no longer supported. Applies to products that are no longer sold, marketed, or sustained to customers.
+   </Description>
+   <Acronym>
+      EOT
+   </Acronym>
+   <Expansion>
+      End Of Transmission
+   </Expansion>
+   <Description>
+      A transmission control character used in telecommunications to indicate the conclusion of a transmission.
+   </Description>
+   <Acronym>
+      EPA
+   </Acronym>
+   <Expansion>
+      Environmental Protection Agency
+   </Expansion>
+   <Description>
+      A United States federal government agency that writes and enforces laws, regulations, and national standards that are designed to protect human health and the environment.
+   </Description>
+   <Acronym>
+      EPID
+   </Acronym>
+   <Expansion>
+      Extended PAN ID
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      EPL
+   </Acronym>
+   <Expansion>
+      Endpoint-Link
+   </Expansion>
+   <Description>
+      Configuration software provided free to customers to enable them to read, program, and check Itron ERT modules in support of utility operations. EPL runs on Itron's FC200 and FC300 handheld data collectors and on PCs equipped with 900 MHz Belt-Clip Radios. It is intended for use with Itron's ChoiceConnect, OpenWay, and Water SaveSource solutions.
+   </Description>
+   <Acronym>
+      ERT
+   </Acronym>
+   <Expansion>
+      Encoder/Receiver/Transmitter module
+   </Expansion>
+   <Description>
+      A low-power radio frequency device that attaches to an electricity, gas, or water meter and collects usage and related data. An ERT module encodes the data and transmits it to Itron data collection devices and systems such as handheld computers, (HHCs), mobile automated meter reading (MAMR) devices, and fixed networks. Also called an endpoint, communication module, or meter interface unit (MIU). ERT module is the official term.
+   </Description>
+   <Acronym>
+      ESB
+   </Acronym>
+   <Expansion>
+      Enterprise Service Bus
+   </Expansion>
+   <Description>
+      A software model used to design and implement communications between mutually-interacting software applications in a service-oriented architecture (SOA).
+   </Description>
+   <Acronym>
+      ESI
+   </Acronym>
+   <Expansion>
+      Energy Service Interface
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      ESN
+   </Acronym>
+   <Expansion>
+      Electronic Serial Number
+   </Expansion>
+   <Description>
+      The unique International Organization for Standardization (ISO) object identification number assigned to a mobile or other electronic device by the manufacturer. The ESN consists of the number issued to the manufacturer (called the arc), which is the same for all devices from that manufacturer, followed by a unique number for the device itself. The OpenWay Collection Engine (CE) uses the ESN identifier to identify each electric meter it communicates with. The CE displays the ESN as text with a decimal point separator in all interfaces, messages, and data sent to the utility application.
+   </Description>
+   <Acronym>
+      ESP
+   </Acronym>
+   <Expansion>
+      Ember Serial Protocol
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      ESP
+   </Acronym>
+   <Expansion>
+      Electronic Security Perimeter
+   </Expansion>
+   <Description>
+      The logical border that surrounds an access-controlled network or network group with associated cyber assets that are essential to network operation.
+   </Description>
+   <Acronym>
+      ESP
+   </Acronym>
+   <Expansion>
+      Embedded Services Processor
+   </Expansion>
+   <Description>
+      A processor in some Cisco routers that is responsible for data-plane processing tasks and all network traffic. ESPs are also responsible for some advanced services such as firewall protection, flexible packet matching, and network-based application recognition.
+   </Description>
+   <Acronym>
+      ESP
+   </Acronym>
+   <Expansion>
+      Encapsulating Security Payload
+   </Expansion>
+   <Description>
+      An Internet protocol that provides confidentiality, authentication, and integrity through encryption to protect against IP packet tampering.
+   </Description>
+   <Acronym>
+      ESP
+   </Acronym>
+   <Expansion>
+      Energy Service Provider
+   </Expansion>
+   <Description>
+      A non-utility supplier of electricity to a competitive energy marketplace.
+   </Description>
+   <Acronym>
+      ETL
+   </Acronym>
+   <Expansion>
+      Extract, Transform, and Load
+   </Expansion>
+   <Description>
+      A single process made up three database functions used to migrate data between databases, form data marts, convert databases from one format to another, and so on. The ETL process involves extracting data from a source database, transforming the data to fit operational needs, and then loading the data into the target, usually another database or a data warehouse.
+   </Description>
+   <Acronym>
+      EUI64
+   </Acronym>
+   <Expansion>
+      Extended Universal Identifier-64
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      EUMD
+   </Acronym>
+   <Expansion>
+      End Use Metering Device
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      EVDO
+   </Acronym>
+   <Expansion>
+      Evolution-Data Optimized
+   </Expansion>
+   <Description>
+      A 3G high-speed cellular data service that uses CDMA technology.
+   </Description>
+   <Acronym>
+      EZSP
+   </Acronym>
+   <Expansion>
+      EmberZNet Serial Protocol
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      FAN
+   </Acronym>
+   <Expansion>
+      Field Area Network
+   </Expansion>
+   <Description>
+      A Smart Grid communications network infrastructure that combines neighborhood area network (NAN) and wide area network (WAN) components. A FAN can serve as a backhaul network for a variety of electric grid control devices, multi-tenant services (gas and water meters), and data exchanges to home area network (HAN) devices, all connected through a variety of wireless or wired line technologies.
+   </Description>
+   <Acronym>
+      FAR
+   </Acronym>
+   <Expansion>
+      Field Area Router
+   </Expansion>
+   <Description>
+      A network router that serves as a data collection point for meters participating in the Cisco RF Mesh. Several thousand meters may communicate to a single FAR. The FAR links the meters to the backhaul.
+   </Description>
+   <Acronym>
+      FC
+   </Acronym>
+   <Expansion>
+      Frame Counter
+   </Expansion>
+   <Description>
+      Pertaining to ISSI.
+   </Description>
+   <Acronym>
+      FCA
+   </Acronym>
+   <Expansion>
+      Flat Configuration Attribute
+   </Expansion>
+   <Description>
+      A database table in Itron Enterprise Edition (IEE) containing entity configuration data.
+   </Description>
+   <Acronym>
+      FCB
+   </Acronym>
+   <Expansion>
+      Flat Configuration Business
+   </Expansion>
+   <Description>
+      An Itron Enterprise Edition (IEE) database table containing customer account and entity information that supports IEE Mass Market Customer Care (MM CC) and IEE advanced metering infrastructure (AMI) functionality.
+   </Description>
+   <Acronym>
+      FCC
+   </Acronym>
+   <Expansion>
+      Federal Communications Commission
+   </Expansion>
+   <Description>
+      The United States federal governing body that issues radio-frequency usage licenses. The FCC also certifies radio and other equipment against standards of operation and performance.
+   </Description>
+   <Acronym>
+      FCP
+   </Acronym>
+   <Expansion>
+      Flat Configuration Physical
+   </Expansion>
+   <Description>
+      An Itron Enterprise Edition (IEE) database table. The FlatConfigPhysical table stores meter and recording device configuration data that supports IEE Mass Market Customer Care (MM CC) and IEE advanced metering infrastructure (AMI) functionality.
+   </Description>
+   <Acronym>
+      FCS
+   </Acronym>
+   <Expansion>
+      Itron Field Collection System
+   </Expansion>
+   <Description>
+      Itron's data collection engine for handheld and mobile AMR systems. FCS collects data from multiple meter types, provides meter data to customer billing applications, and integrates with Itron's workforce automation tools.
+   </Description>
+   <Acronym>
+      FDM
+   </Acronym>
+   <Expansion>
+      Itron Field Deployment Manager
+   </Expansion>
+   <Description>
+      Itron's newest meter/endpoint installation and workforce management software solution. FDM supports safe, efficient deployment and maintenance of meters, endpoints, and metering network equipment; automates endpoint programming; electronically captures and validates installation data, reducing errors and site revisits; ensures network connectivity; captures field images and GPS coordinates; and creates work orders for service and quality audit work orders. It includes optional invoicing and inventory management modules.
+   </Description>
+   <Acronym>
+      FERC
+   </Acronym>
+   <Expansion>
+      Federal Energy Regulatory Commission
+   </Expansion>
+   <Description>
+      The regulatory agency in the United States Department of Energy (DOE) that has jurisdiction over interstate electricity sales and wholesale rates. FERC regulates the price, terms, and conditions of power sold in interstate commerce and all transmission services. FERC is the federal counterpart to state utility regulatory commissions.
+   </Description>
+   <Acronym>
+      FFD
+   </Acronym>
+   <Expansion>
+      Full Function Device
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      FFT
+   </Acronym>
+   <Expansion>
+      Fast Fourier Transform
+   </Expansion>
+   <Description>
+      A representative measure of the spectral energy present in a given radio frequency channel. FFT is a specific family of algorithms that provide a computationally efficient way to calculate Discrete Fourier Transform (DFT).
+   </Description>
+   <Acronym>
+      FIB
+   </Acronym>
+   <Expansion>
+      Flash Information Block
+   </Expansion>
+   <Description>
+      Area of flash memory where manufacturer-programmed tokens and low-level read/write routines are stored.
+   </Description>
+   <Acronym>
+      FIPS
+   </Acronym>
+   <Expansion>
+      Federal Information Processing Standards
+   </Expansion>
+   <Description>
+      Guidelines and specifications issued by the United States National Institute of Standards and Technology (NIST) for federal computer systems used by all non-military government agencies and government contractors. The standards cover data encryption and decryption; user identity authentication via digital signatures, and private key management.
+   </Description>
+   <Acronym>
+      FLISR
+   </Acronym>
+   <Expansion>
+      Fault Location Isolation and Service Restoration
+   </Expansion>
+   <Description>
+      In intelligent line switching (ILS), a standard and sometimes automated process for detecting faulted feeder segments and restoring service to those utility customers who have lost power.
+   </Description>
+   <Acronym>
+      FM
+   </Acronym>
+   <Expansion>
+      Frequency Modulation
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      FMEA
+   </Acronym>
+   <Expansion>
+      Fault Mode Effects &amp; Analysis
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      FN
+   </Acronym>
+   <Expansion>
+      ChoiceConnect Fixed Network
+   </Expansion>
+   <Description>
+      Itron's fixed radio communication network for collecting data from Itron electric, gas, and water meters equipped with ERT modules and for transporting the data over a wide-area communications network to a central host processor. The ChoiceConnect fixed network software includes several applications under ChoiceConnect Network Software.
+   </Description>
+   <Acronym>
+      FNAC
+   </Acronym>
+   <Expansion>
+      Fixed Network Administration Client
+   </Expansion>
+   <Description>
+      A component of Itron's ChoiceConnect Fixed Network that manages network devices, generates reports, and performs various services.
+   </Description>
+   <Acronym>
+      FNAS
+   </Acronym>
+   <Expansion>
+      Fixed Network Application Server
+   </Expansion>
+   <Description>
+      A component of Itron's ChoiceConnect Fixed Network that is used to gather and process meter readings. Also called the head end or collection engine.
+   </Description>
+   <Acronym>
+      FSR
+   </Acronym>
+   <Expansion>
+      Field Service Representative
+   </Expansion>
+   <Description>
+      A utility company technician or contractor who installs, programs, or maintains meters and endpoints on customers' premises. The term is also applied to technicians who audit the quality of other FSRs' work.
+   </Description>
+   <Acronym>
+      FTP
+   </Acronym>
+   <Expansion>
+      File Transfer Protocol
+   </Expansion>
+   <Description>
+      A client-server protocol that lets a user on one computer transfer files to and from another computer over a TCP/IP network. The term may also refer to the client program the user executes to transfer files.
+   </Description>
+   <Acronym>
+      GBCS
+   </Acronym>
+   <Expansion>
+      Great Britain Companion Specification - ZigBee
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      GB-HRGP
+   </Acronym>
+   <Expansion>
+      HAN-Ready Grouping and Protection protocol for the GB market
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      GBT
+   </Acronym>
+   <Expansion>
+      General Block Transfer
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      GDP
+   </Acronym>
+   <Expansion>
+      Generic Device Profile
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      GDP
+   </Acronym>
+   <Expansion>
+      Global Development Process
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      GDT
+   </Acronym>
+   <Expansion>
+      Gas Day Take
+   </Expansion>
+   <Description>
+      The time each day when a gas ERT module reads and records demand, time-of-use (TOU), and consumption interval data from the gas meter. The GDT meter reading is closest to but not after the GDT.
+   </Description>
+   <Acronym>
+      GET VPN
+   </Acronym>
+   <Expansion>
+      Group Encrypted Transport VPN
+   </Expansion>
+   <Description>
+      A Cisco-proprietary virtual private network (VPN) that is designed to simplify VPN management and provisioning.
+   </Description>
+   <Acronym>
+      GFI
+   </Acronym>
+   <Expansion>
+      Gas Function Interface
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      GFI
+   </Acronym>
+   <Expansion>
+      Gap Fill Interrogation
+   </Expansion>
+   <Description>
+      A set of multiple services that work together to identify gaps in reading data that can occur during the reading import process. GFI attempts to fill those gaps that meet size eligibility by requesting the missing readings from the meter through the collection engine web service interface.
+   </Description>
+   <Acronym>
+      GHz
+   </Acronym>
+   <Expansion>
+      GigaHertz
+   </Expansion>
+   <Description>
+      A measure of frequency, one billion cycles per second, or one billion hertz (Hz). Gigahertz is most commonly used to measure computer processing speed.
+   </Description>
+   <Acronym>
+      GIS
+   </Acronym>
+   <Expansion>
+      Geographic Information System
+   </Expansion>
+   <Description>
+      A system of hardware, software, and data designed to capture, store, manipulate, analyze, manage, and display geographic information in the form of maps, globes, reports, and charts.
+   </Description>
+   <Acronym>
+      GMAC
+   </Acronym>
+   <Expansion>
+      Galois Message Authentication Code
+   </Expansion>
+   <Description>
+      Pertaining to ISSI.
+   </Description>
+   <Acronym>
+      GMH
+   </Acronym>
+   <Expansion>
+      Gas Meter Hybrid
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      GMS
+   </Acronym>
+   <Expansion>
+      Gas Meter Static
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      GPF
+   </Acronym>
+   <Expansion>
+      Gas Proxy Function
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      GPIO
+   </Acronym>
+   <Expansion>
+      General Purpose Input/Output (microprocessor pins)
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      GPRS
+   </Acronym>
+   <Expansion>
+      General Packet Radio Service
+   </Expansion>
+   <Description>
+      A packet-based wireless communication service that provides continuous connection to the Internet over 2G and 3G networks. GPRS transmits data in packets and does not support voice communications. Multiple devices are able to share the same connection channel to transmit data packets upstream and downstream within a network.
+   </Description>
+   <Acronym>
+      GPS
+   </Acronym>
+   <Expansion>
+      Global Positioning System
+   </Expansion>
+   <Description>
+      A satellite-based system that provides positioning and navigation information. By triangulation of signals from three of the satellites, a receiving unit can pinpoint its current location anywhere on earth to within a few meters. Use of at least three satellites is necessary to calculate a two-dimensional position (latitude and longitude) and track movement. Four or more satellites are needed to determine a three-dimensional position (latitude, longitude, and altitude). GPS uses the World Geodetic System (WGS 84) as its reference coordinate system.
+   </Description>
+   <Acronym>
+      GRDM
+   </Acronym>
+   <Expansion>
+      Global R&amp;D Metrics
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      GSM
+   </Acronym>
+   <Expansion>
+      Global System for Mobile Communications
+   </Expansion>
+   <Description>
+      Originally Groupe Sp&#130;cial Mobile. The most popular standard for mobile phones in the world. Its promoter, the GSM Association, estimates that 80 percent of the global mobile market uses the standard. Developed in the 1980s, GSM was first deployed in seven European countries in 1992. Operating in the 900 MHz and 1.8 GHz bands in Europe and the 1.9 GHz PCS band in the United States, GSM defines the entire cellular system, not just the air interface.
+   </Description>
+   <Acronym>
+      GSME
+   </Acronym>
+   <Expansion>
+      Gas Smart Metering Equipment
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      GTEM
+   </Acronym>
+   <Expansion>
+      GHz Transverse ElectroMagnetic
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      GTK
+   </Acronym>
+   <Expansion>
+      Group Temporal Key
+   </Expansion>
+   <Description>
+      An AES 128-bit security key used in the OpenWay Connected Grid authentication process. The GTK is used as the transmit key, applying standard IEEE 802.15.4 frame security to any frames transmitted between devices in the RF Mesh.
+   </Description>
+   <Acronym>
+      GTS
+   </Acronym>
+   <Expansion>
+      Guaranteed Time Slot
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      GUI
+   </Acronym>
+   <Expansion>
+      Graphical User Interface
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      GUID
+   </Acronym>
+   <Expansion>
+      Globally Unique Iidentifier
+   </Expansion>
+   <Description>
+      An alphanumeric string of characters, usually 128-bits long, that is used in software applications to provide a unique identifier for files, names, resources, unique primary keys in databases, and so on.
+   </Description>
+   <Acronym>
+      GW
+   </Acronym>
+   <Expansion>
+      GigaWatt
+   </Expansion>
+   <Description>
+      A unit of power equal to 1 billion watts, 1 million kilowatts, or 1,000 megawatts.
+   </Description>
+   <Acronym>
+      GWh
+   </Acronym>
+   <Expansion>
+      GigaWatt hours
+   </Expansion>
+   <Description>
+      A unit or measure of electricity supply or consumption equal to one billion watt hours (Wh).
+   </Description>
+   <Acronym>
+      HA
+   </Acronym>
+   <Expansion>
+      Home Automation
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      HAL
+   </Acronym>
+   <Expansion>
+      Hardware Abstraction Layer
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      HAN
+   </Acronym>
+   <Expansion>
+      Home Area Network
+   </Expansion>
+   <Description>
+      A residential local area network (LAN) used for communication among digital devices in the home, such as personal computers, printers, and mobile computing devices.
+   </Description>
+   <Acronym>
+      HC
+   </Acronym>
+   <Expansion>
+      Health Care
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      HCALCS
+   </Acronym>
+   <Expansion>
+      HAN-Connected Auxiliary Load Control Switch
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      HDD
+   </Acronym>
+   <Expansion>
+      Heating Degree Day
+   </Expansion>
+   <Description>
+      A unit of measure used to relate a day's temperature to the energy demands to heat buildings. Calculate heating degree days by subtracting a day's average temperature from 65. For example, if the day's high is 60&#176;F and the day's low is 40&#176;F, the day's average is 50&#176;F. Subtract 50 from 65 to get 15 heating degree days.
+   </Description>
+   <Acronym>
+      HDL file
+   </Acronym>
+   <Expansion>
+      Host Download File
+   </Expansion>
+   <Description>
+      A proprietary file format (default file name: download.HDL) developed by Itron to download meter reading requests from a utility company's customer information system (CIS) into Itron's MV-RS meter data management system. MV-RS, in turn, sends the information to handheld and/or mobile meter data collection devices. HDL files contain cycle, route, customer, meter, and reading data. Itron's Field Collection System (FCS) employs the HDL file format to import data from utility customer information systems. Itron's Field Deployment Manager (FDM) downloads route information to HDL files for meter read validation by FCS and MV-RS.
+   </Description>
+   <Acronym>
+      HDMI
+   </Acronym>
+   <Expansion>
+      High-Definition Multimedia Interface
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      HDMI-CEC
+   </Acronym>
+   <Expansion>
+      HDMI Consumer Electronics Control
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      HDR
+   </Acronym>
+   <Expansion>
+      Header
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      HER
+   </Acronym>
+   <Expansion>
+      Head-End Router
+   </Expansion>
+   <Description>
+      A router that directs communications to and from multiple field area routers (FARs).
+   </Description>
+   <Acronym>
+      HES
+   </Acronym>
+   <Expansion>
+      Head-End System
+   </Expansion>
+   <Description>
+      A software application that receives the stream of meter data brought back to the utility by an AMR/AMI system. Head-end systems may perform a limited amount of data validation before either making the data available for other systems to request or before pushing the data out to other systems. Head-end systems may also perform a limited set of data management functions for such activities as route management, outage detection, and on-demand reads.
+   </Description>
+   <Acronym>
+      HF
+   </Acronym>
+   <Expansion>
+      High Frequencies
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      HFT
+   </Acronym>
+   <Expansion>
+      Historical Freeze Time
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      HH
+   </Acronym>
+   <Expansion>
+      HandHeld
+   </Expansion>
+   <Description>
+      A portable data collection device with labeled keys and a display screen used by utility employees (for example, field service representatives) to collect meter readings and related meter data. Itron's handheld computers include the FC200 and FC300 and the older FS/2, FS3, Genesis Portable Computer (GPC), TRx (Japan), and G5.
+   </Description>
+   <Acronym>
+      HHF
+   </Acronym>
+   <Expansion>
+      Hand-Held file Format
+   </Expansion>
+   <Description>
+      A file format consisting of multiple 256-byte records that is produced by third-party and Itron software applications (such as Field Collection System and MV-RS) running on hand-held data collectors. The format allows data (such as register data, and meter event or history log information) from multiple devices to be stored in the same file, which can be uploaded to MV-90xi and Itron Enterprise Edition (IEE).
+   </Description>
+   <Acronym>
+      HHT
+   </Acronym>
+   <Expansion>
+      Hand Held Terminal
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      HMAC
+   </Acronym>
+   <Expansion>
+      Hash-based Message Authentication Code
+   </Expansion>
+   <Description>
+      Calculations to construct a message authentication code (MAC) that involve cryptographic hash functions in combination with a secret key. HMACs can be used to verify the data integrity and authenticity of messages.
+   </Description>
+   <Acronym>
+      HSL
+   </Acronym>
+   <Expansion>
+      HERMES SoftLab
+   </Expansion>
+   <Description>
+      An international company that provides IT solutions and software engineering services to high-tech vendors, telecommunication service providers, financial institutions, and the public sector.
+   </Description>
+   <Acronym>
+      HSM
+   </Acronym>
+   <Expansion>
+      Hardware Security Module
+   </Expansion>
+   <Description>
+      A hardened peripheral component interconnect (PCI) card that runs the OpenWay cryptographic engine. The HSM makes use of a hardware-based random number generator to generate all system elliptic curve cryptography (ECC) key pairs and securely stores them for use in message-signing operations.
+   </Description>
+   <Acronym>
+      HSPA
+   </Acronym>
+   <Expansion>
+      High Speed Packet Access
+   </Expansion>
+   <Description>
+      A combination of two mobile telephony protocols, High Speed Downlink Packet Access (HSDPA) and High Speed Uplink Packet Access (HSUPA), which extend and improve the performance of existing Wideband Code Division Multiple Access (WCDMA) protocols. HSPA supports increased peak data rates of up to 14 Mbit/s in the downlink and 5.8 Mbit/s in the uplink. It also reduces latency and provides up to five times more system capacity in the downlink and up to twice as much system capacity in the uplink, reducing the production cost per bit compared to original WCDMA protocols.
+   </Description>
+   <Acronym>
+      HSDPA
+   </Acronym>
+   <Expansion>
+      High Speed Downlink Packet Access
+   </Expansion>
+   <Description>
+      A combination of two mobile telephony protocols, High Speed Downlink Packet Access (HSDPA) and High Speed Uplink Packet Access (HSUPA), which extend and improve the performance of existing Wideband Code Division Multiple Access (WCDMA) protocols. HSPA supports increased peak data rates of up to 14 Mbit/s in the downlink and 5.8 Mbit/s in the uplink. It also reduces latency and provides up to five times more system capacity in the downlink and up to twice as much system capacity in the uplink, reducing the production cost per bit compared to original WCDMA protocols.
+   </Description>
+   <Acronym>
+      HSUPA
+   </Acronym>
+   <Expansion>
+      High Speed Uplink Packet Access
+   </Expansion>
+   <Description>
+      A combination of two mobile telephony protocols, High Speed Downlink Packet Access (HSDPA) and High Speed Uplink Packet Access (HSUPA), which extend and improve the performance of existing Wideband Code Division Multiple Access (WCDMA) protocols. HSPA supports increased peak data rates of up to 14 Mbit/s in the downlink and 5.8 Mbit/s in the uplink. It also reduces latency and provides up to five times more system capacity in the downlink and up to twice as much system capacity in the uplink, reducing the production cost per bit compared to original WCDMA protocols.
+   </Description>
+   <Acronym>
+      HTML
+   </Acronym>
+   <Expansion>
+      Hypertext Markup Language
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      HTTP
+   </Acronym>
+   <Expansion>
+      Hypertext Transfer Protocol
+   </Expansion>
+   <Description>
+      A networking protocol or set of rules for transferring files (text, graphic images, sound, video, and other multimedia files) in distributed, collaborative, hypermedia information systems. HTTP is the foundation of data communication for the World Wide Web.
+   </Description>
+   <Acronym>
+      HUL
+   </Acronym>
+   <Expansion>
+      Host Upload File
+   </Expansion>
+   <Description>
+      A proprietary file format (default file name: upload.HUL) developed by Itron to upload meter reading data collected by Itron's MV-RS meter data management system to a utility company's customer information system (CIS). Itron's Field Collection System (FCS) also employs the HUL file format to export FCS data to customer information systems.
+   </Description>
+   <Acronym>
+      HVAC
+   </Acronym>
+   <Expansion>
+      Heating, Ventilation, and Air Conditioning
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      HVRI
+   </Acronym>
+   <Expansion>
+      High Volume Readings Import
+   </Expansion>
+   <Description>
+      In Itron Enterprise Edition (IEE) v7.0 SP4 and earlier, a term used to describe the IEE sub-system processes that collect meter readings for the previous calendar day, then validates, estimates, and imports those readings into IEE. In IEE v8.1 and later, HVRI is called AMI Readings Import (ARI), which includes expanded functionality and a user interface in the Rich Client.
+   </Description>
+   <Acronym>
+      Hz
+   </Acronym>
+   <Expansion>
+      Hertz
+   </Expansion>
+   <Description>
+      A measure of frequency, one cycle per second. The unit may be applied to any periodic event-for example, a clock might be said to tick at 1 Hz, or a human heart might be said to beat at 1.2 Hz.
+   </Description>
+   <Acronym>
+      I2C
+   </Acronym>
+   <Expansion>
+      Inter-Integrated Circuit
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      IANA
+   </Acronym>
+   <Expansion>
+      Internet Assigned Numbers Authority
+   </Expansion>
+   <Description>
+      The organization that oversees global IP address allocation, autonomous system number allocation, root zone management in the Domain Name System (DNS), media types, and other Internet Protocol-related symbols and numbers. IANA is a department operated by the Internet Corporation for Assigned Names and Numbers (ICANN).
+   </Description>
+   <Acronym>
+      IB
+   </Acronym>
+   <Expansion>
+      Information Base
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      ICANN
+   </Acronym>
+   <Expansion>
+      Internet Corporation for Assigned Names and Numbers
+   </Expansion>
+   <Description>
+      A private, nonprofit corporation with authority for administering Internet Protocol (IP) addresses, domain names, and root servers and for other Internet-related matters.
+   </Description>
+   <Acronym>
+      ICC ID
+   </Acronym>
+   <Expansion>
+      Integrated Circuit Card IDentifier
+   </Expansion>
+   <Description>
+      The serial number of a subscriber identity module (SIM) card.
+   </Description>
+   <Acronym>
+      ICR
+   </Acronym>
+   <Expansion>
+      Inbound Communication Router
+   </Expansion>
+   <Description>
+      An OpenWay Collection Engine software service that receives information from cell relays or other IP- connected devices in an OpenWay network, pieces message segments together, passes the messages through the security layer to handle inbound traffic decryption, and places the messages onto the Collection Engine's message bus targeted for the meter communication host (MCH) assigned to the end device that generated the traffic.
+   </Description>
+   <Acronym>
+      ICS
+   </Acronym>
+   <Expansion>
+      Initial Collector Setup
+   </Expansion>
+   <Description>
+      The process for installing a new software version and the utility's specific configuration parameters onto a partition of the cell control unit's (CCU) Secure Digital (SD) card. After ICS completes, the SD card becomes the active root file system.
+   </Description>
+   <Acronym>
+      IDE
+   </Acronym>
+   <Expansion>
+      Integrated Development Environment
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      IDM
+   </Acronym>
+   <Expansion>
+      Interval Data Message
+   </Expansion>
+   <Description>
+      A message sent by some ERT modules to Itron fixed networks at programmed intervals, in addition to the standard consumption message (SCM). The IDM contains kWh read, tamper, and interval recording data from which the network can calculate such things as demand, time-of-use (TOU), peak energy consumption periods, and load profiling information.
+   </Description>
+   <Acronym>
+      IDM
+   </Acronym>
+   <Expansion>
+      Import Data Manager
+   </Expansion>
+   <Description>
+      An Itron Enterprise Edition component that determines how interval and register data is collected, stored, and managed. Meter data that is sent upstream to IEE is received by the IDM and can be routed based on the defined configuration of the data routing program.
+   </Description>
+   <Acronym>
+      IDR
+   </Acronym>
+   <Expansion>
+      Interval Data Recorder
+   </Expansion>
+   <Description>
+      A solid-state electronic device that measures consumption among high-usage commercial and industrial (C&amp;I) accounts. The information collected is used by a utility to determine peak-demand times and adjust its distribution system accordingly.
+   </Description>
+   <Acronym>
+      IDS
+   </Acronym>
+   <Expansion>
+      Intrusion Detection System
+   </Expansion>
+   <Description>
+      A network and system-monitoring device or software application that evaluates activities, identifies malicious threats and policy violations, and produces reports for a management station.
+   </Description>
+   <Acronym>
+      IEC
+   </Acronym>
+   <Expansion>
+      International Electrotechnical Commission
+   </Expansion>
+   <Description>
+      A non-profit, non-governmental international standards organization that prepares and publishes international standards for all electrical, electronic, and related technologies. IEC standards cover a vast range of technologies from power generation, transmission and distribution to home appliances and office equipment, semiconductors, fiber optics, batteries, solar energy, nanotechnology, marine energy, and many others.
+   </Description>
+   <Acronym>
+      IEE
+   </Acronym>
+   <Expansion>
+      Itron Enterprise Edition
+   </Expansion>
+   <Description>
+      Itron's integrated data management and analysis platform. IEE consists of a family of packaged products that can be deployed in combination or as standalone applications for meter data management, analysis, and Web- based presentment.
+   </Description>
+   <Acronym>
+      IEEE
+   </Acronym>
+   <Expansion>
+      Institute of Electrical and Electronic Engineers
+   </Expansion>
+   <Description>
+      A non-profit professional association dedicated to advancing technological innovation and excellence. IEEE is one of the leading standards-making organizations in the world. IEEE standards affect a wide range of industries including power and energy, biomedical and health care, information technology, telecommunications, transportation, nanotechnology, information assurance, and many more.
+   </Description>
+   <Acronym>
+      IETF
+   </Acronym>
+   <Expansion>
+      Internet Engineering Task Force
+   </Expansion>
+   <Description>
+      An international community of network designers, operators, vendors, and researchers concerned with the evolution of Internet architecture and the smooth operation of the Internet. It is open to any interested individual. Its mission is "to make the Internet work better by producing high-quality, relevant technical documents that influence the way people design, use, and manage the Internet." It develops and promotes Internet standards, cooperating closely with the World Wide Web Consortium (W3C), International Organization for Standardization (ISO), and International Electrotechnical Commission (IEC) standards bodies and dealing in particular with standards of the TCP/IP and Internet Protocol (IP) suite.
+   </Description>
+   <Acronym>
+      IHD
+   </Acronym>
+   <Expansion>
+      In-Home Display
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      IHP
+   </Acronym>
+   <Expansion>
+      Itron Host Processor
+   </Expansion>
+   <Description>
+      In Premieplus4, the computer that functions as the interface between the utility's mainframe and its handheld data collection devices. The IHP consists of a computer (with keyboard, mouse, monitor, hard disk, and printer), network, and application processes for the Premierplus4 system. It stores and processes meter- reading data and generates system reports.
+   </Description>
+   <Acronym>
+      IIS
+   </Acronym>
+   <Expansion>
+      Internet Information Services
+   </Expansion>
+   <Description>
+      A Microsoft Windows web server software application and extension modules.
+   </Description>
+   <Acronym>
+      IMA
+   </Acronym>
+   <Expansion>
+      Interface between Meter and Application
+   </Expansion>
+   <Description>
+      A customized component of the OpenWay Collection Engine that handles device-specific actions in the system for meters, cell relays, or other ANSI C12.19-compliant devices.
+   </Description>
+   <Acronym>
+      INTRP
+   </Acronym>
+   <Expansion>
+      Inter-PAN (enhanced)
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      IOU
+   </Acronym>
+   <Expansion>
+      Investor-Owned Utility
+   </Expansion>
+   <Description>
+      An electric or gas utility that is owned by a group of investors whose shares of stock are traded on public stock markets.
+   </Description>
+   <Acronym>
+      IP
+   </Acronym>
+   <Expansion>
+      Internet Protocol
+   </Expansion>
+   <Description>
+      The rules or standards by which data is sent from one computer to another on the Internet.
+   </Description>
+   <Acronym>
+      IPD
+   </Acronym>
+   <Expansion>
+      In-Premises Display (Same as IHD) or Inter-PAN Device
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      IPP
+   </Acronym>
+   <Expansion>
+      Itron Private Profile
+   </Expansion>
+   <Description>
+      A low-power communication standard developed by Itron for its OpenWay 2.4GZ gas modules. IPP enables wireless communication between utility companies and common household devices. Later versions of the 2.4GZ have been updated to use the ZigBee Smart Energy Profile (SEP), a public standard, instead of IPP.
+   </Description>
+   <Acronym>
+      IPP
+   </Acronym>
+   <Expansion>
+      Independent Power Producer
+   </Expansion>
+   <Description>
+      A private entity or entrepreneur who develops, owns, or operates electric power plants fueled by alternative energy sources such as small hydro, wind facilities, cogeneration, or waste-to-energy facilities.
+   </Description>
+   <Acronym>
+      IPS
+   </Acronym>
+   <Expansion>
+      Intrusion Prevention Ssystem
+   </Expansion>
+   <Description>
+      A network-monitoring and system-monitoring device or software application that evaluates activities, identifies malicious threats and policy violations, produces reports to a management station, and actively blocks detected intrusions.
+   </Description>
+   <Acronym>
+      IPsec
+   </Acronym>
+   <Expansion>
+      Internet Protocol Security
+   </Expansion>
+   <Description>
+      A technology standard for implementing security features in Internet Protocol (IP) networking. IPsec network protocols support encryption and authentication. IPsec is most commonly used in so-called tunnel mode with a virtual private network (VPN).
+   </Description>
+   <Acronym>
+      IPT
+   </Acronym>
+   <Expansion>
+      Information Provision Transaction
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      IPv6
+   </Acronym>
+   <Expansion>
+      Internet Protocol Version 6
+   </Expansion>
+   <Description>
+      The latest revision of the Internet Protocol (IP), the communications protocol that routes traffic across the Internet. It is intended to replace IPv4.
+   </Description>
+   <Acronym>
+      IRP
+   </Acronym>
+   <Expansion>
+      Issue Resolution Proposal (TFS)
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      ISM
+   </Acronym>
+   <Expansion>
+      Itron Security Manager
+   </Expansion>
+   <Description>
+      A component of Itron Security Manager suite. Utilities use ISM to facilitate encryption, authentication, decryption, and validation of meter reading data and commands to and from Itron ChoiceConnect endpoints. ISM also manages the key exchanges and security state for endpoints and repeaters.
+   </Description>
+   <Acronym>
+      ISMP
+   </Acronym>
+   <Expansion>
+      Integrated Smart Metering Platform
+   </Expansion>
+   <Description>
+      Pertaining to ISSI.
+   </Description>
+   <Acronym>
+      ISO
+   </Acronym>
+   <Expansion>
+      International Organization for Standardization
+   </Expansion>
+   <Description>
+      An international standard-setting body composed of representatives from various national standards organizations. The ISO promulgates worldwide proprietary, industrial, and commercial standards.
+   </Description>
+   <Acronym>
+      ISP
+   </Acronym>
+   <Expansion>
+      Internet Service Provider
+   </Expansion>
+   <Description>
+      A company that provides Internet access and related services, such as website building and virtual hosting.
+   </Description>
+   <Acronym>
+      ISSI
+   </Acronym>
+   <Expansion>
+      Itron Secure Serial Interface
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      IV
+   </Acronym>
+   <Expansion>
+      Initialization Vector
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      IVR
+   </Acronym>
+   <Expansion>
+      Interactive Voice Response
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      JM
+   </Acronym>
+   <Expansion>
+      Job Manager
+   </Expansion>
+   <Description>
+      An OpenWay Collection Engine software service that sends and receives job-related information (for example, requests for action, status, and others) to and from the Collection Engine's message bus.
+   </Description>
+   <Acronym>
+      JTAG
+   </Acronym>
+   <Expansion>
+      Joint Test Action Group
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      kbps
+   </Acronym>
+   <Expansion>
+      kilobits per second
+   </Expansion>
+   <Description>
+      A unit of data transfer rate equal to 1000 bits per second or 125 bytes per second.
+   </Description>
+   <Acronym>
+      KDF
+   </Acronym>
+   <Expansion>
+      Key Derivation Function
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      KGCL
+   </Acronym>
+   <Expansion>
+      Key Generator Client Library
+   </Expansion>
+   <Description>
+      A component of the OpenWay key generator server (KGS). The Itron manufacturing plant fetches from the KGCL the asymmetric key pairs that it programs into OpenWay CENTRON meters at the time of manufacture.
+   </Description>
+   <Acronym>
+      KGS
+   </Acronym>
+   <Expansion>
+      Key Generator Server
+   </Expansion>
+   <Description>
+      The security appliance that generates meter recovery key pairs, which are programmed into the OpenWay CENTRON meter during the manufacturing process. Meter recovery key pairs are generated using elliptic curve cryptography (ECC).
+   </Description>
+   <Acronym>
+      KGSD
+   </Acronym>
+   <Expansion>
+      Key Generator Server Daemon
+   </Expansion>
+   <Description>
+      A Linux daemon that handles key pair generation requests by listening for incoming transport layer security (TLS) connections from the key generator client library (KGCL) in the key generator server (KGS).
+   </Description>
+   <Acronym>
+      kHz
+   </Acronym>
+   <Expansion>
+      kiloHertz
+   </Expansion>
+   <Description>
+      A unit of frequency measurement equaling 1,000 cycles per second.
+   </Description>
+   <Acronym>
+      KRP
+   </Acronym>
+   <Expansion>
+      Known Remote Party
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      kVAh
+   </Acronym>
+   <Expansion>
+      kiloVolt Ampere hours
+   </Expansion>
+   <Description>
+      The standard power measurement used by electricity service utility companies. kVAh measures apparent power used for engineering design criteria because equipment must be designed according to maximum voltage and current criteria, not according to usable power. kVAh is the total power supplied, made up of real power (kWh) and reactive power (kVARh).
+   </Description>
+   <Acronym>
+      kVAR
+   </Acronym>
+   <Expansion>
+      kiloVolt-Ampere Reactive
+   </Expansion>
+   <Description>
+      The amount of power lost due to the reactive properties of the network equipment. Reactive power exists in an AC circuit when the current and voltage do not change at the same time.
+   </Description>
+   <Acronym>
+      kVARh
+   </Acronym>
+   <Expansion>
+      kiloVolt-Ampere Reactive Hours
+   </Expansion>
+   <Description>
+      A unit used to measure reactive power in an AC electric power system. kVARh is the amount of power lost in the system multiplied by the number of intervals per hour. Reactive power exists in an AC circuit when the current and voltage do not change at the same time.
+   </Description>
+   <Acronym>
+      kW
+   </Acronym>
+   <Expansion>
+      kiloWatt
+   </Expansion>
+   <Description>
+      The electrical unit of power equal to 1,000 watts, or to the energy consumption at a rate of 1000 joules per second.
+   </Description>
+   <Acronym>
+      kWh
+   </Acronym>
+   <Expansion>
+      kiloWatt hour
+   </Expansion>
+   <Description>
+      The electricity equal to one kilowatt of power supplied to or taken from an electric circuit for one hour. kWh is a measurement of power and time used by utilities for billing purposes.
+   </Description>
+   <Acronym>
+      kWh d
+   </Acronym>
+   <Expansion>
+      kiloWatt hours delivered
+   </Expansion>
+   <Description>
+      Energy flow from the power grid to the customer that is measured at the meter.
+   </Description>
+   <Acronym>
+      kWh r
+   </Acronym>
+   <Expansion>
+      kiloWatt hours received
+   </Expansion>
+   <Description>
+      Energy flow from customer to the power grid that is measured at the meter.
+   </Description>
+   <Acronym>
+      LAN
+   </Acronym>
+   <Expansion>
+      Local Area Network
+   </Expansion>
+   <Description>
+      A data communications system in a limited geographic area and that has a specific user group. A LAN is restricted to a relatively small areas, such as a room, building, or small neighborhood.
+   </Description>
+   <Acronym>
+      LB
+   </Acronym>
+   <Expansion>
+      Load Balancer
+   </Expansion>
+   <Description>
+      A smart router that tracks and routes communications between servers and applications to distribute workload, avoid overload, and improve availability.
+   </Description>
+   <Acronym>
+      LDAP
+   </Acronym>
+   <Expansion>
+      Lightweight Directory Access Protocol
+   </Expansion>
+   <Description>
+      An application protocol for accessing and maintaining distributed directory information services over an Internet Protocol (IP) network. LDAP support is implemented in Web browsers and e-mail programs, which can query an LDAP-compliant directory.
+   </Description>
+   <Acronym>
+      LDC
+   </Acronym>
+   <Expansion>
+      Local Distribution Company
+   </Expansion>
+   <Description>
+      The local utility entity that constructs and maintains the distribution wires or pipes that are used to deliver energy or water to the end customer.
+   </Description>
+   <Acronym>
+      LDS
+   </Acronym>
+   <Expansion>
+      Leak Detection System
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      LF
+   </Acronym>
+   <Expansion>
+      Low Frequencies
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      LMS
+   </Acronym>
+   <Expansion>
+      Learning Management System
+   </Expansion>
+   <Description>
+      A software application used to schedule, deliver, and track learning events. Learning events can include, but are not limited to trainings, certifications, and self assessments.
+   </Description>
+   <Acronym>
+      LNA
+   </Acronym>
+   <Expansion>
+      Low-Noise Amplifier
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      LQI
+   </Acronym>
+   <Expansion>
+      Link Quality Indicator
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      LR-WPAN
+   </Acronym>
+   <Expansion>
+      Low Rate Wireless Personal Area Network
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      LSB
+   </Acronym>
+   <Expansion>
+      Least Significant Bit/Byte
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      LTB
+   </Acronym>
+   <Expansion>
+      Last Time Buy
+   </Expansion>
+   <Description>
+      A notice from a component manufacturer instructing its clients to estimate and purchase the quantity of a soon-to-be obsolete component that is required for the remaining life of the clients' products that use the component.
+   </Description>
+   <Acronym>
+      LTM
+   </Acronym>
+   <Expansion>
+      Local Traffic Manager
+   </Expansion>
+   <Description>
+      BIG-IP application delivery networking system, which the OpenWay Collection Engine (CE) uses for load balancing and traffic management.
+   </Description>
+   <Acronym>
+      MAC
+   </Acronym>
+   <Expansion>
+      Medium Access Control (referring to protocol stack sublayer - addressing)
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MAC
+   </Acronym>
+   <Expansion>
+      Message Authentication Code (referring to cryptographic operation)
+   </Expansion>
+   <Description>
+      An authentication tag that applies a secret key and an authentication scheme to a message to prove a message's integrity. MACs are both verified and computed using the same secret key. Sometimes called a keyed (cryptographic) hash function.
+   </Description>
+   <Acronym>
+      MAIFI
+   </Acronym>
+   <Expansion>
+      Momentary Average Interruption Frequency Index
+   </Expansion>
+   <Description>
+      A reliability indicator used by electric power utilities. MAIFI is the average number of momentary interruptions that a customer would experience during a given period, which is typically a year.
+   </Description>
+   <Acronym>
+      MAMR
+   </Acronym>
+   <Expansion>
+      Mobile Automated Meter Reading
+   </Expansion>
+   <Description>
+      Automated meter reading (AMR) in which radio transceivers that are installed in vehicles read ERT module- equipped electricity, gas, or water meters using radio frequency technology.
+   </Description>
+   <Acronym>
+      MAN
+   </Acronym>
+   <Expansion>
+      Metropolitan Area Network
+   </Expansion>
+   <Description>
+      A data communications system that lies within an intermediate-sized geographic area (usually a city or a large campus) and has a specific user group.
+   </Description>
+   <Acronym>
+      MBOM
+   </Acronym>
+   <Expansion>
+      Manufacturing Bill Of Materials
+   </Expansion>
+   <Description>
+      A document that contains lists of all the materials required to manufacture a shippable product, and information on how the parts that are required work together.
+   </Description>
+   <Acronym>
+      Mcf
+   </Acronym>
+   <Expansion>
+      1,000 cubic feet
+   </Expansion>
+   <Description>
+      A unit of measure for volume that is equal to 1,000 cubic feet. Mcf is commonly used in the utility industry to measure volumetric quantities of natural gas.
+   </Description>
+   <Acronym>
+      MCH
+   </Acronym>
+   <Expansion>
+      Meter Communication Host
+   </Expansion>
+   <Description>
+      An OpenWay Collection Engine software service that processes job requests, generates and sends system messages to the meter network, updates job statuses, and publishes read and event information to external consumers.
+   </Description>
+   <Acronym>
+      MCPS-SAP
+   </Acronym>
+   <Expansion>
+      Medium access control Common Part Sub-layer - Service Access Point
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MD5
+   </Acronym>
+   <Expansion>
+      Message Digest number 5
+   </Expansion>
+   <Description>
+      A cryptographic hash algorithm used to create a 128-bit message digest used in security applications and to check data integrity.
+   </Description>
+   <Acronym>
+      MDAPI
+   </Acronym>
+   <Expansion>
+      Multi-Device Application Programming Interface
+   </Expansion>
+   <Description>
+      An application programming interface (API) that enables a software application to communicate with multiple Itron radios and endpoints.
+   </Description>
+   <Acronym>
+      MDFMW
+   </Acronym>
+   <Expansion>
+      Multi-Device FirmWare
+   </Expansion>
+   <Description>
+      Prefer that term is spelled out.
+   </Description>
+   <Acronym>
+      MDM
+   </Acronym>
+   <Expansion>
+      Meter Data Management
+   </Expansion>
+   <Description>
+      The collection, processing, storage, and analysis of utility meter data.
+   </Description>
+   <Acronym>
+      MDMS
+   </Acronym>
+   <Expansion>
+      Meter Data Management System
+   </Expansion>
+   <Description>
+      Meter data management (MDM) software designed to collect, process, store, and analyze meter data. A full- function MDM system seamlessly combines data from multiple sources that use a variety of formats and collection schedules.
+   </Description>
+   <Acronym>
+      MDU
+   </Acronym>
+   <Expansion>
+      Multi-Dwelling Unit
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MF
+   </Acronym>
+   <Expansion>
+      Medium Frequencies
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MFMM
+   </Acronym>
+   <Expansion>
+      Multifunction Meter Module
+   </Expansion>
+   <Description>
+      A component of the Itron SENTINEL meter that transmits metering and diagnostic information by radio to Itron Fixed Networks.
+   </Description>
+   <Acronym>
+      MHz
+   </Acronym>
+   <Expansion>
+      MegaHertz
+   </Expansion>
+   <Description>
+      A measure of frequency, one million cycles per second.
+   </Description>
+   <Acronym>
+      MIB
+   </Acronym>
+   <Expansion>
+      Management Information Base
+   </Expansion>
+   <Description>
+      A virtual database used for managing entities in a communications network. Most often associated with the Simple Network Management Protocol (SNMP), the term is also used more generically in contexts such as in the Open Systems Interconnection/International Organization for Standardization (OSI/ISO) network management model.
+   </Description>
+   <Acronym>
+      MIC
+   </Acronym>
+   <Expansion>
+      Message Integrity Code
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MID
+   </Acronym>
+   <Expansion>
+      Measuring Instruments Directive
+   </Expansion>
+   <Description>
+      A directive by the European Union, which seeks to harmonize many aspects of legal metrology across all member states of the EU.
+   </Description>
+   <Acronym>
+      MIME
+   </Acronym>
+   <Expansion>
+      Multipurpose Internet Mail Extensions
+   </Expansion>
+   <Description>
+      An extension that defines content type, and is typically referred to as MIME type. The extension classifies file types so that internet programs can transfer duplicate file types in the same way.
+   </Description>
+   <Acronym>
+      MIU
+   </Acronym>
+   <Expansion>
+      Meter Interface Unit
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MIVS
+   </Acronym>
+   <Expansion>
+      Momentary Interruption/Voltage Sag
+   </Expansion>
+   <Description>
+      A meter event that occurs when the voltage drops from normal voltage by a user-defined percentage (10 to 50%) for longer than three cycles. This event is declared when a programmable number of MIVS (1 to 10) occurs within a specified time (within 60 minutes).
+   </Description>
+   <Acronym>
+      MLME-SAP
+   </Acronym>
+   <Expansion>
+      Medium access control sub-Layer Management Entity - Service Access Point
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MMCC
+   </Acronym>
+   <Expansion>
+      Mass Market Customer Care
+   </Expansion>
+   <Description>
+      An Itron Enterprise Edition (IEE) web-based application used to present historical and comparative interval usage and cost data to utility personnel.
+   </Description>
+   <Acronym>
+      MMK
+   </Acronym>
+   <Expansion>
+      Manage Meter Keys
+   </Expansion>
+   <Description>
+      A decryption and key update server (DKUS) application used to manage individual meter keys.
+   </Description>
+   <Acronym>
+      MMO
+   </Acronym>
+   <Expansion>
+      Matyas-Meyer-Oseas
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MP-BGP
+   </Acronym>
+   <Expansion>
+      Multi-Protocol Border Gateway Protocol
+   </Expansion>
+   <Description>
+      An enhanced Border Gateway Protocol (BGP) that carries routing information for multiple network layer protocol address families. All BGP commands and routing policy capabilities can be used with MP-BGP.
+   </Description>
+   <Acronym>
+      MPLS
+   </Acronym>
+   <Expansion>
+      MultiProtocol Label Switching
+   </Expansion>
+   <Description>
+      A mechanism in high-performance telecommunications networks that directs data from one network node to the next based on short path labels rather than long network addresses. This saves the time needed for a router to look up the address of the next node to forward the packet to. MPLS is called multiprotocol because it works with the Internet Protocol (IP), Asynchronous Transport Mode (ATM), and frame relay network protocols.
+   </Description>
+   <Acronym>
+      MPRN
+   </Acronym>
+   <Expansion>
+      Meter Point Reference Number
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MPS
+   </Acronym>
+   <Expansion>
+      Master Production Schedule
+   </Expansion>
+   <Description>
+      A company's manufacturing schedule that identifies and quantifies products to be assembled or made, the materials and staffing required to produce them, and the time frame in which they will be produced.
+   </Description>
+   <Acronym>
+      MR
+   </Acronym>
+   <Expansion>
+      Master Relay
+   </Expansion>
+   <Description>
+      An OpenWay Collection Engine software service that registers processes within the C12.22 architecture, provides device registration and ApTitles assignments (which function as network addresses similar to Internet addresses), and includes an integral C12.22 authentication host for authorizing participation on the C12.22 network, though it also supports external C12.22 authentication hosts.
+   </Description>
+   <Acronym>
+      MRB
+   </Acronym>
+   <Expansion>
+      Material Review Board
+   </Expansion>
+   <Description>
+      A committee in a manufacturing company that determines what to do with unusable or non-conforming materials. This may include reworking it, scrapping it, or returning it to the vendor.
+   </Description>
+   <Acronym>
+      MRD
+   </Acronym>
+   <Expansion>
+      Market Requirements Document
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MRE file
+   </Acronym>
+   <Expansion>
+      Meter Reading Export file
+   </Expansion>
+   <Description>
+      A file that contains completed meter reading route information that is transmitted from the meter reading host processor back to the utility's customer information system (CIS).
+   </Description>
+   <Acronym>
+      MRP
+   </Acronym>
+   <Expansion>
+      Material Requirements Planning
+   </Expansion>
+   <Description>
+      A computerized production planning, scheduling, and inventory control system used to forecast and order materials used in a manufacturing process.
+   </Description>
+   <Acronym>
+      MRS
+   </Acronym>
+   <Expansion>
+      Marketing Requirement Specification
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MSB
+   </Acronym>
+   <Expansion>
+      Most Significant Bit/Byte
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MSC
+   </Acronym>
+   <Expansion>
+      Message Sequence Chart
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MSDU
+   </Acronym>
+   <Expansion>
+      Medium access control sub-layer Service Data Unit
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MSG
+   </Acronym>
+   <Expansion>
+      Message service type
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MSI
+   </Acronym>
+   <Expansion>
+      Meter Session Input
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MSK
+   </Acronym>
+   <Expansion>
+      Manage System Keys
+   </Expansion>
+   <Description>
+      A decryption and key update server (DKUS) application used to manage system-wide symmetric and asymmetric keys.
+   </Description>
+   <Acronym>
+      MSMQ
+   </Acronym>
+   <Expansion>
+      Microsoft Message Queuing (MSMQ)
+   </Expansion>
+   <Description>
+      A Microsoft technology that enables applications running at different times to communicate across heterogeneous networks and systems that may be temporarily offline. Applications send messages to queues and read messages from queues. Message Queuing provides guaranteed message delivery, efficient routing, security, and priority-based messaging.
+   </Description>
+   <Acronym>
+      MSO
+   </Acronym>
+   <Expansion>
+      Multiple System Operators
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MSOH
+   </Acronym>
+   <Expansion>
+      Months' Supply On Hand
+   </Expansion>
+   <Description>
+      The amount of a product or commodity available in inventory, expressed as the number of months it can be expected to last based on anticipated usage.
+   </Description>
+   <Acronym>
+      MSP
+   </Acronym>
+   <Expansion>
+      Manufacturer-Specific Profile
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MSP
+   </Acronym>
+   <Expansion>
+      Meter Service Provider
+   </Expansion>
+   <Description>
+      In a deregulated energy market, an entity that is certified to purchase, install, and maintain meters.
+   </Description>
+   <Acronym>
+      MTOR
+   </Acronym>
+   <Expansion>
+      Many-To-One Routing
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      MWh
+   </Acronym>
+   <Expansion>
+      MegaWatt-hour
+   </Expansion>
+   <Description>
+      One thousand kilowatt-hours (kWh) or one million-watt hours (W h).
+   </Description>
+   <Acronym>
+      NAA
+   </Acronym>
+   <Expansion>
+      Network Administration Application
+   </Expansion>
+   <Description>
+      The primary user interface for Fixed Network that provides features and functionality for monitoring, maintaining, and reporting on network operations and endpoint operations within the system.
+   </Description>
+   <Acronym>
+      NAC
+   </Acronym>
+   <Expansion>
+      Network Access Control
+   </Expansion>
+   <Description>
+      A computer network security approach that enables and enforces role-based network access by forcing user or machine authentication before allowing access to the network. Access is based on an assessment of the user or machine's security status, such as the presence of anti-virus software and personal firewalls. Several major networking vendors provide proprietary NAC products.
+   </Description>
+   <Acronym>
+      NACK
+   </Acronym>
+   <Expansion>
+      Negative Acknowledge
+   </Expansion>
+   <Description>
+
+   </Description>
+   <Acronym>
+      NAN
+   </Acronym>
+   <Expansion>
+      Neighborhood Area Network
+   </Expansion>
+   <Description>
+      A wireless community that provides wireless devi
