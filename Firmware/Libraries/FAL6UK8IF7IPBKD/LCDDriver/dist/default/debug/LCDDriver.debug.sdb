@@ -1,0 +1,906 @@
+[p LITE_MODE AUTOSTATIC LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F2685 ]
+[d frameptr 4065 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"20 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 3 0 ]
+"10 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 3 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 3 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 3 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"24 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\i2c\i2c_idle.c
+[v _IdleI2C IdleI2C `(v  1 e 0 0 ]
+"14 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\i2c\i2c_open.c
+[v _OpenI2C OpenI2C `(v  1 e 0 0 ]
+"11 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\i2c\i2c_read.c
+[v _ReadI2C ReadI2C `(uc  1 e 1 0 ]
+"12 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\i2c\i2c_writ.c
+[v _WriteI2C WriteI2C `(c  1 e 1 0 ]
+"16 C:\Users\Win 7\MPLABXProjects\LCDDriver\i2c_utils_files/I2C_UTILS.c
+[v _I2C_Init I2C_Init `(v  1 e 0 0 ]
+"63
+[v _I2C_Write_Byte_Single_Reg I2C_Write_Byte_Single_Reg `(v  1 e 0 0 ]
+"73
+[v _I2C_Read_Byte_Single_Reg I2C_Read_Byte_Single_Reg `(uc  1 e 1 0 ]
+"178 C:\Users\Win 7\MPLABXProjects\LCDDriver\lcd_i2c_pcf8574_files/LCD_I2C_PCF8574.c
+[v _LCD_Init LCD_Init `(v  1 e 0 0 ]
+"242
+[v _LCD_Write_Char LCD_Write_Char `(v  1 e 0 0 ]
+"247
+[v _LCD_Write_Str LCD_Write_Str `(v  1 e 0 0 ]
+"256
+[v _LCDclear LCDclear `(v  1 e 0 0 ]
+"265
+[v _LCDhome LCDhome `(v  1 e 0 0 ]
+"274
+[v _LCDsetCursor LCDsetCursor `(v  1 e 0 0 ]
+"285
+[v _LCDdisplayOff LCDdisplayOff `(v  1 e 0 0 ]
+"290
+[v _LCDdisplayOn LCDdisplayOn `(v  1 e 0 0 ]
+"296
+[v _LCDcursorOff LCDcursorOff `(v  1 e 0 0 ]
+"301
+[v _LCDcursorOn LCDcursorOn `(v  1 e 0 0 ]
+"307
+[v _LCDblinkOff LCDblinkOff `(v  1 e 0 0 ]
+"312
+[v _LCDblinkOn LCDblinkOn `(v  1 e 0 0 ]
+"317
+[v _LCDscrollDisplayLeft LCDscrollDisplayLeft `(v  1 e 0 0 ]
+"323
+[v _LCDscrollDisplayRight LCDscrollDisplayRight `(v  1 e 0 0 ]
+"331
+[v _LCDleftToRight LCDleftToRight `(v  1 e 0 0 ]
+"338
+[v _LCDrightToLeft LCDrightToLeft `(v  1 e 0 0 ]
+"345
+[v _LCDautoscroll LCDautoscroll `(v  1 e 0 0 ]
+"352
+[v _LCDnoAutoscroll LCDnoAutoscroll `(v  1 e 0 0 ]
+"360
+[v _LCDcreateChar LCDcreateChar `(v  1 e 0 0 ]
+"368
+[v _LCDnoBacklight LCDnoBacklight `(v  1 e 0 0 ]
+"373
+[v _LCDbacklight LCDbacklight `(v  1 e 0 0 ]
+"382
+[v _LCDcommandWrite LCDcommandWrite `T(v  1 e 0 0 ]
+"386
+[v _LCDcommandRead LCDcommandRead `T(uc  1 e 1 0 ]
+"390
+[v _LCDdataWrite LCDdataWrite `T(v  1 e 0 0 ]
+"394
+[v _LCDdataRead LCDdataRead `T(uc  1 e 1 0 ]
+"398
+[v _LCDbusy LCDbusy `(uc  1 e 1 0 ]
+"402
+[v _LCDaddressCounter LCDaddressCounter `(uc  1 e 1 0 ]
+"406
+[v _LCDreadDDRam LCDreadDDRam `(uc  1 e 1 0 ]
+"412
+[v _LCDreadCGRam LCDreadCGRam `(uc  1 e 1 0 ]
+"423
+[v _LCDsend LCDsend `(v  1 s 0 LCDsend ]
+"436
+[v _LCDreceive LCDreceive `(uc  1 s 1 LCDreceive ]
+"449
+[v _LCDwrite4bits LCDwrite4bits `(v  1 s 0 LCDwrite4bits ]
+"455
+[v _LCDread4bits LCDread4bits `(uc  1 s 1 LCDread4bits ]
+"463
+[v _LCDpulseEnableNeg LCDpulseEnableNeg `(v  1 s 0 LCDpulseEnableNeg ]
+"471
+[v _LCDpulseEnablePos LCDpulseEnablePos `(v  1 s 0 LCDpulseEnablePos ]
+"480
+[v _LCDwritePCF8574 LCDwritePCF8574 `(v  1 s 0 LCDwritePCF8574 ]
+"485
+[v _LCDreadPCF8574 LCDreadPCF8574 `(uc  1 s 1 LCDreadPCF8574 ]
+"76 C:\Users\Win 7\MPLABXProjects\LCDDriver\main.c
+[v _main main `(v  1 e 0 0 ]
+"88
+[v _exerciseDisplay exerciseDisplay `(v  1 e 0 0 ]
+"104
+[v _autoIncrement autoIncrement `(v  1 e 0 0 ]
+"136
+[v _displayLeftRightScroll displayLeftRightScroll `(v  1 e 0 0 ]
+"167
+[v _displayOnOff displayOnOff `(v  1 e 0 0 ]
+"191
+[v _backLightControl backLightControl `(v  1 e 0 0 ]
+"225
+[v _printAt printAt `(v  1 e 0 0 ]
+"243
+[v _cursorControl cursorControl `(v  1 e 0 0 ]
+"273
+[v _printLeftAndRight printLeftAndRight `(v  1 e 0 0 ]
+"292
+[v _controlMemoryReading controlMemoryReading `(v  1 e 0 0 ]
+"327
+[v _dataMemoryReading dataMemoryReading `(v  1 e 0 0 ]
+"369
+[v _putHexString putHexString `(v  1 e 0 0 ]
+"100 C:\Users\Win 7\MPLABXProjects\LCDDriver\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
+"109
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
+"51 C:\Users\Win 7\MPLABXProjects\LCDDriver\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
+"6 C:\Users\Win 7\MPLABXProjects\LCDDriver\timer_files/DELAY.c
+[v _DELAY_Init DELAY_Init `(v  1 e 0 0 ]
+"20
+[v _DelayMicroseconds DelayMicroseconds `(v  1 e 0 0 ]
+"31
+[v _DelayMilliseconds DelayMilliseconds `(v  1 e 0 0 ]
+[s S30 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"28428 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f2685.h
+[s S70 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 SCK 1 0 :1:3 
+`uc 1 SDI 1 0 :1:4 
+`uc 1 SDO 1 0 :1:5 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S79 . 1 `uc 1 T13CKI 1 0 :1:0 
+`uc 1 . 1 0 :2:1 
+`uc 1 SCL 1 0 :1:3 
+`uc 1 SDA 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S87 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+]
+[s S90 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 PA1 1 0 :1:2 
+]
+[s S93 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+]
+[u S96 . 1 `S30 1 . 1 0 `S70 1 . 1 0 `S79 1 . 1 0 `S87 1 . 1 0 `S90 1 . 1 0 `S93 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES96  1 e 1 @3970 ]
+[s S21 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"29655
+[u S39 . 1 `S21 1 . 1 0 `S30 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES39  1 e 1 @3988 ]
+[s S555 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+]
+"30012
+[s S563 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 RC1IF 1 0 :1:5 
+]
+[s S566 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IF 1 0 :1:4 
+]
+[u S569 . 1 `S555 1 . 1 0 `S563 1 . 1 0 `S566 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES569  1 e 1 @3998 ]
+[s S388 . 1 `uc 1 PCFG 1 0 :4:0 
+`uc 1 VCFG 1 0 :2:4 
+]
+"31825
+[s S391 . 1 `uc 1 PCFG0 1 0 :1:0 
+`uc 1 PCFG1 1 0 :1:1 
+`uc 1 PCFG2 1 0 :1:2 
+`uc 1 PCFG3 1 0 :1:3 
+`uc 1 VCFG0 1 0 :1:4 
+`uc 1 VCFG1 1 0 :1:5 
+]
+[s S398 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CHSN3 1 0 :1:3 
+]
+[s S401 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 VCFG01 1 0 :1:4 
+]
+[s S404 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 VCFG11 1 0 :1:5 
+]
+[u S407 . 1 `S388 1 . 1 0 `S391 1 . 1 0 `S398 1 . 1 0 `S401 1 . 1 0 `S404 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES407  1 e 1 @4033 ]
+"32024
+[v _SSPCON2 SSPCON2 `VEuc  1 e 1 @4037 ]
+[s S150 . 1 `uc 1 SEN 1 0 :1:0 
+`uc 1 RSEN 1 0 :1:1 
+`uc 1 PEN 1 0 :1:2 
+`uc 1 RCEN 1 0 :1:3 
+`uc 1 ACKEN 1 0 :1:4 
+`uc 1 ACKDT 1 0 :1:5 
+`uc 1 ACKSTAT 1 0 :1:6 
+`uc 1 GCEN 1 0 :1:7 
+]
+"32041
+[u S159 . 1 `S150 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES159  1 e 1 @4037 ]
+"32085
+[v _SSPCON1 SSPCON1 `VEuc  1 e 1 @4038 ]
+[s S1123 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"32105
+[s S1129 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[u S1134 . 1 `S1123 1 . 1 0 `S1129 1 . 1 0 ]
+[v _SSPCON1bits SSPCON1bits `VES1134  1 e 1 @4038 ]
+"32154
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @4039 ]
+[s S788 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_NOT_W 1 0 :1:2 
+]
+"32256
+[s S791 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 D_NOT_A 1 0 :1:5 
+]
+[s S794 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+[s S809 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S814 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 I2C_READ 1 0 :1:2 
+`uc 1 I2C_START 1 0 :1:3 
+`uc 1 I2C_STOP 1 0 :1:4 
+`uc 1 I2C_DAT 1 0 :1:5 
+]
+[s S820 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S825 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_WRITE 1 0 :1:2 
+]
+[s S828 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_ADDRESS 1 0 :1:5 
+]
+[s S831 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S836 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 READ_WRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 DATA_ADDRESS 1 0 :1:5 
+]
+[s S841 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D 1 0 :1:5 
+]
+[s S846 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 DA 1 0 :1:5 
+]
+[s S849 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RW 1 0 :1:2 
+]
+[s S852 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 START 1 0 :1:3 
+]
+[s S855 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 STOP 1 0 :1:4 
+]
+[s S858 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_W 1 0 :1:2 
+]
+[s S861 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_A 1 0 :1:5 
+]
+[u S864 . 1 `S788 1 . 1 0 `S791 1 . 1 0 `S794 1 . 1 0 `S788 1 . 1 0 `S791 1 . 1 0 `S809 1 . 1 0 `S814 1 . 1 0 `S820 1 . 1 0 `S825 1 . 1 0 `S828 1 . 1 0 `S831 1 . 1 0 `S836 1 . 1 0 `S841 1 . 1 0 `S846 1 . 1 0 `S849 1 . 1 0 `S852 1 . 1 0 `S855 1 . 1 0 `S858 1 . 1 0 `S861 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES864  1 e 1 @4039 ]
+"32420
+[v _SSPADD SSPADD `VEuc  1 e 1 @4040 ]
+"32426
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
+[s S494 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_T1SYNC 1 0 :1:2 
+]
+"32656
+[s S497 . 1 `uc 1 TMR1ON 1 0 :1:0 
+`uc 1 TMR1CS 1 0 :1:1 
+`uc 1 nT1SYNC 1 0 :1:2 
+`uc 1 T1OSCEN 1 0 :1:3 
+`uc 1 T1CKPS 1 0 :2:4 
+`uc 1 T1RUN 1 0 :1:6 
+`uc 1 RD16 1 0 :1:7 
+]
+[s S505 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1SYNC 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T1CKPS0 1 0 :1:4 
+`uc 1 T1CKPS1 1 0 :1:5 
+]
+[s S511 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T1INSYNC 1 0 :1:2 
+]
+[s S514 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SOSCEN 1 0 :1:3 
+]
+[s S517 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 T1RD16 1 0 :1:7 
+]
+[u S520 . 1 `S494 1 . 1 0 `S497 1 . 1 0 `S505 1 . 1 0 `S511 1 . 1 0 `S514 1 . 1 0 `S517 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES520  1 e 1 @4045 ]
+"32730
+[v _TMR1 TMR1 `VEus  1 e 2 @4046 ]
+[s S438 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_RBPU 1 0 :1:7 
+]
+"33697
+[s S441 . 1 `uc 1 RBIP 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 TMR0IP 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INTEDG2 1 0 :1:4 
+`uc 1 INTEDG1 1 0 :1:5 
+`uc 1 INTEDG0 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+"33697
+[s S450 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T0IP 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 RBPU 1 0 :1:7 
+]
+"33697
+[u S455 . 1 `S438 1 . 1 0 `S441 1 . 1 0 `S450 1 . 1 0 ]
+"33697
+"33697
+[v _INTCON2bits INTCON2bits `VES455  1 e 1 @4081 ]
+"38390
+"38390
+[v _TRISA1 TRISA1 `VEb  1 e 0 @31889 ]
+"38392
+[v _TRISA2 TRISA2 `VEb  1 e 0 @31890 ]
+"38394
+[v _TRISA3 TRISA3 `VEb  1 e 0 @31891 ]
+"38396
+[v _TRISA4 TRISA4 `VEb  1 e 0 @31892 ]
+"38398
+[v _TRISA5 TRISA5 `VEb  1 e 0 @31893 ]
+"38404
+[v _TRISB0 TRISB0 `VEb  1 e 0 @31896 ]
+"38406
+[v _TRISB1 TRISB1 `VEb  1 e 0 @31897 ]
+"38408
+[v _TRISB2 TRISB2 `VEb  1 e 0 @31898 ]
+"38412
+[v _TRISB4 TRISB4 `VEb  1 e 0 @31900 ]
+"38414
+[v _TRISB5 TRISB5 `VEb  1 e 0 @31901 ]
+"38422
+[v _TRISC1 TRISC1 `VEb  1 e 0 @31905 ]
+"38424
+[v _TRISC2 TRISC2 `VEb  1 e 0 @31906 ]
+"158 C:\Users\Win 7\MPLABXProjects\LCDDriver\lcd_i2c_pcf8574_files/LCD_I2C_PCF8574.c
+[v __functionset _functionset `uc  1 s 1 _functionset ]
+"159
+[v __entrymodeset _entrymodeset `uc  1 s 1 _entrymodeset ]
+"160
+[v __displayfunction _displayfunction `uc  1 s 1 _displayfunction ]
+"161
+[v __displaycontrol _displaycontrol `uc  1 s 1 _displaycontrol ]
+"162
+[v __numlines _numlines `uc  1 s 1 _numlines ]
+"163
+[v __backlightval _backlightval `uc  1 s 1 _backlightval ]
+"44 C:\Users\Win 7\MPLABXProjects\LCDDriver\main.c
+[v _hex hex `[17]uc  1 e 17 0 ]
+"45
+[v _bell bell `[8]uc  1 e 8 0 ]
+"46
+[v _note note `[8]uc  1 e 8 0 ]
+"47
+[v _clock clock `[8]uc  1 e 8 0 ]
+"48
+[v _heart heart `[8]uc  1 e 8 0 ]
+"49
+[v _duck duck `[8]uc  1 e 8 0 ]
+"50
+[v _check check `[8]uc  1 e 8 0 ]
+"51
+[v _cross cross `[8]uc  1 e 8 0 ]
+"52
+[v _retarrow retarrow `[8]uc  1 e 8 0 ]
+"53
+[v _charmap charmap `[8]*.39uc  1 e 16 0 ]
+"76
+[v _main main `(v  1 e 0 0 ]
+{
+"83
+} 0
+"88
+[v _exerciseDisplay exerciseDisplay `(v  1 e 0 0 ]
+{
+"99
+} 0
+"273
+[v _printLeftAndRight printLeftAndRight `(v  1 e 0 0 ]
+{
+"290
+} 0
+"338 C:\Users\Win 7\MPLABXProjects\LCDDriver\lcd_i2c_pcf8574_files/LCD_I2C_PCF8574.c
+[v _LCDrightToLeft LCDrightToLeft `(v  1 e 0 0 ]
+{
+"342
+} 0
+"331
+[v _LCDleftToRight LCDleftToRight `(v  1 e 0 0 ]
+{
+"335
+} 0
+"225 C:\Users\Win 7\MPLABXProjects\LCDDriver\main.c
+[v _printAt printAt `(v  1 e 0 0 ]
+{
+"240
+} 0
+"167
+[v _displayOnOff displayOnOff `(v  1 e 0 0 ]
+{
+"172
+[v displayOnOff@x x `uc  1 a 1 22 ]
+"189
+} 0
+"136
+[v _displayLeftRightScroll displayLeftRightScroll `(v  1 e 0 0 ]
+{
+"156
+[v displayLeftRightScroll@x_721 x `uc  1 a 1 23 ]
+"145
+[v displayLeftRightScroll@x x `uc  1 a 1 22 ]
+"163
+} 0
+"323 C:\Users\Win 7\MPLABXProjects\LCDDriver\lcd_i2c_pcf8574_files/LCD_I2C_PCF8574.c
+[v _LCDscrollDisplayRight LCDscrollDisplayRight `(v  1 e 0 0 ]
+{
+"327
+} 0
+"317
+[v _LCDscrollDisplayLeft LCDscrollDisplayLeft `(v  1 e 0 0 ]
+{
+"321
+} 0
+"327 C:\Users\Win 7\MPLABXProjects\LCDDriver\main.c
+[v _dataMemoryReading dataMemoryReading `(v  1 e 0 0 ]
+{
+"363
+[v dataMemoryReading@c c `uc  1 a 1 30 ]
+"362
+[v dataMemoryReading@r r `uc  1 a 1 29 ]
+"352
+[v dataMemoryReading@i i `uc  1 a 1 33 ]
+"335
+[v dataMemoryReading@p p `uc  1 a 1 32 ]
+"328
+[v dataMemoryReading@x x `uc  1 a 1 31 ]
+"365
+} 0
+"369
+[v _putHexString putHexString `(v  1 e 0 0 ]
+{
+[v putHexString@c c `uc  1 a 1 wreg ]
+[v putHexString@c c `uc  1 a 1 wreg ]
+[v putHexString@r r `uc  1 p 1 22 ]
+[v putHexString@hexval hexval `uc  1 p 1 23 ]
+"371
+[v putHexString@c c `uc  1 a 1 26 ]
+"377
+} 0
+"406 C:\Users\Win 7\MPLABXProjects\LCDDriver\lcd_i2c_pcf8574_files/LCD_I2C_PCF8574.c
+[v _LCDreadDDRam LCDreadDDRam `(uc  1 e 1 0 ]
+{
+[v LCDreadDDRam@address address `uc  1 a 1 wreg ]
+[v LCDreadDDRam@address address `uc  1 a 1 wreg ]
+"408
+[v LCDreadDDRam@address address `uc  1 a 1 12 ]
+"410
+} 0
+"412
+[v _LCDreadCGRam LCDreadCGRam `(uc  1 e 1 0 ]
+{
+[v LCDreadCGRam@address address `uc  1 a 1 wreg ]
+[v LCDreadCGRam@address address `uc  1 a 1 wreg ]
+"414
+[v LCDreadCGRam@address address `uc  1 a 1 12 ]
+"416
+} 0
+"394
+[v _LCDdataRead LCDdataRead `T(uc  1 e 1 0 ]
+{
+"396
+} 0
+"360
+[v _LCDcreateChar LCDcreateChar `(v  1 e 0 0 ]
+{
+[v LCDcreateChar@location location `uc  1 a 1 wreg ]
+"363
+[v LCDcreateChar@i i `i  1 a 2 15 ]
+"360
+[v LCDcreateChar@location location `uc  1 a 1 wreg ]
+[v LCDcreateChar@charmap charmap `*.39uc  1 p 2 12 ]
+[v LCDcreateChar@location location `uc  1 a 1 14 ]
+"365
+} 0
+"243 C:\Users\Win 7\MPLABXProjects\LCDDriver\main.c
+[v _cursorControl cursorControl `(v  1 e 0 0 ]
+{
+"270
+} 0
+"265 C:\Users\Win 7\MPLABXProjects\LCDDriver\lcd_i2c_pcf8574_files/LCD_I2C_PCF8574.c
+[v _LCDhome LCDhome `(v  1 e 0 0 ]
+{
+"272
+} 0
+"292 C:\Users\Win 7\MPLABXProjects\LCDDriver\main.c
+[v _controlMemoryReading controlMemoryReading `(v  1 e 0 0 ]
+{
+"293
+[v controlMemoryReading@x x `uc  1 a 1 24 ]
+"324
+} 0
+"301 C:\Users\Win 7\MPLABXProjects\LCDDriver\lcd_i2c_pcf8574_files/LCD_I2C_PCF8574.c
+[v _LCDcursorOn LCDcursorOn `(v  1 e 0 0 ]
+{
+"304
+} 0
+"398
+[v _LCDbusy LCDbusy `(uc  1 e 1 0 ]
+{
+"400
+} 0
+"312
+[v _LCDblinkOn LCDblinkOn `(v  1 e 0 0 ]
+{
+"315
+} 0
+"402
+[v _LCDaddressCounter LCDaddressCounter `(uc  1 e 1 0 ]
+{
+"404
+} 0
+"386
+[v _LCDcommandRead LCDcommandRead `T(uc  1 e 1 0 ]
+{
+"388
+} 0
+"436
+[v _LCDreceive LCDreceive `(uc  1 s 1 LCDreceive ]
+{
+[v LCDreceive@RsMode RsMode `uc  1 a 1 wreg ]
+"438
+[v LCDreceive@lownib lownib `uc  1 a 1 10 ]
+"437
+[v LCDreceive@highnib highnib `uc  1 a 1 9 ]
+"436
+[v LCDreceive@RsMode RsMode `uc  1 a 1 wreg ]
+"440
+[v LCDreceive@RsMode RsMode `uc  1 a 1 11 ]
+"445
+} 0
+"455
+[v _LCDread4bits LCDread4bits `(uc  1 s 1 LCDread4bits ]
+{
+[v LCDread4bits@RsEnMode RsEnMode `uc  1 a 1 wreg ]
+"456
+[v LCDread4bits@b b `uc  1 a 1 6 ]
+"455
+[v LCDread4bits@RsEnMode RsEnMode `uc  1 a 1 wreg ]
+"457
+[v LCDread4bits@RsEnMode RsEnMode `uc  1 a 1 7 ]
+"461
+} 0
+"471
+[v _LCDpulseEnablePos LCDpulseEnablePos `(v  1 s 0 LCDpulseEnablePos ]
+{
+[v LCDpulseEnablePos@_data _data `uc  1 a 1 wreg ]
+[v LCDpulseEnablePos@_data _data `uc  1 a 1 wreg ]
+[v LCDpulseEnablePos@_data _data `uc  1 a 1 5 ]
+"477
+} 0
+"191 C:\Users\Win 7\MPLABXProjects\LCDDriver\main.c
+[v _backLightControl backLightControl `(v  1 e 0 0 ]
+{
+"208
+[v backLightControl@x x `uc  1 a 1 22 ]
+"223
+} 0
+"368 C:\Users\Win 7\MPLABXProjects\LCDDriver\lcd_i2c_pcf8574_files/LCD_I2C_PCF8574.c
+[v _LCDnoBacklight LCDnoBacklight `(v  1 e 0 0 ]
+{
+"371
+} 0
+"373
+[v _LCDbacklight LCDbacklight `(v  1 e 0 0 ]
+{
+"376
+} 0
+"485
+[v _LCDreadPCF8574 LCDreadPCF8574 `(uc  1 s 1 LCDreadPCF8574 ]
+{
+"487
+} 0
+"73 C:\Users\Win 7\MPLABXProjects\LCDDriver\i2c_utils_files/I2C_UTILS.c
+[v _I2C_Read_Byte_Single_Reg I2C_Read_Byte_Single_Reg `(uc  1 e 1 0 ]
+{
+[v I2C_Read_Byte_Single_Reg@device device `uc  1 a 1 wreg ]
+"75
+[v I2C_Read_Byte_Single_Reg@b b `uc  1 a 1 3 ]
+"73
+[v I2C_Read_Byte_Single_Reg@device device `uc  1 a 1 wreg ]
+"75
+[v I2C_Read_Byte_Single_Reg@device device `uc  1 a 1 2 ]
+"85
+} 0
+"11 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\i2c\i2c_read.c
+[v _ReadI2C ReadI2C `(uc  1 e 1 0 ]
+{
+"17
+} 0
+"247 C:\Users\Win 7\MPLABXProjects\LCDDriver\lcd_i2c_pcf8574_files/LCD_I2C_PCF8574.c
+[v _LCD_Write_Str LCD_Write_Str `(v  1 e 0 0 ]
+{
+"249
+[v LCD_Write_Str@message_ptr message_ptr `*.25uc  1 a 2 14 ]
+"247
+[v LCD_Write_Str@message message `*.25Cuc  1 p 2 12 ]
+"253
+} 0
+"104 C:\Users\Win 7\MPLABXProjects\LCDDriver\main.c
+[v _autoIncrement autoIncrement `(v  1 e 0 0 ]
+{
+"107
+[v autoIncrement@NoAutoscroll NoAutoscroll `[14]uc  1 a 14 22 ]
+"106
+[v autoIncrement@Autoscroll Autoscroll `[11]uc  1 a 11 36 ]
+"108
+[v autoIncrement@p p `*.39uc  1 a 2 47 ]
+"105
+[v autoIncrement@F16653 F16653 `[11]uc  1 s 11 F16653 ]
+"106
+[v autoIncrement@F16655 F16655 `[14]uc  1 s 14 F16655 ]
+"133
+} 0
+"274 C:\Users\Win 7\MPLABXProjects\LCDDriver\lcd_i2c_pcf8574_files/LCD_I2C_PCF8574.c
+[v _LCDsetCursor LCDsetCursor `(v  1 e 0 0 ]
+{
+[v LCDsetCursor@col col `uc  1 a 1 wreg ]
+"276
+[v LCDsetCursor@row_offsets row_offsets `[4]i  1 a 8 13 ]
+"274
+[v LCDsetCursor@col col `uc  1 a 1 wreg ]
+[v LCDsetCursor@row row `uc  1 p 1 12 ]
+"275
+[v LCDsetCursor@F120 F120 `[4]i  1 s 8 F120 ]
+[v LCDsetCursor@col col `uc  1 a 1 21 ]
+"282
+} 0
+"352
+[v _LCDnoAutoscroll LCDnoAutoscroll `(v  1 e 0 0 ]
+{
+"356
+} 0
+"296
+[v _LCDcursorOff LCDcursorOff `(v  1 e 0 0 ]
+{
+"299
+} 0
+"307
+[v _LCDblinkOff LCDblinkOff `(v  1 e 0 0 ]
+{
+"310
+} 0
+"345
+[v _LCDautoscroll LCDautoscroll `(v  1 e 0 0 ]
+{
+"349
+} 0
+"242
+[v _LCD_Write_Char LCD_Write_Char `(v  1 e 0 0 ]
+{
+[v LCD_Write_Char@message message `uc  1 a 1 wreg ]
+[v LCD_Write_Char@message message `uc  1 a 1 wreg ]
+"244
+[v LCD_Write_Char@message message `uc  1 a 1 12 ]
+"245
+} 0
+"390
+[v _LCDdataWrite LCDdataWrite `T(v  1 e 0 0 ]
+{
+[v LCDdataWrite@value value `uc  1 a 1 wreg ]
+[v LCDdataWrite@value value `uc  1 a 1 wreg ]
+[v LCDdataWrite@value value `uc  1 a 1 11 ]
+"392
+} 0
+"31 C:\Users\Win 7\MPLABXProjects\LCDDriver\timer_files/DELAY.c
+[v _DelayMilliseconds DelayMilliseconds `(v  1 e 0 0 ]
+{
+"34
+[v DelayMilliseconds@x x `us  1 a 2 2 ]
+"31
+[v DelayMilliseconds@delayTime delayTime `us  1 p 2 0 ]
+"42
+} 0
+"100 C:\Users\Win 7\MPLABXProjects\LCDDriver\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
+{
+"107
+} 0
+"51 C:\Users\Win 7\MPLABXProjects\LCDDriver\mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
+{
+"78
+} 0
+"109 C:\Users\Win 7\MPLABXProjects\LCDDriver\mcc_generated_files/mcc.c
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
+{
+"117
+} 0
+"178 C:\Users\Win 7\MPLABXProjects\LCDDriver\lcd_i2c_pcf8574_files/LCD_I2C_PCF8574.c
+[v _LCD_Init LCD_Init `(v  1 e 0 0 ]
+{
+"233
+} 0
+"290
+[v _LCDdisplayOn LCDdisplayOn `(v  1 e 0 0 ]
+{
+"293
+} 0
+"285
+[v _LCDdisplayOff LCDdisplayOff `(v  1 e 0 0 ]
+{
+"288
+} 0
+"256
+[v _LCDclear LCDclear `(v  1 e 0 0 ]
+{
+"263
+} 0
+"382
+[v _LCDcommandWrite LCDcommandWrite `T(v  1 e 0 0 ]
+{
+[v LCDcommandWrite@value value `uc  1 a 1 wreg ]
+[v LCDcommandWrite@value value `uc  1 a 1 wreg ]
+[v LCDcommandWrite@value value `uc  1 a 1 11 ]
+"384
+} 0
+"423
+[v _LCDsend LCDsend `(v  1 s 0 LCDsend ]
+{
+[v LCDsend@value value `uc  1 a 1 wreg ]
+"426
+[v LCDsend@lownib lownib `uc  1 a 1 9 ]
+"424
+[v LCDsend@highnib highnib `uc  1 a 1 8 ]
+"423
+[v LCDsend@value value `uc  1 a 1 wreg ]
+[v LCDsend@RsMode RsMode `uc  1 p 1 7 ]
+[v LCDsend@value value `uc  1 a 1 10 ]
+"431
+} 0
+"449
+[v _LCDwrite4bits LCDwrite4bits `(v  1 s 0 LCDwrite4bits ]
+{
+[v LCDwrite4bits@nibEnRsMode nibEnRsMode `uc  1 a 1 wreg ]
+[v LCDwrite4bits@nibEnRsMode nibEnRsMode `uc  1 a 1 wreg ]
+[v LCDwrite4bits@nibEnRsMode nibEnRsMode `uc  1 a 1 6 ]
+"452
+} 0
+"463
+[v _LCDpulseEnableNeg LCDpulseEnableNeg `(v  1 s 0 LCDpulseEnableNeg ]
+{
+[v LCDpulseEnableNeg@_data _data `uc  1 a 1 wreg ]
+[v LCDpulseEnableNeg@_data _data `uc  1 a 1 wreg ]
+[v LCDpulseEnableNeg@_data _data `uc  1 a 1 5 ]
+"469
+} 0
+"480
+[v _LCDwritePCF8574 LCDwritePCF8574 `(v  1 s 0 LCDwritePCF8574 ]
+{
+[v LCDwritePCF8574@value value `uc  1 a 1 wreg ]
+[v LCDwritePCF8574@value value `uc  1 a 1 wreg ]
+[v LCDwritePCF8574@value value `uc  1 a 1 4 ]
+"482
+} 0
+"63 C:\Users\Win 7\MPLABXProjects\LCDDriver\i2c_utils_files/I2C_UTILS.c
+[v _I2C_Write_Byte_Single_Reg I2C_Write_Byte_Single_Reg `(v  1 e 0 0 ]
+{
+[v I2C_Write_Byte_Single_Reg@device device `uc  1 a 1 wreg ]
+[v I2C_Write_Byte_Single_Reg@device device `uc  1 a 1 wreg ]
+[v I2C_Write_Byte_Single_Reg@info info `uc  1 p 1 2 ]
+"65
+[v I2C_Write_Byte_Single_Reg@device device `uc  1 a 1 3 ]
+"71
+} 0
+"12 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\i2c\i2c_writ.c
+[v _WriteI2C WriteI2C `(c  1 e 1 0 ]
+{
+[v WriteI2C@data_out data_out `uc  1 a 1 wreg ]
+[v WriteI2C@data_out data_out `uc  1 a 1 wreg ]
+"14
+[v WriteI2C@data_out data_out `uc  1 a 1 1 ]
+"43
+} 0
+"24 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\i2c\i2c_idle.c
+[v _IdleI2C IdleI2C `(v  1 e 0 0 ]
+{
+"28
+} 0
+"20 C:\Users\Win 7\MPLABXProjects\LCDDriver\timer_files/DELAY.c
+[v _DelayMicroseconds DelayMicroseconds `(v  1 e 0 0 ]
+{
+[v DelayMicroseconds@delayTime delayTime `us  1 p 2 0 ]
+"28
+} 0
+"16 C:\Users\Win 7\MPLABXProjects\LCDDriver\i2c_utils_files/I2C_UTILS.c
+[v _I2C_Init I2C_Init `(v  1 e 0 0 ]
+{
+"25
+} 0
+"14 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\i2c\i2c_open.c
+[v _OpenI2C OpenI2C `(v  1 e 0 0 ]
+{
+[v OpenI2C@sync_mode sync_mode `uc  1 a 1 wreg ]
+[v OpenI2C@sync_mode sync_mode `uc  1 a 1 wreg ]
+[v OpenI2C@slew slew `uc  1 p 1 0 ]
+"16
+[v OpenI2C@sync_mode sync_mode `uc  1 a 1 1 ]
+"26
+} 0
+"6 C:\Users\Win 7\MPLABXProjects\LCDDriver\timer_files/DELAY.c
+[v _DELAY_Init DELAY_Init `(v  1 e 0 0 ]
+{
+"16
+} 0
