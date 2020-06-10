@@ -1,0 +1,367 @@
+
+# 1 "lcd_i2c_pcf8574_files/LCD_I2C_PCF8574.c"
+
+# 10 "lcd_i2c_pcf8574_files/LCD_I2C_PCF8574.h"
+void LCD_Init(void);
+void LCD_Write_Char(char message);
+void LCD_Write_Str(const char *message);
+
+void LCDclear(void);
+void LCDhome(void);
+
+void LCDdisplayOff(void);
+void LCDdisplayOn(void);
+void LCDblinkOff(void);
+void LCDblinkOn(void);
+void LCDcursorOff(void);
+void LCDcursorOn(void);
+void LCDscrollDisplayLeft(void);
+void LCDscrollDisplayRight(void);
+void LCDleftToRight(void);
+void LCDrightToLeft(void);
+void LCDnoBacklight(void);
+void LCDbacklight(void);
+void LCDautoscroll(void);
+void LCDnoAutoscroll(void);
+void LCDcreateChar(unsigned char location, unsigned char charmap[]);
+void LCDsetCursor(unsigned char col, unsigned char row);
+
+inline void LCDcommandWrite(unsigned char value);
+inline unsigned char LCDcommandRead(void);
+inline void LCDdataWrite(unsigned char value);
+inline unsigned char LCDdataRead(void);
+unsigned char LCDbusy(void);
+unsigned char LCDaddressCounter(void);
+unsigned char LCDreadDDRam(unsigned char address);
+unsigned char LCDreadCGRam(unsigned char address);
+
+# 16 "i2c_utils_files\I2C_UTILS.h"
+void I2C_Init(void);
+
+void I2C_Write_Byte_Single_Reg(unsigned char device, unsigned char info);
+
+unsigned char I2C_Read_Byte_Single_Reg(unsigned char device);
+
+# 16 "timer_files\DELAY.h"
+void DELAY_Init(void);
+void DelayMicroseconds(unsigned short delayTime);
+void DelayMilliseconds(unsigned short delayTime);
+
+# 160 "lcd_i2c_pcf8574_files/LCD_I2C_PCF8574.c"
+static unsigned char _functionset = 0;
+static unsigned char _entrymodeset = 0;
+static unsigned char _displayfunction = 0;
+static unsigned char _displaycontrol = 0;
+static unsigned char _numlines = 0;
+static unsigned char _backlightval = 0;
+
+
+
+
+static void LCDsend(unsigned char value, unsigned char mode);
+static unsigned char LCDreceive(unsigned char RsMode);
+static void LCDwrite4bits(unsigned char value);
+static unsigned char LCDread4bits(unsigned char RsEnMode);
+static void LCDpulseEnableNeg(unsigned char value);
+static void LCDpulseEnablePos(unsigned char value);
+static void LCDwritePCF8574(unsigned char value);
+static unsigned char LCDreadPCF8574(void);
+
+
+void LCD_Init(void){
+
+_backlightval |= 0b00001000;
+_numlines = 4;
+
+
+DelayMicroseconds(50000);
+
+
+I2C_Write_Byte_Single_Reg((0x27<<1), ((0b00000000 | 0b00000100) & ~0b00000001) & (~0b00000010));
+DelayMicroseconds(100);
+
+
+
+
+LCDwrite4bits(0b00110000);
+DelayMicroseconds(4500);
+
+
+LCDwrite4bits(0b00110000);
+DelayMicroseconds(150);
+
+
+LCDwrite4bits(0b00110000);
+DelayMicroseconds(150);
+
+
+LCDwrite4bits(0b00100000);
+DelayMicroseconds(150);
+
+
+_functionset = 0x00 | 0x08 | 0x00;
+LCDcommandWrite(0x20 | _functionset);
+
+
+_displayfunction = 0x00 | 0x00 | 0x00;
+LCDdisplayOff();
+
+
+LCDdisplayOn();
+
+
+_entrymodeset = 0x02 | 0x00;
+LCDcommandWrite(0x04 | _entrymodeset);
+
+
+
+LCDcommandWrite(0x08 | _displayfunction);
+
+
+_displaycontrol = 0x08 | 0x00;
+LCDcommandWrite(0x10 | _displaycontrol);
+
+
+LCDclear();
+}
+
+# 244
+void LCD_Write_Char(char message)
+{
+LCDdataWrite((unsigned char) message);
+}
+
+void LCD_Write_Str(const char *message)
+{
+unsigned char *message_ptr = (unsigned char *) message;
+
+while (*message_ptr)
+LCDdataWrite((unsigned char) (*message_ptr++));
+}
+
+
+void LCDclear(void){
+LCDcommandWrite(0x01);
+
+
+
+DelayMicroseconds(30000);
+
+}
+
+void LCDhome(void){
+LCDcommandWrite(0x02);
+
+
+
+DelayMicroseconds(30000);
+
+}
+
+void LCDsetCursor(unsigned char col, unsigned char row)
+{
+int row_offsets[] = { 0x00, 0x40, 0x14, 0x54 };
+if ( row >= _numlines ) {
+row = _numlines-1;
+}
+
+LCDcommandWrite(0x80 | (col + row_offsets[row]));
+}
+
+
+void LCDdisplayOff(void) {
+_displayfunction &= ~0x04;
+LCDcommandWrite(0x08 | _displayfunction);
+}
+
+void LCDdisplayOn(void) {
+_displayfunction |= 0x04;
+LCDcommandWrite(0x08 | _displayfunction);
+}
+
+
+void LCDcursorOff(void) {
+_displayfunction &= ~0x02;
+LCDcommandWrite(0x08 | _displayfunction);
+}
+
+void LCDcursorOn(void) {
+_displayfunction |= 0x02;
+LCDcommandWrite(0x08 | _displayfunction);
+}
+
+
+void LCDblinkOff(void) {
+_displayfunction &= ~0x01;
+LCDcommandWrite(0x08 | _displayfunction);
+}
+
+void LCDblinkOn(void) {
+_displayfunction |= 0x01;
+LCDcommandWrite(0x08 | _displayfunction);
+}
+
+void LCDscrollDisplayLeft(void) {
+_displaycontrol &= ~0x04;
+_displaycontrol |= 0x08;
+LCDcommandWrite(0x10 | _displaycontrol);
+}
+
+void LCDscrollDisplayRight(void) {
+_displaycontrol |= 0x04;
+_displaycontrol |= 0x08;
+LCDcommandWrite(0x10 | _displaycontrol);
+}
+
+
+
+void LCDleftToRight(void) {
+_entrymodeset |= 0x02;
+
+LCDcommandWrite(0x04 | _entrymodeset);
+}
+
+
+void LCDrightToLeft(void) {
+_entrymodeset &= ~0x02;
+
+LCDcommandWrite(0x04 | _entrymodeset);
+}
+
+
+void LCDautoscroll(void) {
+_entrymodeset |= 0x01;
+
+LCDcommandWrite(0x04 | _entrymodeset);
+}
+
+
+void LCDnoAutoscroll(void) {
+_entrymodeset &= ~0x01;
+
+LCDcommandWrite(0x04 | _entrymodeset);
+}
+
+
+
+void LCDcreateChar(unsigned char location, unsigned char charmap[]) {
+location &= 0x7;
+LCDcommandWrite(0x40 | (location << 3));
+for (int i=0; i<8; i++)
+LCDdataWrite(charmap[i]);
+}
+
+
+void LCDnoBacklight(void) {
+_backlightval &= ~0b00001000;
+LCDwritePCF8574(LCDreadPCF8574());
+}
+
+void LCDbacklight(void) {
+_backlightval |= 0b00001000;
+LCDwritePCF8574(LCDreadPCF8574());
+}
+
+# 384
+inline void LCDcommandWrite(unsigned char value) {
+LCDsend(value, 0b00000001 & ~0b00000001);
+}
+
+inline unsigned char LCDcommandRead(void) {
+return LCDreceive(0b00000001 & ~0b00000001);
+}
+
+inline void LCDdataWrite(unsigned char value) {
+LCDsend(value, 0b00000001);
+}
+
+inline unsigned char LCDdataRead(void) {
+return LCDreceive(0b00000001);
+}
+
+unsigned char LCDbusy(void) {
+return LCDcommandRead() & 0b10000000;
+}
+
+unsigned char LCDaddressCounter(void) {
+return LCDcommandRead() & 0b01111111;
+}
+
+unsigned char LCDreadDDRam(unsigned char address)
+{
+LCDcommandWrite(0x80 | (address & 0b01111111));
+return LCDdataRead();
+}
+
+unsigned char LCDreadCGRam(unsigned char address)
+{
+LCDcommandWrite(0x40 | (address & 0b00111111));
+return LCDdataRead();
+}
+
+# 425
+static void LCDsend(unsigned char value, unsigned char RsMode) {
+unsigned char highnib = value & 0xF0;
+
+unsigned char lownib = value << 4;
+lownib &= 0xF0;
+
+LCDwrite4bits((highnib) | 0b00000100 | RsMode);
+LCDwrite4bits((lownib ) | 0b00000100 | RsMode);
+}
+
+
+
+
+static unsigned char LCDreceive(unsigned char RsMode) {
+unsigned char highnib;
+unsigned char lownib;
+
+LCDwritePCF8574(0b11110000 | (0b00000100 & ~0b00000100) | RsMode);
+highnib = LCDread4bits(0b11110000 | 0b00000100 | RsMode);
+lownib = LCDread4bits(0b11110000 | 0b00000100 | RsMode);
+LCDwritePCF8574((0b11110000 & ~0b11110000) | 0b00000100 | RsMode);
+return (unsigned char) ((highnib & 0xF0) | ((lownib & 0xF0) >> 4));
+}
+
+
+
+static void LCDwrite4bits(unsigned char nibEnRsMode) {
+LCDwritePCF8574(nibEnRsMode & ~0b00000010);
+LCDpulseEnableNeg(nibEnRsMode & ~0b00000010);
+}
+
+
+static unsigned char LCDread4bits(unsigned char RsEnMode) {
+unsigned char b;
+LCDpulseEnablePos(RsEnMode | 0b00000010);
+b = LCDreadPCF8574();
+LCDpulseEnableNeg(RsEnMode | 0b00000010);
+return b;
+}
+
+static void LCDpulseEnableNeg(unsigned char _data){
+LCDwritePCF8574(_data | 0b00000100);
+DelayMicroseconds(1);
+
+LCDwritePCF8574(_data & ~0b00000100);
+DelayMicroseconds(50);
+}
+
+static void LCDpulseEnablePos(unsigned char _data){
+LCDwritePCF8574(_data & ~0b00000100);
+DelayMicroseconds(1);
+
+LCDwritePCF8574(_data | 0b00000100);
+DelayMicroseconds(50);
+}
+
+
+static void LCDwritePCF8574(unsigned char value) {
+I2C_Write_Byte_Single_Reg((0x27<<1), value | _backlightval);
+}
+
+
+static unsigned char LCDreadPCF8574(void) {
+return I2C_Read_Byte_Single_Reg((0x27<<1));
+}
