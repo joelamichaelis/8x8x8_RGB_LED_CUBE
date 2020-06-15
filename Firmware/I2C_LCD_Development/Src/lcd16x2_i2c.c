@@ -165,14 +165,6 @@ void lcd16x2_i2c_2ndLine(void)
 }
 
 /**
- * @brief Move to beginning of 3rd line
- */
-void lcd16x2_i2c_3rdLine(void)
-{
-  lcd16x2_i2c_setCursor(2,0);
-}
-
-/**
  * @brief Select LCD Number of lines mode
  */
 void lcd16x2_i2c_TwoLines(void)

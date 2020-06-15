@@ -33,3 +33,8 @@
 2020-05-26 keil\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 2020-05-26 keil\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 2020-05-26 keil\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+2020-05-26 keil\main.o: ../Inc/lcd20x4_i2c.h
+2020-05-26 keil\main.o: ../Inc/lcd20x4_i2c.h
+2020-05-26 keil\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+2020-05-26 keil\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+2020-05-26 keil\main.o: ../Inc/mpr121.h

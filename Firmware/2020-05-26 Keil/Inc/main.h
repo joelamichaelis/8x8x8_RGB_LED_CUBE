@@ -98,8 +98,10 @@ void Error_Handler(void);
 #define XERR_GPIO_Port GPIOB
 #define Keypad_IRQ_Pin GPIO_PIN_4
 #define Keypad_IRQ_GPIO_Port GPIOB
+#define Keypad_IRQ_EXTI_IRQn EXTI4_IRQn
 #define Wheel_IRQ_Pin GPIO_PIN_5
 #define Wheel_IRQ_GPIO_Port GPIOB
+#define Wheel_IRQ_EXTI_IRQn EXTI9_5_IRQn
 #define L1_EN_Pin GPIO_PIN_8
 #define L1_EN_GPIO_Port GPIOB
 #define L2_EN_Pin GPIO_PIN_9

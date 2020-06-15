@@ -32,11 +32,6 @@ void lcd16x2_i2c_1stLine(void);
  * @brief Move to beginning of 2nd line
  */
 void lcd16x2_i2c_2ndLine(void);
-/**
- * @brief Move to beginning of 3rd line
- */
-void lcd16x2_i2c_3rdLine(void);
-
 
 /**
  * @brief Select LCD Number of lines mode

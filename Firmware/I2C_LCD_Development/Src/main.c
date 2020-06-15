@@ -23,7 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "lcd16x2_i2c.h"
+#include "lcd20x4_i2c.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -92,7 +92,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 	
 	
-	if(lcd16x2_i2c_init(&hi2c1))
+	if(lcd20x4_i2c_init(&hi2c1))
 	{
 		int i=1;
 	}
@@ -103,12 +103,16 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-			lcd16x2_i2c_2ndLine();
-			lcd16x2_i2c_3rdLine();
-			lcd16x2_i2c_printf("Hello World!");
+			lcd20x4_i2c_1stLine();
+			lcd20x4_i2c_printf("Row One!");
+			lcd20x4_i2c_2ndLine();
+			lcd20x4_i2c_printf("Row Two!");
+			lcd20x4_i2c_3rdLine();
+			lcd20x4_i2c_printf("Row Three!");
+			lcd20x4_i2c_4thLine();
+			lcd20x4_i2c_printf("Row Four!");		
 			HAL_Delay(1000);
-			lcd16x2_i2c_clear();
-			lcd16x2_i2c_shiftRight(8);
+			lcd20x4_i2c_clear();
 			HAL_Delay(1000);
 		
 			

@@ -25,9 +25,9 @@ i2c_lcd_development\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_fl
 i2c_lcd_development\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 i2c_lcd_development\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
 i2c_lcd_development\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
-i2c_lcd_development\main.o: ../Inc/lcd16x2_i2c.h
+i2c_lcd_development\main.o: ../Inc/lcd20x4_i2c.h
 i2c_lcd_development\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-i2c_lcd_development\main.o: ../Inc/lcd16x2_i2c.h
+i2c_lcd_development\main.o: ../Inc/lcd20x4_i2c.h
 i2c_lcd_development\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 i2c_lcd_development\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 i2c_lcd_development\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

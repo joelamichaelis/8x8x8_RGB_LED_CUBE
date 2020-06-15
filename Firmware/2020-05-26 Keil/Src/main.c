@@ -20,7 +20,6 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "stm32f1xx_hal.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -29,6 +28,8 @@
 //#include "usbd_cdc_if.h"
 #include <string.h>
 #include <stdbool.h>
+#include "lcd20x4_i2c.h"
+#include "mpr121.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -272,7 +273,21 @@ int main(void)
 	HAL_TIM_Base_Start_IT(&htim1);
 	HAL_TIM_OC_Start(&htim1, TIM_CHANNEL_1);	//
 
-
+	// LCD INIT BEGIN
+	if(lcd20x4_i2c_init(&hi2c1))
+	{
+		int tstvar=1;
+	}
+	lcd20x4_i2c_clear();
+	lcd20x4_i2c_1stLine();
+	lcd20x4_i2c_printf("LCD Initialized");
+	HAL_Delay(500);
+	// LCD INIT END
+	
+	//MPR121 INIT BEGIN
+	mpr121_init(&hi2c1);
+	//MPR121 INIT END
+	
 	//HAL_SPI_Init(&hspi1);
 
   /* USER CODE END 2 */
@@ -286,8 +301,15 @@ int main(void)
     /* USER CODE BEGIN 3 */
 	int ledNum=0;
 	for(ledNum=0;ledNum<192;ledNum++){
+		
+		
 	
-		HAL_Delay(100);
+		HAL_Delay(1000);
+		
+		lcd20x4_i2c_clear();
+		lcd20x4_i2c_1stLine();
+		lcd20x4_i2c_printf("LED # %d", ledNum);
+		
 		tlc_clear(data16Ptr);
 		tlc_set_led(data16Ptr,ledNum,4095);
 		tlc_update(data16Ptr,data8Ptr);
@@ -500,7 +522,7 @@ static void MX_TIM1_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN TIM1_Init 2 */
-
+	sConfigOC.OCMode = TIM_OCMODE_PWM2;
   /* USER CODE END TIM1_Init 2 */
   HAL_TIM_MspPostInit(&htim1);
 
@@ -549,7 +571,7 @@ static void MX_TIM2_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN TIM2_Init 2 */
-
+	sConfigOC.Pulse = 1;
   /* USER CODE END TIM2_Init 2 */
   HAL_TIM_MspPostInit(&htim2);
 
@@ -637,9 +659,16 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : Keypad_IRQ_Pin Wheel_IRQ_Pin */
   GPIO_InitStruct.Pin = Keypad_IRQ_Pin|Wheel_IRQ_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI4_IRQn, 2, 0);
+  HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 2, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
 }
 
@@ -728,6 +757,14 @@ void spi_convert(uint16_t *data16, uint8_t *data8){
         i=0;
         break;}
 			}
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	lcd20x4_i2c_clear();
+	lcd20x4_i2c_1stLine();
+	lcd20x4_i2c_printf("Keypad Interrupt!");
+	HAL_Delay(2000);
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
