@@ -38,6 +38,20 @@ extern "C" {
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
 
+#define MenuRowLength 20
+#define MenuColumnLength 10
+#define MenuSize 200
+
+	typedef struct __Menu_TypeDef
+{	
+	char Array[MenuSize]; 
+	char *ArrayPtr;
+	int HighestRow;						//as high as the menu can scroll
+	int DisplayTopRow;				//the uppermost visible row
+	int DisplaySelectedRow;		//where the cursor is pointing
+	int DisplayBottomRow;			//the bottommost visible row
+	int LowestRow;				//as low as the menu can scroll
+} Menu_TypeDef;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -58,6 +72,12 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define Wheel_IRQ_Pin GPIO_PIN_4
+#define Wheel_IRQ_GPIO_Port GPIOB
+#define Wheel_IRQ_EXTI_IRQn EXTI4_IRQn
+#define Keypad_IRQ_Pin GPIO_PIN_5
+#define Keypad_IRQ_GPIO_Port GPIOB
+#define Keypad_IRQ_EXTI_IRQn EXTI9_5_IRQn
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

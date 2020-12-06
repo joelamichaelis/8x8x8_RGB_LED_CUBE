@@ -16,6 +16,9 @@
 #ifndef MPR121_h
 #define MPR121_h
 
+#include "main.h"
+#include "stm32f1xx_hal.h"
+
 /*
 #include <Wire.h>
 // include types & constants of Wiring core API
@@ -29,7 +32,9 @@
 
 //============ Device Address
 // ADD pin is Vcc So address is 0x5B
-#define MPR121_ADDR 0x5B	
+#define WHEEL_ADDRESS 0x5B // I think this is 0x5A on motherboard rev. 1
+#define KEYPAD_ADDRESS 0x5A //// I think this is 0x5B on motherboard rev. 1
+static I2C_HandleTypeDef *mpr121_i2cHandle;
 
 
 // MPR121 Register Defines
@@ -50,7 +55,7 @@
 
 #define MHD_R	0x2B
 #define NHD_R	0x2C
-#define	NCL_R 	0x2D
+#define	NCL_R 0x2D
 #define	FDL_R	0x2E
 #define	MHD_F	0x2F
 #define	NHD_F	0x30
@@ -116,13 +121,13 @@
 
 
 
-void mpr121_init(void)
-void mpr121_write(uint8_t reg,uint8_t data)
-void mpr121_read(uint8_t reg,uint8_t length,uint8_t *ReturnData)
-uint16_t mpr121_touch(void)
+void mpr121_init(I2C_HandleTypeDef *hi2c, uint8_t mpr121Address, I2C_HandleTypeDef *pI2cHandle);
+void mpr121_write(I2C_HandleTypeDef *hi2c, uint8_t mpr121Address, uint8_t reg,uint8_t data);
+void mpr121_read(I2C_HandleTypeDef *hi2c, uint8_t mpr121Address, uint8_t reg,uint8_t length,uint8_t *ReturnData);
 
-int8_t mpr121_wheelKey(void)
-int8_t mpr121_keyPad(void)
+uint16_t mpr121_touch(I2C_HandleTypeDef *hi2c, uint8_t mpr121Address);
+uint8_t mpr121_wheelKey(I2C_HandleTypeDef *hi2c, uint8_t mpr121Address);
+uint8_t mpr121_keyPad(I2C_HandleTypeDef *hi2c, uint8_t mpr121Address);
 	
 
 

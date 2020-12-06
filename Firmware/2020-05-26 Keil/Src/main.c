@@ -30,6 +30,7 @@
 #include <stdbool.h>
 #include "lcd20x4_i2c.h"
 #include "mpr121.h"
+#include "tlc5940.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -72,16 +73,16 @@ static void MX_TIM1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
-void spi_convert(uint16_t *data16, uint8_t *data8);
-void tlc_clear(uint16_t *data16);
-void tlc_set_led(uint16_t *data16, int number, uint16_t brightness);
-void tlc_update(uint16_t *data16, uint8_t *data8);
-void intToStr(uint8_t *numVal, uint8_t *strVal);
-void maskCopy(bool *maskPtr, bool *patternPtr);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+bool MAIN_MENU_ENABLED = 1;	
+bool PIN_MAPPING_ENABLED = 0;
+bool APPLICATION_ENABLED = 0;
+bool KEYPAD_IRQ = 0; //when this is set, indicates that the keypad must be read
 
 typedef struct __Frame_TypeDef{
 	bool lyr0Mask[64];
@@ -112,16 +113,28 @@ uint8_t activeLyr = 0;
 // Data Arrays
 uint16_t data16[16*NUM_TLCS];
 uint8_t data8[24*NUM_TLCS];
+//uint16_t data12[12*NUM_TLCS];
 // Data Pointers
-uint8_t *data8Ptr = &data8[0];
+//uint16_t *data12Ptr = &data12[0];
 uint16_t *data16Ptr = &data16[0];
+uint8_t *data8Ptr = &data8[0];
 
 // Current mapping. Reconfigure as needed :^)
 // Needs to be global for convenient timer IRQ access
 
-int redMap[64] = {154,145,176,185,179,188,182,191,158,149,128,137,131,140,134,143,113,122,116,125,119,108,102,111,161,170,164,173,167,104,98,107,33,42,36,45,39,12,6,15,81,90,84,93,87,8,2,11,49,58,52,61,55,19,25,16,65,74,68,77,71,23,29,20};
-int grnMap[64] = {147,153,144,177,186,180,189,183,151,157,148,129,138,132,141,135,120,114,123,117,126,100,109,103,168,162,171,165,174,96,105,99,40,34,43,37,46,4,13,7,88,82,91,85,94,0,9,3,56,50,59,53,62,27,18,24,72,66,75,69,78,31,22,28};;
-int bluMap[64] = {155,146,152,184,178,187,181,190,159,150,156,136,130,139,133,142,112,121,115,124,118,127,101,110,160,169,163,172,166,175,97,106,32,41,35,44,38,47,5,14,80,89,83,92,86,95,1,10,48,57,51,60,54,63,26,17,64,73,67,76,70,79,30,21};
+uint8_t initNumPM = 0;
+uint16_t initValPM = 0;
+uint16_t stepSizePM = 500;
+uint16_t minValPM = 0;
+uint16_t maxValPM = 4000;
+
+uint16_t ledNumPM;
+int16_t redValPM;
+int16_t bluValPM;
+int16_t grnValPM;
+
+
+
 
 //Color Definition Begin
 uint64_t red = 				0x0fff00000000;
@@ -129,7 +142,7 @@ uint64_t green = 			0x00000fff0000;
 uint64_t blue = 			0x000000000fff;
 uint64_t yellow = 		0x0fff0fff0000;
 uint64_t purple = 		0x0fff00000fff;
-uint64_t cyan = 			0x00000fff0fff;
+uint64_t cyan = 			0x000000ff00ff;
 uint64_t orange = 		0x0fff08000000;
 uint64_t pink = 			0x0fff0c0f0cbf;
 uint64_t seafoam = 		0x071f0eef0b8f;
@@ -208,6 +221,15 @@ bool mask7[64] = {1,1,1,1,1,1,1,1,
 									1,1,1,1,1,1,1,1,
 									0,0,0,0,0,0,0,0};
 
+bool maskAll[64] = {1,1,1,1,1,1,1,1,
+									  1,1,1,1,1,1,1,1,
+									  1,1,1,1,1,1,1,1,
+									  1,1,1,1,1,1,1,1,
+									  1,1,1,1,1,1,1,1,
+									  1,1,1,1,1,1,1,1,
+									  1,1,1,1,1,1,1,1,
+									  1,1,1,1,1,1,1,1};									
+
 bool *mask0Ptr = &mask0[0];
 bool *mask1Ptr = &mask1[0];
 bool *mask2Ptr = &mask2[0];
@@ -217,6 +239,17 @@ bool *mask5Ptr = &mask5[0];
 bool *mask6Ptr = &mask6[0];
 bool *mask7Ptr = &mask7[0];
 
+int redMap[64] = {178,181,160,163,166,145,148,151,189,186,175,172,169,158,155,152,130,133,112,115,118,97,100,103,141,138,127,124,121,110,107,104,82,85,64,67,70,49,52,55,93,90,79,76,73,62,59,56,34,37,16,19,22,1,4,7,45,42,31,28,25,14,11,8};
+int grnMap[64] = {177,180,183,162,165,144,147,150,190,187,184,173,170,159,156,153,129,132,135,114,117,96,99,102,142,139,136,125,122,111,108,105,81,84,87,66,69,48,51,54,94,91,88,77,74,63,60,57,33,36,39,18,21,0,3,6,46,43,40,29,26,15,12,9};
+int bluMap[64] = {176,179,182,161,164,167,146,149,191,188,185,174,171,168,157,154,128,131,134,113,116,119,98,101,143,140,137,126,123,120,109,106,80,83,86,65,68,71,50,53,95,92,89,78,75,72,61,58,32,35,38,17,20,23,2,5,47,44,41,30,27,24,13,10};
+				
+//uint16_t testWord1 = 0x0000;
+//uint16_t newWord1 = 0x0000;
+	
+//uint16_t tstData12[144];
+//uint16_t *tstData12Ptr = &tstData12[0];
+
+	
 /* USER CODE END 0 */
 
 /**
@@ -259,7 +292,7 @@ int main(void)
 
 
 	// This pin referencing is slightly redundant. L8 needs to be set since it's toggled during timXocstart (158)
-	HAL_GPIO_WritePin(L8_EN_GPIO_Port, L8_EN_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(L8_EN_GPIO_Port, L8_EN_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(L7_EN_GPIO_Port, L7_EN_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(L6_EN_GPIO_Port, L6_EN_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(L5_EN_GPIO_Port, L5_EN_Pin, GPIO_PIN_RESET);
@@ -273,22 +306,43 @@ int main(void)
 	HAL_TIM_Base_Start_IT(&htim1);
 	HAL_TIM_OC_Start(&htim1, TIM_CHANNEL_1);	//
 
-	// LCD INIT BEGIN
-	if(lcd20x4_i2c_init(&hi2c1))
-	{
-		int tstvar=1;
-	}
+	// LCD & MPR121 INIT BEGIN
+	lcd20x4_i2c_init(&hi2c1);
+	HAL_Delay(100);
+	mpr121_init(&hi2c1, (KEYPAD_ADDRESS<<1), &hi2c1);	
+	HAL_Delay(100);
+	mpr121_init(&hi2c1, (WHEEL_ADDRESS<<1), &hi2c1);
+	HAL_Delay(100);
 	lcd20x4_i2c_clear();
+	HAL_Delay(100);	
+	
+	if(HAL_I2C_IsDeviceReady(&hi2c1, (KEYPAD_ADDRESS<<1), 2, 10) == HAL_OK)
+		{
+			lcd20x4_i2c_1stLine();
+			HAL_Delay(50);
+			lcd20x4_i2c_printf("Keypad Ready!");
+		}
+	else lcd20x4_i2c_printf("Keypad Init Failed");
+	lcd20x4_i2c_2ndLine();	
+		
+	
+	if(HAL_I2C_IsDeviceReady(&hi2c1, (WHEEL_ADDRESS<<1), 2, 10) == HAL_OK)
+		{
+			HAL_Delay(50);
+			lcd20x4_i2c_printf("Wheel Ready!");
+		}
+	else lcd20x4_i2c_printf("Wheel Init Failed");
 	lcd20x4_i2c_1stLine();
-	lcd20x4_i2c_printf("LCD Initialized");
-	HAL_Delay(500);
-	// LCD INIT END
+		
+		
+	HAL_Delay(1000);
+	lcd20x4_i2c_clear();
+		
+	HAL_GPIO_WritePin(L8_EN_GPIO_Port, L8_EN_Pin, GPIO_PIN_SET);	
 	
-	//MPR121 INIT BEGIN
-	mpr121_init(&hi2c1);
-	//MPR121 INIT END
+	//LCD & MPR121 INIT END
 	
-	//HAL_SPI_Init(&hspi1);
+	HAL_SPI_Init(&hspi1);
 
   /* USER CODE END 2 */
 
@@ -296,29 +350,143 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
+    
+		if(MAIN_MENU_ENABLED == 1)
+		{
+			
+			tlc_clear(data16Ptr);
+			tlc_update(hspi1,data16Ptr,data8Ptr);
+			lcd20x4_i2c_clear();
+			lcd20x4_i2c_1stLine();
+			lcd20x4_i2c_printf("Main Menu");
+			lcd20x4_i2c_2ndLine();
+			lcd20x4_i2c_printf("1 - Application");
+			lcd20x4_i2c_3rdLine();
+			lcd20x4_i2c_printf("2 - Pin Mapping");
+			
+			/*
+			if (KEYPAD_IRQ == 1) //keypad IRQ was asserted while lcd was being written to.
+				{
+					HAL_GPIO_EXTI_Callback(Keypad_IRQ_Pin);
+				}
+			*/
+			
+			
+			while(MAIN_MENU_ENABLED == 1)
+			{
+				HAL_Delay(50);
+			}
+		}
+		
+		if(APPLICATION_ENABLED == 1)
+		{
+			lcd20x4_i2c_clear();
+			lcd20x4_i2c_1stLine();
+			lcd20x4_i2c_printf("Press 3 to go back");
+
+			while(APPLICATION_ENABLED == 1)
+			{
+				
+				
+				for(int ledValTst = 0;ledValTst<64;ledValTst++)
+				{
+					
+					tlc_set_led(data16Ptr,redMap[ledValTst],0x0100);
+					tlc_update(hspi1, data16Ptr,data8Ptr);
+ 					HAL_Delay(50);
+					//tlc_clear(data16Ptr);
+				}
+				
+				
+				/*
+				tlc_set_led(data16Ptr,redMap[1],0x0800);
+				tlc_update(hspi1, data16Ptr,data8Ptr);
+ 				HAL_Delay(500);
+				
+				tlc_set_led(data16Ptr,redMap[1],0x0FFF);
+				tlc_update(hspi1, data16Ptr,data8Ptr);
+ 				HAL_Delay(500);
+				*/
+				
+				/*
+				tlc_clear(data16Ptr);
+				tlc_set_led(data16Ptr,0,0x0123);
+				tlc_set_led(data16Ptr,1,0x0456);
+				tlc_set_led(data16Ptr,2,0x0789);
+				tlc_set_led(data16Ptr,3,0x0ABC);
+				tlc_update(hspi1, data16Ptr, data8Ptr);
+				
+				HAL_Delay(500);
+				
+				tlc_clear(data16Ptr);
+				tlc_update(hspi1, data16Ptr, data8Ptr);
+				*/
+				tlc_clear(data16Ptr);
+				HAL_Delay(500);
+			}
+		}		
+		
+		
+		if(PIN_MAPPING_ENABLED == 1)
+		{
+			lcd20x4_i2c_clear();
+			lcd20x4_i2c_1stLine();
+			lcd20x4_i2c_printf("LED # 123");
+			lcd20x4_i2c_2ndLine();
+			lcd20x4_i2c_printf("RED: 255");
+			lcd20x4_i2c_3rdLine();
+			lcd20x4_i2c_printf("GRN: 255");
+			lcd20x4_i2c_4thLine();
+			lcd20x4_i2c_printf("BLU: 255");
+			
+			ledNumPM = initNumPM;
+			redValPM = initValPM;
+			bluValPM = initValPM;
+			grnValPM = initValPM;
+
+			
+			while(PIN_MAPPING_ENABLED == 1)
+			{
+				tlc_clear(data16Ptr);
+				tlc_set_led(data16Ptr,redMap[ledNumPM],redValPM);
+				tlc_set_led(data16Ptr,grnMap[ledNumPM],grnValPM);
+				tlc_set_led(data16Ptr,bluMap[ledNumPM],bluValPM);
+				tlc_update(hspi1, data16Ptr,data8Ptr);
+				
+				lcd20x4_i2c_clear();
+				lcd20x4_i2c_1stLine();
+				lcd20x4_i2c_printf("LED # %d", ledNumPM);
+				lcd20x4_i2c_2ndLine();
+				lcd20x4_i2c_printf("RED: %d", redValPM);
+				lcd20x4_i2c_3rdLine();
+				lcd20x4_i2c_printf("GRN: %d", grnValPM);
+				lcd20x4_i2c_4thLine();
+				lcd20x4_i2c_printf("BLU: %d", bluValPM);				
+				
+				/*
+				if (KEYPAD_IRQ == 1) //keypad IRQ was asserted while lcd was being written to.
+				{
+					HAL_GPIO_EXTI_Callback(Keypad_IRQ_Pin);
+				}
+				*/
+				
+				HAL_Delay(500);
+		
+
+				}
+			}
+		}
+}		
+		
+		/* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	int ledNum=0;
-	for(ledNum=0;ledNum<192;ledNum++){
-		
-		
-	
-		HAL_Delay(1000);
-		
-		lcd20x4_i2c_clear();
-		lcd20x4_i2c_1stLine();
-		lcd20x4_i2c_printf("LED # %d", ledNum);
-		
-		tlc_clear(data16Ptr);
-		tlc_set_led(data16Ptr,ledNum,4095);
-		tlc_update(data16Ptr,data8Ptr);
-	}
+
 	//maskCopy(maskPtr,testPtr);
 
-  }
+  
   /* USER CODE END 3 */
-}
+
 
 /**
   * @brief System Clock Configuration
@@ -659,7 +827,7 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pins : Keypad_IRQ_Pin Wheel_IRQ_Pin */
   GPIO_InitStruct.Pin = Keypad_IRQ_Pin|Wheel_IRQ_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
@@ -673,102 +841,96 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
-void maskCopy(bool *maskPtr, bool *patternPtr)
-{
-	for (int index=0;index<64;index++)
-	{
-		*(patternPtr + index) = *(maskPtr + index);
-	}
-};
-
-void tlc_set_led(uint16_t *data16, int number, uint16_t brightness){
-
-	*(data16 + number) = brightness;
-
-}
-
-// Function sets the entire TLC data16 array. requires a color and a pattern mask.
-void tlc_set_lyr(uint16_t *data16, uint64_t color, bool mask[64])
-{
-	// color takes form 0x0RRR0GGG0BBB
-	uint16_t red = (color>>32);
-	uint16_t grn = (color>>16);
-	uint16_t blu = (color>>0);
-
-	for(int index=0;index<64;index++)
-	{
-		if ( mask[index] == 1)
-		{
-			*(data16 + redMap[index]) = red;
-			*(data16 + grnMap[index]) = grn;
-			*(data16 + bluMap[index]) = blu;
-		}
-	}
-
-}
-
-
-void tlc_clear(uint16_t *data16){
-
-		for(int i=0; i<24*NUM_TLCS;i++){
-		*(data16Ptr + i) = 0;
-	}
-
-}
-
-void tlc_update(uint16_t *data16, uint8_t *data8){
-
-	spi_convert(data16Ptr, data8Ptr);
-
-	HAL_SPI_Transmit(&hspi1, data8, 24*NUM_TLCS, 10);
-	HAL_GPIO_WritePin(XLAT_3V3_GPIO_Port, XLAT_3V3_Pin, GPIO_PIN_SET);
-	// short delay (approx 3us)
-	for(uint16_t dummyVar =1;dummyVar<15;dummyVar++);
-	HAL_GPIO_WritePin(XLAT_3V3_GPIO_Port, XLAT_3V3_Pin, GPIO_PIN_RESET);
-
-}
-
-void spi_convert(uint16_t *data16, uint8_t *data8){
-
-	int index8 = 0;
-	int index16 = 0;
-	int i = 0;
-
- while (index8 < 24*NUM_TLCS){
- switch (i) {
-
-      case 0:
-				*(data8 + index8) = *(data16 + index16);
-				index8++;
-        i++;
-        break;
-
-      case 1:
-				*(data8 + index8) = ( (( (*(data16 + (index16 + 1))<<4) & 0xF0) >> 4) | ( ((*(data16 + index16)>>8) & 0x0F ) << 4));
-				index8++;
-        i++;
-        break;
-
-      case 2:
-				*(data8 + index8) = (*(data16 + (index16 + 1))>>4);
-				index8++;
-				index16 = index16 + 2;
-        i=0;
-        break;}
-			}
-}
-
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	lcd20x4_i2c_clear();
-	lcd20x4_i2c_1stLine();
-	lcd20x4_i2c_printf("Keypad Interrupt!");
-	HAL_Delay(2000);
+	KEYPAD_IRQ = 0;
+	
+	I2C_HandleTypeDef *phi2c1 = &hi2c1;
+	if (phi2c1->State != HAL_I2C_STATE_READY)
+	{
+		KEYPAD_IRQ = 1;
+		return;
+	}
+	
+	uint8_t keypadVal;	
+	
+	keypadVal = mpr121_keyPad(&hi2c1, (KEYPAD_ADDRESS<<1));
+	HAL_Delay(50);
+	if(GPIO_Pin == Keypad_IRQ_Pin)
+	{
+		if(MAIN_MENU_ENABLED == true)
+		{
+			if(keypadVal == 1)
+			{
+				APPLICATION_ENABLED = true;
+				MAIN_MENU_ENABLED = false;
+				return;
+			}
+			
+			if(keypadVal == 2)
+			{
+				PIN_MAPPING_ENABLED = true;
+				MAIN_MENU_ENABLED = false;
+				return;
+			}
+			return;
+		}
+		
+		if(APPLICATION_ENABLED == true)
+		{
+			if(keypadVal == 3)
+			{
+				MAIN_MENU_ENABLED = true;
+				APPLICATION_ENABLED = false;
+				return;
+			}
+			return;
+		}
+		
+		if(PIN_MAPPING_ENABLED == true)
+		{
+			if(keypadVal == 1)
+				redValPM=redValPM + stepSizePM;
+				if (redValPM > maxValPM) redValPM = 0;
+			if(keypadVal == 2)
+				bluValPM=grnValPM + stepSizePM;
+				if (bluValPM > maxValPM) bluValPM = 0;
+			if(keypadVal == 3)
+				grnValPM=bluValPM + stepSizePM;
+				if (grnValPM > maxValPM) grnValPM = 0;
+			if(keypadVal == 4)
+			{
+				if (ledNumPM==0) ledNumPM = 64;
+				ledNumPM--;
+			}
+			if(keypadVal == 6)
+			{
+				ledNumPM++;
+				if (ledNumPM==64) ledNumPM = 0;
+			}
+			if(keypadVal == 7)
+				redValPM=redValPM - stepSizePM;
+				if (redValPM < minValPM) redValPM = maxValPM;
+			if(keypadVal == 8)
+				grnValPM=grnValPM - stepSizePM;
+				if (grnValPM < minValPM) grnValPM = maxValPM;
+			if(keypadVal == 9)
+				bluValPM=bluValPM - stepSizePM;
+				if (bluValPM < minValPM) bluValPM = maxValPM;
+			if(keypadVal == 10)
+			{
+				MAIN_MENU_ENABLED = true;
+				PIN_MAPPING_ENABLED = false;
+				return;
+			}
+			return;
+		}
+	}
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-//I think blank should be toggled in this callback for improved synchronization
+	
+	//I think blank should be toggled in this callback for improved synchronization
 	/*
 	if(activeLyr==0){
 		HAL_GPIO_TogglePin(L8_EN_GPIO_Port, L8_EN_Pin);
@@ -835,14 +997,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 //	CDC_Transmit_FS(buf, len);
 //}
 
-//function defined specifically to convert integers 0~192 into strings
-void intToStr(uint8_t *numVal, uint8_t *strVal)
-{
-	*(strVal) = (*(numVal)/100) + '0';
-	*(strVal + 1) = ((*(numVal)%100)/10) + '0';
-	*(strVal + 2) = (*(numVal)%10) + '0';
-	*(strVal + 3) = '\n';
-}
 
 /* USER CODE END 4 */
 

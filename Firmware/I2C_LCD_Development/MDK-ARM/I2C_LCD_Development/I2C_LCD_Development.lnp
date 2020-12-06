@@ -1,8 +1,10 @@
 --cpu Cortex-M3
 "i2c_lcd_development\startup_stm32f103xb.o"
+"i2c_lcd_development\mpr121.o"
 "i2c_lcd_development\main.o"
 "i2c_lcd_development\stm32f1xx_it.o"
 "i2c_lcd_development\stm32f1xx_hal_msp.o"
+"i2c_lcd_development\lcd20x4_i2c.o"
 "i2c_lcd_development\stm32f1xx_hal_gpio_ex.o"
 "i2c_lcd_development\stm32f1xx_hal_i2c.o"
 "i2c_lcd_development\stm32f1xx_hal.o"
