@@ -1,5 +1,29 @@
+/*
+ * frame.h
+ *
+ *  Created on: Dec 6, 2020
+ *      Author: Joel Michaelis
+ */
+
+#ifndef FRAME
+#define FRAME
+
+#include "lyrframe.h"
+
+typedef struct __Frame_TypeDef
+{
+	LyrFrame_TypeDef lyr0;
+	LyrFrame_TypeDef lyr1;
+	LyrFrame_TypeDef lyr2;
+	LyrFrame_TypeDef lyr3;
+	LyrFrame_TypeDef lyr4;
+	LyrFrame_TypeDef lyr5;
+	LyrFrame_TypeDef lyr6;
+	LyrFrame_TypeDef lyr7;
+} Frame_TypeDef;
 
 
+/*
 //rotate functions wrap around unlike shifts
 void frame_rotate_right(FrameTypeDef frame,uint8_t repetition);
 void frame_rotate_left(FrameTypeDef frame,uint8_t repetition);
@@ -28,3 +52,6 @@ void frame_dim_rotate(uint16_t rotateAmount);
 void frame_set_red(uint16_t brightness, bool mask[64]);
 void frame_set_grn(uint16_t brightness, bool mask[64]);
 void frame_set_blu(uint16_t brightness, bool mask[64]);
+*/
+
+#endif

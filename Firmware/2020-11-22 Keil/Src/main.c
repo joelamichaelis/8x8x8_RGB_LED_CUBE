@@ -20,18 +20,9 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#define NUM_TLCS    12
-//#include "usbd_cdc_if.h"
-#include <string.h>
-#include <stdbool.h>
-#include "lcd20x4_i2c.h"
-#include "mpr121.h"
-#include "tlc5940.h"
-#include "Array8x8Functions.h"
-#include "LyrFrameFunctions.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -50,18 +41,12 @@
 
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
-
 RTC_HandleTypeDef hrtc;
-
 SPI_HandleTypeDef hspi1;
-
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
-
 UART_HandleTypeDef huart1;
-
 /* USER CODE BEGIN PV */
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -74,31 +59,16 @@ static void MX_TIM1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
-void fade_in_color(LyrFrame_TypeDef lyrFrame, bool mask[64], uint64_t color, uint16_t maxBrightness, uint16_t deltaBrightness, uint16_t delay);
-void fade_out_color(LyrFrame_TypeDef lyrFrame, bool mask[64], uint64_t color, uint16_t minBrightness, uint16_t deltaBrightness, uint16_t delay);
-void fade_in_red(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t maxBrightness, uint16_t deltaBrightness, uint16_t delay);
-void fade_in_grn(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t maxBrightness, uint16_t deltaBrightness, uint16_t delay);
-void fade_in_blu(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t maxBrightness, uint16_t deltaBrightness, uint16_t delay);
-void fade_out_red(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t minBrightness, uint16_t deltaBrightness, uint16_t delay);
-void fade_out_grn(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t minBrightness, uint16_t deltaBrightness, uint16_t delay);
-void fade_out_blu(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t minBrightness, uint16_t deltaBrightness, uint16_t delay);
+
 void previous_lyr_off(uint16_t activeLyr);
 uint16_t current_lyr_on(uint16_t activeLyr);
-void original_fade(Frame_TypeDef frame0);
-void halloween(Frame_TypeDef frame);
-void joel_mode(Frame_TypeDef frame);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-bool MAIN_MENU_ENABLED = 1;	
-bool PIN_MAPPING_ENABLED = 0;
-bool APPLICATION_ENABLED = 0;
-bool KEYPAD_IRQ = 0; //when this is set, indicates that the keypad must be read
-bool DONT_BLANK = 0;
 bool UPDATE_FRAME = 0;
-bool ANIMATION_ACTIVE = 0;
 
 Frame_TypeDef frame0;
 
@@ -113,182 +83,9 @@ uint8_t data8[24*NUM_TLCS];
 
 // Data Pointers
 uint16_t *data16Ptr = &data16[0];
-uint8_t *data8Ptr = &data8[0];
+uint8_t *data8Ptr = &data8[0];										
 
-// Needs to be global for convenient timer IRQ access
-uint8_t initNumPM = 0;
-uint16_t initValPM = 0;
-uint16_t stepSizePM = 500;
-uint16_t minValPM = 0;
-uint16_t maxValPM = 4000;
-
-uint16_t ledNumPM;
-int16_t redValPM;
-int16_t bluValPM;
-int16_t grnValPM;
-
-//Color Definition Begin
-uint64_t null =				0x000000000000;
-uint64_t red = 				0x0fff00000000;
-uint64_t yellow = 		0x0fff0fff0000;
-uint64_t green = 			0x00000fff0000;
-uint64_t cyan = 			0x00000fff0fff;
-uint64_t blue = 			0x000000000fff;
-uint64_t purple = 		0x0fff00000fff;
-uint64_t white = 			0x0fff0fff0fff;
-
-uint64_t orange = 		0x0fff08000000;
-uint64_t yelgrn = 		0x08000fff0000;
-uint64_t seafoam = 		0x00000fff0800;
-uint64_t lightblu = 	0x000008000fff;
-uint64_t indigo = 		0x080000000fff;
-uint64_t pink = 			0x0fff00000800;
-
-uint64_t whiteRed = 	0x0fff08000800;
-uint64_t whiteGrn = 	0x08000fff0800;
-uint64_t whiteBlu = 	0x080008000fff;
-
-//Color Definition End
-
-// This is how I'm manually specifying layer patterns for now!
-bool mask0[64] = {1,1,1,1,1,1,1,1,
-									1,0,0,0,0,0,0,1,
-									1,0,0,0,0,0,0,1,
-									1,0,0,0,0,0,0,1,
-									1,0,0,0,0,0,0,1,
-									1,0,0,0,0,0,0,1,
-									1,0,0,0,0,0,0,1,
-									1,1,1,1,1,1,1,1};
-
-bool mask1[64] = {0,0,0,0,0,0,0,0,
-									0,1,1,1,1,1,1,0,
-									0,1,0,0,0,0,1,0,
-									0,1,0,0,0,0,1,0,
-									0,1,0,0,0,0,1,0,
-									0,1,0,0,0,0,1,0,
-									0,1,1,1,1,1,1,0,
-									0,0,0,0,0,0,0,0};
-
-bool mask2[64] = {0,0,0,0,0,0,0,0,
-									0,0,0,0,0,0,0,0,
-									0,0,1,1,1,1,0,0,
-									0,0,1,0,0,1,0,0,
-									0,0,1,0,0,1,0,0,
-									0,0,1,1,1,1,0,0,
-									0,0,0,0,0,0,0,0,
-									0,0,0,0,0,0,0,0};
-
-bool mask3[64] = {0,0,0,0,0,0,0,0,
-									0,0,0,0,0,0,0,0,
-									0,0,0,0,0,0,0,0,
-									0,0,0,1,1,0,0,0,
-									0,0,0,1,1,0,0,0,
-									0,0,0,0,0,0,0,0,
-									0,0,0,0,0,0,0,0,
-									0,0,0,0,0,0,0,0};
-
-bool mask4[64] = {1,1,1,1,1,1,1,1,
-									1,0,0,0,0,0,0,1,
-									1,0,1,1,1,1,0,1,
-									1,0,1,0,0,1,0,1,
-									1,0,1,0,0,1,0,1,
-									1,0,1,1,1,1,0,1,
-									1,0,0,0,0,0,0,1,
-									1,1,1,1,1,1,1,1};
-
-bool mask5[64] = {1,1,1,1,1,1,1,1,
-									1,1,0,0,0,0,1,1,
-									1,0,1,0,0,1,0,1,
-									1,0,0,1,1,0,0,1,
-									1,0,0,1,1,0,0,1,
-									1,0,1,0,0,1,0,1,
-									1,1,0,0,0,0,1,1,
-									1,1,1,1,1,1,1,1};
-
-bool mask6[64] = {0,0,0,0,0,0,0,0,
-									1,1,1,1,1,1,1,1,
-									0,0,0,0,0,0,0,0,
-									1,1,1,1,1,1,1,1,
-									0,0,0,0,0,0,0,1,
-									1,1,1,1,1,1,1,1,
-									0,0,0,0,0,0,0,0,
-									1,1,1,1,1,1,1,1};
-
-bool mask7[64] = {1,1,1,1,1,1,1,1,
-									0,0,0,0,0,0,0,0,
-									1,1,1,1,1,1,1,1,
-									0,0,0,0,0,0,0,0,
-									1,1,1,1,1,1,1,1,
-									0,0,0,0,0,0,0,0,
-									1,1,1,1,1,1,1,1,
-									0,0,0,0,0,0,0,0};
-
-bool maskAll[64] = {1,1,1,1,1,1,1,1,
-									  1,1,1,1,1,1,1,1,
-									  1,1,1,1,1,1,1,1,
-									  1,1,1,1,1,1,1,1,
-									  1,1,1,1,1,1,1,1,
-									  1,1,1,1,1,1,1,1,
-									  1,1,1,1,1,1,1,1,
-									  1,1,1,1,1,1,1,1};		
-
-bool maskChessBoardW[64] = {1,0,1,0,1,0,1,0,
-														0,1,0,1,0,1,0,1,
-														1,0,1,0,1,0,1,0,
-														0,1,0,1,0,1,0,1,
-														1,0,1,0,1,0,1,0,
-														0,1,0,1,0,1,0,1,
-														1,0,1,0,1,0,1,0,
-														0,1,0,1,0,1,0,1};
-
-bool maskChessBoardB[64] = {0,1,0,1,0,1,0,1,
-														1,0,1,0,1,0,1,0,
-														0,1,0,1,0,1,0,1,
-														1,0,1,0,1,0,1,0,
-														0,1,0,1,0,1,0,1,
-														1,0,1,0,1,0,1,0,
-														0,1,0,1,0,1,0,1,
-														1,0,1,0,1,0,1,0};
-
-bool letterJ[64] = {1,1,1,1,1,1,1,1,
-										0,0,0,0,0,1,0,0,
-										0,0,0,0,0,1,0,0,
-										0,0,0,0,0,1,0,0,
-										0,0,0,0,0,1,0,0,
-										1,0,0,0,0,1,0,0,
-										1,1,0,0,1,1,0,0,
-										0,1,1,1,1,0,0,0};
-
-bool letterO[64] = {0,1,1,1,1,1,1,0,
-										1,1,1,1,1,1,1,1,
-										1,1,0,0,0,0,1,1,
-										1,1,0,0,0,0,1,1,
-										1,1,0,0,0,0,1,1,
-										1,1,0,0,0,0,1,1,
-										1,1,1,1,1,1,1,1,
-										0,1,1,1,1,1,1,0};
-
-bool letterE[64] = {1,1,1,1,1,1,1,1,
-										1,1,1,1,1,1,1,1,
-										1,1,0,0,0,0,0,0,
-										1,1,1,1,1,1,1,0,
-										1,1,1,1,1,1,1,0,
-										1,1,0,0,0,0,0,0,
-										1,1,1,1,1,1,1,1,
-										1,1,1,1,1,1,1,1};
-
-bool letterL[64] = {1,1,0,0,0,0,0,0,
-										1,1,0,0,0,0,0,0,
-										1,1,0,0,0,0,0,0,
-										1,1,0,0,0,0,0,0,
-										1,1,0,0,0,0,0,0,
-										1,1,0,0,0,0,0,0,
-										1,1,1,1,1,1,1,0,
-										1,1,1,1,1,1,1,0};
-
-
-												
-
+/*
 bool *mask0Ptr = &mask0[0];
 bool *mask1Ptr = &mask1[0];
 bool *mask2Ptr = &mask2[0];
@@ -297,11 +94,14 @@ bool *mask4Ptr = &mask4[0];
 bool *mask5Ptr = &mask5[0];
 bool *mask6Ptr = &mask6[0];
 bool *mask7Ptr = &mask7[0];
+*/
 										
 // pin mapping - this should never need to be reconfigured now that all the cabling as been eliminated :^)
 int redMap[64] = {178,181,160,163,166,145,148,151,189,186,175,172,169,158,155,152,130,133,112,115,118,97,100,103,141,138,127,124,121,110,107,104,82,85,64,67,70,49,52,55,93,90,79,76,73,62,59,56,34,37,16,19,22,1,4,7,45,42,31,28,25,14,11,8};
 int grnMap[64] = {177,180,183,162,165,144,147,150,190,187,184,173,170,159,156,153,129,132,135,114,117,96,99,102,142,139,136,125,122,111,108,105,81,84,87,66,69,48,51,54,94,91,88,77,74,63,60,57,33,36,39,18,21,0,3,6,46,43,40,29,26,15,12,9};
 int bluMap[64] = {176,179,182,161,164,167,146,149,191,188,185,174,171,168,157,154,128,131,134,113,116,119,98,101,143,140,137,126,123,120,109,106,80,83,86,65,68,71,50,53,95,92,89,78,75,72,61,58,32,35,38,17,20,23,2,5,47,44,41,30,27,24,13,10};
+	
+uint16_t currentAction = ACTION_NOP;
 	
 /* USER CODE END 0 */
 
@@ -312,7 +112,6 @@ int bluMap[64] = {176,179,182,161,164,167,146,149,191,188,185,174,171,168,157,15
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -341,7 +140,15 @@ int main(void)
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 	
-	//have to manually set the pointers
+
+	//I can't decide if I want to pass a generic menu into init function like the last 3 or not. Each init function is so specific..
+	MainMenuInit();
+	AnimationMenu = AnimationMenuInit(AnimationMenu);
+	PinMappingMenu = PinMappingMenuInit(PinMappingMenu);
+	ActiveAnimation = PinMappingMenuInit(ActiveAnimation);
+
+	
+	//have to manually set these pointers
 	frame0.lyr0.redArrPtr = &frame0.lyr0.redArray[0];
 	frame0.lyr0.grnArrPtr = &frame0.lyr0.grnArray[0];
 	frame0.lyr0.bluArrPtr = &frame0.lyr0.bluArray[0];
@@ -360,130 +167,48 @@ int main(void)
 	HAL_TIM_OC_Start(&htim2, TIM_CHANNEL_2);	//
 	HAL_TIM_Base_Start_IT(&htim1);
 	HAL_TIM_OC_Start(&htim1, TIM_CHANNEL_4);	//this was working with ch1 even though thats set as a gpio!
-
-	// LCD & MPR121 INIT BEGIN
-	lcd20x4_i2c_init(&hi2c1);
-	HAL_Delay(100);
-	mpr121_init(&hi2c1, (KEYPAD_ADDRESS<<1), &hi2c1);	
-	HAL_Delay(100);
-	mpr121_init(&hi2c1, (WHEEL_ADDRESS<<1), &hi2c1);
-	HAL_Delay(100);
-	lcd20x4_i2c_clear();
-	HAL_Delay(100);	
-	
-	if(HAL_I2C_IsDeviceReady(&hi2c1, (KEYPAD_ADDRESS<<1), 2, 10) == HAL_OK)
-		{
-			lcd20x4_i2c_1stLine();
-			HAL_Delay(50);
-			lcd20x4_i2c_printf("Keypad Ready!");
-		}
-	else lcd20x4_i2c_printf("Keypad Init Failed");
-	lcd20x4_i2c_2ndLine();	
 		
-	
-	if(HAL_I2C_IsDeviceReady(&hi2c1, (WHEEL_ADDRESS<<1), 2, 10) == HAL_OK)
-		{
-			HAL_Delay(50);
-			lcd20x4_i2c_printf("Wheel Ready!");
-		}
-	else lcd20x4_i2c_printf("Wheel Init Failed");
-	lcd20x4_i2c_1stLine();
+	lcd20x4_i2c_init(&hi2c1); // I don't know why this needs to be called in main and not inside MenuSystemInit()
+	MenuSystemInit(hi2c1);
 		
-		
-	HAL_Delay(1000);
-	lcd20x4_i2c_clear();
-		
-	HAL_GPIO_WritePin(L8_EN_GPIO_Port, L8_EN_Pin, GPIO_PIN_SET);	
-	
-	//LCD & MPR121 INIT END
-	
+	HAL_GPIO_WritePin(L8_EN_GPIO_Port, L8_EN_Pin, GPIO_PIN_SET);		
 	HAL_SPI_Init(&hspi1);
 
+	tlc_clear(data16Ptr);
+	UPDATE_FRAME = 1;
+	MenuDisplayUpdate(MainMenu);	
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    
-		if(MAIN_MENU_ENABLED == 1)
+		
+		while(currentAction == ACTION_NOP)
 		{
-			
-			tlc_clear(data16Ptr);
-			tlc_update(hspi1,data16Ptr,data8Ptr);
-			lcd20x4_i2c_clear();
-			lcd20x4_i2c_1stLine();
-			lcd20x4_i2c_printf("Main Menu");
-			lcd20x4_i2c_2ndLine();
-			lcd20x4_i2c_printf("1 - Application");
-			lcd20x4_i2c_3rdLine();
-			lcd20x4_i2c_printf("2 - Pin Mapping");	
-			
-			while(MAIN_MENU_ENABLED == 1)
-			{
-				HAL_Delay(50);
-			}
+			HAL_Delay(1);
 		}
 		
-		if(APPLICATION_ENABLED == 1)
+		while(currentAction == ACTION_PLAY_ANIMATION_4)
 		{
-			lcd20x4_i2c_clear();
-			lcd20x4_i2c_1stLine();
-			lcd20x4_i2c_printf("Choose an animation:");
-						
-
-			while(APPLICATION_ENABLED == 1)
-			{
-			
-			if(ANIMATION_ACTIVE == 0)
-			{
-				//joel_mode(frame0);
-				//halloween(frame0);
-				original_fade(frame0);
-			}
-				
-			}
-		}		
-		
-		
-		if(PIN_MAPPING_ENABLED == 1)
-		{
-			lcd20x4_i2c_clear();
-			lcd20x4_i2c_1stLine();
-			lcd20x4_i2c_printf("LED # 123");
-			lcd20x4_i2c_2ndLine();
-			lcd20x4_i2c_printf("RED: 255");
-			lcd20x4_i2c_3rdLine();
-			lcd20x4_i2c_printf("GRN: 255");
-			lcd20x4_i2c_4thLine();
-			lcd20x4_i2c_printf("BLU: 255");
-			
-			ledNumPM = initNumPM;
-			redValPM = initValPM;
-			bluValPM = initValPM;
-			grnValPM = initValPM;
-
-			
-			while(PIN_MAPPING_ENABLED == 1)
-			{
-				tlc_clear(data16Ptr);
-				tlc_set_led(data16Ptr,redMap[ledNumPM],redValPM);
-				tlc_set_led(data16Ptr,grnMap[ledNumPM],grnValPM);
-				tlc_set_led(data16Ptr,bluMap[ledNumPM],bluValPM);
-				tlc_update(hspi1, data16Ptr,data8Ptr);
-				
-				lcd20x4_i2c_clear();
-				lcd20x4_i2c_1stLine();
-				lcd20x4_i2c_printf("LED # %d", ledNumPM);
-				lcd20x4_i2c_2ndLine();
-				lcd20x4_i2c_printf("RED: %d", redValPM);
-				lcd20x4_i2c_3rdLine();
-				lcd20x4_i2c_printf("GRN: %d", grnValPM);
-				lcd20x4_i2c_4thLine();
-				lcd20x4_i2c_printf("BLU: %d", bluValPM);				
-
-			}
+			merry_christmas(frame0);
 		}
+		
+		while(currentAction == ACTION_PLAY_ANIMATION_3)
+		{
+			original_fade(frame0);
+		}
+		
+		while(currentAction == ACTION_PLAY_ANIMATION_2)
+		{
+			halloween(frame0);
+		}
+		
+		while(currentAction == ACTION_PLAY_ANIMATION_1)
+		{
+			joel_mode(frame0);
+		}
+				
 	}
 }		
 		
@@ -847,95 +572,9 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-	KEYPAD_IRQ = 0;
-	
-	//ensures that MPR121s aren't read while LCD is being written to
-	I2C_HandleTypeDef *phi2c1 = &hi2c1;
-	if (phi2c1->State != HAL_I2C_STATE_READY)
-	{
-		KEYPAD_IRQ = 1;
-		return;
-	}
-	
-	uint8_t keypadVal;	
-	
-
-	keypadVal = mpr121_keyPad(&hi2c1, (KEYPAD_ADDRESS<<1));
-	HAL_Delay(50);
-	if(GPIO_Pin == Keypad_IRQ_Pin)
-	{
-		if(MAIN_MENU_ENABLED == true)
-		{
-			if(keypadVal == 1)
-			{
-				APPLICATION_ENABLED = true;
-				MAIN_MENU_ENABLED = false;
-				return;
-			}
-			
-			if(keypadVal == 2)
-			{
-				PIN_MAPPING_ENABLED = true;
-				MAIN_MENU_ENABLED = false;
-				return;
-			}
-			return;
-		}
-		
-		if(APPLICATION_ENABLED == true)
-		{
-			
-			if
-			
-			if(keypadVal == 3)
-			{
-				MAIN_MENU_ENABLED = true;
-				APPLICATION_ENABLED = false;
-				return;
-			}
-			return;
-		}
-
-		if(PIN_MAPPING_ENABLED == true)
-		{
-			if(keypadVal == 1)
-				redValPM=redValPM + stepSizePM;
-				if (redValPM > maxValPM) redValPM = 0;
-			if(keypadVal == 2)
-				bluValPM=grnValPM + stepSizePM;
-				if (bluValPM > maxValPM) bluValPM = 0;
-			if(keypadVal == 3)
-				grnValPM=bluValPM + stepSizePM;
-				if (grnValPM > maxValPM) grnValPM = 0;
-			if(keypadVal == 4)
-			{
-				if (ledNumPM==0) ledNumPM = 64;
-				ledNumPM--;
-			}
-			if(keypadVal == 6)
-			{
-				ledNumPM++;
-				if (ledNumPM==64) ledNumPM = 0;
-			}
-			if(keypadVal == 7)
-				redValPM=redValPM - stepSizePM;
-				if (redValPM < minValPM) redValPM = maxValPM;
-			if(keypadVal == 8)
-				grnValPM=grnValPM - stepSizePM;
-				if (grnValPM < minValPM) grnValPM = maxValPM;
-			if(keypadVal == 9)
-				bluValPM=bluValPM - stepSizePM;
-				if (bluValPM < minValPM) bluValPM = maxValPM;
-			if(keypadVal == 10)
-			{
-				MAIN_MENU_ENABLED = true;
-				PIN_MAPPING_ENABLED = false;
-				return;
-			}
-			return;
-		}
-	}
+{	
+	currentAction = Menu_Read_MPR121(hi2c1, GPIO_Pin, currentAction);
+	if (currentAction == ACTION_HALT_ANIMATION) HALT_ANIMATION = true;
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
@@ -992,304 +631,6 @@ uint16_t current_lyr_on(uint16_t activeLyr)
 	if(activeLyr==8) activeLyr = 0;
 	return activeLyr;
 }
-
-	
-//void CDC_ReceiveCallBack(uint8_t *buf, uint32_t len){
-//	CDC_Transmit_FS(buf, len);
-//}
-
-void fade_in_color(LyrFrame_TypeDef lyrFrame, bool mask[64], uint64_t color, uint16_t maxBrightness, uint16_t deltaBrightness, uint16_t delay)
-{
-	int16_t redBrightness = (color>>32);
-	int16_t grnBrightness = (color>>16);
-	int16_t bluBrightness = (color>>0);
-	int16_t redDeltaBrightness = 0x0000;
-	int16_t grnDeltaBrightness = 0x0000;
-	int16_t bluDeltaBrightness = 0x0000;
-	int16_t currentBrightness = 0; //hopefully since its signed there's no negative number hard fault.
-	
-	if (redBrightness >= 4000)
-	{
-		redBrightness = 0;
-		redDeltaBrightness = deltaBrightness;
-	}
-	
-	if ((redBrightness < 4000) & (redBrightness > 0)) 
-	{
-		redBrightness = 0;
-		redDeltaBrightness = (deltaBrightness/2);
-	}
-	
-	
-	if (grnBrightness >= 4000)
-	{
-		grnBrightness = 0;
-		grnDeltaBrightness = deltaBrightness;
-	}
-	
-	if ((grnBrightness < 4000) & (grnBrightness > 0)) 
-	{
-		grnBrightness = 0;
-		grnDeltaBrightness = (deltaBrightness/2);
-	}	
-	
-	if (bluBrightness >= 4000)
-	{
-		bluBrightness = 0;
-		bluDeltaBrightness = deltaBrightness;
-	}
-	
-	if ((bluBrightness < 4000) & (bluBrightness > 0)) 
-	{
-		bluBrightness = 0;
-		bluDeltaBrightness = (deltaBrightness/2);
-	}
-	
-	while (currentBrightness <= maxBrightness)
-	{
-		lyr_frame_set_single_rgb(lyrFrame.redArrPtr, redBrightness, mask);
-		lyr_frame_set_single_rgb(lyrFrame.grnArrPtr, grnBrightness, mask);
-		lyr_frame_set_single_rgb(lyrFrame.bluArrPtr, bluBrightness, mask);
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
-		UPDATE_FRAME=1;
-		HAL_Delay(delay);
-		if(currentBrightness==4000) HAL_Delay(1);
-		currentBrightness = currentBrightness + deltaBrightness;
-		redBrightness = redBrightness + redDeltaBrightness;
-		grnBrightness = grnBrightness + grnDeltaBrightness;
-		bluBrightness = bluBrightness + bluDeltaBrightness;
-	}
-}
-
-void fade_out_color(LyrFrame_TypeDef lyrFrame, bool mask[64], uint64_t color, uint16_t minBrightness, uint16_t deltaBrightness, uint16_t delay)
-{
-	int16_t redBrightness = (color>>32);
-	int16_t grnBrightness = (color>>16);
-	int16_t bluBrightness = (color>>0);
-	int16_t redDeltaBrightness = 0x0000;
-	int16_t grnDeltaBrightness = 0x0000;
-	int16_t bluDeltaBrightness = 0x0000;
-	int16_t currentBrightness = 4000; //hopefully since its signed there's no negative number hard fault.
-	
-	if (redBrightness >= 4000)
-	{
-		redBrightness = 4000;
-		redDeltaBrightness = deltaBrightness;
-	}
-	
-	if ((redBrightness < 4000) & (redBrightness > 0)) 
-	{
-		redBrightness = 2000;
-		redDeltaBrightness = (deltaBrightness/2);
-	}
-	
-	
-	if (grnBrightness >= 4000)
-	{
-		grnBrightness = 4000;
-		grnDeltaBrightness = deltaBrightness;
-	}
-	
-	if ((grnBrightness < 4000) & (grnBrightness > 0)) 
-	{
-		grnBrightness = 2000;
-		grnDeltaBrightness = (deltaBrightness/2);
-	}	
-	
-	if (bluBrightness >= 4000)
-	{
-		bluBrightness = 4000;
-		bluDeltaBrightness = deltaBrightness;
-	}
-	
-	if ((bluBrightness < 4000) & (bluBrightness > 0)) 
-	{
-		bluBrightness = 2000;
-		bluDeltaBrightness = (deltaBrightness/2);
-	}
-	
-	while (currentBrightness >= minBrightness)
-	{
-		lyr_frame_set_single_rgb(lyrFrame.redArrPtr, redBrightness, mask);
-		lyr_frame_set_single_rgb(lyrFrame.grnArrPtr, grnBrightness, mask);
-		lyr_frame_set_single_rgb(lyrFrame.bluArrPtr, bluBrightness, mask);
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
-		UPDATE_FRAME=1;
-		HAL_Delay(delay);
-		currentBrightness = currentBrightness - deltaBrightness;
-		redBrightness = redBrightness - redDeltaBrightness;
-		grnBrightness = grnBrightness - grnDeltaBrightness;
-		bluBrightness = bluBrightness - bluDeltaBrightness;
-	}
-}
-
-
-void fade_in_red(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t maxBrightness, uint16_t deltaBrightness, uint16_t delay)
-{
-	uint16_t currentBrightness = deltaBrightness;
-	while (currentBrightness <= maxBrightness)
-	{
-		lyr_frame_set_single_rgb(lyrFrame.redArrPtr, currentBrightness, mask);
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
-		UPDATE_FRAME=1;
-		HAL_Delay(delay);
-		currentBrightness = currentBrightness + deltaBrightness;
-	}
-}
-
-void fade_in_grn(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t maxBrightness, uint16_t deltaBrightness, uint16_t delay)
-{
-	uint16_t currentBrightness = deltaBrightness;
-	while (currentBrightness <= maxBrightness)
-	{
-		lyr_frame_set_single_rgb(lyrFrame.grnArrPtr, currentBrightness, mask);
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
-		UPDATE_FRAME=1;
-		HAL_Delay(delay);
-		currentBrightness = currentBrightness + deltaBrightness;
-	}
-}
-
-void fade_in_blu(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t maxBrightness, uint16_t deltaBrightness, uint16_t delay)
-{
-	uint16_t currentBrightness = deltaBrightness;
-	while (currentBrightness <= maxBrightness)
-	{
-		lyr_frame_set_single_rgb(lyrFrame.bluArrPtr, currentBrightness, mask);
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
-		UPDATE_FRAME=1;
-		HAL_Delay(delay);
-		currentBrightness = currentBrightness + deltaBrightness;
-	}
-}
-
-void fade_out_red(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t minBrightness, uint16_t deltaBrightness, uint16_t delay)
-{
-	int16_t currentBrightness = 4000; //hopefully since its signed there's no negative number hard fault.
-	while (currentBrightness >= minBrightness)
-	{
-		lyr_frame_set_single_rgb(lyrFrame.redArrPtr, currentBrightness, mask);
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
-		UPDATE_FRAME=1;
-		HAL_Delay(delay);
-		currentBrightness = currentBrightness - deltaBrightness;
-	}
-}
-
-void fade_out_grn(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t minBrightness, uint16_t deltaBrightness, uint16_t delay)
-{
-	int16_t currentBrightness = 4000; //hopefully since its signed there's no negative number hard fault.
-	while (currentBrightness >= minBrightness)
-	{
-		lyr_frame_set_single_rgb(lyrFrame.grnArrPtr, currentBrightness, mask);
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
-		UPDATE_FRAME=1;
-		HAL_Delay(delay);
-		currentBrightness = currentBrightness - deltaBrightness;
-	}
-}
-
-void fade_out_blu(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t minBrightness, uint16_t deltaBrightness, uint16_t delay)
-{
-	int16_t currentBrightness = 4000; //hopefully since its signed there's no negative number hard fault.
-	while (currentBrightness >= minBrightness)
-	{
-		lyr_frame_set_single_rgb(lyrFrame.bluArrPtr, currentBrightness, mask);
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
-		UPDATE_FRAME=1;
-		HAL_Delay(delay);
-		currentBrightness = currentBrightness - deltaBrightness;
-	}
-}
-
-void original_fade(Frame_TypeDef frame0)
-{
-	uint16_t maxBrightness = 4000;
-	uint16_t minBrightness = 0;
-	uint16_t deltaBrightness = 10;
-	uint16_t delay = 10;
-	uint16_t transitionDelay;
-	
-	
-	uint64_t colorWheel[12] = {red,orange,yellow,yelgrn,green,seafoam,cyan,lightblu,blue,indigo,purple,pink};	
-	int caseNum = 0;
-
-	while (caseNum<12)
-	{
-		fade_in_color(frame0.lyr0,mask0,colorWheel[caseNum],maxBrightness,deltaBrightness,delay);					
-		fade_out_color(frame0.lyr0,mask0,colorWheel[caseNum],minBrightness,deltaBrightness,delay);
-		HAL_Delay(transitionDelay);
-		caseNum++;
-		
-		fade_in_color(frame0.lyr0,mask1,colorWheel[caseNum],maxBrightness,deltaBrightness,delay);					
-		fade_out_color(frame0.lyr0,mask1,colorWheel[caseNum],minBrightness,deltaBrightness,delay);
-		HAL_Delay(transitionDelay);
-		caseNum++;
-		
-		fade_in_color(frame0.lyr0,mask2,colorWheel[caseNum],maxBrightness,deltaBrightness,delay);					
-		fade_out_color(frame0.lyr0,mask2,colorWheel[caseNum],minBrightness,deltaBrightness,delay);
-		HAL_Delay(transitionDelay);
-		caseNum++;
-		
-		fade_in_color(frame0.lyr0,mask3,colorWheel[caseNum],maxBrightness,deltaBrightness,delay);					
-		fade_out_color(frame0.lyr0,mask3,colorWheel[caseNum],minBrightness,deltaBrightness,delay);
-		HAL_Delay(transitionDelay);
-		caseNum++;
-		
-		fade_in_color(frame0.lyr0,mask2,colorWheel[caseNum],maxBrightness,deltaBrightness,delay);					
-		fade_out_color(frame0.lyr0,mask2,colorWheel[caseNum],minBrightness,deltaBrightness,delay);
-		HAL_Delay(transitionDelay);
-		caseNum++;
-		
-		fade_in_color(frame0.lyr0,mask1,colorWheel[caseNum],maxBrightness,deltaBrightness,delay);					
-		fade_out_color(frame0.lyr0,mask1,colorWheel[caseNum],minBrightness,deltaBrightness,delay);
-		HAL_Delay(transitionDelay);
-		caseNum++;
-		
-	}
-}
-
-void halloween(Frame_TypeDef frame)
-{
-	uint16_t maxBrightness = 2000;
-	uint16_t minBrightness = 0;
-	uint16_t deltaBrightness = 10;
-	uint16_t delay = 10;
-	uint16_t transitionDelay = 500;
-	
-	while(1)
-	{
-		fade_in_color(frame0.lyr0,maskChessBoardW,purple,maxBrightness,deltaBrightness,delay);
-		fade_in_color(frame0.lyr0,maskChessBoardB,orange,maxBrightness,deltaBrightness,delay);
-		//HAL_Delay(transitionDelay);
-		fade_out_color(frame0.lyr0,maskChessBoardW,purple,minBrightness,deltaBrightness,delay);			
-		fade_out_color(frame0.lyr0,maskChessBoardB,orange,minBrightness,deltaBrightness,delay);
-		//HAL_Delay(transitionDelay);
-		
-	}
-}
-
-void joel_mode(Frame_TypeDef frame)
-{
-	uint16_t maxBrightness = 2000;
-	uint16_t minBrightness = 0;
-	uint16_t deltaBrightness = 10;
-	uint16_t delay = 10;
-	uint16_t transitionDelay = 500;
-	
-	while(1)
-	{
-		fade_in_color(frame0.lyr0,letterJ,blue,maxBrightness,deltaBrightness,delay);
-		fade_out_color(frame0.lyr0,letterJ,blue,minBrightness,deltaBrightness,delay);
-		fade_in_color(frame0.lyr0,letterO,blue,maxBrightness,deltaBrightness,delay);
-		fade_out_color(frame0.lyr0,letterO,blue,minBrightness,deltaBrightness,delay);
-		fade_in_color(frame0.lyr0,letterE,blue,maxBrightness,deltaBrightness,delay);
-		fade_out_color(frame0.lyr0,letterE,blue,minBrightness,deltaBrightness,delay);
-		fade_in_color(frame0.lyr0,letterL,blue,maxBrightness,deltaBrightness,delay);
-		fade_out_color(frame0.lyr0,letterL,blue,minBrightness,deltaBrightness,delay);
-	}
-}
-
 
 /* USER CODE END 4 */
 

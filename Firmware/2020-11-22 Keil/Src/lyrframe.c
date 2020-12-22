@@ -5,7 +5,8 @@
  *      Author: Joel Michaelis
  */
   
-#include "LyrFrameFunctions.h"	
+#include "lyrframe.h"
+
 extern int redMap[64];
 extern int grnMap[64];
 extern int bluMap[64];
@@ -57,6 +58,7 @@ void lyr_frame_set_color(LyrFrame_TypeDef lyrFrame,uint64_t color, bool mask[64]
 	uint16_t redBrightness = (color>>32);
 	uint16_t grnBrightness = (color>>16);
 	uint16_t bluBrightness = (color>>0);
+	
 
 	for(int index=0;index<64;index++)
 	{
@@ -66,6 +68,14 @@ void lyr_frame_set_color(LyrFrame_TypeDef lyrFrame,uint64_t color, bool mask[64]
 			*(lyrFrame.grnArrPtr + index) = grnBrightness;
 			*(lyrFrame.bluArrPtr + index) = bluBrightness;
 		}
+		
+		if ( mask[index] == 0)
+		{
+			*(lyrFrame.redArrPtr + index) = 0x0000;
+			*(lyrFrame.grnArrPtr + index) = 0x0000;
+			*(lyrFrame.bluArrPtr + index) = 0x0000;
+		}
+		
 	}
 }
 

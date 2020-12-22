@@ -1,6 +1,10 @@
 2020-11-22 keil\lcd20x4_i2c.o: ..\Src\lcd20x4_i2c.c
 2020-11-22 keil\lcd20x4_i2c.o: ../Inc/lcd20x4_i2c.h
-2020-11-22 keil\lcd20x4_i2c.o: ../Inc/main.h
+2020-11-22 keil\lcd20x4_i2c.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+2020-11-22 keil\lcd20x4_i2c.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+2020-11-22 keil\lcd20x4_i2c.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+2020-11-22 keil\lcd20x4_i2c.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+2020-11-22 keil\lcd20x4_i2c.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
 2020-11-22 keil\lcd20x4_i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 2020-11-22 keil\lcd20x4_i2c.o: ../Inc/stm32f1xx_hal_conf.h
 2020-11-22 keil\lcd20x4_i2c.o: ../Inc/stm32f1xx_hal_rcc.h
@@ -8,7 +12,6 @@
 2020-11-22 keil\lcd20x4_i2c.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
 2020-11-22 keil\lcd20x4_i2c.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
 2020-11-22 keil\lcd20x4_i2c.o: ../Drivers/CMSIS/Include/core_cm3.h
-2020-11-22 keil\lcd20x4_i2c.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 2020-11-22 keil\lcd20x4_i2c.o: ../Drivers/CMSIS/Include/cmsis_version.h
 2020-11-22 keil\lcd20x4_i2c.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 2020-11-22 keil\lcd20x4_i2c.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -32,7 +35,3 @@
 2020-11-22 keil\lcd20x4_i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 2020-11-22 keil\lcd20x4_i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 2020-11-22 keil\lcd20x4_i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
-2020-11-22 keil\lcd20x4_i2c.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-2020-11-22 keil\lcd20x4_i2c.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-2020-11-22 keil\lcd20x4_i2c.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-2020-11-22 keil\lcd20x4_i2c.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

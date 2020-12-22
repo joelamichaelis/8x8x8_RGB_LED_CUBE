@@ -6,10 +6,15 @@
  */
  
 #include "tlc5940.h"
-#include <string.h>
-#include <stdbool.h>
-extern bool DONT_BLANK;
+#include <stm32f1xx_hal.h>
+
 extern bool UPDATE_FRAME;
+
+
+#define BLANK_3V3_Pin GPIO_PIN_8
+#define BLANK_3V3_GPIO_Port GPIOA
+#define XLAT_3V3_Pin GPIO_PIN_4
+#define XLAT_3V3_GPIO_Port GPIOA
  
  void tlc_spi_convert(uint16_t *data16, uint8_t *data8)
 {
@@ -82,7 +87,6 @@ void tlc_set_lyr(uint16_t *data16, uint64_t color, bool mask[64])
 
 void tlc_update(SPI_HandleTypeDef hspi, uint16_t *data16Ptr, uint8_t *data8Ptr)
 {
-	DONT_BLANK = true;
 	tlc_spi_convert(data16Ptr, data8Ptr);
 	HAL_SPI_Transmit(&hspi, data8Ptr, 24*NUM_TLCS, 10);
 	
@@ -91,7 +95,6 @@ void tlc_update(SPI_HandleTypeDef hspi, uint16_t *data16Ptr, uint8_t *data8Ptr)
 	for(uint16_t dummyVar =1;dummyVar<15;dummyVar++); // short delay (approx 3us)
 	HAL_GPIO_WritePin(XLAT_3V3_GPIO_Port, XLAT_3V3_Pin, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(BLANK_3V3_GPIO_Port, BLANK_3V3_Pin, GPIO_PIN_RESET);
-	DONT_BLANK = false;
 }
 
 

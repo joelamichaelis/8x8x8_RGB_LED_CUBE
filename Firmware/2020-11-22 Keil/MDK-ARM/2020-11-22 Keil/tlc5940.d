@@ -1,6 +1,8 @@
 2020-11-22 keil\tlc5940.o: ..\Src\tlc5940.c
 2020-11-22 keil\tlc5940.o: ../Inc/tlc5940.h
-2020-11-22 keil\tlc5940.o: ../Inc/main.h
+2020-11-22 keil\tlc5940.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+2020-11-22 keil\tlc5940.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+2020-11-22 keil\tlc5940.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 2020-11-22 keil\tlc5940.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 2020-11-22 keil\tlc5940.o: ../Inc/stm32f1xx_hal_conf.h
 2020-11-22 keil\tlc5940.o: ../Inc/stm32f1xx_hal_rcc.h
@@ -8,7 +10,6 @@
 2020-11-22 keil\tlc5940.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
 2020-11-22 keil\tlc5940.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
 2020-11-22 keil\tlc5940.o: ../Drivers/CMSIS/Include/core_cm3.h
-2020-11-22 keil\tlc5940.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 2020-11-22 keil\tlc5940.o: ../Drivers/CMSIS/Include/cmsis_version.h
 2020-11-22 keil\tlc5940.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 2020-11-22 keil\tlc5940.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -32,5 +33,3 @@
 2020-11-22 keil\tlc5940.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 2020-11-22 keil\tlc5940.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 2020-11-22 keil\tlc5940.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
-2020-11-22 keil\tlc5940.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-2020-11-22 keil\tlc5940.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h

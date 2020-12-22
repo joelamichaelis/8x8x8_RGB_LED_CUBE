@@ -8,11 +8,12 @@
 #ifndef LCD20x4_I2C_H_
 #define LCD20x4_I2C_H_
 
-#include "main.h"
+#include <stdint.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
+#include "stm32f1xx_hal.h"
 
 /* LCD Commands */
 #define LCD_CLEARDISPLAY    0x01

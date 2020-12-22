@@ -312,7 +312,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>2</Optim>
+            <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -408,29 +408,9 @@
               <FilePath>../Src/stm32f1xx_hal_msp.c</FilePath>
             </File>
             <File>
-              <FileName>Array8x8Functions.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Src\Array8x8Functions.c</FilePath>
-            </File>
-            <File>
-              <FileName>BoolMaskFunctions.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Src\BoolMaskFunctions.c</FilePath>
-            </File>
-            <File>
-              <FileName>frameFunctions.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Src\frameFunctions.c</FilePath>
-            </File>
-            <File>
               <FileName>lcd20x4_i2c.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\lcd20x4_i2c.c</FilePath>
-            </File>
-            <File>
-              <FileName>LyrFrameFunctions.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Src\LyrFrameFunctions.c</FilePath>
             </File>
             <File>
               <FileName>mpr121.c</FileName>
@@ -441,6 +421,36 @@
               <FileName>tlc5940.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\tlc5940.c</FilePath>
+            </File>
+            <File>
+              <FileName>animations.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\animations.c</FilePath>
+            </File>
+            <File>
+              <FileName>bool_mask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\bool_mask.c</FilePath>
+            </File>
+            <File>
+              <FileName>frame.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\frame.c</FilePath>
+            </File>
+            <File>
+              <FileName>lyrframe.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\lyrframe.c</FilePath>
+            </File>
+            <File>
+              <FileName>array_8x8.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\array_8x8.c</FilePath>
+            </File>
+            <File>
+              <FileName>menu_system.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\menu_system.c</FilePath>
             </File>
           </Files>
         </Group>

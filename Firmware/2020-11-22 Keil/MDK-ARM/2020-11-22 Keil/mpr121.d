@@ -1,6 +1,5 @@
 2020-11-22 keil\mpr121.o: ..\Src\mpr121.c
 2020-11-22 keil\mpr121.o: ../Inc/mpr121.h
-2020-11-22 keil\mpr121.o: ../Inc/main.h
 2020-11-22 keil\mpr121.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 2020-11-22 keil\mpr121.o: ../Inc/stm32f1xx_hal_conf.h
 2020-11-22 keil\mpr121.o: ../Inc/stm32f1xx_hal_rcc.h

@@ -13,10 +13,9 @@
 
 
 
-#ifndef MPR121_h
-#define MPR121_h
+#ifndef MPR121_H_
+#define MPR121_H_
 
-#include "main.h"
 #include "stm32f1xx_hal.h"
 
 /*
@@ -128,7 +127,8 @@ void mpr121_read(I2C_HandleTypeDef *hi2c, uint8_t mpr121Address, uint8_t reg,uin
 uint16_t mpr121_touch(I2C_HandleTypeDef *hi2c, uint8_t mpr121Address);
 uint8_t mpr121_wheelKey(I2C_HandleTypeDef *hi2c, uint8_t mpr121Address);
 uint8_t mpr121_keyPad(I2C_HandleTypeDef *hi2c, uint8_t mpr121Address);
-	
+char mpr121_wheel(I2C_HandleTypeDef *hi2c, uint8_t mpr121Address, char prevDir);
+
 
 
 

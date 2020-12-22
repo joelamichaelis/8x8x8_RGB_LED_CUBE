@@ -1,11 +1,11 @@
 /*
- * Array8x8Functions.c
+ * array_8x8.c
  *
  *  Created on: Nov 22, 2020
  *      Author: Joel Michaelis
  */
 
-#include "Array8x8Functions.h"
+#include "array_8x8.h"
 
 /**
  * @brief sets a single value within the array

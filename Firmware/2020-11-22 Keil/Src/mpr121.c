@@ -12,10 +12,7 @@
 */
 
 
-
-
 #include "mpr121.h"
-#include "stm32f1xx_hal.h"
 
 
 //------------------- WRITE register  -------------------------
@@ -203,4 +200,15 @@ uint8_t mpr121_keyPad(I2C_HandleTypeDef *hi2c, uint8_t mpr121Address)
 	return 0;
 }
 
+char mpr121_wheel(I2C_HandleTypeDef *hi2c, uint8_t mpr121Address, char prevDir)
+{
+	uint16_t var = mpr121_touch(hi2c, mpr121Address); 
+	if			(var==0x0100) return 'C';	//center button
+	else if ((var==0x0001)|(var==0x0003)|(var==0x0081)|(var==0x0083)) return 'S';	//South
+	else if ((var==0x0004)|(var==0x0006)|(var==0x000C)|(var==0x000E)) return 'W';	//West
+	else if ((var==0x0010)|(var==0x0018)|(var==0x0030)|(var==0x0038)) return 'N';	//North
+	else if ((var==0x0040)|(var==0x0060)|(var==0x00C0)|(var==0x00E0)) return 'E';	//East
+	return prevDir;
+}
+	
 

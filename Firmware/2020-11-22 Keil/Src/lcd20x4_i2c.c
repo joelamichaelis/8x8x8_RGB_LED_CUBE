@@ -2,15 +2,17 @@
  * lcd20x4_i2c.c
  *
  *  Created on: Mar 28, 2020
- *      Author: Mohamed Yaqoob
+ *      Original Author: Mohamed Yaqoob
+ *			Revised By: Joel Michaelis
+ *
  */
 
 #include "lcd20x4_i2c.h"
-#include <stdio.h>
-#include <string.h>
-#include <stdarg.h>
 
-extern bool KEYPAD_IRQ;
+
+extern bool Keypad_IRQ;
+extern bool Wheel_IRQ;
+
 
 
 /* Private functions */
@@ -240,8 +242,4 @@ void lcd20x4_i2c_printf(const char* str, ...)
   {
     lcd20x4_i2c_sendData((uint8_t)stringArray[i]);
   }
-	if (KEYPAD_IRQ == 1) //keypad IRQ was asserted while lcd was being written to.
-				{
-					HAL_GPIO_EXTI_Callback(Keypad_IRQ_Pin);
-				}
 }

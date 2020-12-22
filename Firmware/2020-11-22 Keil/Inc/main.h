@@ -32,42 +32,19 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "menu_system.h"
+#include "animations.h"
+#include "tlc5940.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
 
-// defining a structure and creating an alias for it at the same time
-// typedef struct __LyrFrame_TypeDef LyrFrame_TypeDef;
-// struct __LyrFrame_TypeDef{...};
-typedef struct __LyrFrame_TypeDef
-{	
-	uint16_t redArray[64];
-	uint16_t *redArrPtr;
-	uint16_t grnArray[64];
-	uint16_t *grnArrPtr;
-	uint16_t bluArray[64];
-	uint16_t *bluArrPtr;
-} LyrFrame_TypeDef;
-
-typedef struct __Frame_TypeDef
-{
-	LyrFrame_TypeDef lyr0;
-	LyrFrame_TypeDef lyr1;
-	LyrFrame_TypeDef lyr2;
-	LyrFrame_TypeDef lyr3;
-	LyrFrame_TypeDef lyr4;
-	LyrFrame_TypeDef lyr5;
-	LyrFrame_TypeDef lyr6;
-	LyrFrame_TypeDef lyr7;
-} Frame_TypeDef;
 
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
-/* USER CODE BEGIN EC */
-
+#define NUM_TLCS    12
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/

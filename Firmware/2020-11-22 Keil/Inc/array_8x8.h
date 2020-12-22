@@ -1,11 +1,15 @@
 /*
- * Array8x8Functions.h
+ * array_8x8.h
  *
  *  Created on: Nov 22, 2020
  *      Author: Joel Michaelis
  */
+ 
+ 
+#ifndef ARRAY_8X8
+#define ARRAY_8X8
 
-#include "main.h" 
+#include <stdint.h>
  
 /**
  * @brief sets a single value within the array
@@ -98,5 +102,5 @@ void array_8x8_rotate_back(uint16_t *arrayPtr);
  **/
 void array_8x8_brighten(uint16_t *arrayPtr, uint16_t delta);
 	
-
+#endif
 

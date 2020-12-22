@@ -1,13 +1,25 @@
 /*
- * LyrFrameFunctions.h
+ * lyrframe.h
  *
  *  Created on: Nov 22, 2020
  *      Author: Joel Michaelis
  */
  
- #include "main.h"
+ #ifndef LYRFRAME
+ #define LYRFRAME
+ 
  #include <stdbool.h>
- #include "Array8x8Functions.h"
+ #include "array_8x8.h"
+
+typedef struct __LyrFrame_TypeDef
+{	
+	uint16_t redArray[64];
+	uint16_t *redArrPtr;
+	uint16_t grnArray[64];
+	uint16_t *grnArrPtr;
+	uint16_t bluArray[64];
+	uint16_t *bluArrPtr;
+} LyrFrame_TypeDef;
 
 extern bool UPDATE_FRAME;
 extern uint16_t *data16Ptr;
@@ -133,3 +145,5 @@ void lyr_frame_fade_in_blu(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t ma
  * @param[in] delay - amount of time to stay at each step for
  **/
 void lyr_frame_fade_out_blu(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t minBrightness, uint16_t deltaBrightness, uint16_t delay);
+
+#endif

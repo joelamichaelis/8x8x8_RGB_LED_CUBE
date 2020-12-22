@@ -9,13 +9,15 @@
 #define TLC5940_H_
 
 //Includes 
-#include "main.h"
+//#include "main.h"
 #include <string.h>
 #include <stdbool.h>
+#include <stdint.h>	//necessary for definition of uint16_t, etc
+#include <stm32f1xx_hal.h> //necessary for definition of SPI_HandleTypeDef, may be able to include a lower hal lib
 
 //Variable definitions, etc
 
- #define NUM_TLCS 12
+#define NUM_TLCS 12
  
 extern int redMap[64];
 extern int grnMap[64];
@@ -34,5 +36,6 @@ uint16_t tlc_LEtoBE(uint16_t lilEndian);
 uint16_t tlc_nibbleSwap(uint16_t originalNibble);
 uint16_t tlc_wordBitReversal(uint16_t originalWord);
 void tlc_spi16BitConversion(uint16_t *data16Ptr, uint16_t *data12ptr);
-#endif /* TLC5940_H_ */									
+
+#endif								
 					
