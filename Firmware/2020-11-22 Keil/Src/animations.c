@@ -164,6 +164,26 @@ void joel_mode(Frame_TypeDef frame)
 	}
 }
 
+
+void shifting_cubes(Frame_TypeDef frame)
+{
+	uint16_t brightness = 2000;
+	uint16_t transitionDelay = 500;
+	
+	HALT_ANIMATION = false;
+	
+	while(HALT_ANIMATION == false)
+	{
+		lyr_frame_set_color(frame.lyr0,red,mask0);
+		lyr_frame_set_color(frame.lyr0,green,mask1);
+		lyr_frame_set_color(frame.lyr0,blue,mask2);
+		lyr_frame_set_color(frame.lyr0,yellow,mask4);
+		HAL_Delay(transitionDelay);
+	}
+}
+
+
+
 void dissolve_in_color(LyrFrame_TypeDef lyrFrame, bool mask[64], uint64_t color, uint16_t maxBrightness, uint16_t deltaBrightness, uint16_t delay)
 {
 	bool tempMask[64];
