@@ -169,13 +169,13 @@ int main(void)
 	HAL_TIM_OC_Start(&htim1, TIM_CHANNEL_4);	//this was working with ch1 even though thats set as a gpio!
 		
 	lcd20x4_i2c_init(&hi2c1); // I don't know why this needs to be called in main and not inside MenuSystemInit()
-	MenuSystemInit(hi2c1);
 		
 	HAL_GPIO_WritePin(L8_EN_GPIO_Port, L8_EN_Pin, GPIO_PIN_SET);		
 	HAL_SPI_Init(&hspi1);
 
 	tlc_clear(data16Ptr);
 	UPDATE_FRAME = 1;
+	MenuSystemInit(hi2c1);
 	MenuDisplayUpdate(MainMenu);	
   /* USER CODE END 2 */
 
@@ -187,6 +187,11 @@ int main(void)
 		while(currentAction == ACTION_NOP)
 		{
 			HAL_Delay(1);
+		}
+		
+		while(currentAction == ACTION_PLAY_ANIMATION_5)
+		{
+			sliding_cubes(frame0);
 		}
 		
 		while(currentAction == ACTION_PLAY_ANIMATION_4)

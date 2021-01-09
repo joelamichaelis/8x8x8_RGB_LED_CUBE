@@ -39,7 +39,6 @@ void lyr_frame_convert(LyrFrame_TypeDef lyrFrame,uint16_t *data16Ptr);
  */
 void lyr_frame_set_single_rgb(uint16_t *arrayPtr, uint16_t brightness, bool mask[64]);
 
-
 /**
  * @brief set the layer frame to a special RGB color
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
@@ -56,60 +55,71 @@ void lyr_frame_set_color(LyrFrame_TypeDef lyrFrame,uint64_t color, bool mask[64]
 void lyr_frame_clear_all(LyrFrame_TypeDef lyrFrame);
 
 /**
- * @brief shift the layer frame to the right
+ * @brief shift the layer frame in the specified direction, zeros are shifted in
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * example usage: lyr_frame_shift_right(frame1.lyr0);
+ * @param[in] direction - specify a preprocessor #defined name that corresponds to a direction
+ * example usage: lyr_frame_shift_right(frame1.lyr0, DIRECTION_RIGHT);
  */
-void lyr_frame_shift_right(LyrFrame_TypeDef lyrFrame);
+void lyr_frame_shift(LyrFrame_TypeDef lyrFrame, uint8_t direction);
 
 /**
- * @brief shift the layer frame to the right and wrap around
+ * @brief shift the layer frame in the specified direction and wrap around
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * example usage: lyr_frame_rotate_right(frame1.lyr0);
+ * @param[in] direction - specify a preprocessor #defined name that corresponds to a direction
+ * example usage: lyr_frame_rotate_right(frame1.lyr0, DIRECTION_RIGHT);
  */
-void lyr_frame_rotate_right(LyrFrame_TypeDef lyrFrame);
+void lyr_frame_rotate(LyrFrame_TypeDef lyrFrame, uint8_t direction);
 
 /**
- * @brief shift the layer frame to the left
+ * @brief  inverts the brightness values of all elements of the layer frame arrays
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * example usage: lyr_frame_shift_left(frame1.lyr0);
- */
-void lyr_frame_shift_left(LyrFrame_TypeDef lyrFrame);
+ **/
+ void lyr_frame_invert(LyrFrame_TypeDef lyrFrame); 
 
 /**
- * @brief shift the layer frame to the left and wrap around
+ * @brief shift a column of the layer frame in the specified direction, zeros are shifted in
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * example usage: lyr_frame_rotate_left(frame1.lyr0);
+ * @param[in] colNum - indicates which column is to be shifted (0 - 7)
+ * @param[in] direction - specify a preprocessor #defined name that corresponds to a direction
+ * example usage: lyr_frame_shift_column(frame1.lyr0, 7, DIRECTION_RIGHT);
  */
-void lyr_frame_rotate_left(LyrFrame_TypeDef lyrFrame);
+void lyr_frame_shift_column(LyrFrame_TypeDef lyrFrame, uint8_t colNum, uint8_t direction);
 
 /**
- * @brief shift the layer frame to the forward
+ * @brief shift a column of the layer frame in the specified direction and wrap around
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * example usage: lyr_frame_shift_forward(frame1.lyr0);
+ * @param[in] colNum - indicates which column is to be rotated (0 - 7)
+ * @param[in] direction - specify a preprocessor #defined name that corresponds to a direction
+ * example usage: lyr_frame_rotate_column(frame1.lyr0, 7, DIRECTION_RIGHT);
  */
-void lyr_frame_shift_forward(LyrFrame_TypeDef lyrFrame);
+void lyr_frame_rotate_column(LyrFrame_TypeDef lyrFrame, uint8_t colNum, uint8_t direction);
 
 /**
- * @brief shift the layer frame forward and wrap around
+ * @brief shift a row of the layer frame in the specified direction, zeros are shifted in
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * example usage: lyr_frame_rotate_forward(frame1.lyr0);
+ * @param[in] rowNum - indicates which row is to be shifted (0 - 7)
+ * @param[in] direction - specify a preprocessor #defined name that corresponds to a direction
+ * example usage: lyr_frame_shift_row(frame1.lyr0, 0, DIRECTION_RIGHT);
  */
-void lyr_frame_rotate_forward(LyrFrame_TypeDef lyrFrame);
+void lyr_frame_shift_row(LyrFrame_TypeDef lyrFrame, uint8_t rowNum, uint8_t direction);
 
 /**
- * @brief shift the layer frame to the back
+ * @brief shift a row of the layer frame in the specified direction and wrap around
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * example usage: lyr_frame_shift_back(frame1.lyr0);
+ * @param[in] rowNum - indicates which row is to be shifted (0 - 7)
+ * @param[in] direction - specify a preprocessor #defined name that corresponds to a direction
+ * example usage: lyr_frame_rotate_row(frame1.lyr0, 0, DIRECTION_RIGHT);
  */
-void lyr_frame_shift_back(LyrFrame_TypeDef lyrFrame);
+void lyr_frame_rotate_row(LyrFrame_TypeDef lyrFrame, uint8_t rowNum, uint8_t direction);
 
 /**
- * @brief shift the layer frame backward and wrap around
+ * @brief rotate the layer frame quadrants either CW or CCW about the +/- z direction 
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * example usage: lyr_frame_rotate_back(frame1.lyr0);
+ * @param[in] direction - specify a preprocessor #defined name that corresponds to a direction
+ * example usage: lyr_frame_rotate_ccw(frame1.lyr0, DIRECTION_CW);
  */
-void lyr_frame_rotate_back(LyrFrame_TypeDef lyrFrame);
+void lyr_frame_quadrant_rotate(LyrFrame_TypeDef lyrFrame, uint8_t direction);
+
 
 /**
  * @brief increases the intensity of the non-zero elements in the lyrFrame
@@ -117,33 +127,5 @@ void lyr_frame_rotate_back(LyrFrame_TypeDef lyrFrame);
  * @param[in] delta - the amount to increase the intensity by
  */
 void lyr_frame_brighten(LyrFrame_TypeDef lyrFrame, uint16_t delta);
-
-/**
- * @brief a multi-frame animation that fades a lyrFrame in & out in steps
- * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * @param[in] color - the color :^)
- * @param[in] color - number of steps between off & on
- */
-void lyr_frame_fade_in_and_out(LyrFrame_TypeDef lyrFrame, uint64_t color, uint16_t stepSize);
-
-/**
- * @brief fades in blu in steps and waits at each step
- * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * @param[in] mask - the specific leds to perform the operation to
- * @param[in] maxBrightness - the brightness to stop fading in at
- * @param[in] deltaBrightness - step size
- * @param[in] delay - amount of time to stay at each step for
- **/
-void lyr_frame_fade_in_blu(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t maxBrightness, uint16_t deltaBrightness, uint16_t delay);
-
-/**
- * @brief fades out blu in steps and waits at each step
- * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * @param[in] mask - the specific leds to perform the operation to
- * @param[in] maxBrightness - the brightness to stop fading in at
- * @param[in] deltaBrightness - step size
- * @param[in] delay - amount of time to stay at each step for
- **/
-void lyr_frame_fade_out_blu(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t minBrightness, uint16_t deltaBrightness, uint16_t delay);
 
 #endif

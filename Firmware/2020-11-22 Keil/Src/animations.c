@@ -165,20 +165,144 @@ void joel_mode(Frame_TypeDef frame)
 }
 
 
-void shifting_cubes(Frame_TypeDef frame)
+void sliding_cubes(Frame_TypeDef frame)
 {
-	uint16_t brightness = 2000;
-	uint16_t transitionDelay = 500;
-	
+	uint64_t colorWheel[12] = {red,orange,yellow,yelgrn,green,seafoam,cyan,lightblu,blue,indigo,purple,pink};	
+	int colorIndex = 0;
+	uint16_t transitionDelay = 400;
+	bool maskCube0189[64];
+	maskCube0189[0] = 1;
+	maskCube0189[1] = 1;
+	maskCube0189[8] = 1;
+	maskCube0189[9] = 1;
+	maskCube0189[58] = 0;
 	HALT_ANIMATION = false;
+	lyr_frame_clear_all(frame0.lyr0);
 	
 	while(HALT_ANIMATION == false)
 	{
-		lyr_frame_set_color(frame.lyr0,red,mask0);
-		lyr_frame_set_color(frame.lyr0,green,mask1);
-		lyr_frame_set_color(frame.lyr0,blue,mask2);
-		lyr_frame_set_color(frame.lyr0,yellow,mask4);
-		HAL_Delay(transitionDelay);
+		lyr_frame_set_color(frame.lyr0,colorWheel[colorIndex],maskCube0189);
+		colorIndex++;
+		if(colorIndex==12) colorIndex=0;
+		lyr_frame_convert(frame0.lyr0,data16Ptr);
+		UPDATE_FRAME=1;
+		HAL_Delay(transitionDelay);		
+
+		for(int repIndex=0;repIndex<3;repIndex++)
+		{
+			lyr_frame_shift_column(frame0.lyr0, 0, DIRECTION_FORWARD);
+			lyr_frame_shift_column(frame0.lyr0, 0, DIRECTION_FORWARD);
+			lyr_frame_shift_column(frame0.lyr0, 1, DIRECTION_FORWARD);
+			lyr_frame_shift_column(frame0.lyr0, 1, DIRECTION_FORWARD);
+			lyr_frame_convert(frame0.lyr0,data16Ptr);
+			UPDATE_FRAME=1;
+			HAL_Delay(transitionDelay);
+		}
+		
+		lyr_frame_set_color(frame.lyr0,colorWheel[colorIndex],maskCube0189);
+		colorIndex++;
+		if(colorIndex==12) colorIndex=0;
+		lyr_frame_convert(frame0.lyr0,data16Ptr);
+		UPDATE_FRAME=1;
+		HAL_Delay(transitionDelay);		
+		
+		for(int repIndex=0;repIndex<3;repIndex++)
+		{
+			lyr_frame_shift_row(frame0.lyr0, 6, DIRECTION_RIGHT);
+			lyr_frame_shift_row(frame0.lyr0, 6, DIRECTION_RIGHT);
+			lyr_frame_shift_row(frame0.lyr0, 7, DIRECTION_RIGHT);
+			lyr_frame_shift_row(frame0.lyr0, 7, DIRECTION_RIGHT);
+			lyr_frame_shift_column(frame0.lyr0, 0, DIRECTION_FORWARD);
+			lyr_frame_shift_column(frame0.lyr0, 0, DIRECTION_FORWARD);
+			lyr_frame_shift_column(frame0.lyr0, 1, DIRECTION_FORWARD);
+			lyr_frame_shift_column(frame0.lyr0, 1, DIRECTION_FORWARD);
+			lyr_frame_convert(frame0.lyr0,data16Ptr);
+			UPDATE_FRAME=1;
+			HAL_Delay(transitionDelay);
+		}
+		
+		lyr_frame_set_color(frame.lyr0,colorWheel[colorIndex],maskCube0189);
+		colorIndex++;
+		if(colorIndex==12) colorIndex=0;
+		lyr_frame_convert(frame0.lyr0,data16Ptr);
+		UPDATE_FRAME=1;
+		HAL_Delay(transitionDelay);	
+
+		for(int repIndex=0;repIndex<3;repIndex++)
+		{
+			lyr_frame_shift_column(frame0.lyr0, 6, DIRECTION_BACK);
+			lyr_frame_shift_column(frame0.lyr0, 6, DIRECTION_BACK);
+			lyr_frame_shift_column(frame0.lyr0, 7, DIRECTION_BACK);
+			lyr_frame_shift_column(frame0.lyr0, 7, DIRECTION_BACK);
+			lyr_frame_shift_row(frame0.lyr0, 6, DIRECTION_RIGHT);
+			lyr_frame_shift_row(frame0.lyr0, 6, DIRECTION_RIGHT);
+			lyr_frame_shift_row(frame0.lyr0, 7, DIRECTION_RIGHT);
+			lyr_frame_shift_row(frame0.lyr0, 7, DIRECTION_RIGHT);
+			lyr_frame_shift_column(frame0.lyr0, 0, DIRECTION_FORWARD);
+			lyr_frame_shift_column(frame0.lyr0, 0, DIRECTION_FORWARD);
+			lyr_frame_shift_column(frame0.lyr0, 1, DIRECTION_FORWARD);
+			lyr_frame_shift_column(frame0.lyr0, 1, DIRECTION_FORWARD);
+			lyr_frame_convert(frame0.lyr0,data16Ptr);
+			lyr_frame_convert(frame0.lyr0,data16Ptr);
+			UPDATE_FRAME=1;
+			HAL_Delay(transitionDelay);
+		}	
+		
+		lyr_frame_set_color(frame.lyr0,colorWheel[colorIndex],maskCube0189);
+		colorIndex++;
+		if(colorIndex==12) colorIndex=0;
+		lyr_frame_convert(frame0.lyr0,data16Ptr);
+		UPDATE_FRAME=1;
+		HAL_Delay(transitionDelay);	
+		
+		lyr_frame_shift_row(frame0.lyr0, 0, DIRECTION_INWARD);
+		lyr_frame_shift_row(frame0.lyr0, 1, DIRECTION_INWARD);
+		lyr_frame_shift_row(frame0.lyr0, 2, DIRECTION_INWARD);
+		lyr_frame_shift_row(frame0.lyr0, 3, DIRECTION_INWARD);
+		lyr_frame_shift_row(frame0.lyr0, 4, DIRECTION_INWARD);
+		lyr_frame_shift_row(frame0.lyr0, 5, DIRECTION_INWARD);
+		lyr_frame_shift_row(frame0.lyr0, 6, DIRECTION_INWARD);
+		lyr_frame_shift_row(frame0.lyr0, 7, DIRECTION_INWARD);
+		lyr_frame_convert(frame0.lyr0,data16Ptr);
+		UPDATE_FRAME=1;
+		HAL_Delay(2*transitionDelay);	
+		
+		lyr_frame_shift_column(frame0.lyr0, 0, DIRECTION_INWARD);
+		lyr_frame_shift_column(frame0.lyr0, 1, DIRECTION_INWARD);
+		lyr_frame_shift_column(frame0.lyr0, 2, DIRECTION_INWARD);
+		lyr_frame_shift_column(frame0.lyr0, 3, DIRECTION_INWARD);
+		lyr_frame_shift_column(frame0.lyr0, 4, DIRECTION_INWARD);
+		lyr_frame_shift_column(frame0.lyr0, 5, DIRECTION_INWARD);
+		lyr_frame_shift_column(frame0.lyr0, 6, DIRECTION_INWARD);
+		lyr_frame_shift_column(frame0.lyr0, 7, DIRECTION_INWARD);
+		lyr_frame_convert(frame0.lyr0,data16Ptr);
+		UPDATE_FRAME=1;
+		HAL_Delay(2*transitionDelay);	
+		
+		lyr_frame_shift_row(frame0.lyr0, 0, DIRECTION_INWARD);
+		lyr_frame_shift_row(frame0.lyr0, 1, DIRECTION_INWARD);
+		lyr_frame_shift_row(frame0.lyr0, 2, DIRECTION_INWARD);
+		lyr_frame_shift_row(frame0.lyr0, 3, DIRECTION_INWARD);
+		lyr_frame_shift_row(frame0.lyr0, 4, DIRECTION_INWARD);
+		lyr_frame_shift_row(frame0.lyr0, 5, DIRECTION_INWARD);
+		lyr_frame_shift_row(frame0.lyr0, 6, DIRECTION_INWARD);
+		lyr_frame_shift_row(frame0.lyr0, 7, DIRECTION_INWARD);
+		lyr_frame_convert(frame0.lyr0,data16Ptr);
+		UPDATE_FRAME=1;
+		HAL_Delay(2*transitionDelay);	
+		
+		lyr_frame_shift_column(frame0.lyr0, 0, DIRECTION_INWARD);
+		lyr_frame_shift_column(frame0.lyr0, 1, DIRECTION_INWARD);
+		lyr_frame_shift_column(frame0.lyr0, 2, DIRECTION_INWARD);
+		lyr_frame_shift_column(frame0.lyr0, 3, DIRECTION_INWARD);
+		lyr_frame_shift_column(frame0.lyr0, 4, DIRECTION_INWARD);
+		lyr_frame_shift_column(frame0.lyr0, 5, DIRECTION_INWARD);
+		lyr_frame_shift_column(frame0.lyr0, 6, DIRECTION_INWARD);
+		lyr_frame_shift_column(frame0.lyr0, 7, DIRECTION_INWARD);
+		lyr_frame_convert(frame0.lyr0,data16Ptr);
+		UPDATE_FRAME=1;
+		HAL_Delay(2*transitionDelay);	
+		
 	}
 }
 

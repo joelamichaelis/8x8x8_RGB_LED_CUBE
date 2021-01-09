@@ -33,9 +33,13 @@ void dissolve_out_color(LyrFrame_TypeDef lyrFrame, bool mask[64], uint64_t color
 // decides which specific animation to play based off its assigned number
 extern void Animation_LUT(int animationNumber);
 
+//animations yet to be validated:
 void original_fade(Frame_TypeDef frame0);
 void halloween(Frame_TypeDef frame);
 void joel_mode(Frame_TypeDef frame);
 void merry_christmas(Frame_TypeDef frame0);
+
+//animations still in development:
+void sliding_cubes(Frame_TypeDef frame0);
 
 #endif

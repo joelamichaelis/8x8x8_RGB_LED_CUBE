@@ -198,7 +198,9 @@ Menu_TypeDef AnimationMenuInit(Menu_TypeDef Menu)
 	MenuSetRowText(Menu.ArrayPtr, 4, " Merry Christmas");
 	Menu.rowAction[4] = ACTION_PLAY_ANIMATION_4;
 	
-	MenuSetRowText(Menu.ArrayPtr, 5, " Row 5");
+	MenuSetRowText(Menu.ArrayPtr, 5, " Sliding Cubes");
+	Menu.rowAction[5] = ACTION_PLAY_ANIMATION_5;
+	
 	MenuSetRowText(Menu.ArrayPtr, 6, " Row 6");
 	MenuSetRowText(Menu.ArrayPtr, 7, " Row 7");
 	MenuSetRowText(Menu.ArrayPtr, 8, " Row 8");
@@ -329,7 +331,7 @@ void MenuSystemInit(I2C_HandleTypeDef hi2c)
 	lcd20x4_i2c_printf("Designed by:");
 	lcd20x4_i2c_4thLine();
 	lcd20x4_i2c_printf("Joel Michaelis :^)");
-	HAL_Delay(10000);
+	HAL_Delay(6000);
 	lcd20x4_i2c_clear();
 
 	lcd20x4_i2c_2ndLine();

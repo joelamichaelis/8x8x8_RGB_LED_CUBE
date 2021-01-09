@@ -181,22 +181,6 @@
           <ExecCommand></ExecCommand>
           <Expression>\\2020_11_22_Keil\../Src/animations.c\70</Expression>
         </Bp>
-        <Bp>
-          <Number>2</Number>
-          <Type>0</Type>
-          <LineNumber>180</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134237496</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\Src\animations.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\2020_11_22_Keil\../Src/animations.c\180</Expression>
-        </Bp>
       </Breakpoint>
       <WatchWindow1>
         <Ww>

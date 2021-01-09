@@ -71,9 +71,10 @@ void lyr_frame_set_color(LyrFrame_TypeDef lyrFrame,uint64_t color, bool mask[64]
 		
 		if ( mask[index] == 0)
 		{
-			*(lyrFrame.redArrPtr + index) = 0x0000;
-			*(lyrFrame.grnArrPtr + index) = 0x0000;
-			*(lyrFrame.bluArrPtr + index) = 0x0000;
+			//don't clear existing stuff out!
+			//*(lyrFrame.redArrPtr + index) = 0x0000;
+			//*(lyrFrame.grnArrPtr + index) = 0x0000;
+			//*(lyrFrame.bluArrPtr + index) = 0x0000;
 		}
 		
 	}
@@ -94,101 +95,134 @@ void lyr_frame_clear_all(LyrFrame_TypeDef lyrFrame)
 }
 
 /**
- * @brief shift the layer frame to the right N times
+ * @brief shift the layer frame in the specified direction, zeros are shifted in
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * @param[in] nTimes - The number of times to perform the operation
- * example usage: lyr_frame_shift_right(frame1.lyr0,1);
+ * @param[in] direction - specify a preprocessor #defined name that corresponds to a direction
+ * example usage: lyr_frame_shift_right(frame1.lyr0, DIRECTION_RIGHT);
  */
-void lyr_frame_shift_right(LyrFrame_TypeDef lyrFrame)
+void lyr_frame_shift(LyrFrame_TypeDef lyrFrame, uint8_t direction)
 {
-	array_8x8_shift_right(lyrFrame.redArrPtr);
-	array_8x8_shift_right(lyrFrame.grnArrPtr);
-	array_8x8_shift_right(lyrFrame.bluArrPtr);
+	array_8x8_shift(lyrFrame.redArrPtr, direction);
+	array_8x8_shift(lyrFrame.grnArrPtr, direction);
+	array_8x8_shift(lyrFrame.bluArrPtr, direction);
 }
 
 /**
- * @brief shift the layer frame to the right and wrap around
+ * @brief shift the layer frame in the specified direction and wrap around
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * example usage: lyr_frame_rotate_right(frame1.lyr0);
+ * @param[in] direction - specify a preprocessor #defined name that corresponds to a direction
+ * example usage: lyr_frame_rotate_right(frame1.lyr0, DIRECTION_RIGHT);
  */
-void lyr_frame_rotate_right(LyrFrame_TypeDef lyrFrame)
+void lyr_frame_rotate(LyrFrame_TypeDef lyrFrame, uint8_t direction)
 {
-	array_8x8_rotate_right(lyrFrame.redArrPtr);
-	array_8x8_rotate_right(lyrFrame.grnArrPtr);
-	array_8x8_rotate_right(lyrFrame.bluArrPtr);
+	array_8x8_rotate(lyrFrame.redArrPtr, direction);
+	array_8x8_rotate(lyrFrame.grnArrPtr, direction);
+	array_8x8_rotate(lyrFrame.bluArrPtr, direction);
 }
 
 /**
- * @brief shift the layer frame to the left
+ * @brief  inverts the brightness values of all elements of the layer frame arrays
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * example usage: lyr_frame_shift_left(frame1.lyr0);
- */
-void lyr_frame_shift_left(LyrFrame_TypeDef lyrFrame)
+ **/
+void lyr_frame_invert(LyrFrame_TypeDef lyrFrame)
 {
-	array_8x8_shift_left(lyrFrame.redArrPtr);
-	array_8x8_shift_left(lyrFrame.grnArrPtr);
-	array_8x8_shift_left(lyrFrame.bluArrPtr);
+	array_8x8_invert(lyrFrame.redArrPtr);
+	array_8x8_invert(lyrFrame.grnArrPtr);
+	array_8x8_invert(lyrFrame.bluArrPtr);
 }
 
 /**
- * @brief shift the layer frame to the left and wrap around
+ * @brief shift a column of the layer frame in the specified direction, zeros are shifted in
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * example usage: lyr_frame_rotate_left(frame1.lyr0);
+ * @param[in] colNum - indicates which column is to be shifted (0 - 7)
+ * @param[in] direction - specify a preprocessor #defined name that corresponds to a direction
+ * example usage: lyr_frame_shift_column(frame1.lyr0, 7, DIRECTION_RIGHT);
  */
-void lyr_frame_rotate_left(LyrFrame_TypeDef lyrFrame)
+void lyr_frame_shift_column(LyrFrame_TypeDef lyrFrame, uint8_t colNum, uint8_t direction)
 {
-	array_8x8_rotate_left(lyrFrame.redArrPtr);
-	array_8x8_rotate_left(lyrFrame.grnArrPtr);
-	array_8x8_rotate_left(lyrFrame.bluArrPtr);
+	array_8x8_shift_column(lyrFrame.redArrPtr, colNum, direction);
+	array_8x8_shift_column(lyrFrame.grnArrPtr, colNum, direction);
+	array_8x8_shift_column(lyrFrame.bluArrPtr, colNum, direction);
 }
 
 /**
- * @brief shift the layer frame to the forward
+ * @brief shift a column of the layer frame in the specified direction and wrap around
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * example usage: lyr_frame_shift_forward(frame1.lyr0);
+ * @param[in] colNum - indicates which column is to be rotated (0 - 7)
+ * @param[in] direction - specify a preprocessor #defined name that corresponds to a direction
+ * example usage: lyr_frame_rotate_column(frame1.lyr0, 7, DIRECTION_RIGHT);
  */
-void lyr_frame_shift_forward(LyrFrame_TypeDef lyrFrame)
+void lyr_frame_rotate_column(LyrFrame_TypeDef lyrFrame, uint8_t colNum, uint8_t direction)
 {
-	array_8x8_shift_forward(lyrFrame.redArrPtr);
-	array_8x8_shift_forward(lyrFrame.grnArrPtr);
-	array_8x8_shift_forward(lyrFrame.bluArrPtr);
+	array_8x8_rotate_column(lyrFrame.redArrPtr, colNum, direction);
+	array_8x8_rotate_column(lyrFrame.grnArrPtr, colNum, direction);
+	array_8x8_rotate_column(lyrFrame.bluArrPtr, colNum, direction);
 }
 
 /**
- * @brief shift the layer frame forward and wrap around
+ * @brief shift a row of the layer frame in the specified direction, zeros are shifted in
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * example usage: lyr_frame_rotate_forward(frame1.lyr0);
+ * @param[in] rowNum - indicates which row is to be shifted (0 - 7)
+ * @param[in] direction - specify a preprocessor #defined name that corresponds to a direction
+ * example usage: lyr_frame_shift_row(frame1.lyr0, 0, DIRECTION_RIGHT);
  */
-void lyr_frame_rotate_forward(LyrFrame_TypeDef lyrFrame)
+void lyr_frame_shift_row(LyrFrame_TypeDef lyrFrame, uint8_t rowNum, uint8_t direction)
 {
-	array_8x8_rotate_forward(lyrFrame.redArrPtr);
-	array_8x8_rotate_forward(lyrFrame.grnArrPtr);
-	array_8x8_rotate_forward(lyrFrame.bluArrPtr);
+	array_8x8_shift_row(lyrFrame.redArrPtr, rowNum, direction);
+	array_8x8_shift_row(lyrFrame.grnArrPtr, rowNum, direction);
+	array_8x8_shift_row(lyrFrame.bluArrPtr, rowNum, direction);
 }
 
 /**
- * @brief shift the layer frame to the back
+ * @brief shift a row of the layer frame in the specified direction and wrap around
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * example usage: lyr_frame_shift_back(frame1.lyr0);
+ * @param[in] rowNum - indicates which row is to be shifted (0 - 7)
+ * @param[in] direction - specify a preprocessor #defined name that corresponds to a direction
+ * example usage: lyr_frame_rotate_row(frame1.lyr0, 0, DIRECTION_RIGHT);
  */
-void lyr_frame_shift_back(LyrFrame_TypeDef lyrFrame)
+void lyr_frame_rotate_row(LyrFrame_TypeDef lyrFrame, uint8_t rowNum, uint8_t direction)
 {
-	array_8x8_shift_back(lyrFrame.redArrPtr);
-	array_8x8_shift_back(lyrFrame.grnArrPtr);
-	array_8x8_shift_back(lyrFrame.bluArrPtr);
+	array_8x8_rotate_row(lyrFrame.redArrPtr, rowNum, direction);
+	array_8x8_rotate_row(lyrFrame.grnArrPtr, rowNum, direction);
+	array_8x8_rotate_row(lyrFrame.bluArrPtr, rowNum, direction);
 }
 
+
+
 /**
- * @brief shift the layer frame backward and wrap around
+ * @brief rotate the layer frame quadrants counter-clockwise about the +z upward direction 
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * example usage: lyr_frame_rotate_back(frame1.lyr0);
+ * @param[in] direction - specify a preprocessor #defined name that corresponds to a direction
+ * example usage: lyr_frame_rotate(frame1.lyr0, DIRECTION_CW);
  */
-void lyr_frame_rotate_back(LyrFrame_TypeDef lyrFrame)
+
+/*
+void lyr_frame_quadrant_rotate_ccw(LyrFrame_TypeDef lyrFrame, uint8_t direction)
 {
-	array_8x8_rotate_back(lyrFrame.redArrPtr);
-	array_8x8_rotate_back(lyrFrame.grnArrPtr);
-	array_8x8_rotate_back(lyrFrame.bluArrPtr);
+	array_8x8_quadrant_rotate(lyrFrame.redArrPtr, direction);
+	array_8x8_quadrant_rotate(lyrFrame.grnArrPtr, direction);
+	array_8x8_quadrant_rotate(lyrFrame.bluArrPtr, direction);
 }
+
+*/
+
+/**
+ * @brief rotate the layer frame quadrantsclockwise about the -z downward direction 
+ * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
+ * @param[in] direction - specify a preprocessor #defined name that corresponds to a direction
+ * example usage: lyr_frame_rotate(frame1.lyr0, DIRECTION_CCW);
+ */
+ 
+ /*
+ 
+void lyr_frame_quadrant_rotate_cw(LyrFrame_TypeDef lyrFrame, uint8_t direction)
+{
+	array_8x8_quadrant_rotate(lyrFrame.redArrPtr, direction);
+	array_8x8_quadrant_rotate(lyrFrame.grnArrPtr, direction);
+	array_8x8_quadrant_rotate(lyrFrame.bluArrPtr, direction);
+}
+
+*/
 
 /**
  * @brief increases the intensity of the non-zero elements in the lyrFrame
@@ -200,95 +234,4 @@ void lyr_frame_brighten(LyrFrame_TypeDef lyrFrame, uint16_t delta)
 	array_8x8_brighten(lyrFrame.redArrPtr, delta);
 	array_8x8_brighten(lyrFrame.grnArrPtr, delta);
 	array_8x8_brighten(lyrFrame.bluArrPtr, delta);
-}
-
-/**
- * @brief a multi-frame animation that fades a lyrFrame in & out in steps
- * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * @param[in] color - the color :^)
- * @param[in] color - number of steps between off & on
- */
-void lyr_frame_fade_in_and_out(LyrFrame_TypeDef lyrFrame, uint64_t color, uint16_t stepSize)
-{
-	// color takes form 0x00000RRR0GGG0BBB
-	uint16_t redMax = (color>>32);
-	uint16_t grnMax = (color>>16);
-	uint16_t bluMax = (color>>0);
-	uint16_t brightest;
-	uint16_t darkest;
-	uint16_t redRatio;
-	uint16_t grnRatio;
-	uint16_t bluRatio;
-	uint16_t minDelta;
-
-	if ((redMax >= grnMax) & (redMax >= bluMax)) brightest = redMax;
-	if ((grnMax >= redMax) & (grnMax >= bluMax)) brightest = grnMax;
-	if ((bluMax >= redMax) & (bluMax >= grnMax)) brightest = bluMax;
-	
-	if ((redMax <= grnMax) & (redMax <= bluMax)) darkest = redMax;
-	if ((grnMax <= redMax) & (grnMax <= bluMax)) darkest = grnMax;
-	if ((bluMax <= redMax) & (bluMax <= grnMax)) darkest = bluMax;
-	
-	redRatio = redMax/darkest;
-	grnRatio = grnMax/darkest;
-	bluRatio = bluMax/darkest;
-	
-	minDelta = darkest/stepSize;
-	
-	/*
-
-	for(int index=0;index<=stepSize;index++)
-	{
-		if ( mask[index] == 1)
-		{
-			*(lyrFrame.redArrPtr + index) = redBrightness;
-			*(lyrFrame.grnArrPtr + index) = grnBrightness;
-			*(lyrFrame.bluArrPtr + index) = bluBrightness;
-		}
-	}
-	*/
-}
-
-/**
- * @brief fades in blu in steps and waits at each step
- * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * @param[in] mask - the specific leds to perform the operation to
- * @param[in] maxBrightness - the brightness to stop fading in at
- * @param[in] deltaBrightness - step size
- * @param[in] delay - amount of time to stay at each step for
- **/
-void lyr_frame_fade_in_blu(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t maxBrightness, uint16_t deltaBrightness, uint16_t delay)
-{
-	uint16_t currentBrightness = deltaBrightness;
-	while (currentBrightness <= maxBrightness)
-	{
-		//lyr_frame_clear_all(lyrFrame);
-		lyr_frame_set_single_rgb(lyrFrame.bluArrPtr, currentBrightness, mask);
-		lyr_frame_convert(lyrFrame,data16Ptr);
-		UPDATE_FRAME=1;
-		HAL_Delay(delay);
-		currentBrightness = currentBrightness + deltaBrightness;
-	}
-}
-
-/**
- * @brief fades out blu in steps and waits at each step
- * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * @param[in] mask - the specific leds to perform the operation to
- * @param[in] maxBrightness - the brightness to stop fading in at
- * @param[in] deltaBrightness - step size
- * @param[in] delay - amount of time to stay at each step for
- **/
-void lyr_frame_fade_out_blu(LyrFrame_TypeDef lyrFrame, bool mask[64], uint16_t minBrightness, uint16_t deltaBrightness, uint16_t delay)
-{
-	int16_t currentBrightness = 4000; //hopefully since its signed there's no negative number hard fault.
-	while (currentBrightness >= minBrightness)
-	{
-		lyr_frame_clear_all(lyrFrame);
-		lyr_frame_set_single_rgb(lyrFrame.bluArrPtr, currentBrightness, &mask[0]);
-		lyr_frame_convert(lyrFrame,data16Ptr);
-		UPDATE_FRAME=1;
-		HAL_Delay(delay);
-		currentBrightness = currentBrightness - deltaBrightness;
-	}
 }
