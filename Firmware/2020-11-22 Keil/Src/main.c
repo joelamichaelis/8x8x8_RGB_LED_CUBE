@@ -102,7 +102,7 @@ int grnMap[64] = {177,180,183,162,165,144,147,150,190,187,184,173,170,159,156,15
 int bluMap[64] = {176,179,182,161,164,167,146,149,191,188,185,174,171,168,157,154,128,131,134,113,116,119,98,101,143,140,137,126,123,120,109,106,80,83,86,65,68,71,50,53,95,92,89,78,75,72,61,58,32,35,38,17,20,23,2,5,47,44,41,30,27,24,13,10};
 	
 uint16_t currentAction = ACTION_NOP;
-	
+
 /* USER CODE END 0 */
 
 /**
@@ -145,7 +145,7 @@ int main(void)
 	MainMenuInit();
 	AnimationMenu = AnimationMenuInit(AnimationMenu);
 	PinMappingMenu = PinMappingMenuInit(PinMappingMenu);
-	ActiveAnimation = PinMappingMenuInit(ActiveAnimation);
+	ActiveAnimationMenu = ActiveAnimationMenuInit(ActiveAnimationMenu);
 
 	
 	//have to manually set these pointers
@@ -189,29 +189,49 @@ int main(void)
 			HAL_Delay(1);
 		}
 		
-		while(currentAction == ACTION_PLAY_ANIMATION_5)
+		if(currentAction == ACTION_HALT_ANIMATION)
 		{
+			HAL_Delay(1);
+		}
+		
+		if(currentAction == ACTION_PLAY_ANIMATION_5)
+		{
+			//MenuSetRowText(ActiveAnimationMenu.ArrayPtr, 0, " Sliding Cubes");
+			//MenuDisplayUpdate(ActiveAnimationMenu);
 			sliding_cubes(frame0);
+			currentAction = ACTION_NOP;
 		}
 		
-		while(currentAction == ACTION_PLAY_ANIMATION_4)
+		if(currentAction == ACTION_PLAY_ANIMATION_4)
 		{
+			//MenuSetRowText(ActiveAnimationMenu.ArrayPtr, 0, " Merry Christmas");
+			//MenuDisplayUpdate(ActiveAnimationMenu);
 			merry_christmas(frame0);
+			currentAction = ACTION_NOP;
 		}
 		
-		while(currentAction == ACTION_PLAY_ANIMATION_3)
+		if(currentAction == ACTION_PLAY_ANIMATION_3)
 		{
+			//MenuSetRowText(ActiveAnimationMenu.ArrayPtr, 0, " Original Fade");
+			//MenuDisplayUpdate(ActiveAnimationMenu);
 			original_fade(frame0);
+			currentAction = ACTION_NOP;
 		}
 		
-		while(currentAction == ACTION_PLAY_ANIMATION_2)
+		if(currentAction == ACTION_PLAY_ANIMATION_2)
 		{
+			//MenuSetRowText(ActiveAnimationMenu.ArrayPtr, 0, " Halloween");
+			//MenuDisplayUpdate(ActiveAnimationMenu);
 			halloween(frame0);
+			currentAction = ACTION_NOP;
 		}
 		
-		while(currentAction == ACTION_PLAY_ANIMATION_1)
+		if(currentAction == ACTION_PLAY_ANIMATION_1)
 		{
+			//MenuSetRowText(ActiveAnimationMenu.ArrayPtr, 0, " Joel Mode");
+			//MenuDisplayUpdate(ActiveAnimationMenu);
 			joel_mode(frame0);
+			currentAction = ACTION_NOP;
 		}
 				
 	}
@@ -580,10 +600,17 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {	
 	currentAction = Menu_Read_MPR121(hi2c1, GPIO_Pin, currentAction);
 	if (currentAction == ACTION_HALT_ANIMATION) HALT_ANIMATION = true;
+	if (currentAction == ACTION_PAUSE_ANIMATION)
+	{
+		if (PAUSE_ANIMATION == true) PAUSE_ANIMATION = false;
+		else PAUSE_ANIMATION = true;
+	}
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {	
+	rngCount++;
+	
 	if(UPDATE_FRAME==0)
 	{
 		previous_lyr_off(activeLyr);

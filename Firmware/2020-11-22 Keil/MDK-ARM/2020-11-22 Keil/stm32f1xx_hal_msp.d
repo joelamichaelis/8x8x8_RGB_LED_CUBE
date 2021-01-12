@@ -43,4 +43,5 @@
 2020-11-22 keil\stm32f1xx_hal_msp.o: ../Inc/frame.h
 2020-11-22 keil\stm32f1xx_hal_msp.o: ../Inc/lyrframe.h
 2020-11-22 keil\stm32f1xx_hal_msp.o: ../Inc/array_8x8.h
+2020-11-22 keil\stm32f1xx_hal_msp.o: ../Inc/rng.h
 2020-11-22 keil\stm32f1xx_hal_msp.o: ../Inc/tlc5940.h

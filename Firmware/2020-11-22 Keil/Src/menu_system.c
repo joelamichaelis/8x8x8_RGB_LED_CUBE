@@ -23,7 +23,7 @@ char wheelDir = 'X';
 Menu_TypeDef MainMenu;
 Menu_TypeDef AnimationMenu;
 Menu_TypeDef PinMappingMenu;
-Menu_TypeDef ActiveAnimation;
+Menu_TypeDef ActiveAnimationMenu;
 
 //delete for good?
 //bool MAIN_MENU_ENABLED = 1;
@@ -152,27 +152,7 @@ void MainMenuInit(void)
 	MainMenu.rowAction[2] = ACTION_PIN_MAPPING_MENU;
 	
 	MenuSetRowText(MainMenu.ArrayPtr, 3, " - Options");
-	MainMenu.rowAction[3] = ACTION_NOP;
-	
-	/*
-	MenuSetRowText(MainMenu.ArrayPtr, 4, " Row 4");
-	MainMenu.rowAction[4] = ACTION_NOP;
-	
-	MenuSetRowText(MainMenu.ArrayPtr, 5, " Row 5");
-	MainMenu.rowAction[5] = ACTION_NOP;
-	
-	MenuSetRowText(MainMenu.ArrayPtr, 6, " Row 6");
-	MainMenu.rowAction[6] = ACTION_NOP;
-	
-	MenuSetRowText(MainMenu.ArrayPtr, 7, " Row 7");
-	MainMenu.rowAction[7] = ACTION_NOP;
-	
-	MenuSetRowText(MainMenu.ArrayPtr, 8, " Row 8");
-	MainMenu.rowAction[8] = ACTION_NOP;
-	
-	MenuSetRowText(MainMenu.ArrayPtr, 9, " Bottom of Menu");
-	MainMenu.rowAction[9] = ACTION_NOP;	
-	*/
+	MainMenu.rowAction[3] = ACTION_NOP;	
 }
 
 Menu_TypeDef AnimationMenuInit(Menu_TypeDef Menu)
@@ -243,7 +223,7 @@ Menu_TypeDef PinMappingMenuInit(Menu_TypeDef Menu)
 }
 
 
-Menu_TypeDef ActiveAnimationInit(Menu_TypeDef Menu)
+Menu_TypeDef ActiveAnimationMenuInit(Menu_TypeDef Menu)
 {
 	Menu.ArrayPtr = &Menu.Array[0];
 	Menu.HighestRow=0;
@@ -252,17 +232,17 @@ Menu_TypeDef ActiveAnimationInit(Menu_TypeDef Menu)
 	Menu.DisplayBottomRow = 3*MenuRowLength;
 	Menu.LowestRow = Menu.DisplayBottomRow;
 	
-	MenuSetRowText(Menu.ArrayPtr, 0, AnimationMenuName);
+	MenuSetRowText(Menu.ArrayPtr, 0, " Active Animation: ");
 	Menu.rowAction[0] = ACTION_NOP;
 	
-	MenuSetRowText(Menu.ArrayPtr, 1, " Animation Name");
+	MenuSetRowText(Menu.ArrayPtr, 1, " Brightness: 100%");
 	Menu.rowAction[1] = ACTION_NOP;
 	
-	MenuSetRowText(Menu.ArrayPtr, 2, "  ");
-	Menu.rowAction[2] = ACTION_NOP;
+	MenuSetRowText(Menu.ArrayPtr, 2, " Play/Pause");
+	Menu.rowAction[2] = ACTION_PAUSE_ANIMATION;
 	
-	MenuSetRowText(Menu.ArrayPtr, 3, " Back");
-	Menu.rowAction[3] = ACTION_ANIMATION_MENU;
+	MenuSetRowText(Menu.ArrayPtr, 3, " Halt & Exit");
+	Menu.rowAction[3] = ACTION_HALT_ANIMATION;
 	return Menu;	
 }
 
@@ -299,11 +279,20 @@ Menu_TypeDef MenuButtonPressed(Menu_TypeDef Menu)
 		return Menu;
 	}
 	
+	if (Menu.rowAction[Menu.selectedRowNum] == ACTION_HALT_ANIMATION)
+	{
+		Menu.active = false;
+		AnimationMenu.active = true;
+		MenuDisplayUpdate(AnimationMenu);
+		return Menu;
+	}
+	
+	
 	if ((Menu.rowAction[Menu.selectedRowNum] >= ACTION_PLAY_ANIMATION_1) & (Menu.rowAction[Menu.selectedRowNum] <= ACTION_PLAY_ANIMATION_50))
 	{
-		//Menu.active = false; //commented out just for now
-		//determine which animation to play
-		//Animation_LUT(Menu.rowAction[Menu.selectedRowNum]);
+		Menu.active = false;
+		ActiveAnimationMenu.active = true;
+		MenuDisplayUpdate(ActiveAnimationMenu);
 		return Menu;
 	}
 	return Menu;
@@ -414,6 +403,11 @@ uint16_t Menu_Read_MPR121(I2C_HandleTypeDef hi2c, uint16_t GPIO_Pin, uint16_t cu
 				PinMappingMenu = MenuButtonPressed(PinMappingMenu);
 				currentAction = PinMappingMenu.rowAction[PinMappingMenu.selectedRowNum];
 			}
+			else if (ActiveAnimationMenu.active == true) 
+			{
+				ActiveAnimationMenu = MenuButtonPressed(ActiveAnimationMenu);
+				currentAction = ActiveAnimationMenu.rowAction[ActiveAnimationMenu.selectedRowNum];
+			}
 			wheelDir = 'X';
 			lastWheelDir = 'X';
 		}
@@ -423,6 +417,7 @@ uint16_t Menu_Read_MPR121(I2C_HandleTypeDef hi2c, uint16_t GPIO_Pin, uint16_t cu
 			if (MainMenu.active == true) 				MainMenu = MenuScrollUp(MainMenu);
 			if (AnimationMenu.active == true)		AnimationMenu = MenuScrollUp(AnimationMenu);
 			if (PinMappingMenu.active == true)	PinMappingMenu = MenuScrollUp(PinMappingMenu);
+			if (ActiveAnimationMenu.active == true)	ActiveAnimationMenu = MenuScrollUp(ActiveAnimationMenu);
 		}
 
 		if ((wheelDir=='W'&lastWheelDir=='N')|(wheelDir=='N'&lastWheelDir=='E')|(wheelDir=='E'&lastWheelDir=='S')|(wheelDir=='S'&lastWheelDir=='W'))
@@ -430,6 +425,7 @@ uint16_t Menu_Read_MPR121(I2C_HandleTypeDef hi2c, uint16_t GPIO_Pin, uint16_t cu
 			if (MainMenu.active == true) 				MainMenu = MenuScrollDown(MainMenu);
 			if (AnimationMenu.active == true)		AnimationMenu = MenuScrollDown(AnimationMenu);
 			if (PinMappingMenu.active == true)	PinMappingMenu = MenuScrollDown(PinMappingMenu);
+			if (ActiveAnimationMenu.active == true)	ActiveAnimationMenu = MenuScrollDown(ActiveAnimationMenu);
 		}	
 		return currentAction;
 	}	

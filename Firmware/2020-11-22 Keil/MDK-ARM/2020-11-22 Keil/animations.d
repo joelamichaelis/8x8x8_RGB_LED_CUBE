@@ -6,6 +6,7 @@
 2020-11-22 keil\animations.o: ../Inc/frame.h
 2020-11-22 keil\animations.o: ../Inc/lyrframe.h
 2020-11-22 keil\animations.o: ../Inc/array_8x8.h
+2020-11-22 keil\animations.o: ../Inc/rng.h
 2020-11-22 keil\animations.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 2020-11-22 keil\animations.o: ../Inc/stm32f1xx_hal_conf.h
 2020-11-22 keil\animations.o: ../Inc/stm32f1xx_hal_rcc.h

@@ -37,6 +37,7 @@
 #define ACTION_MAIN_MENU 				 52
 #define ACTION_ANIMATION_MENU 	 53
 #define ACTION_PIN_MAPPING_MENU  54
+#define ACTION_PAUSE_ANIMATION	 55
 
 //delete for good?
 //extern bool MAIN_MENU_ENABLED;
@@ -64,7 +65,7 @@ typedef struct __Menu_TypeDef
 extern Menu_TypeDef MainMenu;
 extern Menu_TypeDef AnimationMenu;
 extern Menu_TypeDef PinMappingMenu;
-extern Menu_TypeDef ActiveAnimation;
+extern Menu_TypeDef ActiveAnimationMenu;
 
 void MenuDisplayUpdate(Menu_TypeDef Menu);
 Menu_TypeDef MenuScrollUp(Menu_TypeDef Menu);
@@ -76,7 +77,7 @@ void MenuSetRowText(char* menuPtr, int rowNum, char rowTxt[MenuRowLength]);
 void MainMenuInit(void);
 Menu_TypeDef AnimationMenuInit(Menu_TypeDef Menu);
 Menu_TypeDef PinMappingMenuInit(Menu_TypeDef Menu);
-
+Menu_TypeDef ActiveAnimationMenuInit(Menu_TypeDef Menu);
 
 /**
  * @brief Establishes & verifies connectivity with the LCD & capacitive touch sensors

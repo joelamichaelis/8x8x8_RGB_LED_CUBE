@@ -7,6 +7,8 @@
 
 #include "array_8x8.h"
 
+//--------------------------------------------------SET FUNCTIONS BEGIN---------------------------------------------------------//
+
 /**
  * @brief sets a single value within the array
  * @param[in] arrayPtr - points to the first element within the given array
@@ -17,7 +19,6 @@ void array_8x8_set_single(uint16_t *arrayPtr, int arrayIndex, uint16_t value)
 {
 	*(arrayPtr + arrayIndex) = value;
 }
-
 
 /**
  * @brief sets array values iteratively with a for loop
@@ -34,7 +35,6 @@ void array_8x8_set_multiple(uint16_t *arrayPtr, int startIndex, int stepIndex, i
 		*(arrayPtr + tempIndex) = value;
 	}
 }
-
 
 /**
  * @brief 
@@ -55,6 +55,21 @@ void array_8x8_set_column(uint16_t *arrayPtr, int column, uint16_t value)
 	return;
 }
 
+/**
+ * @brief sets a section of a column #colNum which starts at startRowNum and stops at stopRowNum to value
+ * @param[in] arrayPtr - points to the first element of the given 8x8 array
+ * @param[in] colNum: the column which is having a section set bounded between 0 & 7
+ * @param[in] startRowNum: a projection, bounded between 0 & 7
+ * @param[in] stopRowNum: a projection, bounded between 0 & 7
+ * @param[in] value - the value that all elements in the given row segment will be set to
+ **/
+void array_8x8_set_col_segment(uint16_t *arrayPtr, uint8_t colNum, uint8_t startRowNum, uint8_t stopRowNum, uint16_t value)
+{
+	for(uint8_t index=startRowNum;index<=stopRowNum;index++)
+	{
+		*(arrayPtr + colNum + 8*index) = value;
+	}
+}
 
 /**
  * @brief 
@@ -74,6 +89,57 @@ void array_8x8_set_row(uint16_t *arrayPtr, int row, uint16_t value)
 	if (row == 7) array_8x8_set_multiple(arrayPtr,56,1,63,value);
 	return;
 }
+
+/**
+ * @brief sets a section of a row #rowNum which starts at startColNum and stops at stopColNum to value
+ * @param[in] arrayPtr - points to the first element of the given 8x8 array
+ * @param[in] rowNum - the row which is having a section set, bounded between 0 & 7
+ * @param[in] startColNum - a projection, bounded between 0 & 7
+ * @param[in] stopColNum - a projection, bounded between 0 & 7
+ * @param[in] value - the value that all elements in the given row segment will be set to
+ **/
+void array_8x8_set_row_segment(uint16_t *arrayPtr, uint8_t rowNum, uint8_t startColNum, uint8_t stopColNum, uint16_t value)
+{
+	for(uint8_t index=startColNum;index<=stopColNum;index++)
+	{
+		*(arrayPtr + 8*rowNum + index) = value;
+	}
+}
+
+/**
+ * @brief Creates a "wireframe" square in the array by setting all elements to value. startPt and stopPt are opposite corners.
+ * @param[in] arrayPtr - points to the first element of the given 8x8 array
+ * @param[in] value - the value that all elements in the given row segment will be set to
+ * @param[in] startPt - one corner of the square
+ * @param[in] stopPt - the opposing corner of the square
+ **/
+void array_8x8_set_square(uint16_t *arrayPtr, uint16_t value, uint8_t startPt, uint8_t stopPt)
+{
+	if(stopPt<startPt)
+	{
+		//value swap
+		uint8_t tempPt = stopPt;
+		stopPt = startPt;
+		startPt = tempPt;
+	}
+	
+	uint8_t startPtRowNum = startPt/8;
+	uint8_t startPtColNum = startPt%8;
+	uint8_t stopPtRowNum = stopPt/8;
+	uint8_t stopPtColNum = stopPt%8;
+	
+	//if the length % width aren't equal do nothing because its not a square
+	if((stopPtColNum - startPtColNum) != (stopPtRowNum - startPtRowNum)) return;
+	
+	array_8x8_set_row_segment(arrayPtr,startPtRowNum,startPtColNum,stopPtColNum, value);
+	array_8x8_set_row_segment(arrayPtr,stopPtRowNum,startPtColNum,stopPtColNum, value);
+	array_8x8_set_col_segment(arrayPtr,startPtColNum,startPtRowNum,stopPtRowNum, value);
+	array_8x8_set_col_segment(arrayPtr,stopPtColNum,startPtRowNum,stopPtRowNum, value);	
+}
+
+//----------------------------------------------------SET FUNCTIONS END---------------------------------------------------------//
+
+//-----------------------------------------------MODIFY FUNCTIONS BEGIN---------------------------------------------------------//
 
 /**
  * @brief  shifts the 8x8 array in the specified direction.
@@ -237,8 +303,6 @@ void array_8x8_invert(uint16_t *arrayPtr)
 	}
 }	 
 
-
-
 /**
  * @brief shifts a column of the 8x8 array in a specified direction. a zero is shifted in
  * @param[in] arrayPtr - points to the first element of the given 8x8 array
@@ -395,9 +459,6 @@ void array_8x8_rotate_row(uint16_t *arrayPtr, uint8_t rowNum, uint8_t direction)
 	}
 }
 
-
-
-
 /**
  * @brief increases the values of all non-zero values in the array by delta
  * @param[in] arrayPtr - points to the first element within the given array
@@ -410,3 +471,5 @@ void array_8x8_brighten(uint16_t *arrayPtr, uint16_t delta)
 		if (*(arrayPtr + arrIndex) != 0x0000) *(arrayPtr + arrIndex) = (*(arrayPtr + arrIndex) + delta);
 	}
 }
+
+//-------------------------------------------------MODIFY FUNCTIONS END---------------------------------------------------------//

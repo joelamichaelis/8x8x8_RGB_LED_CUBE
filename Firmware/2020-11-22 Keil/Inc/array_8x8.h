@@ -25,9 +25,9 @@
 
 #define MAX_BRIGHTNESS 4095
 
-#include <stdint.h>
+#include "rng.h"
 
-//-------------------------------QUESTIONABLE SET FUNCTIONS BEGIN--------------------------------//
+//--------------------------------------------------SET FUNCTIONS BEGIN---------------------------------------------------------//
 
 /**
  * @brief sets a single value within the array
@@ -58,6 +58,16 @@ void array_8x8_set_multiple(uint16_t *arrayPtr, int startIndex, int stepIndex, i
 void array_8x8_set_column(uint16_t *arrayPtr, int column, uint16_t value);
 
 /**
+ * @brief sets a section of a column #colNum which starts at startRowNum and stops at stopRowNum to value
+ * @param[in] arrayPtr - points to the first element of the given 8x8 array
+ * @param[in] colNum: the column which is having a section set bounded between 0 & 7
+ * @param[in] startRowNum: a projection, bounded between 0 & 7
+ * @param[in] stopRowNum: a projection, bounded between 0 & 7
+ * @param[in] value - the value that all elements in the given row segment will be set to
+ **/
+void array_8x8_set_col_segment(uint16_t *arrayPtr, uint8_t colNum, uint8_t startRowNum, uint8_t stopRowNum, uint16_t value);
+
+/**
  * @brief 
  * @param[in] arrayPtr - points to the first element of the given 8x8 array
  * @param[in] row - the row number of 0 through 7
@@ -65,9 +75,28 @@ void array_8x8_set_column(uint16_t *arrayPtr, int column, uint16_t value);
  **/
 void array_8x8_set_row(uint16_t *arrayPtr, int row, uint16_t value);
 
-//-------------------------------QUESTIONABLE SET FUNCTIONS END----------------------------------//
+/**
+ * @brief sets a section of a row #rowNum which starts at startColNum and stops at stopColNum to value
+ * @param[in] arrayPtr - points to the first element of the given 8x8 array
+ * @param[in] rowNum - the row which is having a section set, bounded between 0 & 7
+ * @param[in] startColNum - a projection, bounded between 0 & 7
+ * @param[in] stopColNum - a projection, bounded between 0 & 7
+ * @param[in] value - the value that all elements in the given row segment will be set to
+ **/
+void array_8x8_set_row_segment(uint16_t *arrayPtr, uint8_t rowNum, uint8_t startColNum, uint8_t stopColNum, uint16_t value);
 
-//----------------INTUITIVE FULL ARRAY FUNCTIONS BEGIN--------------------------------------//
+/**
+ * @brief Creates a "wireframe" square in the array by setting all elements to value. startPt and stopPt are opposite corners.
+ * @param[in] arrayPtr - points to the first element of the given 8x8 array
+ * @param[in] value - the value that all elements in the given row segment will be set to
+ * @param[in] startPt - one corner of the square
+ * @param[in] stopPt - the opposing corner of the square
+ **/
+void array_8x8_set_square(uint16_t *arrayPtr, uint16_t value, uint8_t startPt, uint8_t stopPt);
+
+//----------------------------------------------------SET FUNCTIONS END---------------------------------------------------------//
+
+//-----------------------------------------------MODIFY FUNCTIONS BEGIN---------------------------------------------------------//
 
 /**
  * @brief  shifts the 8x8 array in the specified direction.
@@ -184,6 +213,8 @@ void array_8x8_ring_2x2_rotate(uint16_t *arrayPtr, uint8_t direction);
  * @param[in] delta - the amount in which all non-zero values will be incremented by
  **/
 void array_8x8_brighten(uint16_t *arrayPtr, uint16_t delta);
-	
+
+//-------------------------------------------------MODIFY FUNCTIONS END---------------------------------------------------------//
+
 #endif
 

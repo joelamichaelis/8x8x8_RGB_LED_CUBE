@@ -27,23 +27,55 @@ void lyr_frame_convert(LyrFrame_TypeDef lyrFrame,uint16_t *data16Ptr)
 }
 
 /**
- * @brief set either the R,G, or B values of the given layer frame
- * @param[in] arrayPtr - points to the first element of the given RGB array inside a lyrFrame 
- * @param[in] brightness - self-explanitory :^)
- * @param[in] mask - corresponds to an 8x8 array that specifies which LEDs will be set the given color
- * example usage: lyr_frame_set_single_rgb(frame1.lyr0.redArrPtr,0x0FFF,mask2);
+ * @brief clear the given lyrFrame
+ * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
  */
-void lyr_frame_set_single_rgb(uint16_t *arrayPtr, uint16_t brightness, bool mask[64])
+void lyr_frame_clear_all(LyrFrame_TypeDef lyrFrame)
 {
 	for(int index=0;index<64;index++)
 	{
-		if ( mask[index] == 1)
-		{
-			*(arrayPtr + index) = brightness;
-		}
+		*(lyrFrame.redArrPtr + index) = 0x0000;
+		*(lyrFrame.grnArrPtr + index) = 0x0000;
+		*(lyrFrame.bluArrPtr + index) = 0x0000;
 	}
 }
 
+//--------------------------------------------------SET FUNCTIONS BEGIN---------------------------------------------------------//
+
+/**
+ * @brief sets a single LED in the layer frame to the specified color
+ * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
+ * @param[in] color - an RGB color in the format 0x00000RRR0GGG0BBB
+ * @param[in] ledNum - a number of the a corresponding LED in the lyrframe
+ * example usage: lyr_frame_set_single(frame1.lyr0,white,27);
+ */
+void lyr_frame_set_single_color(LyrFrame_TypeDef lyrFrame, uint64_t color, uint8_t ledNum)
+{
+	uint16_t redBrightness = (color>>32);
+	uint16_t grnBrightness = (color>>16);
+	uint16_t bluBrightness = (color>>0);
+	*(lyrFrame.redArrPtr + ledNum) = redBrightness;
+	*(lyrFrame.grnArrPtr + ledNum) = grnBrightness;
+	*(lyrFrame.bluArrPtr + ledNum) = bluBrightness;
+}
+
+/**
+ * @brief sets a single RGB array ptr withinin the layer frame to the specified mask
+ * @param[in] arrayPtr - points to the first element of either the R/G/B array that comprise a lyrFrame
+ * @param[in] brightness - the intensity of a single R/G/B of an LED
+ * @param[in] boolMaskPtr - points to the first element of a boolMask, which is used to initialize a lyrFrame array
+ * example usage: lyr_frame_set_single_rgb(lyr0.redArrPtr, 4095, mask0);
+ */
+void lyr_frame_set_single_rgb(uint16_t *arrayPtr, uint16_t brightness, bool *boolMaskPtr)
+{
+	for (int arrayIndex=0;arrayIndex<64;arrayIndex++)
+	{
+		if (*(boolMaskPtr + arrayIndex) == true)
+		{
+			*(arrayPtr + arrayIndex) = brightness;
+		}
+	}
+}
 
 /**
  * @brief set the layer frame to a special RGB color
@@ -81,18 +113,27 @@ void lyr_frame_set_color(LyrFrame_TypeDef lyrFrame,uint64_t color, bool mask[64]
 }
 
 /**
- * @brief clear the given lyrFrame
+ * @brief set the layer frame to a special RGB color
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
+ * @param[in] color - an RGB color in the format 0x00000RRR0GGG0BBB
+ * @param[in] startPt - one corner of the square
+ * @param[in] stopPt - the opposing corner of the square
  */
-void lyr_frame_clear_all(LyrFrame_TypeDef lyrFrame)
+void lyrframe_set_square(LyrFrame_TypeDef lyrFrame, uint64_t color, uint8_t startPt, uint8_t stopPt)
 {
-	for(int index=0;index<64;index++)
-	{
-		*(lyrFrame.redArrPtr + index) = 0x0000;
-		*(lyrFrame.grnArrPtr + index) = 0x0000;
-		*(lyrFrame.bluArrPtr + index) = 0x0000;
-	}
+	// color takes form 0x00000RRR0GGG0BBB
+	uint16_t redBrightness = (color>>32);
+	uint16_t grnBrightness = (color>>16);
+	uint16_t bluBrightness = (color>>0);
+	
+	array_8x8_set_square(lyrFrame.redArrPtr, redBrightness, startPt, stopPt);
+	array_8x8_set_square(lyrFrame.grnArrPtr, grnBrightness, startPt, stopPt);
+	array_8x8_set_square(lyrFrame.bluArrPtr, bluBrightness, startPt, stopPt);
 }
+
+//--------------------------------------------------SET FUNCTIONS END---------------------------------------------------------//
+
+//--------------------------------------------------MODIFY FUNCTIONS BEGIN---------------------------------------------------------//
 
 /**
  * @brief shift the layer frame in the specified direction, zeros are shifted in
@@ -235,3 +276,5 @@ void lyr_frame_brighten(LyrFrame_TypeDef lyrFrame, uint16_t delta)
 	array_8x8_brighten(lyrFrame.grnArrPtr, delta);
 	array_8x8_brighten(lyrFrame.bluArrPtr, delta);
 }
+
+//--------------------------------------------------MODIFY FUNCTIONS END---------------------------------------------------------//

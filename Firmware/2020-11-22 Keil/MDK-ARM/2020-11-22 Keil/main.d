@@ -43,4 +43,5 @@
 2020-11-22 keil\main.o: ../Inc/frame.h
 2020-11-22 keil\main.o: ../Inc/lyrframe.h
 2020-11-22 keil\main.o: ../Inc/array_8x8.h
+2020-11-22 keil\main.o: ../Inc/rng.h
 2020-11-22 keil\main.o: ../Inc/tlc5940.h

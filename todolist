@@ -1,6 +1,34 @@
+
+
+---------------------HW Considerations------------------------------------------------------
+
 Drill holes in DC barrel jack footprint so it locks in place
 Reconsider via spacings with consideration for CAF
 Expandable modular GPIO interface feasibility
 Is some sort of ext flash necessary?
 Consider possibility of power switches for VLCD, ...
+
+
+
+
+---------------------FW chicken scratching----------------------------------------------------
+
+
+// the mask & color ar
+fade (in or out?)
+dissolve (in or out?) (ascending, descending, random?)
+fade(dissolve) //
+
+
+void raindrops (int initialFillDensity)
+initial frame: The topmost layer frame is initialized to a certain "fill density"
+subsequent frames: 
+- shift down any active column by one
+- count how many columns vanished. that's how many random columns to init next frame.
+
+transition_punch	// already implemented 
+transition_fade		// already implemented but need to clean up
+transition_dissolve	// yet to be implemented. A combination of punch & fade
+
+
 

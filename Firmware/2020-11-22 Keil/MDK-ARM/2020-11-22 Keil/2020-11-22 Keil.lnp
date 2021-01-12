@@ -12,6 +12,7 @@
 "2020-11-22 keil\lyrframe.o"
 "2020-11-22 keil\array_8x8.o"
 "2020-11-22 keil\menu_system.o"
+"2020-11-22 keil\rng.o"
 "2020-11-22 keil\stm32f1xx_hal_gpio_ex.o"
 "2020-11-22 keil\stm32f1xx_hal_i2c.o"
 "2020-11-22 keil\stm32f1xx_hal.o"
