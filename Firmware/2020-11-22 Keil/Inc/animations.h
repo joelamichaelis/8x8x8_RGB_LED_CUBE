@@ -96,6 +96,15 @@ void transition_slide_in (LyrFrame_TypeDef lyrframe, bool *maskPtr, uint64_t col
  */
 void animation_delay(uint32_t delay);
 
+/**
+ * @brief receives a color and overwrites either the red, grn, or blue portion of said color to rgbValue depending on the value of rgbChoice
+ * @param[in] initialColor - an RGB color in the format 0x00000RRR0GGG0BBB
+ * @param[in] rgbValue - the value that will be overwrite either the red, grn, or blue brightness. should be pseudo 12-bit (bounded between 0 & 4095)
+ * @param[in] rgbChoice - should be bounded between 0 & 2 where: 0 -> red, 1 -> grn, 2 -> blu
+ * @return[out] the resulting color with one of its R/G/B values changed 
+ */
+uint64_t modify_color_single_rgb_value(uint64_t initialColor, uint16_t rgbValue, uint8_t rgbCoice);
+
 //----------------------------------------- UTILITY FUNCTIONS END----------------------------------------------------//
 
 #endif

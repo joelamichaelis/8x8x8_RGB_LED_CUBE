@@ -30,34 +30,7 @@ uint64_t pink = 			0x0fff00000800;
 uint64_t whiteRed = 	0x0fff08000800;
 uint64_t whiteGrn = 	0x08000fff0800;
 uint64_t whiteBlu = 	0x080008000fff;
-//------------------------------------Color Definition Begin-------------------------------------//
-
-/* pretty sure this can be deleted
-void Animation_LUT(int animationNumber)
-{
-	switch(animationNumber)
-	{
-		case 1:
-		{
-			joel_mode(frame0);
-			return;
-		}
-			
-		case 2:
-		{
-			halloween(frame0);
-			return;
-		}
-	
-		case 3:
-		{
-			original_fade(frame0);
-			return;
-		}
-		
-	}
-}
-*/
+//------------------------------------Color Definition End-------------------------------------//
 
 //-------------------------------------------HIGH LEVEL "PUBLIC" ANIMATIONS BEGIN----------------------------------------------------//
 
@@ -376,11 +349,20 @@ void sliding_cubes(Frame_TypeDef frame)
 
 void stretchy_cube(Frame_TypeDef frame)
 {
-	uint16_t delay = 100;
-	uint64_t randColor = 0;//rand(4095); // not actually correct. need to figure out correct implementation.
 	lyr_frame_clear_all(frame.lyr0);
 	
-	uint8_t startPt = 0;//rand(3);
+	uint16_t delay = 100;
+	uint64_t randColor = 0;
+	uint16_t randBrightnessValue = 0;
+	uint8_t randRgbChoice = 0;
+	uint8_t startPt = 0;
+	
+	startPt = rand_32bit_modulus(rngCount, 3);
+	randRgbChoice = rand_32bit_modulus(rngCount, 2);
+	randBrightnessValue = rand_32bit_modulus(rngCount, 4095);
+	randColor = modify_color_single_rgb_value(randColor, randBrightnessValue, randRgbChoice);
+	
+	
 	//if (startPt == 0) startPt = 0;
 	if (startPt == 1) startPt = 7;
 	if (startPt == 2) startPt = 56;
@@ -390,15 +372,17 @@ void stretchy_cube(Frame_TypeDef frame)
 	{				
 		animation_stretch_out(frame.lyr0, randColor, startPt, delay);
 		
-		startPt = 0;//rand(3);
+		startPt = rand_32bit_modulus(rngCount, 3);
+		randRgbChoice = rand_32bit_modulus(rngCount, 2);
+		randBrightnessValue = rand_32bit_modulus(rngCount, 4095);
+		randColor = modify_color_single_rgb_value(randColor, randBrightnessValue, randRgbChoice);
+		
 		//if (startPt = 0) startPt = 0;
 		if (startPt == 1) startPt = 7;
 		if (startPt == 2) startPt = 56;
 		if (startPt == 3) startPt = 63;
-		
-		randColor = 0;//rand(4095);
-		
-		animation_stretch_in(frame.lyr0, startPt, delay);
+				
+		animation_stretch_in(frame.lyr0, startPt, delay); // still need to implement this
 	}
 }
 
@@ -756,4 +740,35 @@ void animation_delay(uint32_t delay)
 		 HAL_Delay(delay);
 	}
 }
+
+/**
+ * @brief receives a color and overwrites either the red, grn, or blue portion of said color to rgbValue depending on the value of rgbChoice
+ * @param[in] initialColor - an RGB color in the format 0x00000RRR0GGG0BBB
+ * @param[in] rgbValue - the value that will be overwrite either the red, grn, or blue brightness. should be pseudo 12-bit (bounded between 0 & 4095)
+ * @param[in] rgbChoice - should be bounded between 0 & 2 where: 0 -> red, 1 -> grn, 2 -> blu
+ * @return[out] the resulting color with one of its R/G/B values changed 
+ */
+uint64_t modify_color_single_rgb_value(uint64_t initialColor, uint16_t rgbValue, uint8_t rgbCoice)
+{
+	//need to look at this in debug mode to ensure the logic makes sense for recombining the individual brightnesses
+	uint16_t redBrightness = (initialColor>>32);
+	uint16_t grnBrightness = (initialColor>>16);
+	uint16_t bluBrightness = (initialColor>>0);
+	
+	if(rgbCoice == 0) redBrightness = rgbValue;
+	if(rgbCoice == 1) grnBrightness = rgbValue;
+	if(rgbCoice == 2) bluBrightness = rgbValue;
+	
+	initialColor = (uint64_t)redBrightness;
+	initialColor = initialColor<<16;
+	
+	initialColor |= (uint64_t)grnBrightness;
+	initialColor = initialColor<<16;
+	
+	initialColor |= (uint64_t)bluBrightness;
+	initialColor = initialColor<<16;
+		
+	return initialColor;	
+}
+
 //----------------------------------------- UTILITY FUNCTIONS END----------------------------------------------------//
