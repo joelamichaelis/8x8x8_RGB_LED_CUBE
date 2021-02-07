@@ -20,6 +20,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -41,11 +42,16 @@
 
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
+
 RTC_HandleTypeDef hrtc;
+
 SPI_HandleTypeDef hspi1;
+
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
+
 UART_HandleTypeDef huart1;
+
 /* USER CODE BEGIN PV */
 /* USER CODE END PV */
 
@@ -194,6 +200,22 @@ int main(void)
 			HAL_Delay(1);
 		}
 		
+		if(currentAction == ACTION_PLAY_ANIMATION_7)
+		{
+			//MenuSetRowText(ActiveAnimationMenu.ArrayPtr, 0, " Configurable Text");
+			//MenuDisplayUpdate(ActiveAnimationMenu);
+			configurable_text(frame0);
+			currentAction = ACTION_NOP;
+		}
+		
+		if(currentAction == ACTION_PLAY_ANIMATION_6)
+		{
+			//MenuSetRowText(ActiveAnimationMenu.ArrayPtr, 0, " Stretchy Cube");
+			//MenuDisplayUpdate(ActiveAnimationMenu);
+			stretchy_cube(frame0);
+			currentAction = ACTION_NOP;
+		}
+		
 		if(currentAction == ACTION_PLAY_ANIMATION_5)
 		{
 			//MenuSetRowText(ActiveAnimationMenu.ArrayPtr, 0, " Sliding Cubes");
@@ -243,7 +265,6 @@ int main(void)
   
   /* USER CODE END 3 */
 
-
 /**
   * @brief System Clock Configuration
   * @retval None
@@ -256,9 +277,9 @@ void SystemClock_Config(void)
 
   /** Initializes the CPU, AHB and APB busses clocks 
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE|RCC_OSCILLATORTYPE_LSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -278,7 +299,7 @@ void SystemClock_Config(void)
     Error_Handler();
   }
   PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RTC;
-  PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
+  PeriphClkInit.RTCClockSelection = RCC_RTCCLKSOURCE_LSI;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
@@ -543,7 +564,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
@@ -674,7 +694,9 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-
+	while(1)
+	{
+	}
   /* USER CODE END Error_Handler_Debug */
 }
 

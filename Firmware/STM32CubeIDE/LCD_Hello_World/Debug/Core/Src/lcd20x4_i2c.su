@@ -1,0 +1,16 @@
+lcd20x4_i2c.c:19:13:lcd20x4_i2c_sendCommand	32	static
+lcd20x4_i2c.c:33:13:lcd20x4_i2c_sendData	32	static
+lcd20x4_i2c.c:52:6:lcd20x4_i2c_init	16	static
+lcd20x4_i2c.c:103:6:lcd20x4_i2c_setCursor	24	static
+lcd20x4_i2c.c:132:6:lcd20x4_i2c_1stLine	8	static
+lcd20x4_i2c.c:139:6:lcd20x4_i2c_2ndLine	8	static
+lcd20x4_i2c.c:146:6:lcd20x4_i2c_3rdLine	8	static
+lcd20x4_i2c.c:153:6:lcd20x4_i2c_4thLine	8	static
+lcd20x4_i2c.c:161:6:lcd20x4_i2c_TwoLines	8	static
+lcd20x4_i2c.c:165:6:lcd20x4_i2c_OneLine	8	static
+lcd20x4_i2c.c:173:6:lcd20x4_i2c_cursorShow	16	static
+lcd20x4_i2c.c:188:6:lcd20x4_i2c_clear	8	static
+lcd20x4_i2c.c:197:6:lcd20x4_i2c_display	16	static
+lcd20x4_i2c.c:212:6:lcd20x4_i2c_shiftRight	24	static
+lcd20x4_i2c.c:223:6:lcd20x4_i2c_shiftLeft	24	static
+lcd20x4_i2c.c:234:6:lcd20x4_i2c_printf	48	static

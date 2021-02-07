@@ -1,0 +1,10 @@
+19:53:15 **** Incremental Build of configuration Debug for project LCD_Hello_World ****
+make -j8 all 
+arm-none-eabi-size   LCD_Hello_World.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10572	    120	   1680	  12372	   3054	LCD_Hello_World.elf
+Finished building: default.size.stdout
+ 
+
+19:53:16 Build Finished. 0 errors, 0 warnings. (took 244ms)
+

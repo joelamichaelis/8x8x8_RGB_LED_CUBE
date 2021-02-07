@@ -1,0 +1,16 @@
+animations.c:37:6:merry_christmas	400	static
+animations.c:60:6:original_fade	528	static
+animations.c:129:6:halloween	440	static
+animations.c:156:6:joel_mode	440	static
+animations.c:189:6:sliding_cubes	600	static
+animations.c:350:6:stretchy_cube	432	static
+animations.c:404:6:transition_punch	424	static
+animations.c:439:6:dissolve_color	424	static
+animations.c:455:6:fade_in_color	416	static
+animations.c:518:6:fade_out_color	416	static
+animations.c:587:6:animation_stretch_in	8	static
+animations.c:600:6:animation_stretch_out	432	static
+animations.c:667:6:transition_slide_out	408	static
+animations.c:686:6:transition_slide_in	8	static
+animations.c:735:6:animation_delay	16	static
+animations.c:751:10:modify_color_single_rgb_value	56	static

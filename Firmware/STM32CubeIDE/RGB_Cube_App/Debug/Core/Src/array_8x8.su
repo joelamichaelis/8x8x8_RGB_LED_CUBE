@@ -1,0 +1,15 @@
+array_8x8.c:18:6:array_8x8_set_single	24	static
+array_8x8.c:31:6:array_8x8_set_multiple	32	static
+array_8x8.c:45:6:array_8x8_set_column	32	static
+array_8x8.c:66:6:array_8x8_set_col_segment	24	static
+array_8x8.c:80:6:array_8x8_set_row	32	static
+array_8x8.c:101:6:array_8x8_set_row_segment	24	static
+array_8x8.c:116:6:array_8x8_set_square	40	static
+array_8x8.c:172:7:array_8x8_shift	32	static
+array_8x8.c:216:6:array_8x8_rotate	128	static
+array_8x8.c:320:6:array_8x8_invert	24	static
+array_8x8.c:334:6:array_8x8_shift_column	24	static
+array_8x8.c:387:6:array_8x8_rotate_column	24	static
+array_8x8.c:412:6:array_8x8_shift_row	24	static
+array_8x8.c:465:6:array_8x8_rotate_row	24	static
+array_8x8.c:489:6:array_8x8_brighten	24	static

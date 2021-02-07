@@ -1,0 +1,12 @@
+tlc5940.c:19:7:tlc_spi_convert	32	static
+tlc5940.c:53:6:tlc_clear	24	static
+tlc5940.c:61:6:tlc_set_led	16	static
+tlc5940.c:69:6:tlc_set_lyr	40	static
+tlc5940.c:88:6:tlc_update	16	static
+tlc5940.c:102:6:tlc_intToStr	16	static
+tlc5940.c:111:6:tlc_maskCopy	24	static
+tlc5940.c:121:6:tlc_debug_update	16	static
+tlc5940.c:135:10:tlc_LEtoBE	24	static
+tlc5940.c:145:10:tlc_nibbleSwap	24	static
+tlc5940.c:204:10:tlc_wordBitReversal	24	static
+tlc5940.c:227:6:tlc_spi16BitConversion	40	static

@@ -1,0 +1,7 @@
+mpr121.c:19:6:mpr121_write	32	static
+mpr121.c:34:6:mpr121_read	40	static
+mpr121.c:41:10:mpr121_touch	32	static
+mpr121.c:52:6:mpr121_init	24	static
+mpr121.c:135:9:mpr121_wheelKey	16	static
+mpr121.c:179:9:mpr121_keyPad	24	static
+mpr121.c:203:6:mpr121_wheel	24	static

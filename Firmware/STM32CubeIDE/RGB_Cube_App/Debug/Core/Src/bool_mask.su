@@ -1,0 +1,7 @@
+bool_mask.c:157:6:bool_mask_clear_all	24	static
+bool_mask.c:164:6:bool_mask_copy	24	static
+bool_mask.c:171:6:maskPtrSet	32	static
+bool_mask.c:179:6:arraySetRow	32	static
+bool_mask.c:192:6:arraySetCol	32	static
+bool_mask.c:205:6:arraySetRing	32	static
+bool_mask.c:244:6:arraySetRandom	24	static

@@ -1,0 +1,14 @@
+lyrframe.c:19:6:lyr_frame_convert	16	static
+lyrframe.c:33:6:lyr_frame_clear_all	16	static
+lyrframe.c:52:6:lyr_frame_set_single_color	16	static
+lyrframe.c:69:6:lyr_frame_set_single_rgb	32	static
+lyrframe.c:87:6:lyr_frame_set_color	24	static
+lyrframe.c:122:6:lyrframe_set_square	24	static
+lyrframe.c:144:6:lyr_frame_shift	8	static
+lyrframe.c:157:6:lyr_frame_rotate	8	static
+lyrframe.c:168:6:lyr_frame_invert	8	static
+lyrframe.c:182:6:lyr_frame_shift_column	8	static
+lyrframe.c:196:6:lyr_frame_rotate_column	8	static
+lyrframe.c:210:6:lyr_frame_shift_row	8	static
+lyrframe.c:224:6:lyr_frame_rotate_row	8	static
+lyrframe.c:273:6:lyr_frame_brighten	8	static

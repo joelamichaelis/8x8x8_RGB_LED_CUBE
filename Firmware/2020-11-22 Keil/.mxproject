@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=C:/Users/torto/OneDrive/Documents/Projects/8x8x8_RGB_LED_CUBE/Firmware/2020-11-22 Keil/Inc
+HeaderPath=C:/8x8x8_RGB_LED_CUBE/Firmware/2020-11-22 Keil/Inc
 HeaderFiles=stm32f1xx_it.h;stm32f1xx_hal_conf.h;main.h;
-SourcePath=C:/Users/torto/OneDrive/Documents/Projects/8x8x8_RGB_LED_CUBE/Firmware/2020-11-22 Keil/Src
+SourcePath=C:/8x8x8_RGB_LED_CUBE/Firmware/2020-11-22 Keil/Src
 SourceFiles=stm32f1xx_it.c;stm32f1xx_hal_msp.c;main.c;
 
 [PreviousLibFiles]

@@ -19,7 +19,7 @@ extern uint16_t *data16Ptr;		//declared in main.c but needs visibility into anim
 extern Frame_TypeDef frame0;	//declared in main.c but needs visibility into animations.c
 
 //-------------------------------------------HIGH LEVEL "PUBLIC" ANIMATIONS BEGIN----------------------------------------------------//
-
+void configurable_text(Frame_TypeDef frame);
 void original_fade(Frame_TypeDef frame0);
 void halloween(Frame_TypeDef frame);
 void joel_mode(Frame_TypeDef frame);

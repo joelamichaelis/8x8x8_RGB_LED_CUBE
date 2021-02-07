@@ -34,6 +34,46 @@ uint64_t whiteBlu = 	0x080008000fff;
 
 //-------------------------------------------HIGH LEVEL "PUBLIC" ANIMATIONS BEGIN----------------------------------------------------//
 
+void configurable_text(Frame_TypeDef frame)
+{
+		
+	uint16_t maxBrightness = 2000;
+	uint16_t minBrightness = 0;
+	uint16_t deltaBrightness = 10;
+	uint16_t delay = 10;
+	uint16_t transitionDelay = 500;
+	
+	bool tempBoolMask[64];
+	
+	
+	HALT_ANIMATION = false;
+	
+	lyr_frame_clear_all(frame.lyr0);
+	lyr_frame_convert(frame.lyr0,data16Ptr);
+	UPDATE_FRAME=1;
+	uint8_t alphabetIndex=0;
+	
+	uint64_t alphabetArr [26] = { maskEncLetterA, maskEncLetterB, maskEncLetterC, maskEncLetterD, maskEncLetterE, maskEncLetterF, 
+																maskEncLetterG, maskEncLetterH, maskEncLetterI, maskEncLetterJ, maskEncLetterK, maskEncLetterL, 
+																maskEncLetterM, maskEncLetterN, maskEncLetterO, maskEncLetterP, maskEncLetterQ, maskEncLetterR, 
+																maskEncLetterS, maskEncLetterT, maskEncLetterU, maskEncLetterV, maskEncLetterW, maskEncLetterX, 
+																maskEncLetterY, maskEncLetterZ};
+	
+																
+	while(HALT_ANIMATION == false)
+	{
+		bool_mask_decode(&tempBoolMask[0],alphabetArr[alphabetIndex]);
+		fade_in_color(frame.lyr0,tempBoolMask,blue,maxBrightness,deltaBrightness,delay);
+		fade_out_color(frame.lyr0,tempBoolMask,blue,minBrightness,deltaBrightness,delay);
+		alphabetIndex++;
+		if(alphabetIndex==26) alphabetIndex=0;	
+		HAL_Delay(transitionDelay);
+	}
+	lyr_frame_clear_all(frame.lyr0);
+	lyr_frame_convert(frame.lyr0,data16Ptr);
+	UPDATE_FRAME=1;
+}
+
 void merry_christmas(Frame_TypeDef frame)
 {
 	uint16_t maxBrightness = 4000;
@@ -67,7 +107,7 @@ void original_fade(Frame_TypeDef frame)
 	uint64_t colorWheel[12] = {red,orange,yellow,yelgrn,green,seafoam,cyan,lightblu,blue,indigo,purple,pink};	
 	uint8_t directionA = DIRECTION_FORWARD;
 	uint8_t directionB = DIRECTION_BACK;
-	
+		
 	HALT_ANIMATION = false;
 	
 	lyr_frame_clear_all(frame.lyr0);
@@ -162,22 +202,24 @@ void joel_mode(Frame_TypeDef frame)
 	uint16_t delay = 10;
 	uint16_t transitionDelay = 500;
 	
+	bool tempBoolMask[64];
+	
 	HALT_ANIMATION = false;
 	
 	lyr_frame_clear_all(frame.lyr0);
 	lyr_frame_convert(frame.lyr0,data16Ptr);
 	UPDATE_FRAME=1;
 	
+	uint8_t joelIndex = 0;
+	uint64_t joelArr[4] = {maskEncLetterJ, maskEncLetterO, maskEncLetterE, maskEncLetterL}; 
+	
 	while(HALT_ANIMATION == false)
 	{
-		fade_in_color(frame.lyr0,letterJ,blue,maxBrightness,deltaBrightness,delay);
-		fade_out_color(frame.lyr0,letterJ,blue,minBrightness,deltaBrightness,delay);
-		fade_in_color(frame.lyr0,letterO,blue,maxBrightness,deltaBrightness,delay);
-		fade_out_color(frame.lyr0,letterO,blue,minBrightness,deltaBrightness,delay);
-		fade_in_color(frame.lyr0,letterE,blue,maxBrightness,deltaBrightness,delay);
-		fade_out_color(frame.lyr0,letterE,blue,minBrightness,deltaBrightness,delay);
-		fade_in_color(frame.lyr0,letterL,blue,maxBrightness,deltaBrightness,delay);
-		fade_out_color(frame.lyr0,letterL,blue,minBrightness,deltaBrightness,delay);
+		bool_mask_decode(&tempBoolMask[0],joelArr[joelIndex]);
+		fade_in_color(frame.lyr0,&tempBoolMask[0],blue,maxBrightness,deltaBrightness,delay);
+		fade_out_color(frame.lyr0,&tempBoolMask[0],blue,minBrightness,deltaBrightness,delay);
+		joelIndex++;
+		if(joelIndex == 4) joelIndex = 0;
 		HAL_Delay(transitionDelay);
 	}
 	lyr_frame_clear_all(frame.lyr0);
@@ -197,7 +239,8 @@ void sliding_cubes(Frame_TypeDef frame)
 	maskCube0189[1] = 1;
 	maskCube0189[8] = 1;
 	maskCube0189[9] = 1;
-	maskCube0189[58] = 0;
+	maskCube0189[42] = 0; // why is this necessary?
+	maskCube0189[58] = 0; // why is this necessary?
 	HALT_ANIMATION = false;
 	PAUSE_ANIMATION = false;
 	lyr_frame_clear_all(frame.lyr0);
@@ -290,53 +333,45 @@ void sliding_cubes(Frame_TypeDef frame)
 		animation_delay(transitionDelay);	
 		
 		if(HALT_ANIMATION == true) break;
-		lyr_frame_shift_row(frame0.lyr0, 0, DIRECTION_INWARD);
-		lyr_frame_shift_row(frame0.lyr0, 1, DIRECTION_INWARD);
-		lyr_frame_shift_row(frame0.lyr0, 2, DIRECTION_INWARD);
-		lyr_frame_shift_row(frame0.lyr0, 3, DIRECTION_INWARD);
-		lyr_frame_shift_row(frame0.lyr0, 4, DIRECTION_INWARD);
-		lyr_frame_shift_row(frame0.lyr0, 5, DIRECTION_INWARD);
-		lyr_frame_shift_row(frame0.lyr0, 6, DIRECTION_INWARD);
-		lyr_frame_shift_row(frame0.lyr0, 7, DIRECTION_INWARD);
+		
+		for(uint8_t tempIndex=0;tempIndex<8;tempIndex++)
+		{
+			lyr_frame_shift_row(frame0.lyr0, tempIndex, DIRECTION_INWARD);
+		}
+		
 		lyr_frame_convert(frame0.lyr0,data16Ptr);
 		UPDATE_FRAME=1;
 		animation_delay(2*transitionDelay);	
 		
 		if(HALT_ANIMATION == true) break;
-		lyr_frame_shift_column(frame0.lyr0, 0, DIRECTION_INWARD);
-		lyr_frame_shift_column(frame0.lyr0, 1, DIRECTION_INWARD);
-		lyr_frame_shift_column(frame0.lyr0, 2, DIRECTION_INWARD);
-		lyr_frame_shift_column(frame0.lyr0, 3, DIRECTION_INWARD);
-		lyr_frame_shift_column(frame0.lyr0, 4, DIRECTION_INWARD);
-		lyr_frame_shift_column(frame0.lyr0, 5, DIRECTION_INWARD);
-		lyr_frame_shift_column(frame0.lyr0, 6, DIRECTION_INWARD);
-		lyr_frame_shift_column(frame0.lyr0, 7, DIRECTION_INWARD);
+		
+		for(uint8_t tempIndex=0;tempIndex<8;tempIndex++)
+		{
+			lyr_frame_shift_column(frame0.lyr0, tempIndex, DIRECTION_INWARD);
+		}
+		
 		lyr_frame_convert(frame0.lyr0,data16Ptr);
 		UPDATE_FRAME=1;
 		animation_delay(2*transitionDelay);	
 		
 		if(HALT_ANIMATION == true) break;
-		lyr_frame_shift_row(frame0.lyr0, 0, DIRECTION_INWARD);
-		lyr_frame_shift_row(frame0.lyr0, 1, DIRECTION_INWARD);
-		lyr_frame_shift_row(frame0.lyr0, 2, DIRECTION_INWARD);
-		lyr_frame_shift_row(frame0.lyr0, 3, DIRECTION_INWARD);
-		lyr_frame_shift_row(frame0.lyr0, 4, DIRECTION_INWARD);
-		lyr_frame_shift_row(frame0.lyr0, 5, DIRECTION_INWARD);
-		lyr_frame_shift_row(frame0.lyr0, 6, DIRECTION_INWARD);
-		lyr_frame_shift_row(frame0.lyr0, 7, DIRECTION_INWARD);
+		
+		for(uint8_t tempIndex=0;tempIndex<8;tempIndex++)
+		{
+			lyr_frame_shift_row(frame0.lyr0, tempIndex, DIRECTION_INWARD);
+		}
+				
 		lyr_frame_convert(frame0.lyr0,data16Ptr);
 		UPDATE_FRAME=1;
 		animation_delay(2*transitionDelay);	
 		
 		if(HALT_ANIMATION == true) break;
-		lyr_frame_shift_column(frame0.lyr0, 0, DIRECTION_INWARD);
-		lyr_frame_shift_column(frame0.lyr0, 1, DIRECTION_INWARD);
-		lyr_frame_shift_column(frame0.lyr0, 2, DIRECTION_INWARD);
-		lyr_frame_shift_column(frame0.lyr0, 3, DIRECTION_INWARD);
-		lyr_frame_shift_column(frame0.lyr0, 4, DIRECTION_INWARD);
-		lyr_frame_shift_column(frame0.lyr0, 5, DIRECTION_INWARD);
-		lyr_frame_shift_column(frame0.lyr0, 6, DIRECTION_INWARD);
-		lyr_frame_shift_column(frame0.lyr0, 7, DIRECTION_INWARD);
+		
+		for(uint8_t tempIndex=0;tempIndex<8;tempIndex++)
+		{
+			lyr_frame_shift_column(frame0.lyr0, tempIndex, DIRECTION_INWARD);
+		}
+		
 		lyr_frame_convert(frame0.lyr0,data16Ptr);
 		UPDATE_FRAME=1;
 		animation_delay(2*transitionDelay);	
@@ -351,7 +386,7 @@ void stretchy_cube(Frame_TypeDef frame)
 {
 	lyr_frame_clear_all(frame.lyr0);
 	
-	uint16_t delay = 100;
+	uint16_t delay = 250;
 	uint64_t randColor = 0;
 	uint16_t randBrightnessValue = 0;
 	uint8_t randRgbChoice = 0;
@@ -599,7 +634,7 @@ void animation_stretch_in(LyrFrame_TypeDef lyrFrame, int stopPt, uint16_t delay)
  */
 void animation_stretch_out(LyrFrame_TypeDef lyrFrame, uint64_t color, int startPt, uint16_t delay)
 {
-	if (startPt != (0|7|56|63)) return;
+	if ((startPt != 0)&(startPt != 7)&(startPt != 56)&(startPt != 63)) return;
 	
 	lyr_frame_clear_all(lyrFrame);
 	
@@ -607,7 +642,7 @@ void animation_stretch_out(LyrFrame_TypeDef lyrFrame, uint64_t color, int startP
 	int limitPt = 0;
 	int ptStepSize = 0;
 	
-	if (startPt == (0|7))
+	if ((startPt == 0)|(startPt == 7))
 	{
 		if (startPt == 0) // rear left of array
 		{
@@ -632,7 +667,7 @@ void animation_stretch_out(LyrFrame_TypeDef lyrFrame, uint64_t color, int startP
 		}
 	}
 	
-	if (startPt == (56|63))
+	if ((startPt == 56) | (startPt == 63))
 	{
 		if (startPt == 56) // front left of array
 		{
@@ -751,22 +786,21 @@ void animation_delay(uint32_t delay)
 uint64_t modify_color_single_rgb_value(uint64_t initialColor, uint16_t rgbValue, uint8_t rgbCoice)
 {
 	//need to look at this in debug mode to ensure the logic makes sense for recombining the individual brightnesses
-	uint16_t redBrightness = (initialColor>>32);
-	uint16_t grnBrightness = (initialColor>>16);
-	uint16_t bluBrightness = (initialColor>>0);
+	uint64_t redBrightness = 0;
+	uint64_t grnBrightness = 0;
+	uint64_t bluBrightness = 0;
+	
+	redBrightness = (0x0000000000001111 && (initialColor>>32));
+	grnBrightness = (0x0000000000001111 && (initialColor>>16));
+	bluBrightness = (0x0000000000001111 && (initialColor>>0));
 	
 	if(rgbCoice == 0) redBrightness = rgbValue;
 	if(rgbCoice == 1) grnBrightness = rgbValue;
 	if(rgbCoice == 2) bluBrightness = rgbValue;
 	
-	initialColor = (uint64_t)redBrightness;
-	initialColor = initialColor<<16;
-	
-	initialColor |= (uint64_t)grnBrightness;
-	initialColor = initialColor<<16;
-	
-	initialColor |= (uint64_t)bluBrightness;
-	initialColor = initialColor<<16;
+	initialColor = (0x0000000000001111 && redBrightness);
+	initialColor = ((initialColor<<16) && grnBrightness);
+	initialColor = ((initialColor<<16) && bluBrightness);
 		
 	return initialColor;	
 }

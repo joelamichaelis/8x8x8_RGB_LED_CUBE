@@ -181,8 +181,12 @@ Menu_TypeDef AnimationMenuInit(Menu_TypeDef Menu)
 	MenuSetRowText(Menu.ArrayPtr, 5, " Sliding Cubes");
 	Menu.rowAction[5] = ACTION_PLAY_ANIMATION_5;
 	
-	MenuSetRowText(Menu.ArrayPtr, 6, " Row 6");
-	MenuSetRowText(Menu.ArrayPtr, 7, " Row 7");
+	MenuSetRowText(Menu.ArrayPtr, 6, " Stretchy Cube");
+	Menu.rowAction[6] = ACTION_PLAY_ANIMATION_6;
+	
+	MenuSetRowText(Menu.ArrayPtr, 7, " Configurable Text");
+	Menu.rowAction[7] = ACTION_PLAY_ANIMATION_7;
+	
 	MenuSetRowText(Menu.ArrayPtr, 8, " Row 8");
 	MenuSetRowText(Menu.ArrayPtr, 9, " Back to Main Menu");
 	Menu.rowAction[9] = ACTION_MAIN_MENU;

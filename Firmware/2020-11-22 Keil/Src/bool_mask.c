@@ -7,7 +7,55 @@
 
 #include "bool_mask.h"
 
+// PRIVATE FUNCTION PROTOTYPES BEGIN
+
+// PRIVATE FUNCTION PROTOTYPES END
+
 //-------------------------------------Bool Mask Defines Begin-------------------------------------
+//encoding bool masks saves 56bytes per which is non-trivial given the number of bool masks used and the 32K size limit
+// apparently the c language doesn't support binary literals and keil's compiler do the conversion
+//EX: uint64_t mask0Encoded = 0b1111111110000001100000011000000110000001100000011000000111111111;
+
+
+const uint64_t mask0Encoded = 0xFF818181818181FF;	
+const uint64_t mask1Encoded = 0x007E424242427E00;		
+const uint64_t mask2Encoded = 0x00003C24243C0000;	
+const uint64_t mask3Encoded = 0x0000001818000000;	
+const uint64_t maskAllEncoded = 0xFFFFFFFFFFFFFFFF;															
+const uint64_t maskChessBoardWEncoded = 0xAA55AA55AA55AA55;	
+const uint64_t maskChessBoardBEncoded = 0x55AA55AA55AA55AA;										
+const uint64_t maskLetterJEncoded = 0xFF0404040484CC78;
+const uint64_t maskLetterOEncoded = 0x7EFFC3C3C3C3FF7E;
+const uint64_t maskLetterEEncoded = 0xFFFFC0FEFEC0FFFF;	
+const uint64_t maskLetterLEncoded = 0xC0C0C0C0C0C0FEFE;
+const uint64_t maskEmptyEncoded = 0x0000000000000000;	
+const uint64_t maskEncLetterA	= 0x7EFFE7E7FFFFE7E7;			
+const uint64_t maskEncLetterB	=	0xFEFFE7FEFEE7FFFE;											
+const uint64_t maskEncLetterC = 0x7EFFE7E0E0E7FF7E;
+const uint64_t maskEncLetterD = 0xFEFFE7E7E7E7FFFE;
+const uint64_t maskEncLetterE = 0xFFFFE0FCFCE0FFFF;
+const uint64_t maskEncLetterF = 0xFFFFE0FCFCE0E0E0;		
+const uint64_t maskEncLetterG = 0x7EFFE7E0EFE7FF7E;
+const uint64_t maskEncLetterH = 0xE7E7E7FFFFE7E7E7;
+const uint64_t maskEncLetterI = 0xFFFF18181818FFFF;
+const uint64_t maskEncLetterJ = 0xFF0404040484CC78;
+const uint64_t maskEncLetterK = 0xE3E7EEFCFCEEE7E3;
+const uint64_t maskEncLetterL = 0xE0E0E0E0E0E0FFFF;
+const uint64_t maskEncLetterM = 0x82C6EEAABA929282;
+const uint64_t maskEncLetterN = 0xE7F7F7FFFFFFEFE7;
+const uint64_t maskEncLetterO = 0x7EFFE7E7E7E7FF7E;
+const uint64_t maskEncLetterP = 0xFEFFE7FFFEE0E0E0;
+const uint64_t maskEncLetterQ = 0x7EFFE7E7E3EDF67B;
+const uint64_t maskEncLetterR = 0xFEFFE7FFFEE7E7E7;
+const uint64_t maskEncLetterS = 0x7EFFE0FE7F07FF7E;
+const uint64_t maskEncLetterT = 0xFFFF181818181818;														
+const uint64_t maskEncLetterU = 0xE7E7E7E7E7E7FF7E;	
+const uint64_t maskEncLetterV = 0xE7E7E7E7E7E77E3C;
+const uint64_t maskEncLetterW = 0x82929292BAEEC682;
+const uint64_t maskEncLetterX = 0xE7E77E3C3C7EE7E7;
+const uint64_t maskEncLetterY = 0xE7E7E77E3C181818;
+const uint64_t maskEncLetterZ = 0xFFFF0F1E78F0FFFF;
+
 bool mask0[64] = {1,1,1,1,1,1,1,1,
 									1,0,0,0,0,0,0,1,
 									1,0,0,0,0,0,0,1,
@@ -16,7 +64,7 @@ bool mask0[64] = {1,1,1,1,1,1,1,1,
 									1,0,0,0,0,0,0,1,
 									1,0,0,0,0,0,0,1,
 									1,1,1,1,1,1,1,1};
-
+									
 bool mask1[64] = {0,0,0,0,0,0,0,0,
 									0,1,1,1,1,1,1,0,
 									0,1,0,0,0,0,1,0,
@@ -24,8 +72,8 @@ bool mask1[64] = {0,0,0,0,0,0,0,0,
 									0,1,0,0,0,0,1,0,
 									0,1,0,0,0,0,1,0,
 									0,1,1,1,1,1,1,0,
-									0,0,0,0,0,0,0,0};
-
+									0,0,0,0,0,0,0,0};			
+																		
 bool mask2[64] = {0,0,0,0,0,0,0,0,
 									0,0,0,0,0,0,0,0,
 									0,0,1,1,1,1,0,0,
@@ -33,7 +81,7 @@ bool mask2[64] = {0,0,0,0,0,0,0,0,
 									0,0,1,0,0,1,0,0,
 									0,0,1,1,1,1,0,0,
 									0,0,0,0,0,0,0,0,
-									0,0,0,0,0,0,0,0};
+									0,0,0,0,0,0,0,0};									
 
 bool mask3[64] = {0,0,0,0,0,0,0,0,
 									0,0,0,0,0,0,0,0,
@@ -42,8 +90,10 @@ bool mask3[64] = {0,0,0,0,0,0,0,0,
 									0,0,0,1,1,0,0,0,
 									0,0,0,0,0,0,0,0,
 									0,0,0,0,0,0,0,0,
-									0,0,0,0,0,0,0,0};
-
+									0,0,0,0,0,0,0,0};	
+									
+/*
+commented out since not used and need to save space
 bool mask4[64] = {1,1,1,1,1,1,1,1,
 									1,0,0,0,0,0,0,1,
 									1,0,1,1,1,1,0,1,
@@ -70,6 +120,7 @@ bool mask6[64] = {0,0,0,0,0,0,0,0,
 									1,1,1,1,1,1,1,1,
 									0,0,0,0,0,0,0,0,
 									1,1,1,1,1,1,1,1};
+									
 
 bool mask7[64] = {1,1,1,1,1,1,1,1,
 									0,0,0,0,0,0,0,0,
@@ -79,6 +130,8 @@ bool mask7[64] = {1,1,1,1,1,1,1,1,
 									0,0,0,0,0,0,0,0,
 									1,1,1,1,1,1,1,1,
 									0,0,0,0,0,0,0,0};
+*/
+
 
 bool maskAll[64] = {1,1,1,1,1,1,1,1,
 									  1,1,1,1,1,1,1,1,
@@ -87,8 +140,8 @@ bool maskAll[64] = {1,1,1,1,1,1,1,1,
 									  1,1,1,1,1,1,1,1,
 									  1,1,1,1,1,1,1,1,
 									  1,1,1,1,1,1,1,1,
-									  1,1,1,1,1,1,1,1};		
-
+									  1,1,1,1,1,1,1,1};
+										
 bool maskChessBoardW[64] = {1,0,1,0,1,0,1,0,
 														0,1,0,1,0,1,0,1,
 														1,0,1,0,1,0,1,0,
@@ -96,8 +149,8 @@ bool maskChessBoardW[64] = {1,0,1,0,1,0,1,0,
 														1,0,1,0,1,0,1,0,
 														0,1,0,1,0,1,0,1,
 														1,0,1,0,1,0,1,0,
-														0,1,0,1,0,1,0,1};
-
+														0,1,0,1,0,1,0,1};														
+														
 bool maskChessBoardB[64] = {0,1,0,1,0,1,0,1,
 														1,0,1,0,1,0,1,0,
 														0,1,0,1,0,1,0,1,
@@ -105,8 +158,8 @@ bool maskChessBoardB[64] = {0,1,0,1,0,1,0,1,
 														0,1,0,1,0,1,0,1,
 														1,0,1,0,1,0,1,0,
 														0,1,0,1,0,1,0,1,
-														1,0,1,0,1,0,1,0};
-
+														1,0,1,0,1,0,1,0};									
+														
 bool letterJ[64] = {1,1,1,1,1,1,1,1,
 										0,0,0,0,0,1,0,0,
 										0,0,0,0,0,1,0,0,
@@ -116,6 +169,9 @@ bool letterJ[64] = {1,1,1,1,1,1,1,1,
 										1,1,0,0,1,1,0,0,
 										0,1,1,1,1,0,0,0};
 
+				
+										
+
 bool letterO[64] = {0,1,1,1,1,1,1,0,
 										1,1,1,1,1,1,1,1,
 										1,1,0,0,0,0,1,1,
@@ -124,6 +180,8 @@ bool letterO[64] = {0,1,1,1,1,1,1,0,
 										1,1,0,0,0,0,1,1,
 										1,1,1,1,1,1,1,1,
 										0,1,1,1,1,1,1,0};
+				
+										
 
 bool letterE[64] = {1,1,1,1,1,1,1,1,
 										1,1,1,1,1,1,1,1,
@@ -134,6 +192,8 @@ bool letterE[64] = {1,1,1,1,1,1,1,1,
 										1,1,1,1,1,1,1,1,
 										1,1,1,1,1,1,1,1};
 
+										
+
 bool letterL[64] = {1,1,0,0,0,0,0,0,
 										1,1,0,0,0,0,0,0,
 										1,1,0,0,0,0,0,0,
@@ -142,7 +202,9 @@ bool letterL[64] = {1,1,0,0,0,0,0,0,
 										1,1,0,0,0,0,0,0,
 										1,1,1,1,1,1,1,0,
 										1,1,1,1,1,1,1,0};
-
+	
+										
+										
 bool maskEmpty[64] = {0,0,0,0,0,0,0,0,
 											0,0,0,0,0,0,0,0,
 											0,0,0,0,0,0,0,0,
@@ -150,7 +212,10 @@ bool maskEmpty[64] = {0,0,0,0,0,0,0,0,
 											0,0,0,0,0,0,0,0,
 											0,0,0,0,0,0,0,0,
 											0,0,0,0,0,0,0,0,
-											0,0,0,0,0,0,0,0};										
+											0,0,0,0,0,0,0,0};
+
+
+											
 //-------------------------------------Bool Mask Defines End---------------------------------------
 
 
@@ -167,6 +232,23 @@ void bool_mask_copy(bool* originalBoolMaskPtr,bool* copyBoolMaskPtr)
 	for(tempIndex=0;tempIndex<BOOL_MASK_LENGTH;tempIndex++)
 		*(copyBoolMaskPtr + tempIndex) = *(originalBoolMaskPtr + tempIndex);
 }	
+
+void bool_mask_decode(bool* destBoolMaskPtr, uint64_t encodedBoolMask)
+{
+	uint8_t index = 0;
+	uint64_t bitCompare = 0x8000000000000000;
+	while(index<BOOL_MASK_LENGTH)
+	{
+		if ((encodedBoolMask & bitCompare) > 0)
+			*(destBoolMaskPtr + index) = true;
+		else
+			*(destBoolMaskPtr + index) = false;
+				
+		bitCompare = bitCompare >> 1;
+		index++;
+		
+	}	
+}
 										
 void maskPtrSet (bool *maskPtr, int startVal, int stepVal, int stopVal, uint16_t brightness)
 {	

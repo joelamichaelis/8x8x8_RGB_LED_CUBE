@@ -1,8 +1,5 @@
 --cpu Cortex-M3
 "2020-11-22 keil\startup_stm32f103xb.o"
-"2020-11-22 keil\main.o"
-"2020-11-22 keil\stm32f1xx_it.o"
-"2020-11-22 keil\stm32f1xx_hal_msp.o"
 "2020-11-22 keil\lcd20x4_i2c.o"
 "2020-11-22 keil\mpr121.o"
 "2020-11-22 keil\tlc5940.o"
@@ -13,6 +10,9 @@
 "2020-11-22 keil\array_8x8.o"
 "2020-11-22 keil\menu_system.o"
 "2020-11-22 keil\rng.o"
+"2020-11-22 keil\main.o"
+"2020-11-22 keil\stm32f1xx_it.o"
+"2020-11-22 keil\stm32f1xx_hal_msp.o"
 "2020-11-22 keil\stm32f1xx_hal_gpio_ex.o"
 "2020-11-22 keil\stm32f1xx_hal_i2c.o"
 "2020-11-22 keil\stm32f1xx_hal.o"
