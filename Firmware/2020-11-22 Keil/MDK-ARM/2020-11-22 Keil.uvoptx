@@ -154,7 +154,7 @@
           <Type>0</Type>
           <LineNumber>88</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134229092</Address>
+          <Address>134229080</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -170,7 +170,7 @@
           <Type>0</Type>
           <LineNumber>97</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134241260</Address>
+          <Address>134240272</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -186,7 +186,7 @@
           <Type>0</Type>
           <LineNumber>95</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134241256</Address>
+          <Address>134240268</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -269,17 +269,12 @@
         <Ww>
           <count>0</count>
           <WinNumber>2</WinNumber>
-          <ItemText>currentAction,0x0A</ItemText>
+          <ItemText>limitPt,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>2</WinNumber>
-          <ItemText>HALT_ANIMATION</ItemText>
-        </Ww>
-        <Ww>
-          <count>2</count>
-          <WinNumber>2</WinNumber>
-          <ItemText>lyrFrame</ItemText>
+          <ItemText>stopPt,0x0A</ItemText>
         </Ww>
       </WatchWindow2>
       <MemoryWindow1>

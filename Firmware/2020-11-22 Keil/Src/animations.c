@@ -63,8 +63,11 @@ void configurable_text(Frame_TypeDef frame)
 	while(HALT_ANIMATION == false)
 	{
 		bool_mask_decode(&tempBoolMask[0],alphabetArr[alphabetIndex]);
-		fade_in_color(frame.lyr0,tempBoolMask,blue,maxBrightness,deltaBrightness,delay);
-		fade_out_color(frame.lyr0,tempBoolMask,blue,minBrightness,deltaBrightness,delay);
+		
+		transition_fade(frame.lyr0,&tempBoolMask[0],blue,maxBrightness,deltaBrightness,delay,true);
+		transition_fade(frame.lyr0,&tempBoolMask[0],blue,minBrightness,deltaBrightness,delay,false);
+		//fade_in_color(frame.lyr0,tempBoolMask,blue,maxBrightness,deltaBrightness,delay);
+		//fade_out_color(frame.lyr0,tempBoolMask,blue,minBrightness,deltaBrightness,delay);
 		alphabetIndex++;
 		if(alphabetIndex==26) alphabetIndex=0;	
 		HAL_Delay(transitionDelay);
@@ -74,12 +77,10 @@ void configurable_text(Frame_TypeDef frame)
 	UPDATE_FRAME=1;
 }
 
-void merry_christmas(Frame_TypeDef frame)
+void strobe(Frame_TypeDef frame)
 {
-	uint16_t maxBrightness = 4000;
-	uint16_t minBrightness = 0;
-	uint16_t deltaBrightness = 10;
-	uint16_t delay = 100;
+	//uint16_t maxBrightness = 4000;
+	uint16_t delay = 150;
 	
 	HALT_ANIMATION = false;
 	
@@ -87,10 +88,12 @@ void merry_christmas(Frame_TypeDef frame)
 	lyr_frame_convert(frame.lyr0,data16Ptr);
 	UPDATE_FRAME=1;
 	
+
 	while(HALT_ANIMATION == false)
 	{
-		//dissolve_in_color(frame.lyr0, mask0, green, maxBrightness, deltaBrightness, delay);
-		//dissolve_out_color(frame.lyr0, mask0, green, minBrightness, deltaBrightness, delay);
+		subanimation_strobe(frame.lyr0, &maskAll[0], red, delay);
+		subanimation_strobe(frame.lyr0, &maskAll[0], white, delay);
+		subanimation_strobe(frame.lyr0, &maskAll[0], blue, delay);
 	}
 	lyr_frame_clear_all(frame.lyr0);
 	lyr_frame_convert(frame.lyr0,data16Ptr);
@@ -99,9 +102,9 @@ void merry_christmas(Frame_TypeDef frame)
 
 void original_fade(Frame_TypeDef frame)
 {
-	uint16_t maxBrightness = 4000;
-	uint16_t minBrightness = 0;
-	uint16_t deltaBrightness = 10;
+	//uint16_t maxBrightness = 4000;
+	//uint16_t minBrightness = 0;
+	//uint16_t deltaBrightness = 10;
 	uint16_t delay = 40;
 	uint16_t transitionDelay = 4;
 	uint64_t colorWheel[12] = {red,orange,yellow,yelgrn,green,seafoam,cyan,lightblu,blue,indigo,purple,pink};	
@@ -180,11 +183,17 @@ void halloween(Frame_TypeDef frame)
 	
 	while(HALT_ANIMATION == false)
 	{
-		fade_in_color(frame.lyr0,maskChessBoardW,purple,maxBrightness,deltaBrightness,delay);
-		fade_in_color(frame.lyr0,maskChessBoardB,orange,maxBrightness,deltaBrightness,delay);
+		
+		transition_fade(frame.lyr0,&maskChessBoardW[0],purple,maxBrightness,deltaBrightness,delay,true);
+		transition_fade(frame.lyr0,&maskChessBoardB[0],orange,maxBrightness,deltaBrightness,delay,true);
+		//fade_in_color(frame.lyr0,maskChessBoardW,purple,maxBrightness,deltaBrightness,delay);
+		//fade_in_color(frame.lyr0,maskChessBoardB,orange,maxBrightness,deltaBrightness,delay);
 		animation_delay(transitionDelay);
-		fade_out_color(frame.lyr0,maskChessBoardW,purple,minBrightness,deltaBrightness,delay);			
-		fade_out_color(frame.lyr0,maskChessBoardB,orange,minBrightness,deltaBrightness,delay);
+		
+		transition_fade(frame.lyr0,&maskChessBoardW[0],purple,minBrightness,deltaBrightness,delay,false);
+		transition_fade(frame.lyr0,&maskChessBoardB[0],orange,minBrightness,deltaBrightness,delay,false);
+		//fade_out_color(frame.lyr0,maskChessBoardW,purple,minBrightness,deltaBrightness,delay);			
+		//fade_out_color(frame.lyr0,maskChessBoardB,orange,minBrightness,deltaBrightness,delay);
 		animation_delay(transitionDelay);
 	}
 	
@@ -216,8 +225,10 @@ void joel_mode(Frame_TypeDef frame)
 	while(HALT_ANIMATION == false)
 	{
 		bool_mask_decode(&tempBoolMask[0],joelArr[joelIndex]);
-		fade_in_color(frame.lyr0,&tempBoolMask[0],blue,maxBrightness,deltaBrightness,delay);
-		fade_out_color(frame.lyr0,&tempBoolMask[0],blue,minBrightness,deltaBrightness,delay);
+		transition_fade(frame.lyr0,&tempBoolMask[0],blue,maxBrightness,deltaBrightness,delay,true);		
+		transition_fade(frame.lyr0,&tempBoolMask[0],blue,minBrightness,deltaBrightness,delay,false);
+		//fade_in_color(frame.lyr0,&tempBoolMask[0],blue,maxBrightness,deltaBrightness,delay);
+		//fade_out_color(frame.lyr0,&tempBoolMask[0],blue,minBrightness,deltaBrightness,delay);
 		joelIndex++;
 		if(joelIndex == 4) joelIndex = 0;
 		HAL_Delay(transitionDelay);
@@ -405,8 +416,7 @@ void stretchy_cube(Frame_TypeDef frame)
 	
 	while(HALT_ANIMATION == false)
 	{				
-		animation_stretch_out(frame.lyr0, randColor, startPt, delay);
-		
+		subanimation_stretch_expand(frame.lyr0, randColor, startPt, delay);
 		startPt = rand_32bit_modulus(rngCount, 3);
 		randRgbChoice = rand_32bit_modulus(rngCount, 2);
 		randBrightnessValue = rand_32bit_modulus(rngCount, 4095);
@@ -417,7 +427,7 @@ void stretchy_cube(Frame_TypeDef frame)
 		if (startPt == 2) startPt = 56;
 		if (startPt == 3) startPt = 63;
 				
-		animation_stretch_in(frame.lyr0, startPt, delay); // still need to implement this
+		subanimation_stretch_retract(frame.lyr0, startPt, delay); // still need to implement this
 	}
 }
 
@@ -436,10 +446,9 @@ void stretchy_cube(Frame_TypeDef frame)
  * @param[in] direction - currently supports forward and back only. this a quick & easy way to support different punching directions
  * example usage: transition_punch(frame1.lyr0, &mask3[0], white, 27, DIRECTION_FORWARD);
  */
-void transition_punch(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t color, uint16_t delay, uint8_t direction)
+void transition_punch(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t color, uint16_t delay, uint8_t punchDirection)
 {
-		
-	if(direction == DIRECTION_FORWARD)
+	if(punchDirection == DIRECTION_FORWARD)
 	{
 		for(uint8_t tempIndex=0;tempIndex<BOOL_MASK_LENGTH;tempIndex++)
 		{
@@ -454,7 +463,7 @@ void transition_punch(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t color, 
 		}
 	}
 	
-	if(direction == DIRECTION_BACK)
+	if(punchDirection == DIRECTION_BACK)
 	{
 		for(uint8_t tempIndex=BOOL_MASK_LENGTH;tempIndex>0;tempIndex--)
 		{
@@ -468,149 +477,134 @@ void transition_punch(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t color, 
 			}
 		}
 	}
-	
 }
 
-void dissolve_color(LyrFrame_TypeDef lyrFrame, bool mask[64], uint64_t color, uint16_t maxBrightness, uint16_t deltaBrightness, uint16_t delay)
+void transition_fade(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t color, uint16_t minMaxBrightness, uint16_t deltaBrightness, uint16_t delay, bool increaseNdecrease)
 {
-	int tempIndex = 0;	
-	for (tempIndex=0;tempIndex<BOOL_MASK_LENGTH;tempIndex++)
+	int16_t redBrightness = (color>>32);
+	int16_t grnBrightness = (color>>16);
+	int16_t bluBrightness = (color>>0);
+	int16_t redDeltaBrightness = 0x0000;
+	int16_t grnDeltaBrightness = 0x0000;
+	int16_t bluDeltaBrightness = 0x0000;
+	int16_t currentBrightness ;	//hopefully since its signed there's no negative number hard fault.
+	
+	if(increaseNdecrease == true) //incease brightness
 	{
-		if (mask[tempIndex] == 1)
+		currentBrightness = 0;
+
+		if (redBrightness >= 4000)
 		{
-			lyr_frame_set_single_color(lyrFrame,0,tempIndex);
+			redBrightness = 0;
+			redDeltaBrightness = deltaBrightness;
+		}
+		
+		if ((redBrightness < 4000) & (redBrightness > 0)) 
+		{
+			redBrightness = 0;
+			redDeltaBrightness = (deltaBrightness/2);
+		}
+		
+		if (grnBrightness >= 4000)
+		{
+			grnBrightness = 0;
+			grnDeltaBrightness = deltaBrightness;
+		}
+		
+		if ((grnBrightness < 4000) & (grnBrightness > 0)) 
+		{
+			grnBrightness = 0;
+			grnDeltaBrightness = (deltaBrightness/2);
+		}	
+		
+		if (bluBrightness >= 4000)
+		{
+			bluBrightness = 0;
+			bluDeltaBrightness = deltaBrightness;
+		}
+		
+		if ((bluBrightness < 4000) & (bluBrightness > 0)) 
+		{
+			bluBrightness = 0;
+			bluDeltaBrightness = (deltaBrightness/2);
+		}
+		
+		while (currentBrightness <= minMaxBrightness)
+		{
+			if(HALT_ANIMATION == true) break;
+			lyr_frame_set_single_rgb(lyrFrame.redArrPtr, redBrightness, maskPtr);
+			lyr_frame_set_single_rgb(lyrFrame.grnArrPtr, grnBrightness, maskPtr);
+			lyr_frame_set_single_rgb(lyrFrame.bluArrPtr, bluBrightness, maskPtr);
 			lyr_frame_convert(frame0.lyr0,data16Ptr);
 			UPDATE_FRAME=1;
 			animation_delay(delay);
+			currentBrightness = currentBrightness + deltaBrightness;
+			redBrightness = redBrightness + redDeltaBrightness;
+			grnBrightness = grnBrightness + grnDeltaBrightness;
+			bluBrightness = bluBrightness + bluDeltaBrightness;
+		}
+	}
+	
+	if(increaseNdecrease == false) //decrease brightness
+	{	
+		currentBrightness = 4000;
+	
+		if (redBrightness >= 4000)
+		{
+			redBrightness = 4000;
+			redDeltaBrightness = deltaBrightness;
+		}
+		
+		if ((redBrightness < 4000) & (redBrightness > 0)) 
+		{
+			redBrightness = 2000;
+			redDeltaBrightness = (deltaBrightness/2);
+		}
+				
+		if (grnBrightness >= 4000)
+		{
+			grnBrightness = 4000;
+			grnDeltaBrightness = deltaBrightness;
+		}
+		
+		if ((grnBrightness < 4000) & (grnBrightness > 0)) 
+		{
+			grnBrightness = 2000;
+			grnDeltaBrightness = (deltaBrightness/2);
+		}	
+		
+		if (bluBrightness >= 4000)
+		{
+			bluBrightness = 4000;
+			bluDeltaBrightness = deltaBrightness;
+		}
+		
+		if ((bluBrightness < 4000) & (bluBrightness > 0)) 
+		{
+			bluBrightness = 2000;
+			bluDeltaBrightness = (deltaBrightness/2);
+		}
+		
+		while (currentBrightness >= minMaxBrightness)
+		{
 			if(HALT_ANIMATION == true) break;
+			lyr_frame_set_single_rgb(lyrFrame.redArrPtr, redBrightness, maskPtr);
+			lyr_frame_set_single_rgb(lyrFrame.grnArrPtr, grnBrightness, maskPtr);
+			lyr_frame_set_single_rgb(lyrFrame.bluArrPtr, bluBrightness, maskPtr);
+			lyr_frame_convert(frame0.lyr0,data16Ptr);
+			UPDATE_FRAME=1;
+			animation_delay(delay);
+			currentBrightness = currentBrightness - deltaBrightness;
+			redBrightness = redBrightness - redDeltaBrightness;
+			grnBrightness = grnBrightness - grnDeltaBrightness;
+			bluBrightness = bluBrightness - bluDeltaBrightness;
 		}
 	}
 }
 
-void fade_in_color(LyrFrame_TypeDef lyrFrame, bool mask[64], uint64_t color, uint16_t maxBrightness, uint16_t deltaBrightness, uint16_t delay)
-{	
-	int16_t redBrightness = (color>>32);
-	int16_t grnBrightness = (color>>16);
-	int16_t bluBrightness = (color>>0);
-	int16_t redDeltaBrightness = 0x0000;
-	int16_t grnDeltaBrightness = 0x0000;
-	int16_t bluDeltaBrightness = 0x0000;
-	int16_t currentBrightness = 0; //hopefully since its signed there's no negative number hard fault.
-	
-	if (redBrightness >= 4000)
-	{
-		redBrightness = 0;
-		redDeltaBrightness = deltaBrightness;
-	}
-	
-	if ((redBrightness < 4000) & (redBrightness > 0)) 
-	{
-		redBrightness = 0;
-		redDeltaBrightness = (deltaBrightness/2);
-	}
-	
-	
-	if (grnBrightness >= 4000)
-	{
-		grnBrightness = 0;
-		grnDeltaBrightness = deltaBrightness;
-	}
-	
-	if ((grnBrightness < 4000) & (grnBrightness > 0)) 
-	{
-		grnBrightness = 0;
-		grnDeltaBrightness = (deltaBrightness/2);
-	}	
-	
-	if (bluBrightness >= 4000)
-	{
-		bluBrightness = 0;
-		bluDeltaBrightness = deltaBrightness;
-	}
-	
-	if ((bluBrightness < 4000) & (bluBrightness > 0)) 
-	{
-		bluBrightness = 0;
-		bluDeltaBrightness = (deltaBrightness/2);
-	}
-		
-	while (currentBrightness <= maxBrightness)
-	{
-		if(HALT_ANIMATION == true) break;
-		lyr_frame_set_single_rgb(lyrFrame.redArrPtr, redBrightness, mask);
-		lyr_frame_set_single_rgb(lyrFrame.grnArrPtr, grnBrightness, mask);
-		lyr_frame_set_single_rgb(lyrFrame.bluArrPtr, bluBrightness, mask);
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
-		UPDATE_FRAME=1;
-		animation_delay(delay);
-		currentBrightness = currentBrightness + deltaBrightness;
-		redBrightness = redBrightness + redDeltaBrightness;
-		grnBrightness = grnBrightness + grnDeltaBrightness;
-		bluBrightness = bluBrightness + bluDeltaBrightness;
-	}
-}
-
-void fade_out_color(LyrFrame_TypeDef lyrFrame, bool mask[64], uint64_t color, uint16_t minBrightness, uint16_t deltaBrightness, uint16_t delay)
+void transition_punch_fade(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t color, uint16_t minMaxBrightness, uint16_t deltaBrightness, uint16_t delay, bool increaseNdecrease, uint8_t punchDirection)
 {
-	int16_t redBrightness = (color>>32);
-	int16_t grnBrightness = (color>>16);
-	int16_t bluBrightness = (color>>0);
-	int16_t redDeltaBrightness = 0x0000;
-	int16_t grnDeltaBrightness = 0x0000;
-	int16_t bluDeltaBrightness = 0x0000;
-	int16_t currentBrightness = 4000; //hopefully since its signed there's no negative number hard fault.
-	
-	if (redBrightness >= 4000)
-	{
-		redBrightness = 4000;
-		redDeltaBrightness = deltaBrightness;
-	}
-	
-	if ((redBrightness < 4000) & (redBrightness > 0)) 
-	{
-		redBrightness = 2000;
-		redDeltaBrightness = (deltaBrightness/2);
-	}
-	
-	
-	if (grnBrightness >= 4000)
-	{
-		grnBrightness = 4000;
-		grnDeltaBrightness = deltaBrightness;
-	}
-	
-	if ((grnBrightness < 4000) & (grnBrightness > 0)) 
-	{
-		grnBrightness = 2000;
-		grnDeltaBrightness = (deltaBrightness/2);
-	}	
-	
-	if (bluBrightness >= 4000)
-	{
-		bluBrightness = 4000;
-		bluDeltaBrightness = deltaBrightness;
-	}
-	
-	if ((bluBrightness < 4000) & (bluBrightness > 0)) 
-	{
-		bluBrightness = 2000;
-		bluDeltaBrightness = (deltaBrightness/2);
-	}
-	
-	while (currentBrightness >= minBrightness)
-	{
-		if(HALT_ANIMATION == true) break;
-		lyr_frame_set_single_rgb(lyrFrame.redArrPtr, redBrightness, mask);
-		lyr_frame_set_single_rgb(lyrFrame.grnArrPtr, grnBrightness, mask);
-		lyr_frame_set_single_rgb(lyrFrame.bluArrPtr, bluBrightness, mask);
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
-		UPDATE_FRAME=1;
-		animation_delay(delay);
-		currentBrightness = currentBrightness - deltaBrightness;
-		redBrightness = redBrightness - redDeltaBrightness;
-		grnBrightness = grnBrightness - grnDeltaBrightness;
-		bluBrightness = bluBrightness - bluDeltaBrightness;
-	}
+	// unfinished work
 }
 
 /**
@@ -619,7 +613,7 @@ void fade_out_color(LyrFrame_TypeDef lyrFrame, bool mask[64], uint64_t color, ui
  * @param[in] stopPt - the corner which the 8x8 square outline collapses into
  * @param[in] delay - length of time in ms to wait inbetween punches
  */
-void animation_stretch_in(LyrFrame_TypeDef lyrFrame, int stopPt, uint16_t delay)
+void subanimation_stretch_retract(LyrFrame_TypeDef lyrFrame, int stopPt, uint16_t delay)
 {
 
 }
@@ -632,7 +626,7 @@ void animation_stretch_in(LyrFrame_TypeDef lyrFrame, int stopPt, uint16_t delay)
  * @param[in] startPt - the initial corner
  * @param[in] delay - length of time in ms to wait inbetween punches
  */
-void animation_stretch_out(LyrFrame_TypeDef lyrFrame, uint64_t color, int startPt, uint16_t delay)
+void subanimation_stretch_expand(LyrFrame_TypeDef lyrFrame, uint64_t color, int startPt, uint16_t delay)
 {
 	if ((startPt != 0)&(startPt != 7)&(startPt != 56)&(startPt != 63)) return;
 	
@@ -758,6 +752,27 @@ void transition_slide_in (LyrFrame_TypeDef lyrframe, bool *maskPtr, uint64_t col
 		//delay, update
 	}
 }
+
+/**
+ * @brief flashes the lyrFrame on and off rapidly
+ * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
+ * @param[in] maskPtr - points to the boolMask being referenced
+ * @param[in] color - an RGB color in the format 0x00000RRR0GGG0BBB
+ * @param[in] strobeDelay - the amount of time to wait in ms between flashes
+ */
+void subanimation_strobe(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t color, uint16_t strobeDelay)
+{
+	lyr_frame_clear_all(lyrFrame);
+	lyr_frame_convert(frame0.lyr0,data16Ptr);
+	UPDATE_FRAME = 1;
+	animation_delay(strobeDelay);
+	
+	lyr_frame_set_color(lyrFrame, color, maskPtr);
+	lyr_frame_convert(frame0.lyr0,data16Ptr);
+	UPDATE_FRAME = 1;
+	animation_delay(strobeDelay);
+}
+
 
 //----------------------------------------- "PRIVATE" SUB-ANIMATION FUNCTIONS END----------------------------------------------------//
 

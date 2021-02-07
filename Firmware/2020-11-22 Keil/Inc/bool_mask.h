@@ -70,6 +70,7 @@ extern bool letterO[64];
 extern bool letterE[64];
 extern bool letterL[64];
 extern bool maskEmpty[64];
+extern bool maskAll[64];
 
 
 void bool_mask_clear_all(bool* boolMaskPtr);

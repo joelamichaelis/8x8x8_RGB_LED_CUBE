@@ -175,7 +175,7 @@ Menu_TypeDef AnimationMenuInit(Menu_TypeDef Menu)
 	MenuSetRowText(Menu.ArrayPtr, 3, " Original Fade");
 	Menu.rowAction[3] = ACTION_PLAY_ANIMATION_3;
 	
-	MenuSetRowText(Menu.ArrayPtr, 4, " Merry Christmas");
+	MenuSetRowText(Menu.ArrayPtr, 4, " Strobe");
 	Menu.rowAction[4] = ACTION_PLAY_ANIMATION_4;
 	
 	MenuSetRowText(Menu.ArrayPtr, 5, " Sliding Cubes");

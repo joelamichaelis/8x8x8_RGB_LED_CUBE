@@ -23,7 +23,7 @@ void configurable_text(Frame_TypeDef frame);
 void original_fade(Frame_TypeDef frame0);
 void halloween(Frame_TypeDef frame);
 void joel_mode(Frame_TypeDef frame);
-void merry_christmas(Frame_TypeDef frame0);
+void strobe(Frame_TypeDef frame0);
 void sliding_cubes(Frame_TypeDef frame0);
 void stretchy_cube(Frame_TypeDef frame);
 
@@ -31,62 +31,80 @@ void stretchy_cube(Frame_TypeDef frame);
 
 //----------------------------------------- "PRIVATE" SUB-ANIMATION FUNCTIONS BEGIN----------------------------------------------------//
 
-void fade_in_color(LyrFrame_TypeDef lyrFrame, bool mask[64], uint64_t color, uint16_t maxBrightness, uint16_t deltaBrightness, uint16_t delay);
-void fade_out_color(LyrFrame_TypeDef lyrFrame, bool mask[64], uint64_t color, uint16_t minBrightness, uint16_t deltaBrightness, uint16_t delay);
+
+//---------------------------------------------TRANSITIONS BEGIN----------------------------------------------------------------------//
+/**
+ * @brief gradually increases or decreases the intensity of the specified boolMask-color pair brightness
+ * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
+ * @param[in] maskPtr - points to the boolMask being referenced
+ * @param[in] color - an RGB color in the format 0x00000RRR0GGG0BBB
+ * @param[in] minMaxBrightness - the final brightness value
+ * @param[in] deltaBrightness - dictates number of steps
+ * @param[in] delay - length of time in ms to wait inbetween
+ * @param[in] increaseNdecrease - true increases brightness, false decreases brightness
+ */
+void transition_fade(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t color, uint16_t minMaxBrightness, uint16_t deltaBrightness, uint16_t delay, bool increaseNdecrease);
 
 /**
  * @brief one at a time, "punches" in or out LEDs of a given bool mask. 
 					"punch out" can be done by setting the color to blank.
 					"punch in" can be done by setting to color to whatever is desired.
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * @param[in] maskPtr - points to the boolMask being referenced for the punch pattern
+ * @param[in] maskPtr - points to the boolMask being referenced
  * @param[in] color - an RGB color in the format 0x00000RRR0GGG0BBB
- * @param[in] delay - length of time in ms to wait inbetween punches
- * @param[in] direction - currently supports forward and back only. this a quick & easy way to support different punching directions
+ * @param[in] delay - length of time in ms to wait inbetween
+ * @param[in] punchDirection - currently supports forward and back only. this a quick & easy way to support different punching directions
  * example usage: transition_punch(frame1.lyr0, &mask3[0], white, 27, DIRECTION_FORWARD);
  */
-void transition_punch(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t color, uint16_t delay, uint8_t direction);
-
-void dissolve_color(LyrFrame_TypeDef lyrFrame, bool mask[64], uint64_t color, uint16_t maxBrightness, uint16_t deltaBrightness, uint16_t delay);
+void transition_punch(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t color, uint16_t delay, uint8_t punchDirection);
 
 /**
- * @brief starts as an 8x8 square outline. The square then collapses into the stopPt corner.
+ * @brief a combination of punch and fade; each "punch" is individually faded in sequence
+ * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
+ * @param[in] maskPtr - points to the boolMask being referenced
+ * @param[in] color - an RGB color in the format 0x00000RRR0GGG0BBB
+ * @param[in] minMaxBrightness - the final brightness value
+ * @param[in] deltaBrightness - dictates number of steps
+ * @param[in] delay - length of time in ms to wait inbetween
+ * @param[in] punchDirection - currently supports forward and back only. this a quick & easy way to support different punching directions
+ * @param[in] increaseNdecrease - true increases brightness, false decreases brightness
+ */
+void transition_punch_fade(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t color, uint16_t minMaxBrightness, uint16_t deltaBrightness, uint16_t delay, bool increaseNdecrease, uint8_t punchDirection);
+
+//---------------------------------------------TRANSITIONS END-------------------------------------------------------------------------//
+
+//---------------------------------------------SUBANIMATIONS BEGIN-------------------------------------------------------------------------//
+/**
+ * @brief starts as an 8x8 square outline. The square then retracts into the stopPt corner.
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
  * @param[in] stopPt - the corner which the 8x8 square outline collapses into
  * @param[in] delay - length of time in ms to wait inbetween punches
  */
-void animation_stretch_in(LyrFrame_TypeDef lyrFrame, int stopPt, uint16_t delay);
+void subanimation_stretch_retract(LyrFrame_TypeDef lyrFrame, int stopPt, uint16_t delay);
 
 /**
- * @brief starts from a single corner of the 8x8 array. This corner then "stretches out" or expands out diagonally while retaining 
+ * @brief starts from a single corner of the 8x8 array. This corner then expands out diagonally while retaining 
 					a square shape. The initial corner remains fixed until the opposite corner is reached.
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
  * @param[in] color - an RGB color in the format 0x00000RRR0GGG0BBB
  * @param[in] startPt - the initial corner
  * @param[in] delay - length of time in ms to wait inbetween punches
  */
-void animation_stretch_out(LyrFrame_TypeDef lyrFrame, uint64_t color, int startPt, uint16_t delay);
-
-/**
- * @brief clears the specified lyrframe by sliding its existing values out in the specified direction
- * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * @param[in] direction - specify a preprocessor #defined name that corresponds to a direction
- * @param[in] delay - length of time in ms to wait inbetween punches
- */
-void transition_slide_out (LyrFrame_TypeDef lyrframe, uint8_t direction, uint16_t delay);
+void subanimation_stretch_expand(LyrFrame_TypeDef lyrFrame, uint64_t color, int startPt, uint16_t delay);
 
 
 /**
- * @brief sets the specified lyrframe to the given mask-color pair by sliding it in from the specified direction
+ * @brief flashes the lyrFrame on and off rapidly
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
- * @param[in] maskPtr - points to the first element of the boolMask which indicates what LEDs to set
+ * @param[in] maskPtr - points to the boolMask being referenced
  * @param[in] color - an RGB color in the format 0x00000RRR0GGG0BBB
- * @param[in] direction - specify a preprocessor #defined name that corresponds to a direction
- * @param[in] delay - length of time in ms to wait inbetween punches
+ * @param[in] strobeDelay - the amount of time to wait in ms between flashes
  */
-void transition_slide_in (LyrFrame_TypeDef lyrframe, bool *maskPtr, uint64_t color, uint8_t direction, uint16_t delay);
+void subanimation_strobe(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t color, uint16_t strobeDelay);
 
-//----------------------------------------- "PRIVATE" SUB-ANIMATION FUNCTIONS END----------------------------------------------------//
+//---------------------------------------------SUBANIMATIONS END----------------------------------------------------------------//
+
+//----------------------------------------- "PRIVATE" SUB-ANIMATION FUNCTIONS END-------------------------------------------------------//
 
 //----------------------------------------- UTILITY FUNCTIONS BEGIN----------------------------------------------------//
 

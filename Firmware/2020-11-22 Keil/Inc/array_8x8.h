@@ -18,10 +18,12 @@
 #define DIRECTION_FORWARD 5
 #define DIRECTION_BACK	  6
 #define DIRECTION_INWARD	7 //"implode"
-#define DIRECTION_OUTWARD	8 //''explode"
+#define DIRECTION_OUTWARD	8 //"explode"
+#define DIRECTION_IN			9		//"transition in"
+#define DIRECTION_OUT			10	//"transition out
 
-//#define DIRECTION_UP		  7
-//#define DIRECTION_DOWN	  8
+//#define DIRECTION_UP		  11
+//#define DIRECTION_DOWN	  12
 
 #define MAX_BRIGHTNESS 4095
 

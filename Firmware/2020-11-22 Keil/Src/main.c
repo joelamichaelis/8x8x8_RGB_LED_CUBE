@@ -220,15 +220,15 @@ int main(void)
 		{
 			//MenuSetRowText(ActiveAnimationMenu.ArrayPtr, 0, " Sliding Cubes");
 			//MenuDisplayUpdate(ActiveAnimationMenu);
-			sliding_cubes(frame0);
+			//sliding_cubes(frame0);
 			currentAction = ACTION_NOP;
 		}
 		
 		if(currentAction == ACTION_PLAY_ANIMATION_4)
 		{
-			//MenuSetRowText(ActiveAnimationMenu.ArrayPtr, 0, " Merry Christmas");
+			//MenuSetRowText(ActiveAnimationMenu.ArrayPtr, 0, " Strobe");
 			//MenuDisplayUpdate(ActiveAnimationMenu);
-			merry_christmas(frame0);
+			strobe(frame0);
 			currentAction = ACTION_NOP;
 		}
 		
