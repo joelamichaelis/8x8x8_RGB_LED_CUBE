@@ -77,10 +77,11 @@ void transition_punch_fade(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t co
 /**
  * @brief starts as an 8x8 square outline. The square then retracts into the stopPt corner.
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
+ * @param[in] color - an RGB color in the format 0x00000RRR0GGG0BBB
  * @param[in] stopPt - the corner which the 8x8 square outline collapses into
  * @param[in] delay - length of time in ms to wait inbetween punches
  */
-void subanimation_stretch_retract(LyrFrame_TypeDef lyrFrame, int stopPt, uint16_t delay);
+void subanimation_stretch_retract(LyrFrame_TypeDef lyrFrame, uint64_t color, int stopPt, uint16_t delay);
 
 /**
  * @brief starts from a single corner of the 8x8 array. This corner then expands out diagonally while retaining 

@@ -66,8 +66,6 @@ void configurable_text(Frame_TypeDef frame)
 		
 		transition_fade(frame.lyr0,&tempBoolMask[0],blue,maxBrightness,deltaBrightness,delay,true);
 		transition_fade(frame.lyr0,&tempBoolMask[0],blue,minBrightness,deltaBrightness,delay,false);
-		//fade_in_color(frame.lyr0,tempBoolMask,blue,maxBrightness,deltaBrightness,delay);
-		//fade_out_color(frame.lyr0,tempBoolMask,blue,minBrightness,deltaBrightness,delay);
 		alphabetIndex++;
 		if(alphabetIndex==26) alphabetIndex=0;	
 		HAL_Delay(transitionDelay);
@@ -129,36 +127,26 @@ void original_fade(Frame_TypeDef frame)
 		
 			transition_punch(frame.lyr0,&mask1[0],colorWheel[caseNum],delay,directionA);	
 			transition_punch(frame.lyr0,&mask1[0],null,delay,directionB);
-			//dissolve_in_color(frame.lyr0,mask1,colorWheel[caseNum],maxBrightness,deltaBrightness,delay);					
-			//dissolve_out_color(frame.lyr0,mask1,colorWheel[caseNum],minBrightness,deltaBrightness,delay);
 			animation_delay(transitionDelay);
 			caseNum++;
 			
 			transition_punch(frame.lyr0,&mask2[0],colorWheel[caseNum],delay,directionA);	
 			transition_punch(frame.lyr0,&mask2[0],null,delay,directionB);
-			//dissolve_in_color(frame.lyr0,mask2,colorWheel[caseNum],maxBrightness,deltaBrightness,delay);					
-			//dissolve_out_color(frame.lyr0,mask2,colorWheel[caseNum],minBrightness,deltaBrightness,delay);
 			animation_delay(transitionDelay);
 			caseNum++;
 			
 			transition_punch(frame.lyr0,&mask3[0],colorWheel[caseNum],delay,directionA);	
 			transition_punch(frame.lyr0,&mask3[0],null,delay,directionB);
-			//dissolve_in_color(frame.lyr0,mask3,colorWheel[caseNum],maxBrightness,deltaBrightness,delay);					
-			//dissolve_out_color(frame.lyr0,mask3,colorWheel[caseNum],minBrightness,deltaBrightness,delay);
 			animation_delay(transitionDelay);
 			caseNum++;
 			
 			transition_punch(frame.lyr0,&mask2[0],colorWheel[caseNum],delay,directionA);	
 			transition_punch(frame.lyr0,&mask2[0],null,delay,directionB);
-			//dissolve_in_color(frame.lyr0,mask2,colorWheel[caseNum],maxBrightness,deltaBrightness,delay);					
-			//dissolve_out_color(frame.lyr0,mask2,colorWheel[caseNum],minBrightness,deltaBrightness,delay);
 			animation_delay(transitionDelay);
 			caseNum++;
 			
 			transition_punch(frame.lyr0,&mask1[0],colorWheel[caseNum],delay,directionA);	
 			transition_punch(frame.lyr0,&mask1[0],null,delay,directionB);
-			//dissolve_in_color(frame.lyr0,mask1,colorWheel[caseNum],maxBrightness,deltaBrightness,delay);					
-			//dissolve_out_color(frame.lyr0,mask1,colorWheel[caseNum],minBrightness,deltaBrightness,delay);
 			animation_delay(transitionDelay);
 			caseNum++;
 		}
@@ -176,6 +164,8 @@ void halloween(Frame_TypeDef frame)
 	uint16_t deltaBrightness = 10;
 	uint16_t delay = 10;
 	uint16_t transitionDelay = 500;
+	
+	HALT_ANIMATION = false;
 	
 	lyr_frame_clear_all(frame.lyr0);
 	lyr_frame_convert(frame.lyr0,data16Ptr);
@@ -263,7 +253,6 @@ void sliding_cubes(Frame_TypeDef frame)
 		lyr_frame_set_color(frame.lyr0,colorWheel[colorIndex],maskCube0189);
 		colorIndex++;
 		if(colorIndex==12) colorIndex=0;
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
 		UPDATE_FRAME=1;
 		animation_delay(transitionDelay);
 		
@@ -274,7 +263,6 @@ void sliding_cubes(Frame_TypeDef frame)
 			lyr_frame_shift_column(frame0.lyr0, 0, DIRECTION_FORWARD);
 			lyr_frame_shift_column(frame0.lyr0, 1, DIRECTION_FORWARD);
 			lyr_frame_shift_column(frame0.lyr0, 1, DIRECTION_FORWARD);
-			lyr_frame_convert(frame0.lyr0,data16Ptr);
 			UPDATE_FRAME=1;
 			animation_delay(transitionDelay);
 			if(HALT_ANIMATION == true) break;
@@ -284,7 +272,6 @@ void sliding_cubes(Frame_TypeDef frame)
 		lyr_frame_set_color(frame.lyr0,colorWheel[colorIndex],maskCube0189);
 		colorIndex++;
 		if(colorIndex==12) colorIndex=0;
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
 		UPDATE_FRAME=1;
 		animation_delay(transitionDelay);		
 		
@@ -298,8 +285,6 @@ void sliding_cubes(Frame_TypeDef frame)
 			lyr_frame_shift_column(frame0.lyr0, 0, DIRECTION_FORWARD);
 			lyr_frame_shift_column(frame0.lyr0, 0, DIRECTION_FORWARD);
 			lyr_frame_shift_column(frame0.lyr0, 1, DIRECTION_FORWARD);
-			lyr_frame_shift_column(frame0.lyr0, 1, DIRECTION_FORWARD);
-			lyr_frame_convert(frame0.lyr0,data16Ptr);
 			UPDATE_FRAME=1;
 			animation_delay(transitionDelay);
 			if(HALT_ANIMATION == true) break;
@@ -309,7 +294,6 @@ void sliding_cubes(Frame_TypeDef frame)
 		lyr_frame_set_color(frame.lyr0,colorWheel[colorIndex],maskCube0189);
 		colorIndex++;
 		if(colorIndex==12) colorIndex=0;
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
 		UPDATE_FRAME=1;
 		animation_delay(transitionDelay);	
 
@@ -329,8 +313,6 @@ void sliding_cubes(Frame_TypeDef frame)
 			lyr_frame_shift_column(frame0.lyr0, 0, DIRECTION_FORWARD);
 			lyr_frame_shift_column(frame0.lyr0, 1, DIRECTION_FORWARD);
 			lyr_frame_shift_column(frame0.lyr0, 1, DIRECTION_FORWARD);
-			lyr_frame_convert(frame0.lyr0,data16Ptr);
-			lyr_frame_convert(frame0.lyr0,data16Ptr);
 			UPDATE_FRAME=1;
 			animation_delay(transitionDelay);
 		}	
@@ -339,7 +321,6 @@ void sliding_cubes(Frame_TypeDef frame)
 		lyr_frame_set_color(frame.lyr0,colorWheel[colorIndex],maskCube0189);
 		colorIndex++;
 		if(colorIndex==12) colorIndex=0;
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
 		UPDATE_FRAME=1;
 		animation_delay(transitionDelay);	
 		
@@ -350,7 +331,6 @@ void sliding_cubes(Frame_TypeDef frame)
 			lyr_frame_shift_row(frame0.lyr0, tempIndex, DIRECTION_INWARD);
 		}
 		
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
 		UPDATE_FRAME=1;
 		animation_delay(2*transitionDelay);	
 		
@@ -361,7 +341,6 @@ void sliding_cubes(Frame_TypeDef frame)
 			lyr_frame_shift_column(frame0.lyr0, tempIndex, DIRECTION_INWARD);
 		}
 		
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
 		UPDATE_FRAME=1;
 		animation_delay(2*transitionDelay);	
 		
@@ -372,7 +351,6 @@ void sliding_cubes(Frame_TypeDef frame)
 			lyr_frame_shift_row(frame0.lyr0, tempIndex, DIRECTION_INWARD);
 		}
 				
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
 		UPDATE_FRAME=1;
 		animation_delay(2*transitionDelay);	
 		
@@ -383,7 +361,7 @@ void sliding_cubes(Frame_TypeDef frame)
 			lyr_frame_shift_column(frame0.lyr0, tempIndex, DIRECTION_INWARD);
 		}
 		
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
+		
 		UPDATE_FRAME=1;
 		animation_delay(2*transitionDelay);	
 		
@@ -397,7 +375,7 @@ void stretchy_cube(Frame_TypeDef frame)
 {
 	lyr_frame_clear_all(frame.lyr0);
 	
-	uint16_t delay = 250;
+	uint16_t delay = 1000;
 	uint64_t randColor = 0;
 	uint16_t randBrightnessValue = 0;
 	uint8_t randRgbChoice = 0;
@@ -408,6 +386,7 @@ void stretchy_cube(Frame_TypeDef frame)
 	randBrightnessValue = rand_32bit_modulus(rngCount, 4095);
 	randColor = modify_color_single_rgb_value(randColor, randBrightnessValue, randRgbChoice);
 	
+	HALT_ANIMATION = false;
 	
 	//if (startPt == 0) startPt = 0;
 	if (startPt == 1) startPt = 7;
@@ -417,18 +396,23 @@ void stretchy_cube(Frame_TypeDef frame)
 	while(HALT_ANIMATION == false)
 	{				
 		subanimation_stretch_expand(frame.lyr0, randColor, startPt, delay);
+		
+		
 		startPt = rand_32bit_modulus(rngCount, 3);
 		randRgbChoice = rand_32bit_modulus(rngCount, 2);
 		randBrightnessValue = rand_32bit_modulus(rngCount, 4095);
-		randColor = modify_color_single_rgb_value(randColor, randBrightnessValue, randRgbChoice);
+		randColor = modify_color_single_rgb_value(randColor, randBrightnessValue, randRgbChoice);		
 		
 		//if (startPt = 0) startPt = 0;
 		if (startPt == 1) startPt = 7;
 		if (startPt == 2) startPt = 56;
 		if (startPt == 3) startPt = 63;
 				
-		subanimation_stretch_retract(frame.lyr0, startPt, delay); // still need to implement this
+		subanimation_stretch_retract(frame.lyr0, randColor, startPt, delay); // still need to implement this
 	}
+	lyr_frame_clear_all(frame.lyr0);
+	lyr_frame_convert(frame.lyr0,data16Ptr);
+	UPDATE_FRAME=1;	
 }
 
 //-------------------------------------------HIGH LEVEL "PUBLIC" ANIMATIONS END----------------------------------------------------//
@@ -455,7 +439,6 @@ void transition_punch(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t color, 
 			if(*(maskPtr + tempIndex) == 1)
 			{
 				lyr_frame_set_single_color(lyrFrame,color,tempIndex);
-				lyr_frame_convert(frame0.lyr0,data16Ptr);
 				UPDATE_FRAME=1;
 				animation_delay(delay);
 				if(HALT_ANIMATION == true) break;
@@ -470,7 +453,6 @@ void transition_punch(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t color, 
 			if(*(maskPtr + tempIndex-1) == 1)
 			{
 				lyr_frame_set_single_color(lyrFrame,color,tempIndex-1);
-				lyr_frame_convert(frame0.lyr0,data16Ptr);
 				UPDATE_FRAME=1;
 				animation_delay(delay);
 				if(HALT_ANIMATION == true) break;
@@ -535,7 +517,6 @@ void transition_fade(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t color, u
 			lyr_frame_set_single_rgb(lyrFrame.redArrPtr, redBrightness, maskPtr);
 			lyr_frame_set_single_rgb(lyrFrame.grnArrPtr, grnBrightness, maskPtr);
 			lyr_frame_set_single_rgb(lyrFrame.bluArrPtr, bluBrightness, maskPtr);
-			lyr_frame_convert(frame0.lyr0,data16Ptr);
 			UPDATE_FRAME=1;
 			animation_delay(delay);
 			currentBrightness = currentBrightness + deltaBrightness;
@@ -590,8 +571,6 @@ void transition_fade(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t color, u
 			if(HALT_ANIMATION == true) break;
 			lyr_frame_set_single_rgb(lyrFrame.redArrPtr, redBrightness, maskPtr);
 			lyr_frame_set_single_rgb(lyrFrame.grnArrPtr, grnBrightness, maskPtr);
-			lyr_frame_set_single_rgb(lyrFrame.bluArrPtr, bluBrightness, maskPtr);
-			lyr_frame_convert(frame0.lyr0,data16Ptr);
 			UPDATE_FRAME=1;
 			animation_delay(delay);
 			currentBrightness = currentBrightness - deltaBrightness;
@@ -610,12 +589,68 @@ void transition_punch_fade(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t co
 /**
  * @brief starts as an 8x8 square outline. The square then collapses into the stopPt corner.
  * @param[in] lyrFrame - a struct of the RGB values for a horizontal slice of the 3D frame
+ * @param[in] color - an RGB color in the format 0x00000RRR0GGG0BBB
  * @param[in] stopPt - the corner which the 8x8 square outline collapses into
  * @param[in] delay - length of time in ms to wait inbetween punches
  */
-void subanimation_stretch_retract(LyrFrame_TypeDef lyrFrame, int stopPt, uint16_t delay)
+void subanimation_stretch_retract(LyrFrame_TypeDef lyrFrame, uint64_t color, int stopPt, uint16_t delay)
 {
-
+	if ((stopPt != 0)&(stopPt != 7)&(stopPt != 56)&(stopPt != 63)) return;
+	
+	//lyr_frame_clear_all(lyrFrame);
+	
+	int startPt = 0;
+	int ptStepSize = 0;
+	
+	if((stopPt == 56) || (stopPt == 63))
+	{
+		if(stopPt == 63)
+		{
+			startPt = 0;
+			ptStepSize = 9;
+		}
+		
+		if(stopPt == 56)
+		{
+			startPt = 7;
+			ptStepSize = 7;
+		}
+		
+		while(stopPt>startPt)
+		{
+			if(HALT_ANIMATION == true) break;
+			startPt+=ptStepSize;
+			lyr_frame_clear_all(lyrFrame);
+			lyrframe_set_square(lyrFrame, color, startPt, stopPt);
+			UPDATE_FRAME = 1;
+			animation_delay(delay);
+		}
+	}
+	
+	if((stopPt == 0) || (stopPt == 7))
+	{
+		if(stopPt == 0)
+		{
+			startPt = 63;
+			ptStepSize = 9;
+		}
+		
+		if(stopPt == 7)
+		{
+			startPt = 56;
+			ptStepSize = 7;
+		}
+	
+		while(startPt>stopPt)
+		{
+			if(HALT_ANIMATION == true) break;
+			startPt-=ptStepSize;
+			lyr_frame_clear_all(lyrFrame);
+			lyrframe_set_square(lyrFrame, color, startPt, stopPt);
+			UPDATE_FRAME = 1;
+			animation_delay(delay);
+		}		
+	}
 }
 
 /**
@@ -630,7 +665,7 @@ void subanimation_stretch_expand(LyrFrame_TypeDef lyrFrame, uint64_t color, int 
 {
 	if ((startPt != 0)&(startPt != 7)&(startPt != 56)&(startPt != 63)) return;
 	
-	lyr_frame_clear_all(lyrFrame);
+	//lyr_frame_clear_all(lyrFrame);
 	
 	int stopPt = startPt;
 	int limitPt = 0;
@@ -652,10 +687,10 @@ void subanimation_stretch_expand(LyrFrame_TypeDef lyrFrame, uint64_t color, int 
 	
 		while(stopPt<=limitPt)
 		{
+			if(HALT_ANIMATION == true) break;
 			stopPt+=ptStepSize;
 			lyr_frame_clear_all(lyrFrame);
 			lyrframe_set_square(lyrFrame, color, startPt, stopPt);
-			lyr_frame_convert(frame0.lyr0,data16Ptr);
 			UPDATE_FRAME = 1;
 			animation_delay(delay);
 		}
@@ -677,10 +712,10 @@ void subanimation_stretch_expand(LyrFrame_TypeDef lyrFrame, uint64_t color, int 
 		
 		while(stopPt>=limitPt)
 		{
+			if(HALT_ANIMATION == true) break;
 			stopPt-=ptStepSize;
 			lyr_frame_clear_all(lyrFrame);
 			lyrframe_set_square(lyrFrame, color, startPt, stopPt);
-			lyr_frame_convert(frame0.lyr0,data16Ptr);
 			UPDATE_FRAME = 1;
 			animation_delay(delay);	
 		}
@@ -698,7 +733,6 @@ void transition_slide_out (LyrFrame_TypeDef lyrframe, uint8_t direction, uint16_
 	for(uint8_t reps=0;reps<8;reps++)
 	{
 		lyr_frame_shift(lyrframe, direction);
-		lyr_frame_convert(frame0.lyr0,data16Ptr);
 		UPDATE_FRAME = 1;
 		animation_delay(delay);
 	}	
@@ -763,12 +797,10 @@ void transition_slide_in (LyrFrame_TypeDef lyrframe, bool *maskPtr, uint64_t col
 void subanimation_strobe(LyrFrame_TypeDef lyrFrame, bool *maskPtr, uint64_t color, uint16_t strobeDelay)
 {
 	lyr_frame_clear_all(lyrFrame);
-	lyr_frame_convert(frame0.lyr0,data16Ptr);
 	UPDATE_FRAME = 1;
 	animation_delay(strobeDelay);
 	
 	lyr_frame_set_color(lyrFrame, color, maskPtr);
-	lyr_frame_convert(frame0.lyr0,data16Ptr);
 	UPDATE_FRAME = 1;
 	animation_delay(strobeDelay);
 }
@@ -805,17 +837,17 @@ uint64_t modify_color_single_rgb_value(uint64_t initialColor, uint16_t rgbValue,
 	uint64_t grnBrightness = 0;
 	uint64_t bluBrightness = 0;
 	
-	redBrightness = (0x0000000000001111 && (initialColor>>32));
-	grnBrightness = (0x0000000000001111 && (initialColor>>16));
-	bluBrightness = (0x0000000000001111 && (initialColor>>0));
+	redBrightness = (0x0000000000001111 & (initialColor>>32));
+	grnBrightness = (0x0000000000001111 & (initialColor>>16));
+	bluBrightness = (0x0000000000001111 & (initialColor>>0));
 	
 	if(rgbCoice == 0) redBrightness = rgbValue;
 	if(rgbCoice == 1) grnBrightness = rgbValue;
 	if(rgbCoice == 2) bluBrightness = rgbValue;
 	
-	initialColor = (0x0000000000001111 && redBrightness);
-	initialColor = ((initialColor<<16) && grnBrightness);
-	initialColor = ((initialColor<<16) && bluBrightness);
+	initialColor = (0x0000000000001111 & redBrightness);
+	initialColor = ((initialColor<<16) | grnBrightness);
+	initialColor = ((initialColor<<16) | bluBrightness);
 		
 	return initialColor;	
 }

@@ -153,8 +153,8 @@
           <Number>0</Number>
           <Type>0</Type>
           <LineNumber>88</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134229080</Address>
+          <EnabledFlag>0</EnabledFlag>
+          <Address>134229116</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -169,8 +169,8 @@
           <Number>1</Number>
           <Type>0</Type>
           <LineNumber>97</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134240272</Address>
+          <EnabledFlag>0</EnabledFlag>
+          <Address>134240312</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -185,8 +185,8 @@
           <Number>2</Number>
           <Type>0</Type>
           <LineNumber>95</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134240268</Address>
+          <EnabledFlag>0</EnabledFlag>
+          <Address>134240308</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -196,6 +196,86 @@
           <Filename>..\Src\lyrframe.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\2020_11_22_Keil\../Src/lyrframe.c\95</Expression>
+        </Bp>
+        <Bp>
+          <Number>3</Number>
+          <Type>0</Type>
+          <LineNumber>215</LineNumber>
+          <EnabledFlag>0</EnabledFlag>
+          <Address>134241064</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>../Src/main.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\2020_11_22_Keil\../Src/main.c\215</Expression>
+        </Bp>
+        <Bp>
+          <Number>4</Number>
+          <Type>0</Type>
+          <LineNumber>398</LineNumber>
+          <EnabledFlag>0</EnabledFlag>
+          <Address>134243504</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\Src\animations.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\2020_11_22_Keil\../Src/animations.c\398</Expression>
+        </Bp>
+        <Bp>
+          <Number>5</Number>
+          <Type>0</Type>
+          <LineNumber>718</LineNumber>
+          <EnabledFlag>0</EnabledFlag>
+          <Address>134244284</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\Src\animations.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\2020_11_22_Keil\../Src/animations.c\718</Expression>
+        </Bp>
+        <Bp>
+          <Number>6</Number>
+          <Type>0</Type>
+          <LineNumber>644</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134244560</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\Src\animations.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\2020_11_22_Keil\../Src/animations.c\644</Expression>
+        </Bp>
+        <Bp>
+          <Number>7</Number>
+          <Type>0</Type>
+          <LineNumber>688</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>134244116</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\Src\animations.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\2020_11_22_Keil\../Src/animations.c\688</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -269,12 +349,32 @@
         <Ww>
           <count>0</count>
           <WinNumber>2</WinNumber>
-          <ItemText>limitPt,0x0A</ItemText>
+          <ItemText>startPt,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>2</WinNumber>
-          <ItemText>stopPt,0x0A</ItemText>
+          <ItemText>randRgbChoice</ItemText>
+        </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>randBrightnessValue</ItemText>
+        </Ww>
+        <Ww>
+          <count>3</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>HALT_ANIMATION</ItemText>
+        </Ww>
+        <Ww>
+          <count>4</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>randColor</ItemText>
+        </Ww>
+        <Ww>
+          <count>5</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>startPt</ItemText>
         </Ww>
       </WatchWindow2>
       <MemoryWindow1>

@@ -644,6 +644,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	if(UPDATE_FRAME==1)
 	{
 		previous_lyr_off(activeLyr);
+		lyr_frame_convert(frame0.lyr0,data16Ptr);
 		tlc_spi_convert(data16Ptr, data8Ptr);
 		HAL_SPI_Transmit(&hspi1, data8Ptr, 24*NUM_TLCS, 10);
 		HAL_GPIO_WritePin(BLANK_3V3_GPIO_Port, BLANK_3V3_Pin, GPIO_PIN_SET);
