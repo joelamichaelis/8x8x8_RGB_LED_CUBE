@@ -20,3 +20,6 @@ I took an indefinite hiatus just short of having something visually impressive I
 Designing the motherboard specifically was a great learning experience. This is the first serious PCBA schematic + layout I designed myself.
 Same goes for the STM32 firmware piece. Prior to this I was still using primarily arduino.
 If I were to continue the project in the future, I would prioritize first cleaning up the firmware repo because it is a mess.
+
+Also, check out companion repo: https://github.com/joelamichaelis/Eight-Cubed-RGB.
+It appears that I later made that repo to try and migrate away from the messy firmware files here. Not sure how well that helped now having 2 repos.
