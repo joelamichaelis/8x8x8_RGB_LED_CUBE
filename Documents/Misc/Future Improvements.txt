@@ -1,0 +1,7 @@
+Drill holes in DC barrel jack footprint so it locks in place
+
+Expandable modular GPIO interface feasibility?
+
+Design needs removable storage flash to load animation files from because 32KB - 128KB is both insufficient and ideally, firmware would not need to be reflashed to load new animations in the future.
+
+Power Switches for LCD so it doesn't have to be always powered on.
