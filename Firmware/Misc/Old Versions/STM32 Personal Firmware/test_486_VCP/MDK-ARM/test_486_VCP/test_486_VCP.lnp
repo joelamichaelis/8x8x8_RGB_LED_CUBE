@@ -1,0 +1,28 @@
+--cpu=Cortex-M4.fp --branchpatch=sdcomp-29491-629360
+"test_486_vcp\startup_stm32l486xx.o"
+"test_486_vcp\main.o"
+"test_486_vcp\stm32l4xx_it.o"
+"test_486_vcp\stm32l4xx_hal_msp.o"
+"test_486_vcp\stm32l4xx_hal_tim.o"
+"test_486_vcp\stm32l4xx_hal_tim_ex.o"
+"test_486_vcp\stm32l4xx_hal_hcd.o"
+"test_486_vcp\stm32l4xx_ll_usb.o"
+"test_486_vcp\stm32l4xx_hal.o"
+"test_486_vcp\stm32l4xx_hal_i2c.o"
+"test_486_vcp\stm32l4xx_hal_i2c_ex.o"
+"test_486_vcp\stm32l4xx_hal_rcc.o"
+"test_486_vcp\stm32l4xx_hal_rcc_ex.o"
+"test_486_vcp\stm32l4xx_hal_flash.o"
+"test_486_vcp\stm32l4xx_hal_flash_ex.o"
+"test_486_vcp\stm32l4xx_hal_flash_ramfunc.o"
+"test_486_vcp\stm32l4xx_hal_gpio.o"
+"test_486_vcp\stm32l4xx_hal_dma.o"
+"test_486_vcp\stm32l4xx_hal_dma_ex.o"
+"test_486_vcp\stm32l4xx_hal_pwr.o"
+"test_486_vcp\stm32l4xx_hal_pwr_ex.o"
+"test_486_vcp\stm32l4xx_hal_cortex.o"
+"test_486_vcp\system_stm32l4xx.o"
+--library_type=microlib --strict --scatter "test_486_VCP\test_486_VCP.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "test_486_VCP.map" -o test_486_VCP\test_486_VCP.axf

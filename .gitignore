@@ -1,0 +1,67 @@
+# Secrets and local configuration
+.env
+.env.*
+*.env
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.kdbx
+id_rsa*
+id_ed25519*
+
+# Office and editor temporary files
+~$*
+.~lock.*#
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE workspace and user-specific state
+.metadata/
+.settings/
+.vscode/
+.idea/
+*.uvguix.*
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.lck
+
+# Embedded build output
+Debug/
+Release/
+build/
+out/
+*.o
+*.d
+*.crf
+*.elf
+*.axf
+*.a
+*.lib
+*.hex
+*.bin
+*.map
+*.list
+*.lst
+*.lnp
+*.dep
+*.su
+*.log
+.mxproject
+*.build_log.htm
+
+# Downloaded tools and installers should be linked from their vendor instead
+*.exe
+*.msi

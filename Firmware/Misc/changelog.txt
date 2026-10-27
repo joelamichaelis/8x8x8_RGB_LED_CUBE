@@ -1,0 +1,4 @@
+Known Bugs:
+
+ActiveAnimationMenu isn't able to adapt its name with the specific animation
+high level animations randomly stop
